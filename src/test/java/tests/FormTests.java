@@ -28,7 +28,13 @@ public class FormTests extends demoqaBase{
 		formsPage.selectGender();
 		formsPage.entmobileNo();
 		formsPage.entDob();
+		formsPage.enterSubject();
 		formsPage.selectHobbies();
+		formsPage.uploadPicture();
+		formsPage.enterAddress();
+//		formsPage.selectState();
+//		formsPage.selectCity();
+		formsPage.submitButton();
 		
 	}
 	

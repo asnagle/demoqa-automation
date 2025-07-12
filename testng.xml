@@ -1,15 +1,15 @@
 <suite name="demoqa.com TestSuite">
-<test name="LoginTests">
-<!-- Passing parameters to test classes through testng.xml -->
-<!-- 	<parameter name = "username" value = "puser1"/> -->
-<!-- 	<parameter name = "password" value = "password4"/> -->
-<classes>
-<class name="tests.LoginTests"/>
-</classes>
-</test>
-<test name="Forms test">
-<classes>
-<class name="forms tests"/>
-</classes>
-</test>
+	<test name="LoginTests">
+		<!-- Passing parameters to test classes through testng.xml -->
+		<!-- 	<parameter name = "username" value = "puser1"/> -->
+		<!-- 	<parameter name = "password" value = "password4"/> -->
+		<classes>
+			<class name="tests.LoginTests" />
+		</classes>
+	</test>
+	<test name="Forms test">
+		<classes>
+			<class name="forms tests" />
+		</classes>
+	</test>
 </suite>
