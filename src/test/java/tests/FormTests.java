@@ -32,11 +32,18 @@ public class FormTests extends demoqaBase{
 		formsPage.selectHobbies();
 		formsPage.uploadPicture();
 		formsPage.enterAddress();
-//		formsPage.selectState();
+		formsPage.selectState();
 //		formsPage.selectCity();
 		formsPage.submitButton();
 		
 	}
 	
+	@Test(priority = 3)
+	public void stateCity() {
+		formsPage formsPage = new formsPage(driver);
+		formsPage.accessForms();
+		formsPage.selectState();
+//		formsPage.selectCity();
+	}
 
 }

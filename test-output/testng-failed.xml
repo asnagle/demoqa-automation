@@ -6,7 +6,7 @@
       <class name="tests.FormTests">
         <methods>
           <include name="TearDown"/>
-          <include name="fillForm"/>
+          <include name="stateCity"/>
           <include name="setUP"/>
         </methods>
       </class> <!-- tests.FormTests -->

@@ -1,12 +1,15 @@
 package base;
 
 import java.util.Arrays;
+import java.util.List;
 
 //import java.util.Arrays;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+//import org.openqa.selenium.edge.EdgeDriver;
+//import org.openqa.selenium.edge.EdgeOptions;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 
@@ -35,6 +38,15 @@ public class demoqaBase {
 		driver = new ChromeDriver(options);
 		
 		driver.get("https://demoqa.com/");
+//		
+//		=================== For Using Edge Browser =====================
+		
+//		EdgeOptions options = new EdgeOptions();
+//		 options.addArguments("--start-maximized");
+//		 options.setExperimentalOption("excludeSwitches", List.of("disable-popup-blocking"));
+//		 driver = new EdgeDriver(options);
+//		 driver.get("https://demoqa.com/");
+		
 	}
 	
 	@AfterMethod

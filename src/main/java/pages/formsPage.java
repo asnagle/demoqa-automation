@@ -2,6 +2,7 @@ package pages;
 
 import java.time.Duration;
 import java.util.List;
+import java.util.concurrent.TimeoutException;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -53,7 +54,7 @@ public class formsPage {
 	WebElement subject;
 
 //	@FindBy(xpath = "//div[@id='state']/div/div")
-//	@FindBy(xpath = "//*[@id=\\\"state\\\"]/div")
+//	@FindBy(xpath = "//*[@id=\"state\"]/div/div[2]/div")
 //	WebElement state;
 
 	@FindBy(xpath = "//div[@id='city']/div/div/div")
@@ -64,6 +65,7 @@ public class formsPage {
 
 	private WebDriver driver;
 	WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(3));
+	
 
 	public formsPage(WebDriver driver) {
 		this.driver = driver;
@@ -92,14 +94,9 @@ public class formsPage {
 	}
 
 	public void selectGender() {
-//		=====Following is working code commented for testing===
 		WebElement element = driver.findElement(By.id("gender-radio-1"));
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("arguments[0].click();", element);
-//		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-//		WebElement element = wait.until(ExpectedConditions.elementToBeClickable(genderFemale));
-//		element.click();
-//		genderFemale.click();
 	}
 
 	public void entmobileNo() {
@@ -128,23 +125,14 @@ public class formsPage {
 
 	public void enterSubject() {
 
-//		WebElement target = driver.findElement(By.xpath("//*[@id=\"subjectsContainer\"]/div/div[1]/div[1]"));
-//		((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", target);
-//		driver.findElement(By.xpath("//div[@id='subjectsContainer']/div/div")).click();
-//		driver.findElement(By.xpath("//div[@class='subjects-auto-complete__value-container subjects-auto-complete__value-container--is-multi css-1hwfws3']")).sendKeys("C");
-//		driver.findElement(By.id("subjectsContainer")).sendKeys("E");
 		subject.sendKeys("E");
 		List<WebElement> courses = driver.findElements(By.cssSelector(".subjects-auto-complete__menu.css-26l3qy-menu"));
-		for(WebElement crs:courses) {
-//			String option = crs.getText();
+		for (WebElement crs : courses) {
 			System.out.println(crs.getText());
-//			System.out.println(option);
 			driver.findElement(By.cssSelector("#react-select-2-option-2")).click();
 			break;
 		}
-		
-		
-//		driver.findElement(By.cssSelector("#react-select-2-option-2")).click();
+
 	}
 
 	public void selectHobbies() {
@@ -167,40 +155,59 @@ public class formsPage {
 	public void enterAddress() {
 
 		driver.findElement(By.id("currentAddress")).clear();
-		driver.findElement(By.id("currentAddress")).sendKeys("1, abcdd\nsdfslkj\nfsjdfper erwruwor\nsdfhskfsdf");
+		driver.findElement(By.id("currentAddress"))
+				.sendKeys("511 Grant 481, Prattsville\n Arkansas 72129\n United States");
 
 	}
 
 	public void selectState() {
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
 
-		driver.findElement(
-				By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Forms'])[1]/following::span[1]"))
-				.click();
-		
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-		WebElement element = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[contains(@class,'css-yk16xz-control')]")));
-		element.click();
-//		driver.findElement(By.xpath("//div[contains(@class,'css-yk16xz-control')]")).click();
-		List<WebElement> options = driver.findElements(By.xpath("//div[contains(@class,'-option')]"));
-		for (WebElement option : options) {
-		    System.out.println("Option: " + option.getText());
-		    option.click(); // Click or select as needed
+//		 1. Scroll into view first
+		WebElement stateContainer = driver.findElement(By.id("state"));
+		((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", stateContainer);
+
+//		 2. Click to open dropdown
+		WebElement dropdown = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("#state .css-1wa3eu0-placeholder")));
+		dropdown.click();
+		List<WebElement> options = driver.findElements(By.xpath("//div[contains(@id,'react-select-3-option-')]"));
+		for (WebElement el : options) {
+		    System.out.println(el.getText());
+			 
 		}
-
-		
-//		for (WebElement ls:listStates) {
-//			System.out.println(ls.getText());
-//		}
-		}
-	
-	
-	public void selectCity() {
-
-		WebElement cityOption = driver.findElement(By.xpath("//*[@id=\"city\"]/div/div[1]"));
-		WebElement citySelected = cityOption.findElement(By.xpath("//*[@id=\"city\"]/div/div[1]/div[1]"));
-		citySelected.click();
+//		3. Select “NCR”
+//		WebElement ncrOption = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("#react-select-3-option-0")));
+		WebElement ncrOption = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[@id='react-select-3-option-0']")));
+		ncrOption.click();
+		wait.until(ExpectedConditions.textToBePresentInElementLocated(By.cssSelector("#city .css-1wa3eu0-placeholder"), "Select City"));
 
 	}
+
+//	=========== Select City In-Progress ==============
+//	public void selectCity() {
+//
+//		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+//		wait.until(ExpectedConditions.textToBePresentInElementLocated(
+//			    By.cssSelector("#state .css-1uccc91-singleValue"), stateName
+//			));
+//		driver.findElement(By.id("city")).click();
+////		WebElement cityContainer = driver.findElement(By.id("city"));
+//		WebElement cityContainer = driver.findElement(By.cssSelector("div[class=' css-1wa3eu0-placeholder']"));
+//		((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", cityContainer);
+//		
+////		2. Click to open dropdown
+//	
+////		WebElement dropdown1 = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[@id='city']//div[contains(@class,'css-1pahdxg-control')]")));
+//		wait.until(ExpectedConditions.textToBePresentInElementLocated(By.cssSelector("#city .css-1wa3eu0-placeholder"), "Select City"));
+//		WebElement dropdown1 = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[@id='city']//div[contains(@class,' css-9gakcf-option')]")));
+//		dropdown1.click();
+//		List<WebElement> options = driver.findElements(By.xpath("//div[contains(@id,'react-select-4-option')]"));
+//		for (WebElement cities : options) {
+//		    System.out.println(cities.getText());
+//			 
+//		}
+//		
+//	}
 
 	public void submitButton() {
 
@@ -208,6 +215,6 @@ public class formsPage {
 		WebElement element = driver.findElement(By.xpath("//button[@id='submit']"));
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("arguments[0].click();", element);
-		
+
 	}
 }
