@@ -1,10 +1,6 @@
 package base;
 
 import java.util.Arrays;
-import java.util.List;
-
-//import java.util.Arrays;
-
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -12,10 +8,8 @@ import org.openqa.selenium.chrome.ChromeOptions;
 //import org.openqa.selenium.edge.EdgeOptions;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
+import utils.demoqaLog;
 
-//import utils.Log;
-
-//import utils.Log;
 
 public class demoqaBase {
 	
@@ -24,7 +18,7 @@ public class demoqaBase {
 	@BeforeMethod
 	public void setUP () {
 		
-//		Log.info("Starting Web Browser...");
+		demoqaLog.info("Starting Web Browser...");
 		
 		ChromeOptions options = new ChromeOptions();
 		options.addArguments("--incognito");  // ← This is the key!
@@ -37,6 +31,7 @@ public class demoqaBase {
 				+ "AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36");
 		driver = new ChromeDriver(options);
 		
+		demoqaLog.info("Navigating to demoqa.com Website");
 		driver.get("https://demoqa.com/");
 //		
 //		=================== For Using Edge Browser =====================
@@ -53,8 +48,8 @@ public class demoqaBase {
 	public void TearDown() {
 		
 		if (driver != null) {
-//			Log.info("Closing the Browser...");
-//			driver.quit();
+			demoqaLog.info("Closing the Browser...");
+			driver.quit();
 		}
 	}
 

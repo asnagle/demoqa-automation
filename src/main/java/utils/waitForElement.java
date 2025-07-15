@@ -14,7 +14,7 @@ public class waitForElement {
 	public static void waitElement(WebDriver driver, By locator) {
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 		WebElement element = wait.until(ExpectedConditions.visibilityOfElementLocated((locator)));
-		return;
+		element.click();
 	}
 
 }

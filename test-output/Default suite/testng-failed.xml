@@ -7,7 +7,6 @@
         <methods>
           <include name="TearDown"/>
           <include name="fillForm"/>
-          <include name="FormCard"/>
           <include name="setUP"/>
         </methods>
       </class> <!-- tests.FormTests -->
