@@ -7,17 +7,17 @@ import pages.formsPage;
 import pages.homePage;
 
 public class FormTests extends demoqaBase{
-	@Test(priority = 1)
-	public void FormCard() {
-		
-		homePage homePage = new homePage(driver);
-		homePage.clickFormCard();
-		homePage.clickPracticeForm();
-		System.out.println("Title of this Page is: " + driver.getTitle());
-		
-	}
+//	@Test(priority = 1)
+//	public void FormCard() {
+//		
+//		homePage homePage = new homePage(driver);
+//		homePage.clickFormCard();
+//		homePage.clickPracticeForm();
+//		System.out.println("Title of this Page is: " + driver.getTitle());
+//		
+//	}
 	
-	@Test(priority = 2)
+	@Test(priority = 1)
 	public void fillForm() {
 
 		formsPage formsPage = new formsPage(driver);
@@ -33,17 +33,10 @@ public class FormTests extends demoqaBase{
 		formsPage.uploadPicture();
 		formsPage.enterAddress();
 		formsPage.selectState();
-//		formsPage.selectCity();
+		formsPage.selectCity();
 		formsPage.submitButton();
 		
 	}
 	
-	@Test(priority = 3)
-	public void stateCity() {
-		formsPage formsPage = new formsPage(driver);
-		formsPage.accessForms();
-		formsPage.selectState();
-//		formsPage.selectCity();
-	}
 
 }

@@ -1,0 +1,5 @@
+pages\homePage.class
+utils\waitForElement.class
+base\demoqaBase.class
+pages\formsPage.class
+utils\closeAds.class

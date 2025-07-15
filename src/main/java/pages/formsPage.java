@@ -13,6 +13,7 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
 
 import utils.closeAds;
 import utils.waitForElement;
@@ -31,7 +32,6 @@ public class formsPage {
 	WebElement userEmail;
 
 	@FindBy(xpath = "//*[@id=\"genterWrapper\"]/div[2]/div[1]/label")
-//	@FindBy(css = "#gender-radio-1")
 	WebElement genderMale;
 
 	@FindBy(xpath = "//*[@id=\"genterWrapper\"]/div[2]/div[2]/label")
@@ -49,19 +49,11 @@ public class formsPage {
 	@FindBy(xpath = "/html/body/div[2]/div/div/div/div[2]/div[2]/form/div[5]/div[2]/div[2]/div[2]/div/div/div[2]/div[2]/div[4]/div[1]")
 	WebElement dateofBirth;
 
-//	@FindBy(xpath = "//input[@id='subjectsInput']")
 	@FindBy(id = "subjectsInput")
 	WebElement subject;
 
-//	@FindBy(xpath = "//div[@id='state']/div/div")
-//	@FindBy(xpath = "//*[@id=\"state\"]/div/div[2]/div")
-//	WebElement state;
-
 	@FindBy(xpath = "//div[@id='city']/div/div/div")
 	WebElement city;
-
-//	@FindBy(xpath = "//button[@id='submit']")
-//	WebElement submitBtn;
 
 	private WebDriver driver;
 	WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(3));
@@ -175,46 +167,42 @@ public class formsPage {
 		    System.out.println(el.getText());
 			 
 		}
-//		3. Select “NCR”
-//		WebElement ncrOption = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("#react-select-3-option-0")));
-		WebElement ncrOption = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[@id='react-select-3-option-0']")));
-		ncrOption.click();
+//		3. Select “City”
+		WebElement stateOption = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[@id='react-select-3-option-1']")));
+		stateOption.click();
 		wait.until(ExpectedConditions.textToBePresentInElementLocated(By.cssSelector("#city .css-1wa3eu0-placeholder"), "Select City"));
 
 	}
 
 //	=========== Select City In-Progress ==============
-//	public void selectCity() {
-//
-//		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
-//		wait.until(ExpectedConditions.textToBePresentInElementLocated(
-//			    By.cssSelector("#state .css-1uccc91-singleValue"), stateName
-//			));
-//		driver.findElement(By.id("city")).click();
-////		WebElement cityContainer = driver.findElement(By.id("city"));
-//		WebElement cityContainer = driver.findElement(By.cssSelector("div[class=' css-1wa3eu0-placeholder']"));
-//		((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", cityContainer);
-//		
-////		2. Click to open dropdown
-//	
-////		WebElement dropdown1 = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[@id='city']//div[contains(@class,'css-1pahdxg-control')]")));
-//		wait.until(ExpectedConditions.textToBePresentInElementLocated(By.cssSelector("#city .css-1wa3eu0-placeholder"), "Select City"));
-//		WebElement dropdown1 = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[@id='city']//div[contains(@class,' css-9gakcf-option')]")));
-//		dropdown1.click();
-//		List<WebElement> options = driver.findElements(By.xpath("//div[contains(@id,'react-select-4-option')]"));
-//		for (WebElement cities : options) {
-//		    System.out.println(cities.getText());
-//			 
-//		}
-//		
-//	}
+	public void selectCity() {
+
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+		driver.findElement(By.id("city")).click();
+		
+//		2. Click to open dropdown
+		wait.until(ExpectedConditions.textToBePresentInElementLocated(By.cssSelector("#city .css-1wa3eu0-placeholder"), "Select City"));
+		WebElement cityContainer = driver.findElement(By.cssSelector("div[class=' css-1wa3eu0-placeholder']"));
+		((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", cityContainer);
+	
+		List<WebElement> options = driver.findElements(By.xpath("//div[contains(@id,'react-select-4-option-')]"));
+		for (WebElement cities : options) {
+		    System.out.println(cities.getText());
+			 if (cities.getText().equalsIgnoreCase("Agra")) {
+				 System.out.println("You selected following City: " + cities.getText());
+				 cities.click();
+				 break;
+			 }
+		}
+	}
 
 	public void submitButton() {
 
-//		submitBtn.click();
-		WebElement element = driver.findElement(By.xpath("//button[@id='submit']"));
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+		WebElement btn = driver.findElement(By.xpath("//button[@id='submit']"));
+		System.out.println("Button text: " + btn.getText());
 		JavascriptExecutor js = (JavascriptExecutor) driver;
-		js.executeScript("arguments[0].click();", element);
-
+		js.executeScript("document.querySelector('#submit').click();");
 	}
+	
 }
