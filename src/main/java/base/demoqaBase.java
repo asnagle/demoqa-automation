@@ -1,20 +1,53 @@
 package base;
 
+//import java.io.File;
+import java.lang.annotation.Annotation;
+import java.lang.reflect.Method;
 import java.util.Arrays;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.testng.ITestResult;
 //import org.openqa.selenium.edge.EdgeDriver;
 //import org.openqa.selenium.edge.EdgeOptions;
 import org.testng.annotations.AfterMethod;
+import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.BeforeSuite;
+import com.aventstack.extentreports.ExtentReports;
+import com.aventstack.extentreports.ExtentTest;
+import com.aventstack.extentreports.MediaEntityBuilder;
 import utils.demoqaLog;
+import utils.extentReportManager;
+import customAnnotations.CaptureOnSuccess;
 
 
 public class demoqaBase {
 	
 	protected WebDriver driver;
+	protected static ExtentReports extentRep;
+	protected ExtentTest testRep;
 	
+	@BeforeSuite
+	public static void setupReport() {
+
+		extentRep = extentReportManager.getReportInstance();
+	}
+	
+	@AfterSuite
+	public static void teardownReport() {
+		try {
+			extentRep.flush();
+
+//			***** Uncomment to enable emailing report feature
+			/*File fullPath = new File(ExtentReportManager.reportPath);
+			String reportFolder = fullPath.getParent();
+			EmailUtils.sendTestReport(reportFolder); */
+		} catch (Exception e) {
+			System.err.println("Flush failed: " + e.getMessage());
+		}
+	}
+
 	@BeforeMethod
 	public void setUP () {
 		
@@ -45,8 +78,40 @@ public class demoqaBase {
 	}
 	
 	@AfterMethod
-	public void TearDown() {
+	public void TearDown(ITestResult result) {
 		
+		if (result.getStatus() == ITestResult.FAILURE) {
+			String screenshotPath = extentReportManager.captureScreenShot(driver, testRep +"Test Failed");
+			testRep.fail("Test Failed... Check Screenshot",
+					MediaEntityBuilder.createScreenCaptureFromPath(screenshotPath).build());
+		}
+		
+//		=============== Capturing screen of a particular test case if passed (Using Custom Annotations)
+		Method method = result.getMethod().getConstructorOrMethod().getMethod();
+
+		if (method.isAnnotationPresent(CaptureOnSuccess.class)) {
+		    CaptureOnSuccess meta = method.getAnnotation(CaptureOnSuccess.class);
+
+		    String description = meta.description();
+		    String mode = meta.screenshotMode(); // "full" or "viewport" etc.
+
+		    String screenshotPath = extentReportManager.captureScreenShot(driver, method.getName() + " Passed");
+
+		    testRep.pass(description + " — Screenshot captured",
+		        MediaEntityBuilder.createScreenCaptureFromPath(screenshotPath).build());
+		}
+//		=============== Capturing screen of a particular test case if passed (using string method)
+		
+		/*String methodName = result.getMethod().getMethodName();
+
+		if (result.getStatus() == ITestResult.SUCCESS && methodName.equalsIgnoreCase("fillForm")) {
+			{
+				String screenshotPath = extentReportManager.captureScreenShot(driver, "Test Successful");
+				testRep.pass("Test Successful... Check Screenshot",
+						MediaEntityBuilder.createScreenCaptureFromPath(screenshotPath).build());
+			}*/
+//		}
+//		===============================================================================		
 		if (driver != null) {
 			demoqaLog.info("Closing the Browser...");
 			driver.quit();
