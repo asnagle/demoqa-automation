@@ -1,5 +1,6 @@
 package base;
 
+import java.io.File;
 //import java.io.File;
 //import java.lang.annotation.Annotation;
 import java.lang.reflect.Method;
@@ -18,6 +19,7 @@ import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.MediaEntityBuilder;
 import utils.demoqaLog;
+import utils.emailUtils;
 import utils.extentReportManager;
 import customAnnotations.CaptureOnSuccess;
 
@@ -40,9 +42,9 @@ public class demoqaBase {
 			extentRep.flush();
 
 //			***** Uncomment to enable emailing report feature
-			/*File fullPath = new File(ExtentReportManager.reportPath);
+			File fullPath = new File(extentReportManager.reportPath);
 			String reportFolder = fullPath.getParent();
-			EmailUtils.sendTestReport(reportFolder); */
+			emailUtils.sendTestReport(reportFolder);
 		} catch (Exception e) {
 			System.err.println("Flush failed: " + e.getMessage());
 		}

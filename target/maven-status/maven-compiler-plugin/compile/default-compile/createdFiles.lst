@@ -4,6 +4,7 @@ utils\splitDOB.class
 utils\excelUtils.class
 base\demoqaBase.class
 pages\formsPage.class
+utils\emailUtils.class
 customAnnotations\CaptureOnSuccess.class
 utils\waitForElement.class
 utils\dateUtils.class
