@@ -1,5 +1,12 @@
 pages\homePage.class
-utils\waitForElement.class
+utils\extentReportManager.class
+utils\splitDOB.class
+utils\excelUtils.class
 base\demoqaBase.class
 pages\formsPage.class
+customAnnotations\CaptureOnSuccess.class
+utils\waitForElement.class
+utils\dateUtils.class
+models\UserFormData.class
 utils\closeAds.class
+utils\demoqaLog.class

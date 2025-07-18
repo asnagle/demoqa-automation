@@ -1,41 +1,140 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="2" passed="2" failed="0" skipped="0">
+<testng-results ignored="0" total="5" passed="5" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2025-07-16T10:40:14 IST" name="Surefire suite" finished-at="2025-07-16T10:40:30 IST" duration-ms="16381">
+  <suite started-at="2025-07-18T11:29:42 IST" name="Surefire suite" finished-at="2025-07-18T11:30:31 IST" duration-ms="48785">
     <groups>
     </groups>
-    <test started-at="2025-07-16T10:40:14 IST" name="Surefire test" finished-at="2025-07-16T10:40:30 IST" duration-ms="16381">
+    <test started-at="2025-07-18T11:29:42 IST" name="Surefire test" finished-at="2025-07-18T11:30:31 IST" duration-ms="48785">
       <class name="tests.FormTests">
-        <test-method is-config="true" signature="setupReport()[pri:0, instance:tests.FormTests@19bb07ed]" started-at="2025-07-16T10:40:14 IST" name="setupReport" finished-at="2025-07-16T10:40:14 IST" duration-ms="250" status="PASS">
+        <test-method is-config="true" signature="setupReport()[pri:0, instance:tests.FormTests@50a638b5]" started-at="2025-07-18T11:29:42 IST" name="setupReport" finished-at="2025-07-18T11:29:42 IST" duration-ms="201" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setupReport -->
-        <test-method is-config="true" signature="setUP()[pri:0, instance:tests.FormTests@19bb07ed]" started-at="2025-07-16T10:40:14 IST" name="setUP" finished-at="2025-07-16T10:40:21 IST" duration-ms="7319" status="PASS">
+        <test-method is-config="true" signature="setUP()[pri:0, instance:tests.FormTests@50a638b5]" started-at="2025-07-18T11:29:42 IST" name="setUP" finished-at="2025-07-18T11:29:48 IST" duration-ms="6575" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUP -->
-        <test-method signature="FormCard()[pri:1, instance:tests.FormTests@19bb07ed]" started-at="2025-07-16T10:40:21 IST" name="FormCard" finished-at="2025-07-16T10:40:22 IST" duration-ms="304" status="PASS">
+        <test-method signature="FormCard()[pri:1, instance:tests.FormTests@50a638b5]" started-at="2025-07-18T11:29:48 IST" name="FormCard" finished-at="2025-07-18T11:29:49 IST" duration-ms="276" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- FormCard -->
-        <test-method is-config="true" signature="TearDown()[pri:0, instance:tests.FormTests@19bb07ed]" started-at="2025-07-16T10:40:22 IST" name="TearDown" finished-at="2025-07-16T10:40:22 IST" duration-ms="159" status="PASS">
+        <test-method is-config="true" signature="TearDown(org.testng.ITestResult)[pri:0, instance:tests.FormTests@50a638b5]" started-at="2025-07-18T11:29:49 IST" name="TearDown" finished-at="2025-07-18T11:29:49 IST" duration-ms="170" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=FormCard status=SUCCESS method=FormTests.FormCard()[pri:1, instance:tests.FormTests@50a638b5] output={null}]]]>
+              </value>
+            </param>
+          </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- TearDown -->
-        <test-method is-config="true" signature="setUP()[pri:0, instance:tests.FormTests@19bb07ed]" started-at="2025-07-16T10:40:22 IST" name="setUP" finished-at="2025-07-16T10:40:27 IST" duration-ms="4829" status="PASS">
+        <test-method is-config="true" signature="setUP()[pri:0, instance:tests.FormTests@50a638b5]" started-at="2025-07-18T11:29:50 IST" name="setUP" finished-at="2025-07-18T11:29:55 IST" duration-ms="5546" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUP -->
-        <test-method signature="fillForm()[pri:2, instance:tests.FormTests@19bb07ed]" started-at="2025-07-16T10:40:27 IST" name="fillForm" finished-at="2025-07-16T10:40:30 IST" duration-ms="3528" status="PASS">
+        <test-method signature="fillForm(models.UserFormData)[pri:2, instance:tests.FormTests@50a638b5]" started-at="2025-07-18T11:29:55 IST" name="fillForm" data-provider="UserFormData1" finished-at="2025-07-18T11:29:59 IST" duration-ms="4034" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[models.UserFormData@6d5c2745]]>
+              </value>
+            </param>
+          </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- fillForm -->
-        <test-method is-config="true" signature="TearDown()[pri:0, instance:tests.FormTests@19bb07ed]" started-at="2025-07-16T10:40:30 IST" name="TearDown" finished-at="2025-07-16T10:40:30 IST" duration-ms="202" status="PASS">
+        <test-method is-config="true" signature="TearDown(org.testng.ITestResult)[pri:0, instance:tests.FormTests@50a638b5]" started-at="2025-07-18T11:29:59 IST" name="TearDown" finished-at="2025-07-18T11:30:00 IST" duration-ms="524" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=fillForm status=SUCCESS method=FormTests.fillForm(models.UserFormData)[pri:2, instance:tests.FormTests@50a638b5] output={null}]]]>
+              </value>
+            </param>
+          </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- TearDown -->
-        <test-method is-config="true" signature="teardownReport()[pri:0, instance:tests.FormTests@19bb07ed]" started-at="2025-07-16T10:40:30 IST" name="teardownReport" finished-at="2025-07-16T10:40:31 IST" duration-ms="459" status="PASS">
+        <test-method is-config="true" signature="setUP()[pri:0, instance:tests.FormTests@50a638b5]" started-at="2025-07-18T11:30:00 IST" name="setUP" finished-at="2025-07-18T11:30:05 IST" duration-ms="5816" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUP -->
+        <test-method signature="fillForm(models.UserFormData)[pri:2, instance:tests.FormTests@50a638b5]" started-at="2025-07-18T11:30:05 IST" name="fillForm" data-provider="UserFormData1" finished-at="2025-07-18T11:30:10 IST" duration-ms="4108" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[models.UserFormData@4997552e]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- fillForm -->
+        <test-method is-config="true" signature="TearDown(org.testng.ITestResult)[pri:0, instance:tests.FormTests@50a638b5]" started-at="2025-07-18T11:30:10 IST" name="TearDown" finished-at="2025-07-18T11:30:10 IST" duration-ms="446" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=fillForm status=SUCCESS method=FormTests.fillForm(models.UserFormData)[pri:2, instance:tests.FormTests@50a638b5] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- TearDown -->
+        <test-method is-config="true" signature="setUP()[pri:0, instance:tests.FormTests@50a638b5]" started-at="2025-07-18T11:30:10 IST" name="setUP" finished-at="2025-07-18T11:30:16 IST" duration-ms="5748" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUP -->
+        <test-method signature="fillForm(models.UserFormData)[pri:2, instance:tests.FormTests@50a638b5]" started-at="2025-07-18T11:30:16 IST" name="fillForm" data-provider="UserFormData1" finished-at="2025-07-18T11:30:20 IST" duration-ms="4122" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[models.UserFormData@ab2e6d2]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- fillForm -->
+        <test-method is-config="true" signature="TearDown(org.testng.ITestResult)[pri:0, instance:tests.FormTests@50a638b5]" started-at="2025-07-18T11:30:20 IST" name="TearDown" finished-at="2025-07-18T11:30:20 IST" duration-ms="536" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=fillForm status=SUCCESS method=FormTests.fillForm(models.UserFormData)[pri:2, instance:tests.FormTests@50a638b5] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- TearDown -->
+        <test-method is-config="true" signature="setUP()[pri:0, instance:tests.FormTests@50a638b5]" started-at="2025-07-18T11:30:20 IST" name="setUP" finished-at="2025-07-18T11:30:26 IST" duration-ms="5611" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUP -->
+        <test-method signature="fillForm(models.UserFormData)[pri:2, instance:tests.FormTests@50a638b5]" started-at="2025-07-18T11:30:26 IST" name="fillForm" data-provider="UserFormData1" finished-at="2025-07-18T11:30:30 IST" duration-ms="4111" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[models.UserFormData@19662208]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- fillForm -->
+        <test-method is-config="true" signature="TearDown(org.testng.ITestResult)[pri:0, instance:tests.FormTests@50a638b5]" started-at="2025-07-18T11:30:30 IST" name="TearDown" finished-at="2025-07-18T11:30:31 IST" duration-ms="474" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=fillForm status=SUCCESS method=FormTests.fillForm(models.UserFormData)[pri:2, instance:tests.FormTests@50a638b5] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- TearDown -->
+        <test-method is-config="true" signature="teardownReport()[pri:0, instance:tests.FormTests@50a638b5]" started-at="2025-07-18T11:30:31 IST" name="teardownReport" finished-at="2025-07-18T11:30:31 IST" duration-ms="325" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- teardownReport -->

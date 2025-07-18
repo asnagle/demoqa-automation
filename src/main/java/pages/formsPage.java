@@ -2,6 +2,8 @@ package pages;
 
 import java.time.Duration;
 import java.util.List;
+import java.util.NoSuchElementException;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
@@ -11,9 +13,12 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import base.demoqaBase;
 import utils.demoqaLog;
+import utils.dateUtils;
+//import utils.splitDOB;
 
-public class formsPage {
+public class formsPage extends demoqaBase {
 
 //	======= Using PageFactory of Selenium ======
 	@FindBy(id = "firstName")
@@ -35,7 +40,7 @@ public class formsPage {
 	WebElement genderOther;
 
 	@FindBy(id = "userNumber")
-	WebElement mobileNumber;
+	WebElement mobile;
 
 	@FindBy(id = "dateOfBirthInput")
 	WebElement datePicker;
@@ -44,14 +49,13 @@ public class formsPage {
 	WebElement dateofBirth;
 
 	@FindBy(id = "subjectsInput")
-	WebElement subject;
+	WebElement selectedSubject;
 
 	@FindBy(xpath = "//div[@id='city']/div/div/div")
 	WebElement city;
 
 	private WebDriver driver;
 	WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(3));
-	
 
 	public formsPage(WebDriver driver) {
 		this.driver = driver;
@@ -59,177 +63,323 @@ public class formsPage {
 	}
 
 	public void accessForms() {
-		
+
 		demoqaLog.info("Accessing Form Card...");
 		homePage homePage = new homePage(driver);
 		homePage.clickFormCard();
 		homePage.clickPracticeForm();
 	}
 
-	public void entFirstName() {
-		
-		demoqaLog.info("Entering FirstName...");
+//	================ Reading values from Excel file and updating form fields ==============
+
+	public void entFirstName(String firstNameText) {
+		demoqaLog.info("Entering First Name...");
 		firstName.clear();
-		firstName.sendKeys("Johnny");
-		demoqaLog.info("Entered FirstName...");
+		firstName.sendKeys(firstNameText);
+		demoqaLog.info("Entered First Name: " + firstNameText);
 	}
 
-	public void entLastName() {
-		
-		demoqaLog.info("Entering LastName...");
+	public String getFirstNameFromForm() {
+		return firstName.getAttribute("value").trim();
+	}
+
+	public void entLastName(String lastNameText) {
 		lastName.clear();
-		lastName.sendKeys("Bravo");
-		demoqaLog.info("Entered LastName...");
+		lastName.sendKeys(lastNameText);
 	}
 
-	public void entEmail() {
-		
-		demoqaLog.info("Entering Email Address...");
+	public String getLastNameFromForm() {
+		return lastName.getAttribute("value").trim();
+	}
+
+	public void entEmail(String email) {
 		userEmail.clear();
-		userEmail.sendKeys("JBravo@demoqa.com");
-		demoqaLog.info("Entered Email Address...");
+		userEmail.sendKeys(email);
 	}
 
-	public void selectGender() {
-		
-		demoqaLog.info("Selecting Gender ...");
-		WebElement element = driver.findElement(By.id("gender-radio-1"));
-		JavascriptExecutor js = (JavascriptExecutor) driver;
-		js.executeScript("arguments[0].click();", element);
-		demoqaLog.info("Selected Gender ...");
+	public String getEmailFromForm() {
+		return userEmail.getAttribute("value").trim();
 	}
 
-	public void entmobileNo() {
-		
-		demoqaLog.info("Entering Mobile No. ...");
-		mobileNumber.clear();
-		mobileNumber.sendKeys("1234456677");
-		demoqaLog.info("Entered Mobile No. ...");
-	}
-
-	public void entDob() {
-		
-		demoqaLog.info("Entering Date of Birth...");
-		WebElement dobInput = driver.findElement(By.id("dateOfBirthInput"));
-		JavascriptExecutor js = (JavascriptExecutor) driver;
-		js.executeScript("arguments[0].click();", dobInput);
-		driver.findElement(By.cssSelector("select.react-datepicker__month-select")).click();
-		new Select(driver.findElement(By.xpath("//select"))).selectByVisibleText("September");
-		driver.findElement(By.xpath("//div[@id='dateOfBirth']/div[2]/div[2]/div/div/div[2]/div/div[2]/div[2]/select"))
-				.click();
-		new Select(driver.findElement(
-				By.xpath("//div[@id='dateOfBirth']/div[2]/div[2]/div/div/div[2]/div/div[2]/div[2]/select")))
-				.selectByVisibleText("1975");
-		WebElement dob = driver.findElement(
-				By.cssSelector("div.react-datepicker__day.react-datepicker__day--021.react-datepicker__day--weekend"));
-		JavascriptExecutor js2 = (JavascriptExecutor) driver;
-		js2.executeScript("arguments[0].click();", dob);
-		demoqaLog.info("Entered Date of Birth...");
-
-	}
-
-	public void enterSubject() {
-		
-		subject.sendKeys("E");
-		demoqaLog.info("Selecting Subject...");
-		List<WebElement> courses = driver.findElements(By.cssSelector(".subjects-auto-complete__menu.css-26l3qy-menu"));
-		for (WebElement crs : courses) {
-			System.out.println(crs.getText());
-			driver.findElement(By.cssSelector("#react-select-2-option-2")).click();
-			break;
-		}
-		demoqaLog.info("Subject selected...");
-
-	}
-
-	public void selectHobbies() {
-		
-		demoqaLog.info("Selecting Hobby...");
-		WebElement element = driver.findElement(By.id("hobbies-checkbox-1"));
-		JavascriptExecutor js = (JavascriptExecutor) driver;
-		js.executeScript("arguments[0].click();", element);
-		demoqaLog.info("Selected Hobby is: " + element.getText());
-	}
-
-	public void uploadPicture() {
-
-		demoqaLog.info("Uploading Photo...");
-		String srcFile = System.getProperty("user.dir") + "/TestData/1photo.jpg";
+	public void selectGender(String genderText) {
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-		WebElement fileInput = wait
-				.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("#uploadPicture")));
-		fileInput.sendKeys(srcFile);
-		demoqaLog.info("Photo Uploaded...");
+
+		WebElement genderInput = wait.until(ExpectedConditions
+				.presenceOfElementLocated(By.xpath("//input[@name='gender' and @value='" + genderText + "']")));
+		String inputId = genderInput.getAttribute("id");
+
+		WebElement genderLabel = wait
+				.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("label[for='" + inputId + "']")));
+
+		// Scroll into view & use JS click to avoid iframe issue
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript("arguments[0].scrollIntoView(true);", genderLabel);
+		js.executeScript("arguments[0].click();", genderLabel);
+
+		System.out.println("Selected gender: " + genderText);
+	}
+
+	public void entMobileNo(String mobileNumber) {
+		mobile.clear();
+		if (mobileNumber.length() != 10) {
+			System.out.println("Invalid mobile number: " + mobileNumber);
+			return;
+		}
+		mobile.sendKeys(mobileNumber);
+	}
+
+	public String getMobileNoFromForm() {
+		return mobile.getAttribute("value").trim();
+	}
+
+	public void entDob(String dobStr) {
+		demoqaLog.info("Entering Date of Birth: " + dobStr);
+		System.out.println("Parsed DOB from Excel: " + dobStr);
+//		 ✅ Step 1: Validate Format BEFORE splitting
+		if (!dateUtils.isValidDobFormat(dobStr)) {
+			throw new RuntimeException("Invalid DOB format. Expected dd-MM-yyyy but got: " + dobStr);
+		}
+
+//		 ✅ Step 2: Now it's safe to split
+		String[] parts = dobStr.split("-");
+		String day = parts[0];
+		String month = dateUtils.getMonthName(parts[1]);
+		String year = parts[2];
+
+		// ✅ Step 3: Proceed with calendar interaction
+		datePicker.click();
+
+		new Select(driver.findElement(By.className("react-datepicker__month-select"))).selectByVisibleText(month);
+
+		new Select(driver.findElement(By.className("react-datepicker__year-select"))).selectByVisibleText(year);
+
+		String paddedDay = String.format("%02d", Integer.parseInt(day));
+		String daySelector = String.format("div.react-datepicker__day--0%s", paddedDay);
+		WebElement dayElement = driver.findElement(By.cssSelector(daySelector));
+		((JavascriptExecutor) driver).executeScript("arguments[0].click();", dayElement);
+	}
+
+	public String getDobFromForm() {
+		return datePicker.getAttribute("value").trim();
+	}
+
+	public void enterSubject(String subject) {
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+		WebElement subjectInput = driver.findElement(By.id("subjectsInput"));
+
+		subject = subject.trim();
+
+//		 Type the full subject
+		subjectInput.sendKeys(subject);
+		demoqaLog.info("Typed full subject: " + subject);
+		System.out.println("Typing subject: " + subject);
+
+//		 Wait for the matching suggestion to appear
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".subjects-auto-complete__option")));
+
+		List<WebElement> suggestions = driver.findElements(By.cssSelector(".subjects-auto-complete__option"));
+
+		boolean found = false;
+
+		for (WebElement option : suggestions) {
+			String text = option.getText().trim();
+			System.out.println("Dropdown Option: " + text);
+			if (text.equalsIgnoreCase(subject)) {
+				option.click();
+				found = true;
+				System.out.println("Selected: " + text);
+				break;
+			}
+		}
+
+		if (!found) {
+			System.err.println("Subject not found in dropdown: " + subject);
+		}
+	}
+
+	public void selectHobbies(String hobbies) {
+		String[] selectedHobbies = hobbies.split(",");
+
+		for (String hobby : selectedHobbies) {
+			hobby = hobby.trim().toLowerCase();
+			String checkboxId = "";
+
+			switch (hobby) {
+			case "sports":
+				checkboxId = "hobbies-checkbox-1";
+				break;
+			case "reading":
+				checkboxId = "hobbies-checkbox-2";
+				break;
+			case "music":
+				checkboxId = "hobbies-checkbox-3";
+				break;
+			default:
+				System.out.println("Unknown hobby: " + hobby);
+				continue;
+			}
+
+			try {
+				WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+				By labelBy = By.cssSelector("label[for='" + checkboxId + "']");
+				wait.until(ExpectedConditions.elementToBeClickable(labelBy));
+
+				WebElement label = driver.findElement(labelBy);
+				((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", label);
+				Thread.sleep(300);
+				((JavascriptExecutor) driver).executeScript("arguments[0].click();", label);
+
+				System.out.println("Selected hobby: " + hobby);
+			} catch (Exception e) {
+				System.err.println("Failed to select hobby: " + hobby);
+				e.printStackTrace();
+			}
+		}
+	}
+
+	public void uploadPicture(String picturePath) {
+
+		try {
+			if (picturePath == null || picturePath.trim().isEmpty()) {
+				System.err.println("Photo path is empty in test data.");
+				return;
+			}
+
+			String fullPath = System.getProperty("user.dir") + "/" + picturePath;
+
+			WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+			WebElement fileInput = wait.until(ExpectedConditions.presenceOfElementLocated(By.id("uploadPicture")));
+
+			fileInput.sendKeys(fullPath);
+			System.out.println("Uploaded photo: " + fullPath);
+		} catch (Exception e) {
+			System.err.println("Photo upload failed.");
+			e.printStackTrace();
+		}
 
 	}
 
-	public void enterAddress() {
+	public void enterAddress(String address) {
 
+		address = address.replace("\\n", "\n");
+		System.out.println(address);
 		demoqaLog.info("Entering Address...");
 		driver.findElement(By.id("currentAddress")).clear();
-		driver.findElement(By.id("currentAddress"))
-				.sendKeys("511 Grant 481, Prattsville\n Arkansas 72129\n United States");
+		driver.findElement(By.id("currentAddress")).sendKeys(address);
 		demoqaLog.info("Entered Address...");
-
 	}
 
-	public void selectState() {
-		
-		demoqaLog.info("Selecting State...");
+	public void selectState(String state) {
+		demoqaLog.info("Selecting State: " + state);
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
 
-//		 1. Scroll into view first
-		WebElement stateContainer = driver.findElement(By.id("state"));
-		((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", stateContainer);
+		try {
+//			 1. Scroll into view of the state container
+			WebElement stateContainer = driver.findElement(By.id("state"));
+			((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", stateContainer);
 
-//		 2. Click to open dropdown
-		WebElement dropdown = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("#state .css-1wa3eu0-placeholder")));
-		dropdown.click();
-		List<WebElement> options = driver.findElements(By.xpath("//div[contains(@id,'react-select-3-option-')]"));
-		for (WebElement el : options) {
-		    System.out.println(el.getText());
-			 
+//			 2. Click to open the state dropdown
+			WebElement dropdown = wait
+					.until(ExpectedConditions.elementToBeClickable(By.cssSelector("#state .css-1wa3eu0-placeholder")));
+			dropdown.click();
+
+//			 3. Wait for dropdown options to load
+			List<WebElement> options = wait.until(ExpectedConditions
+					.presenceOfAllElementsLocatedBy(By.xpath("//div[contains(@id,'react-select-3-option-')]")));
+
+			boolean matched = false;
+			for (WebElement option : options) {
+				String optionText = option.getText().trim();
+				System.out.println("Available state option: " + optionText);
+				if (optionText.equalsIgnoreCase(state.trim())) {
+					option.click();
+					demoqaLog.info("Selected State: " + optionText);
+					matched = true;
+					break;
+				}
+			}
+
+			if (!matched) {
+				demoqaLog.error("State not found: " + state);
+				throw new NoSuchElementException("State option not found: " + state);
+			}
+
+//			 4. Wait for City dropdown to update
+			wait.until(ExpectedConditions
+					.textToBePresentInElementLocated(By.cssSelector("#city .css-1wa3eu0-placeholder"), "Select City"));
+
+		} catch (Exception e) {
+			demoqaLog.error("Error selecting state: " + state);
+			throw e;
 		}
-//		3. Select “State”
-		WebElement stateOption = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[@id='react-select-3-option-1']")));
-		stateOption.click();
-		demoqaLog.info("Selected State...");
-		wait.until(ExpectedConditions.textToBePresentInElementLocated(By.cssSelector("#city .css-1wa3eu0-placeholder"), "Select City"));
-
 	}
 
-//	=========== Select City  ==============
-	public void selectCity() {
+	public void selectCity(String city) {
 
-		demoqaLog.info("Selecting City...");
+		demoqaLog.info("Selecting City: " + city);
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
-		driver.findElement(By.id("city")).click();
-		
-//		2. Click to open dropdown
-		wait.until(ExpectedConditions.textToBePresentInElementLocated(By.cssSelector("#city .css-1wa3eu0-placeholder"), "Select City"));
-		WebElement cityContainer = driver.findElement(By.cssSelector("div[class=' css-1wa3eu0-placeholder']"));
-		((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", cityContainer);
-	
-		List<WebElement> options = driver.findElements(By.xpath("//div[contains(@id,'react-select-4-option-')]"));
-		for (WebElement cities : options) {
-		    System.out.println(cities.getText());
-			 if (cities.getText().equalsIgnoreCase("Agra")) {
-				 System.out.println("You selected following City: " + cities.getText());
-				 cities.click();
-				 break;
-			 }
-			 demoqaLog.info("Selected City... ");
+
+		try {
+//	         1. Wait for city dropdown to become clickable and click to open it
+			WebElement cityDropdown = wait.until(ExpectedConditions.elementToBeClickable(By.id("city")));
+			cityDropdown.click();
+
+//	         2. Wait until "Select City" appears (ensures dropdown is loaded)
+			wait.until(ExpectedConditions
+					.textToBePresentInElementLocated(By.cssSelector("#city .css-1wa3eu0-placeholder"), "Select City"));
+
+//	         3. Scroll to the city container
+			WebElement cityContainer = driver.findElement(By.cssSelector("#city .css-1wa3eu0-placeholder"));
+			((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", cityContainer);
+
+//	         4. Get all city options (these change based on selected state)
+			List<WebElement> options = wait.until(ExpectedConditions
+					.presenceOfAllElementsLocatedBy(By.xpath("//div[contains(@id,'react-select-4-option-')]")));
+
+			boolean matched = false;
+			for (WebElement option : options) {
+				String optionText = option.getText().trim();
+				System.out.println("Available city: " + optionText);
+				if (optionText.equalsIgnoreCase(city.trim())) {
+					option.click();
+					demoqaLog.info("Selected City: " + optionText);
+					matched = true;
+					break;
+				}
+			}
+
+			if (!matched) {
+				demoqaLog.error("City not found in dropdown: " + city);
+				throw new NoSuchElementException("City option not found: " + city);
+			}
+
+		} catch (Exception e) {
+			demoqaLog.error("Error selecting city: " + city);
+			e.printStackTrace();
+			throw e;
 		}
 	}
 
 	public void submitButton() {
+		demoqaLog.info("Submitting Form...");
 
-		demoqaLog.info("Submting Form...");
-		WebElement btn = driver.findElement(By.xpath("//button[@id='submit']"));
-		System.out.println("Button text: " + btn.getText());
-		JavascriptExecutor js = (JavascriptExecutor) driver;
-		js.executeScript("document.querySelector('#submit').click();");
-		demoqaLog.info("Form Submitted...");
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+		WebElement btn = wait.until(ExpectedConditions.elementToBeClickable(By.id("submit")));
+
+		try {
+//	         Scroll into view
+			((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView({block:'center'});", btn);
+			Thread.sleep(500); // small pause
+
+//	         Try normal click first
+			btn.click();
+			demoqaLog.info("Form Submitted via normal click...");
+		} catch (Exception e) {
+//	         Fallback to JS click
+			demoqaLog.warn("Normal click failed. Trying JS click...");
+			((JavascriptExecutor) driver).executeScript("arguments[0].click();", btn);
+			demoqaLog.info("Form Submitted via JS click...");
+		}
 	}
-	
+
 }

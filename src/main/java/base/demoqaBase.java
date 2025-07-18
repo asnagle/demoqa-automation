@@ -1,7 +1,7 @@
 package base;
 
 //import java.io.File;
-import java.lang.annotation.Annotation;
+//import java.lang.annotation.Annotation;
 import java.lang.reflect.Method;
 import java.util.Arrays;
 import org.openqa.selenium.WebDriver;
@@ -93,24 +93,14 @@ public class demoqaBase {
 		    CaptureOnSuccess meta = method.getAnnotation(CaptureOnSuccess.class);
 
 		    String description = meta.description();
-		    String mode = meta.screenshotMode(); // "full" or "viewport" etc.
+//		    String mode = meta.screenshotMode(); // "full" or "viewport" etc.
 
 		    String screenshotPath = extentReportManager.captureScreenShot(driver, method.getName() + " Passed");
 
 		    testRep.pass(description + " — Screenshot captured",
 		        MediaEntityBuilder.createScreenCaptureFromPath(screenshotPath).build());
 		}
-//		=============== Capturing screen of a particular test case if passed (using string method)
 		
-		/*String methodName = result.getMethod().getMethodName();
-
-		if (result.getStatus() == ITestResult.SUCCESS && methodName.equalsIgnoreCase("fillForm")) {
-			{
-				String screenshotPath = extentReportManager.captureScreenShot(driver, "Test Successful");
-				testRep.pass("Test Successful... Check Screenshot",
-						MediaEntityBuilder.createScreenCaptureFromPath(screenshotPath).build());
-			}*/
-//		}
 //		===============================================================================		
 		if (driver != null) {
 			demoqaLog.info("Closing the Browser...");
