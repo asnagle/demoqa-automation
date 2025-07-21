@@ -54,7 +54,8 @@ public class FormTests extends demoqaBase {
 		demoqaLog.info("Starting Form Card Test...");
 		homePage homePage = new homePage(driver);
 		homePage.clickFormCard();
-		homePage.clickPracticeForm();
+		formsPage formsPage = new formsPage(driver);
+		formsPage.clickPracticeForm();
 		System.out.println("Title of this Page is: " + driver.getTitle());
 		testRep.info("Title of this Page is: " + driver.getTitle());
 		testRep.info("Form Card Test Completed...");

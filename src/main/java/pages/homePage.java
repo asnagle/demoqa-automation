@@ -7,24 +7,26 @@ import utils.demoqaLog;
 
 public class homePage {
 	private WebDriver driver;
+	private By elementsCard = By.xpath("//div[@class='category-cards']//div[1]//div[1]//div[2]//*[name()='svg']");
 	private By FormCard = By.xpath("//*[@id=\"app\"]/div/div/div[2]/div/div[2]");
-	private By PracticeForm = By.cssSelector("div.element-list.collapse.show > ul.menu-list > #item-0 > span.text");
+	
 
 	public homePage(WebDriver driver) {
 		this.driver = driver;
 	}
+	
+	public void clickElementCard() {
+		demoqaLog.info("Clicking on Elements Card...");
+		driver.findElement(elementsCard).click();		
+	}
+
 
 	public void clickFormCard() {
-		demoqaLog.info("Clicking on FormCard...");
+		demoqaLog.info("Clicking on Form Card...");
 		driver.findElement(FormCard).click();
-		demoqaLog.info("Clicked on FormCard...");
+		demoqaLog.info("Clicked on Form Card...");
 	}
 
-	public void clickPracticeForm() {
-		demoqaLog.info("Clicking on Practice Form...");
-		driver.findElement(PracticeForm).click();
-		demoqaLog.info("Clicked on Practice Form...");
 
-	}
 
 }

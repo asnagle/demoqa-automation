@@ -1,4 +1,9 @@
 <suite name="demoqa-automation TestSuite">
+	<test name="Elements test">
+		<classes>
+			<class name="tests.ElementsTests" />
+		</classes>
+	</test>
 	<test name="Forms test">
 		<classes>
 			<class name="tests.FormTests" />

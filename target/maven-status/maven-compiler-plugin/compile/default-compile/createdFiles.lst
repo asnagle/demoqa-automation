@@ -5,9 +5,11 @@ utils\excelUtils.class
 base\demoqaBase.class
 pages\formsPage.class
 utils\emailUtils.class
+utils\emailUtils$1.class
 customAnnotations\CaptureOnSuccess.class
 utils\waitForElement.class
 utils\dateUtils.class
 models\UserFormData.class
+pages\elementsPage.class
 utils\closeAds.class
 utils\demoqaLog.class
