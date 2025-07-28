@@ -68,7 +68,7 @@ public class ElementsTests extends demoqaBase {
 		elementsPage.accessElements();
 		elementsPage.clickCheckBox();
 		elementsPage.clickHomeCheckBox();
-		elementsPage.validateHomeCheckBoxSelected();
+		elementsPage.validateSelectedCheckBox();
 		testRep.info("Test Elements | Selecting Home Test Completed...");
 		demoqaLog.info("Elements | Selecting Home Test Completed...");
 	}
@@ -83,7 +83,7 @@ public class ElementsTests extends demoqaBase {
 		elementsPage.clickCheckBox();
 		elementsPage.ToggleHome();
 		elementsPage.DesktopCheckBox();
-		elementsPage.validateDesktopCheckBoxSelected();
+		elementsPage.validateSelectedCheckBox();
 		testRep.info("Test Elements | Home | Desktop Test Completed...");
 		demoqaLog.info("Elements | Home | Desktop Test Completed...");
 	}
@@ -97,8 +97,110 @@ public class ElementsTests extends demoqaBase {
 		elementsPage.accessElements();
 		elementsPage.clickCheckBox();
 		elementsPage.selectNotesCommands();
-		elementsPage.validateDesktopCheckBoxSelected();
+		elementsPage.validateSelectedCheckBox();
 		testRep.info("Test Elements | Home | Desktop | Notes & Commands Test Completed...");
 		demoqaLog.info("Elements | Home | Desktop | Notes & Commands Completed...");
+	}
+	
+	@Test(priority=7)
+	public void SelectingDocumentsCheckBox() {
+		testRep = extentReportManager.createTest("Test Selecting Documents Check Box");
+		testRep.info("Starting test for Elements | Selecting Documents Check Box");
+		demoqaLog.info("Starting Test Elements | Selecting Documents Check Box Test...");
+		elementsPage elementsPage = new elementsPage(driver);
+		elementsPage.accessElements();
+		elementsPage.clickCheckBox();
+		elementsPage.ToggleHome();
+		elementsPage.DocumentsCheckbox();
+		elementsPage.validateSelectedCheckBox();
+	}
+	
+	@Test(priority=8)
+	public void SelectingWorkSpace() {
+		testRep = extentReportManager.createTest("Test Selecting Documents| WorkSpace Check Box");
+		testRep.info("Starting test for Elements | Home | Selecting Documents | WorkSpace Check Box");
+		demoqaLog.info("Starting Test Elements | Home | Selecting Documents | WorkSpace Check Box Test...");
+		elementsPage elementsPage = new elementsPage(driver);
+		elementsPage.accessElements();
+		elementsPage.clickCheckBox();
+		elementsPage.ToggleHome();
+		elementsPage.ToggleDocuments();
+		elementsPage.selectWorkSpace();
+		elementsPage.validateSelectedCheckBox();
+	}
+	
+	@Test(priority=9)
+	public void SelectReact() {
+		testRep = extentReportManager.createTest("Test Selecting Documents|WorkSpace|React Check Box");
+		testRep.info("Starting test for Elements|Home|Documents| Selecting WorkSpace|React Check Box");
+		demoqaLog.info("Starting Test Elements|Home|Selecting Documents|WorkSpace|React Check Box Test...");
+		elementsPage elementsPage = new elementsPage(driver);
+		elementsPage.accessElements();
+		elementsPage.clickCheckBox();
+		elementsPage.ToggleHome();
+		elementsPage.ToggleDocuments();
+		elementsPage.ToggleWorkSpace();
+		elementsPage.selectReact();
+		elementsPage.validateSelectedCheckBox();
+	}
+	
+	@Test(priority=10)
+	public void SelectAngular() {
+		testRep = extentReportManager.createTest("Test Selecting Documents|WorkSpace|Angular Check Box");
+		testRep.info("Starting test for Elements|Home|Documents| Selecting WorkSpace|Angular Check Box");
+		demoqaLog.info("Starting Test Elements|Home|Selecting Documents|WorkSpace|Angular Check Box Test...");
+		elementsPage elementsPage = new elementsPage(driver);
+		elementsPage.accessElements();
+		elementsPage.clickCheckBox();
+		elementsPage.ToggleHome();
+		elementsPage.ToggleDocuments();
+		elementsPage.ToggleWorkSpace();
+		elementsPage.selectAngular();
+		elementsPage.validateSelectedCheckBox();
+	}
+	
+	@Test(priority=11)
+	public void SelectVeu() {
+		testRep = extentReportManager.createTest("Test Selecting Documents|WorkSpace|Angular Check Box");
+		testRep.info("Starting test for Elements|Home|Documents| Selecting WorkSpace|Angular Check Box");
+		demoqaLog.info("Starting Test Elements|Home|Selecting Documents|WorkSpace|Angular Check Box Test...");
+		elementsPage elementsPage = new elementsPage(driver);
+		elementsPage.accessElements();
+		elementsPage.clickCheckBox();
+		elementsPage.ToggleHome();
+		elementsPage.ToggleDocuments();
+		elementsPage.ToggleWorkSpace();
+		elementsPage.selectVeu();
+		elementsPage.validateSelectedCheckBox();
+	}
+	
+	@Test(priority=12)
+	public void SelectReactAnuglarVeu() {
+		testRep = extentReportManager.createTest("Test Selecting Documents|WorkSpace|Angular Check Box");
+		testRep.info("Starting test for Elements|Home|Documents| Selecting WorkSpace|Angular Check Box");
+		demoqaLog.info("Starting Test Elements|Home|Selecting Documents|WorkSpace|Angular Check Box Test...");
+		elementsPage elementsPage = new elementsPage(driver);
+		elementsPage.accessElements();
+		elementsPage.clickCheckBox();
+		elementsPage.ToggleHome();
+		elementsPage.ToggleDocuments();
+		elementsPage.ToggleWorkSpace();
+		elementsPage.selectReact();
+		elementsPage.selectAngular();
+		elementsPage.selectVeu();
+		elementsPage.validateSelectedCheckBox();
+	}
+	@Test(priority=13)
+	public void SelectingOffice() {
+		testRep = extentReportManager.createTest("Test Selecting Documents| Office Check Box");
+		testRep.info("Starting test for Elements | Home | Selecting Documents | Office Check Box");
+		demoqaLog.info("Starting Test Elements | Home | Selecting Documents | Office Check Box Test...");
+		elementsPage elementsPage = new elementsPage(driver);
+		elementsPage.accessElements();
+		elementsPage.clickCheckBox();
+		elementsPage.ToggleHome();
+		elementsPage.ToggleDocuments();
+		elementsPage.selectOffice();
+		elementsPage.validateSelectedCheckBox();
 	}
 }

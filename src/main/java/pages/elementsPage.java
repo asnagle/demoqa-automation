@@ -3,6 +3,7 @@ package pages;
 import java.time.Duration;
 import java.util.List;
 import org.openqa.selenium.By;
+import org.openqa.selenium.By.ByCssSelector;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -44,9 +45,36 @@ public class elementsPage extends demoqaBase {
 
 	@FindBy(xpath = "//label[@for='tree-node-notes']//span[@class='rct-checkbox']")
 	WebElement SelectNotes;
-	
+
 	@FindBy(xpath = "//label[@for='tree-node-commands']//span[@class='rct-checkbox']")
 	WebElement SelectCommands;
+
+	@FindBy(xpath = "//label[@for='tree-node-documents']//span[@class='rct-checkbox']")
+	WebElement SelectDocuments;
+	
+	@FindBy(xpath = "//*[@id=\"tree-node\"]/ol/li/ol/li[2]/span/button")
+	WebElement ToggleDocuments;
+	
+	@FindBy(xpath = "//label[@for='tree-node-workspace']//span[@class='rct-checkbox']")
+	WebElement SelectWorkSpace;
+	
+	@FindBy(xpath = "//*[@id=\"tree-node\"]/ol/li/ol/li[2]/ol/li[1]/span/button")
+	WebElement ToggleWorkSpace;
+	
+	@FindBy(xpath = "//label[@for='tree-node-react']//span[@class='rct-checkbox']")
+	WebElement SelectReact;
+	
+	@FindBy(xpath = "//label[@for='tree-node-angular']//span[@class='rct-checkbox']")
+	WebElement SelectAngular;
+	
+	@FindBy(xpath = "//label[@for='tree-node-veu']//span[@class='rct-checkbox']")
+	WebElement SelectVeu;
+	
+	@FindBy(xpath = "//label[@for='tree-node-office']//span[@class='rct-checkbox']")
+	WebElement SelectOffice;
+	
+	@FindBy(xpath = "//*[@id=\"tree-node\"]/ol/li/ol/li[2]/ol/li[2]/span/button")
+	WebElement ToggleOffice;
 
 	@FindBy(xpath = "//input[@id='userName']")
 	WebElement FullName;
@@ -161,7 +189,7 @@ public class elementsPage extends demoqaBase {
 
 	}
 
-	public void validateHomeCheckBoxSelected() {
+	public void validateSelectedCheckBox() {
 
 		List<WebElement> options = wait
 				.until(ExpectedConditions.presenceOfAllElementsLocatedBy(By.xpath("//*[@id=\"result\"]")));
@@ -175,17 +203,6 @@ public class elementsPage extends demoqaBase {
 	public void DesktopCheckBox() {
 		demoqaLog.info("Selecting Deskstop Check Box...");
 		DesktopCheckBox.click();
-	}
-
-	public void validateDesktopCheckBoxSelected() {
-		demoqaLog.info("Validating on Desktop Check Box Resutls...");
-
-		List<WebElement> options = wait
-				.until(ExpectedConditions.presenceOfAllElementsLocatedBy(By.xpath("//*[@id=\"result\"]")));
-		for (WebElement result : options) {
-			String DesktopResult = result.getText().trim();
-			System.out.println("Information Submitted is: " + DesktopResult);
-		}
 	}
 
 	public void ToggleDesktop() {
@@ -205,6 +222,59 @@ public class elementsPage extends demoqaBase {
 		demoqaLog.info("Clicking on Commands Button...");
 		SelectCommands.click();
 		demoqaLog.info("Selected Notes & Commands...");
+	}
+
+	public void DocumentsCheckbox() {
+		demoqaLog.info("Selecting Documents Check Box...");
+		SelectDocuments.click();
+		demoqaLog.info("Selected Documents Check Box...");
+	}
+	
+	public void ToggleDocuments() {
+		demoqaLog.info("Clicking on Documents Toggle Button...");
+		ToggleDocuments.click();
+	}
+	
+	public void selectWorkSpace() {
+		demoqaLog.info("Selecting WorkSpace Check Box...");
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript("arguments[0].scrollIntoView(true);", SelectWorkSpace);
+		js.executeScript("arguments[0].click();", SelectWorkSpace);
+		demoqaLog.info("Selected WorkSpace Check Box...");
+	}
+	
+	public void ToggleWorkSpace() {
+		demoqaLog.info("Clicking WorkSpace Toggle Button...");
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript("arguments[0].scrollIntoView(true);", ToggleWorkSpace);
+		js.executeScript("arguments[0].click();", ToggleWorkSpace);
+		demoqaLog.info("Clicked WorkSpace Toggle Button...");
+	}
+	
+	public void selectReact() {
+		demoqaLog.info("Selecting WorkSpace | React Check Box...");
+		SelectReact.click();
+		demoqaLog.info("Selected WorkSpace | React Check Box...");
+	}
+	
+	public void selectAngular() {
+		demoqaLog.info("Selecting WorkSpace | Angular Check Box...");
+		SelectAngular.click();
+		demoqaLog.info("Selected WorkSpace | Angular Check Box...");
+	}
+	
+	public void selectVeu() {
+		demoqaLog.info("Selecting WorkSpace | Veu Check Box...");
+		SelectVeu.click();
+		demoqaLog.info("Selected WorkSpace | Veu Check Box...");
+	}
+	
+	public void selectOffice() {
+		demoqaLog.info("Selecting WorkSpace Check Box...");
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript("arguments[0].scrollIntoView(true);", SelectOffice);
+		js.executeScript("arguments[0].click();", SelectOffice);
+		demoqaLog.info("Selected WorkSpace Check Box...");
 	}
 
 }
