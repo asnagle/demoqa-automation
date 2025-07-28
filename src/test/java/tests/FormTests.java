@@ -87,6 +87,10 @@ public class FormTests extends demoqaBase {
 	    formsPage.selectState(data.state);
 	    formsPage.selectCity(data.city);
 	    formsPage.submitButton();
+	    testRep.pass("Test Form Filling Test Completed...");
+		demoqaLog.info("Test Form Filling Completed...");
 	}
+	
+	
 	
 }

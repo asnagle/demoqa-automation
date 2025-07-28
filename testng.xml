@@ -9,4 +9,9 @@
 			<class name="tests.FormTests" />
 		</classes>
 	</test>
+	<test name="Alerts-Forms-Windows test">
+		<classes>
+			<class name="tests.AlertsFramesWindowsTests" />
+		</classes>
+	</test>
 </suite>

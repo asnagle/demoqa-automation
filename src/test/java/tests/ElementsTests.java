@@ -46,6 +46,59 @@ public class ElementsTests extends demoqaBase {
 		demoqaLog.info("Text Box Element Test Completed...");
 		
 	}
-
-
+	
+	@Test(priority=3)
+	public void CheckBox() {
+		testRep = extentReportManager.createTest("Test Check Box");
+		testRep.info("Starting test for Elements | Check Box");
+		demoqaLog.info("Starting Test Elements | Check Box Test...");
+		elementsPage elementsPage = new elementsPage(driver);
+		elementsPage.accessElements();
+		elementsPage.clickCheckBox();
+		testRep.info("Test Elements | Check Box Test Completed...");
+		demoqaLog.info("Test Elements | Check Box Test Test Completed...");
+	}
+	
+	@Test(priority=4)
+	public void SelectingHomeCheckBox() {
+		testRep = extentReportManager.createTest("Test Selecting Home Check Box");
+		testRep.info("Starting test for Elements | Selecting Home Check Box");
+		demoqaLog.info("Starting Test Elements | Selecting Home Check Box Test...");
+		elementsPage elementsPage = new elementsPage(driver);
+		elementsPage.accessElements();
+		elementsPage.clickCheckBox();
+		elementsPage.clickHomeCheckBox();
+		elementsPage.validateHomeCheckBoxSelected();
+		testRep.info("Test Elements | Selecting Home Test Completed...");
+		demoqaLog.info("Elements | Selecting Home Test Completed...");
+	}
+	
+	@Test(priority=5)
+	public void SelectingDesktopCheckBox() {
+		testRep = extentReportManager.createTest("Test Selecting Desktop Check Box");
+		testRep.info("Starting test for Elements | Selecting Desktop Check Box");
+		demoqaLog.info("Starting Test Elements | Selecting Desktop Check Box Test...");
+		elementsPage elementsPage = new elementsPage(driver);
+		elementsPage.accessElements();
+		elementsPage.clickCheckBox();
+		elementsPage.ToggleHome();
+		elementsPage.DesktopCheckBox();
+		elementsPage.validateDesktopCheckBoxSelected();
+		testRep.info("Test Elements | Home | Desktop Test Completed...");
+		demoqaLog.info("Elements | Home | Desktop Test Completed...");
+	}
+	
+	@Test(priority=6)
+	public void SelectingNotesCommandsClick() {
+		testRep = extentReportManager.createTest("Test Selecting Desktop| Notes & Commands Check Box");
+		testRep.info("Starting test for Elements | Selecting Desktop| Notes & Commands Check Box");
+		demoqaLog.info("Starting Test Elements | Selecting Desktop| Notes & Commands Check Box Test...");
+		elementsPage elementsPage = new elementsPage(driver);
+		elementsPage.accessElements();
+		elementsPage.clickCheckBox();
+		elementsPage.selectNotesCommands();
+		elementsPage.validateDesktopCheckBoxSelected();
+		testRep.info("Test Elements | Home | Desktop | Notes & Commands Test Completed...");
+		demoqaLog.info("Elements | Home | Desktop | Notes & Commands Completed...");
+	}
 }

@@ -14,33 +14,62 @@ import base.demoqaBase;
 import utils.demoqaLog;
 
 public class elementsPage extends demoqaBase {
-	
+
+	@FindBy(xpath = "//body/div/div/div/div/div/div/div/div[1]/span[1]/div[1]")
+	WebElement pageText;
+
 	@FindBy(xpath = "//span[normalize-space()='Text Box']")
 	WebElement TextBox;
+
+	@FindBy(xpath = "//span[normalize-space()='Check Box']")
+	WebElement CheckBox;
+
+	@FindBy(xpath = "//*[@id=\"tree-node\"]/ol/li/span/button")
+	WebElement ToggleHome;
+
+	@FindBy(xpath = "//*[@id=\"tree-node\"]/ol/li/span/label/span[1]")
+	WebElement HomeCheckBox;
+
+	@FindBy(xpath = "//*[@id=\"result\"]")
+	WebElement HomeCheckBoxResult;
+
+	@FindBy(xpath = "//label[@for='tree-node-desktop']//span[@class='rct-checkbox']")
+	WebElement DesktopCheckBox;
+
+	@FindBy(xpath = "//*[@id=\"result\"]")
+	WebElement DesktopCheckBoxResult;
+
+	@FindBy(xpath = "//*[@id=\"tree-node\"]/ol/li/ol/li[1]/span/button")
+	WebElement ToggleDesktop;
+
+	@FindBy(xpath = "//label[@for='tree-node-notes']//span[@class='rct-checkbox']")
+	WebElement SelectNotes;
 	
+	@FindBy(xpath = "//label[@for='tree-node-commands']//span[@class='rct-checkbox']")
+	WebElement SelectCommands;
+
 	@FindBy(xpath = "//input[@id='userName']")
 	WebElement FullName;
-	
+
 	@FindBy(id = "userEmail")
 	WebElement userEmail;
-	
+
 	@FindBy(id = "currentAddress")
 	WebElement currentAddress;
-	
+
 	@FindBy(id = "permanentAddress")
 //	@FindBy(xpath = "//textarea[@id='permanentAddress']")
 	WebElement permanentAddress;
-	
-	@FindBy(id="submit")
+
+	@FindBy(id = "submit")
 	WebElement submitButton;
-	
-	
+
 	private WebDriver driver;
 	WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(3));
 
 	public elementsPage(WebDriver driver) {
 		this.driver = driver;
-	    this.wait = new WebDriverWait(driver, Duration.ofSeconds(3));
+		this.wait = new WebDriverWait(driver, Duration.ofSeconds(3));
 		PageFactory.initElements(driver, this);
 	}
 
@@ -50,14 +79,16 @@ public class elementsPage extends demoqaBase {
 		homePage homePage = new homePage(driver);
 		homePage.clickElementCard();
 		System.out.println("Title of this Page is: " + driver.getTitle());
+		System.out.println("You can now Access: " + pageText.getText());
 	}
-	
-	
+
 	public void clickTextBox() {
 		demoqaLog.info("Accessing Text Box...");
 		TextBox.click();
+		System.out.println(TextBox.getText());
+		demoqaLog.info("You are accessing: " + TextBox.getText());
 	}
-	
+
 	public void enterFullName() {
 		demoqaLog.info("Entering Full Name...");
 		FullName.click();
@@ -65,7 +96,7 @@ public class elementsPage extends demoqaBase {
 		FullName.sendKeys("John Rambo");
 		demoqaLog.info("Full Name is: " + FullName.getAttribute("value"));
 	}
-	
+
 	public void enterEmail() {
 		demoqaLog.info("Entering Email Address...");
 		userEmail.click();
@@ -73,7 +104,7 @@ public class elementsPage extends demoqaBase {
 		userEmail.sendKeys("JRambo@demoqa.com");
 		demoqaLog.info("Email Address is: " + userEmail.getAttribute("value"));
 	}
-	
+
 	public void enterCurrentAddress() {
 		demoqaLog.info("Entering Current Address...");
 		JavascriptExecutor js = (JavascriptExecutor) driver;
@@ -83,7 +114,7 @@ public class elementsPage extends demoqaBase {
 		demoqaLog.info("Current Address is: " + currentAddress.getAttribute("value"));
 //		demoqaLog.info("Current Address is: " + currentAddress.getText());
 	}
-	
+
 	public void enterPermanentAddress() {
 		demoqaLog.info("Entering Permanent Address...");
 		permanentAddress.click();
@@ -91,25 +122,89 @@ public class elementsPage extends demoqaBase {
 		permanentAddress.sendKeys("579 Grant 3381, Prattsville\n Arkansas 72100\n United States");
 		demoqaLog.info("Parmenant Address is: " + permanentAddress.getAttribute("value"));
 	}
-	
+
 	public void submitButton() {
 		demoqaLog.info("Clicking on Submit Button...");
 		submitButton.click();
 		demoqaLog.info("Clicked Submit Button...");
 	}
-	
+
 	public void validateTextBox() {
-		
-		List<WebElement> options = wait.until(ExpectedConditions
-				.presenceOfAllElementsLocatedBy(By.xpath("//div[@id='output']")));
+
+		List<WebElement> options = wait
+				.until(ExpectedConditions.presenceOfAllElementsLocatedBy(By.xpath("//div[@id='output']")));
 		for (WebElement option : options) {
 			String outputText = option.getText().trim();
 			System.out.println("Information Submitted is: " + outputText);
-			}
+		}
 	}
-	
+
 	protected WebDriverWait getWait() {
-	    return new WebDriverWait(driver, Duration.ofSeconds(3));
+		return new WebDriverWait(driver, Duration.ofSeconds(3));
+	}
+
+	public void clickCheckBox() {
+		demoqaLog.info("Accessing Check Box...");
+		CheckBox.click();
+		System.out.println(CheckBox.getText());
+		demoqaLog.info("You are accessing: " + CheckBox.getText());
+	}
+
+	public void ToggleHome() {
+		demoqaLog.info("Clicking on Home Toggle Button...");
+		ToggleHome.click();
+	}
+
+	public void clickHomeCheckBox() {
+		demoqaLog.info("Selecting Home Check Box...");
+		HomeCheckBox.click();
+
+	}
+
+	public void validateHomeCheckBoxSelected() {
+
+		List<WebElement> options = wait
+				.until(ExpectedConditions.presenceOfAllElementsLocatedBy(By.xpath("//*[@id=\"result\"]")));
+
+		for (WebElement result : options) {
+			String FinalResult = result.getText().trim();
+			System.out.println("Information Submitted is: " + FinalResult);
+		}
+	}
+
+	public void DesktopCheckBox() {
+		demoqaLog.info("Selecting Deskstop Check Box...");
+		DesktopCheckBox.click();
+	}
+
+	public void validateDesktopCheckBoxSelected() {
+		demoqaLog.info("Validating on Desktop Check Box Resutls...");
+
+		List<WebElement> options = wait
+				.until(ExpectedConditions.presenceOfAllElementsLocatedBy(By.xpath("//*[@id=\"result\"]")));
+		for (WebElement result : options) {
+			String DesktopResult = result.getText().trim();
+			System.out.println("Information Submitted is: " + DesktopResult);
+		}
+	}
+
+	public void ToggleDesktop() {
+		demoqaLog.info("Clicking on Home Toggle Button...");
+		ToggleDesktop.click();
+	}
+
+	public void selectNotesCommands() {
+		demoqaLog.info("Clicking on Home Toggle Button...");
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript("arguments[0].scrollIntoView(true);", ToggleHome);
+		js.executeScript("arguments[0].click();", ToggleHome);
+		demoqaLog.info("Clicking on Desktop Toggle Button...");
+		ToggleDesktop.click();
+		demoqaLog.info("Clicking on Notes Button...");
+		SelectNotes.click();
+		demoqaLog.info("Clicking on Commands Button...");
+		SelectCommands.click();
+		demoqaLog.info("Selected Notes & Commands...");
 	}
 
 }
