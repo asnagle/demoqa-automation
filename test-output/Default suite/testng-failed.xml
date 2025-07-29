@@ -6,9 +6,9 @@
       <class name="tests.ElementsTests">
         <methods>
           <include name="TearDown"/>
-          <include name="SelectingWorkSpace"/>
           <include name="setupReport"/>
           <include name="teardownReport"/>
+          <include name="SelectingExcelFile"/>
           <include name="setUP"/>
         </methods>
       </class> <!-- tests.ElementsTests -->

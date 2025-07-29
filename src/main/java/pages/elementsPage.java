@@ -75,6 +75,30 @@ public class elementsPage extends demoqaBase {
 	
 	@FindBy(xpath = "//*[@id=\"tree-node\"]/ol/li/ol/li[2]/ol/li[2]/span/button")
 	WebElement ToggleOffice;
+	
+	@FindBy(xpath = "//label[@for='tree-node-public']//span[@class='rct-checkbox']")
+	WebElement SelectPublic;
+	
+	@FindBy(xpath = "//label[@for='tree-node-private']//span[@class='rct-checkbox']")
+	WebElement SelectPrivate;
+	
+	@FindBy(xpath = "//label[@for='tree-node-classified']//span[@class='rct-checkbox']")
+	WebElement SelectClassified;
+	
+	@FindBy(xpath = "//label[@for='tree-node-general']//span[@class='rct-checkbox']")
+	WebElement SelectGeneral;
+	
+	@FindBy(xpath = "//label[@for='tree-node-downloads']//span[@class='rct-checkbox']")
+	WebElement SelectDownloads;
+	
+	@FindBy(xpath = "//li[3]//span[1]//button[1]")
+	WebElement ToggleDownloads;
+	
+	@FindBy(xpath = "//label[@for='tree-node-wordFile']//span[@class='rct-checkbox']")
+	WebElement SelectWordFile;
+	
+	@FindBy(xpath = "//label[@for='tree-node-excelFile']//span[@class='rct-checkbox']")
+	WebElement SelectExcelFile;
 
 	@FindBy(xpath = "//input[@id='userName']")
 	WebElement FullName;
@@ -197,6 +221,7 @@ public class elementsPage extends demoqaBase {
 		for (WebElement result : options) {
 			String FinalResult = result.getText().trim();
 			System.out.println("Information Submitted is: " + FinalResult);
+			demoqaLog.info("You have Selected: " +FinalResult);
 		}
 	}
 
@@ -275,6 +300,66 @@ public class elementsPage extends demoqaBase {
 		js.executeScript("arguments[0].scrollIntoView(true);", SelectOffice);
 		js.executeScript("arguments[0].click();", SelectOffice);
 		demoqaLog.info("Selected WorkSpace Check Box...");
+	}
+	
+	public void ToggleOffice() {
+		demoqaLog.info("Clicking Office Toggle Button...");
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript("arguments[0].scrollIntoView(true);", ToggleOffice);
+		js.executeScript("arguments[0].click();", ToggleOffice);
+		demoqaLog.info("Clicked Office Toggle Button...");
+	}
+	
+	public void selectPublic() {
+		demoqaLog.info("Selecting Office | Public Check Box...");
+		SelectPublic.click();
+		demoqaLog.info("Selected Office | Public Check Box...");
+	}
+	
+	public void selectPrivate() {
+		demoqaLog.info("Selecting Office | Private Check Box...");
+		SelectPrivate.click();
+		demoqaLog.info("Selected Office | Private Check Box...");
+	}
+	
+	public void selectClassified() {
+		demoqaLog.info("Selecting Office | Classified Check Box...");
+		SelectClassified.click();
+		demoqaLog.info("Selected Office | Classified Check Box...");
+	}
+	
+	public void selectGeneral() {
+		demoqaLog.info("Selecting Office | General Check Box...");
+		SelectGeneral.click();
+		demoqaLog.info("Selected Office | General Check Box...");
+	}
+	
+	public void selectDownloads() {
+		demoqaLog.info("Selecting Downloads Check Box...");
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript("arguments[0].scrollIntoView(true);", SelectDownloads);
+		js.executeScript("arguments[0].click();", SelectDownloads);
+		demoqaLog.info("Selected Downloads Check Box...");
+	}
+	
+	public void ToggleDownloads() {
+		demoqaLog.info("Clicking Downloads Toggle Button...");
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript("arguments[0].scrollIntoView(true);", ToggleDownloads);
+		js.executeScript("arguments[0].click();", ToggleDownloads);
+		demoqaLog.info("Clicked Downloads Toggle Button...");
+	}
+	
+	public void selectWordFile() {
+		demoqaLog.info("Selecting Downloads | Word File Check Box...");
+		SelectWordFile.click();
+		demoqaLog.info("Selected Downloads | Word File Check Box...");
+	}
+	
+	public void selectExcelFile() {
+		demoqaLog.info("Selecting Downloads | Excel File Check Box...");
+		SelectExcelFile.click();
+		demoqaLog.info("Selected Downloads | Excel File Check Box...");
 	}
 
 }

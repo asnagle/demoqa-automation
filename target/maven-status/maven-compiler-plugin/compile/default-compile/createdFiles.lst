@@ -12,5 +12,6 @@ utils\dateUtils.class
 models\UserFormData.class
 pages\alertsframewindowsPage.class
 pages\elementsPage.class
+customAnnotations\ValidateResult.class
 utils\closeAds.class
 utils\demoqaLog.class

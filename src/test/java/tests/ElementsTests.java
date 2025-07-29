@@ -113,6 +113,8 @@ public class ElementsTests extends demoqaBase {
 		elementsPage.ToggleHome();
 		elementsPage.DocumentsCheckbox();
 		elementsPage.validateSelectedCheckBox();
+		testRep.info("Test Elements | Selecting Documents Check Box Test Completed...");
+		demoqaLog.info("Test Elements | Selecting Documents Check Box Test Completed...");
 	}
 	
 	@Test(priority=8)
@@ -127,6 +129,8 @@ public class ElementsTests extends demoqaBase {
 		elementsPage.ToggleDocuments();
 		elementsPage.selectWorkSpace();
 		elementsPage.validateSelectedCheckBox();
+		testRep.info("Test Elements | Home | Selecting Documents | WorkSpace Check Box Test Completed...");
+		demoqaLog.info("Test Elements | Home | Selecting Documents | WorkSpace Check Box Completed...");
 	}
 	
 	@Test(priority=9)
@@ -142,6 +146,8 @@ public class ElementsTests extends demoqaBase {
 		elementsPage.ToggleWorkSpace();
 		elementsPage.selectReact();
 		elementsPage.validateSelectedCheckBox();
+		testRep.info("Test Elements|Home|Documents| Selecting WorkSpace|React Check Box Test Completed...");
+		demoqaLog.info("Test Elements|Home|Documents| Selecting WorkSpace|React Check Box Completed...");
 	}
 	
 	@Test(priority=10)
@@ -157,13 +163,15 @@ public class ElementsTests extends demoqaBase {
 		elementsPage.ToggleWorkSpace();
 		elementsPage.selectAngular();
 		elementsPage.validateSelectedCheckBox();
+		testRep.info("Test Elements|Home|Documents| Selecting WorkSpace|Angular Check Box Test Completed...");
+		demoqaLog.info("Test Elements|Home|Documents| Selecting WorkSpace|Angular Check Box Completed...");
 	}
 	
 	@Test(priority=11)
 	public void SelectVeu() {
-		testRep = extentReportManager.createTest("Test Selecting Documents|WorkSpace|Angular Check Box");
-		testRep.info("Starting test for Elements|Home|Documents| Selecting WorkSpace|Angular Check Box");
-		demoqaLog.info("Starting Test Elements|Home|Selecting Documents|WorkSpace|Angular Check Box Test...");
+		testRep = extentReportManager.createTest("Test Selecting Documents|WorkSpace|Veu Check Box");
+		testRep.info("Starting test for Elements|Home|Documents| Selecting WorkSpace|Veu Check Box");
+		demoqaLog.info("Starting Test Elements|Home|Selecting Documents|WorkSpace|Veu Check Box Test...");
 		elementsPage elementsPage = new elementsPage(driver);
 		elementsPage.accessElements();
 		elementsPage.clickCheckBox();
@@ -172,13 +180,15 @@ public class ElementsTests extends demoqaBase {
 		elementsPage.ToggleWorkSpace();
 		elementsPage.selectVeu();
 		elementsPage.validateSelectedCheckBox();
+		testRep.info("Test Elements|Home|Documents| Selecting WorkSpace|Veu Check Box Test Completed...");
+		demoqaLog.info("Test Elements|Home|Documents| Selecting WorkSpace|Veu Check Box Completed...");
 	}
 	
 	@Test(priority=12)
 	public void SelectReactAnuglarVeu() {
-		testRep = extentReportManager.createTest("Test Selecting Documents|WorkSpace|Angular Check Box");
-		testRep.info("Starting test for Elements|Home|Documents| Selecting WorkSpace|Angular Check Box");
-		demoqaLog.info("Starting Test Elements|Home|Selecting Documents|WorkSpace|Angular Check Box Test...");
+		testRep = extentReportManager.createTest("Test Selecting Documents|WorkSpace|React-Anuglar-Veu Check Box");
+		testRep.info("Starting test for Elements|Home|Documents| Selecting WorkSpace|React-Anuglar-Veu Check Box");
+		demoqaLog.info("Starting Test Elements|Home|Selecting Documents|WorkSpace|React-Anuglar-Veu Check Box Test...");
 		elementsPage elementsPage = new elementsPage(driver);
 		elementsPage.accessElements();
 		elementsPage.clickCheckBox();
@@ -189,12 +199,15 @@ public class ElementsTests extends demoqaBase {
 		elementsPage.selectAngular();
 		elementsPage.selectVeu();
 		elementsPage.validateSelectedCheckBox();
+		testRep.info("Test Elements|Home|Documents| Selecting WorkSpace|React-Anuglar-Veu Check Box Test Completed...");
+		demoqaLog.info("Test Elements|Home|Documents| Selecting WorkSpace|React-Anuglar-Veu Check Box Completed...");
 	}
+	
 	@Test(priority=13)
 	public void SelectingOffice() {
-		testRep = extentReportManager.createTest("Test Selecting Documents| Office Check Box");
-		testRep.info("Starting test for Elements | Home | Selecting Documents | Office Check Box");
-		demoqaLog.info("Starting Test Elements | Home | Selecting Documents | Office Check Box Test...");
+		testRep = extentReportManager.createTest("Test Selecting Documents|Office Check Box");
+		testRep.info("Starting test for Elements|Home|Selecting Documents|Office Check Box");
+		demoqaLog.info("Starting Test Elements|Home|Selecting Documents|Office Check Box Test...");
 		elementsPage elementsPage = new elementsPage(driver);
 		elementsPage.accessElements();
 		elementsPage.clickCheckBox();
@@ -202,5 +215,159 @@ public class ElementsTests extends demoqaBase {
 		elementsPage.ToggleDocuments();
 		elementsPage.selectOffice();
 		elementsPage.validateSelectedCheckBox();
+		testRep.info("Test Elements|Home|Selecting Documents|Office Check Box Test Completed...");
+		demoqaLog.info("Test Elements|Home|Selecting Documents|Office Check Box Completed...");
+	}
+	
+	@Test(priority=14)
+	public void SelectPublic() {
+		testRep = extentReportManager.createTest("Test Documents|Office|Selecting Public Check Box");
+		testRep.info("Starting test for Elements|Home|Documents|Office|Selecting Public Check Box");
+		demoqaLog.info("Starting Test Elements|Home|Selecting Documents|Office|Public Check Box Test...");
+		elementsPage elementsPage = new elementsPage(driver);
+		elementsPage.accessElements();
+		elementsPage.clickCheckBox();
+		elementsPage.ToggleHome();
+		elementsPage.ToggleDocuments();
+		elementsPage.ToggleOffice();
+		elementsPage.selectPublic();
+		elementsPage.validateSelectedCheckBox();
+		testRep.info("Test Elements|Home|Documents|Office|Selecting Public Check Box Test Completed...");
+		demoqaLog.info("Test Elements|Home|Documents|Office|Selecting Public Check Box Completed...");
+	}
+	
+	@Test(priority=15)
+	public void SelectPrivate() {
+		testRep = extentReportManager.createTest("Test Selecting Documents|Office|Selecting Private Check Box");
+		testRep.info("Starting test for Elements|Home|Documents|Office|Selecting Private Check Box");
+		demoqaLog.info("Starting Test Elements|Home|Selecting Documents|Office|Private Check Box Test...");
+		elementsPage elementsPage = new elementsPage(driver);
+		elementsPage.accessElements();
+		elementsPage.clickCheckBox();
+		elementsPage.ToggleHome();
+		elementsPage.ToggleDocuments();
+		elementsPage.ToggleOffice();
+		elementsPage.selectPrivate();
+		elementsPage.validateSelectedCheckBox();
+		testRep.info("Test Elements|Home|Documents|Office|Selecting Private Check Box Test Completed...");
+		demoqaLog.info("Test Elements|Home|Documents|Office|Selecting Private Check Box Completed...");
+	}
+	
+	@Test(priority=16)
+	public void SelectClassified() {
+		testRep = extentReportManager.createTest("Test Selecting Documents|Office|Selecting Classified Check Box");
+		testRep.info("Starting test for Elements|Home|Documents|Office|Selecting Classified Check Box");
+		demoqaLog.info("Starting Test Elements|Home|Selecting Documents|Office|Classified Check Box Test...");
+		elementsPage elementsPage = new elementsPage(driver);
+		elementsPage.accessElements();
+		elementsPage.clickCheckBox();
+		elementsPage.ToggleHome();
+		elementsPage.ToggleDocuments();
+		elementsPage.ToggleOffice();
+		elementsPage.selectClassified();
+		elementsPage.validateSelectedCheckBox();
+		testRep.info("Test Elements|Home|Documents|Office|Selecting Classified Check Box Test Completed...");
+		demoqaLog.info("Test Elements|Home|Documents|Office|Selecting Classified Check Box Completed...");
+	}
+	
+	@Test(priority=17)
+	public void SelectGeneral() {
+		testRep = extentReportManager.createTest("Test Selecting Documents|Office|Selecting General Check Box");
+		testRep.info("Starting test for Elements|Home|Documents|Office|Selecting General Check Box");
+		demoqaLog.info("Starting Test Elements|Home|Selecting Documents|Office|General Check Box Test...");
+		elementsPage elementsPage = new elementsPage(driver);
+		elementsPage.accessElements();
+		elementsPage.clickCheckBox();
+		elementsPage.ToggleHome();
+		elementsPage.ToggleDocuments();
+		elementsPage.ToggleOffice();
+		elementsPage.selectGeneral();
+		elementsPage.validateSelectedCheckBox();
+		testRep.info("Test Elements|Home|Documents|Office|Selecting General Check Box Test Completed...");
+		demoqaLog.info("Test Elements|Home|Documents|Office|Selecting General Check Box Completed...");
+	}
+	
+	@Test(priority=18)
+	public void SelectOfficeAll() {
+		testRep = extentReportManager.createTest("Test Selecting Documents|Office|Selecting All Check Boxes");
+		testRep.info("Starting test for Elements|Home|Documents|Office|Selecting All Check Boxes");
+		demoqaLog.info("Starting Test Elements|Home|Selecting Documents|Office|All Check Boxes Test...");
+		elementsPage elementsPage = new elementsPage(driver);
+		elementsPage.accessElements();
+		elementsPage.clickCheckBox();
+		elementsPage.ToggleHome();
+		elementsPage.ToggleDocuments();
+		elementsPage.ToggleOffice();
+		elementsPage.selectPublic();
+		elementsPage.selectPrivate();
+		elementsPage.selectClassified();
+		elementsPage.selectGeneral();
+		elementsPage.validateSelectedCheckBox();
+		testRep.info("Test Elements|Home|Documents|Office|Selecting All Check Boxes Test Completed...");
+		demoqaLog.info("Test Elements|Home|Documents|Office|Selecting All Check Boxes Completed...");
+	}
+	
+	@Test(priority=19)
+	public void SelectingDownloads() {
+		testRep = extentReportManager.createTest("Test Selecting Downloads Check Box");
+		testRep.info("Starting test for Elements|Home|Selecting Downloads Check Box");
+		demoqaLog.info("Starting Test Elements|Home|Selecting Downloads Check Box Test...");
+		elementsPage elementsPage = new elementsPage(driver);
+		elementsPage.accessElements();
+		elementsPage.clickCheckBox();
+		elementsPage.ToggleHome();
+		elementsPage.selectDownloads();
+		elementsPage.validateSelectedCheckBox();
+		testRep.info("Test Elements|Home|Selecting Downloads Check Box Test Completed...");
+		demoqaLog.info("Test Elements|Home|Selecting Downloads Check Box Completed...");
+	}
+	
+	@Test(priority=20)
+	public void SelectingWordFile() {
+		testRep = extentReportManager.createTest("Test Selecting Downloads|Word File Check Box");
+		testRep.info("Starting test for Elements|Home|Selecting Downloads|Word File Check Box");
+		demoqaLog.info("Starting Test Elements|Home|Selecting Downloads|Word File Check Box Test...");
+		elementsPage elementsPage = new elementsPage(driver);
+		elementsPage.accessElements();
+		elementsPage.clickCheckBox();
+		elementsPage.ToggleHome();
+		elementsPage.ToggleDownloads();
+		elementsPage.selectWordFile();
+		elementsPage.validateSelectedCheckBox();
+		testRep.info("Test Elements|Home|Selecting Downloads|Word File Check Box Test Completed...");
+		demoqaLog.info("Test Elements|Home|Selecting Downloads|Word File Check Box Completed...");
+	}
+	
+	@Test(priority=21)
+	public void SelectingExcelFile() {
+		testRep = extentReportManager.createTest("Test Selecting Downloads|Excel File Check Box");
+		testRep.info("Starting test for Elements|Home|Selecting Downloads|Excel File Check Box");
+		demoqaLog.info("Starting Test Elements|Home|Selecting Downloads|Excel File Check Box Test...");
+		elementsPage elementsPage = new elementsPage(driver);
+		elementsPage.accessElements();
+		elementsPage.clickCheckBox();
+		elementsPage.ToggleHome();
+		elementsPage.ToggleDownloads();
+		elementsPage.selectExcelFile();
+		elementsPage.validateSelectedCheckBox();
+		testRep.info("Test Elements|Home|Selecting Downloads|Excel File Check Box Test Completed...");
+		demoqaLog.info("Test Elements|Home|Selecting Downloads|Excel File Check Box Completed...");
+	}
+	
+	@Test(priority=22)
+	public void SelectingAllFiles() {
+		testRep = extentReportManager.createTest("Test Selecting Downloads|Word & Excel File Check Boxes");
+		testRep.info("Starting test for Elements|Home|Selecting Downloads|Word & Excel File Check Boxes");
+		demoqaLog.info("Starting Test Elements|Home|Selecting Downloads|Word & Excel File Check Boxes Test...");
+		elementsPage elementsPage = new elementsPage(driver);
+		elementsPage.accessElements();
+		elementsPage.clickCheckBox();
+		elementsPage.ToggleHome();
+		elementsPage.ToggleDownloads();
+		elementsPage.selectWordFile();
+		elementsPage.selectExcelFile();
+		elementsPage.validateSelectedCheckBox();
+		testRep.info("Test Elements|Home|Selecting Downloads|Word & Excel File Check Boxes Test Completed...");
+		demoqaLog.info("Test Elements|Home|Selecting Downloads|Word & Excel File Check Boxes Completed...");
 	}
 }
