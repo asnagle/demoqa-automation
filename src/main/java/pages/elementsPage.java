@@ -5,13 +5,21 @@ import java.util.List;
 import org.openqa.selenium.By;
 import org.openqa.selenium.By.ByCssSelector;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
+
+import com.aventstack.extentreports.ExtentTest;
+
+//import com.aventstack.extentreports.util.Assert;
 import base.demoqaBase;
+import models.WebTableUser;
+import utils.DataSanitizer;
 import utils.demoqaLog;
 
 public class elementsPage extends demoqaBase {
@@ -51,52 +59,52 @@ public class elementsPage extends demoqaBase {
 
 	@FindBy(xpath = "//label[@for='tree-node-documents']//span[@class='rct-checkbox']")
 	WebElement SelectDocuments;
-	
+
 	@FindBy(xpath = "//*[@id=\"tree-node\"]/ol/li/ol/li[2]/span/button")
 	WebElement ToggleDocuments;
-	
+
 	@FindBy(xpath = "//label[@for='tree-node-workspace']//span[@class='rct-checkbox']")
 	WebElement SelectWorkSpace;
-	
+
 	@FindBy(xpath = "//*[@id=\"tree-node\"]/ol/li/ol/li[2]/ol/li[1]/span/button")
 	WebElement ToggleWorkSpace;
-	
+
 	@FindBy(xpath = "//label[@for='tree-node-react']//span[@class='rct-checkbox']")
 	WebElement SelectReact;
-	
+
 	@FindBy(xpath = "//label[@for='tree-node-angular']//span[@class='rct-checkbox']")
 	WebElement SelectAngular;
-	
+
 	@FindBy(xpath = "//label[@for='tree-node-veu']//span[@class='rct-checkbox']")
 	WebElement SelectVeu;
-	
+
 	@FindBy(xpath = "//label[@for='tree-node-office']//span[@class='rct-checkbox']")
 	WebElement SelectOffice;
-	
+
 	@FindBy(xpath = "//*[@id=\"tree-node\"]/ol/li/ol/li[2]/ol/li[2]/span/button")
 	WebElement ToggleOffice;
-	
+
 	@FindBy(xpath = "//label[@for='tree-node-public']//span[@class='rct-checkbox']")
 	WebElement SelectPublic;
-	
+
 	@FindBy(xpath = "//label[@for='tree-node-private']//span[@class='rct-checkbox']")
 	WebElement SelectPrivate;
-	
+
 	@FindBy(xpath = "//label[@for='tree-node-classified']//span[@class='rct-checkbox']")
 	WebElement SelectClassified;
-	
+
 	@FindBy(xpath = "//label[@for='tree-node-general']//span[@class='rct-checkbox']")
 	WebElement SelectGeneral;
-	
+
 	@FindBy(xpath = "//label[@for='tree-node-downloads']//span[@class='rct-checkbox']")
 	WebElement SelectDownloads;
-	
+
 	@FindBy(xpath = "//li[3]//span[1]//button[1]")
 	WebElement ToggleDownloads;
-	
+
 	@FindBy(xpath = "//label[@for='tree-node-wordFile']//span[@class='rct-checkbox']")
 	WebElement SelectWordFile;
-	
+
 	@FindBy(xpath = "//label[@for='tree-node-excelFile']//span[@class='rct-checkbox']")
 	WebElement SelectExcelFile;
 
@@ -110,13 +118,59 @@ public class elementsPage extends demoqaBase {
 	WebElement currentAddress;
 
 	@FindBy(id = "permanentAddress")
-//	@FindBy(xpath = "//textarea[@id='permanentAddress']")
 	WebElement permanentAddress;
 
 	@FindBy(id = "submit")
 	WebElement submitButton;
 
+	@FindBy(xpath = "//*[@id=\"item-2\"]")
+	WebElement radioButton;
+
+	@FindBy(xpath = "//h1[normalize-space()='Radio Button']")
+	WebElement radioPageTitle;
+
+	@FindBy(xpath = "//input[@id='yesRadio']")
+	WebElement yesRadio;
+
+	@FindBy(xpath = "//input[@id='impressiveRadio']")
+	WebElement impressiveRadio;
+	
+	@FindBy(xpath = "//span[@class='text-success']")
+	WebElement radioButtonSelected;
+	
+	@FindBy(xpath = "//div[@class='element-list collapse show']//li[@id='item-3']")
+	WebElement webTables;
+	
+	@FindBy(xpath = "//button[@id='addNewRecordButton']")
+	WebElement webTableAdd;
+	
+	@FindBy(xpath = "//input[@id='firstName']")
+	WebElement wTableFirstName;
+	
+	@FindBy(xpath = "//input[@id='lastName']")
+	WebElement wTableLastName;
+	
+	@FindBy(xpath = "//input[@id='userEmail']")
+	WebElement wTableUserEmail;
+	
+	@FindBy(xpath = "//input[@id='age']")
+	WebElement wTableAge;
+	
+	@FindBy(xpath = "//input[@id='salary']")
+	WebElement wTableSalary;
+	
+	@FindBy(xpath = "//input[@id='department']")
+	WebElement wTableDept;
+	
+	@FindBy(xpath = "//button[@id='submit']")
+	WebElement wTableSubmitBtn;
+	
+	@FindBy(xpath = "//input[@id='searchBox']")
+	WebElement wTablesSearchBox;
+
 	private WebDriver driver;
+	private String wTFirstname;
+	private String wTLastname;
 	WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(3));
 
 	public elementsPage(WebDriver driver) {
@@ -192,7 +246,7 @@ public class elementsPage extends demoqaBase {
 	}
 
 	protected WebDriverWait getWait() {
-		return new WebDriverWait(driver, Duration.ofSeconds(3));
+		return new WebDriverWait(driver, Duration.ofSeconds(10));
 	}
 
 	public void clickCheckBox() {
@@ -221,7 +275,7 @@ public class elementsPage extends demoqaBase {
 		for (WebElement result : options) {
 			String FinalResult = result.getText().trim();
 			System.out.println("Information Submitted is: " + FinalResult);
-			demoqaLog.info("You have Selected: " +FinalResult);
+			demoqaLog.info("You have Selected: " + FinalResult);
 		}
 	}
 
@@ -254,12 +308,12 @@ public class elementsPage extends demoqaBase {
 		SelectDocuments.click();
 		demoqaLog.info("Selected Documents Check Box...");
 	}
-	
+
 	public void ToggleDocuments() {
 		demoqaLog.info("Clicking on Documents Toggle Button...");
 		ToggleDocuments.click();
 	}
-	
+
 	public void selectWorkSpace() {
 		demoqaLog.info("Selecting WorkSpace Check Box...");
 		JavascriptExecutor js = (JavascriptExecutor) driver;
@@ -267,7 +321,7 @@ public class elementsPage extends demoqaBase {
 		js.executeScript("arguments[0].click();", SelectWorkSpace);
 		demoqaLog.info("Selected WorkSpace Check Box...");
 	}
-	
+
 	public void ToggleWorkSpace() {
 		demoqaLog.info("Clicking WorkSpace Toggle Button...");
 		JavascriptExecutor js = (JavascriptExecutor) driver;
@@ -275,25 +329,25 @@ public class elementsPage extends demoqaBase {
 		js.executeScript("arguments[0].click();", ToggleWorkSpace);
 		demoqaLog.info("Clicked WorkSpace Toggle Button...");
 	}
-	
+
 	public void selectReact() {
 		demoqaLog.info("Selecting WorkSpace | React Check Box...");
 		SelectReact.click();
 		demoqaLog.info("Selected WorkSpace | React Check Box...");
 	}
-	
+
 	public void selectAngular() {
 		demoqaLog.info("Selecting WorkSpace | Angular Check Box...");
 		SelectAngular.click();
 		demoqaLog.info("Selected WorkSpace | Angular Check Box...");
 	}
-	
+
 	public void selectVeu() {
 		demoqaLog.info("Selecting WorkSpace | Veu Check Box...");
 		SelectVeu.click();
 		demoqaLog.info("Selected WorkSpace | Veu Check Box...");
 	}
-	
+
 	public void selectOffice() {
 		demoqaLog.info("Selecting WorkSpace Check Box...");
 		JavascriptExecutor js = (JavascriptExecutor) driver;
@@ -301,7 +355,7 @@ public class elementsPage extends demoqaBase {
 		js.executeScript("arguments[0].click();", SelectOffice);
 		demoqaLog.info("Selected WorkSpace Check Box...");
 	}
-	
+
 	public void ToggleOffice() {
 		demoqaLog.info("Clicking Office Toggle Button...");
 		JavascriptExecutor js = (JavascriptExecutor) driver;
@@ -309,31 +363,31 @@ public class elementsPage extends demoqaBase {
 		js.executeScript("arguments[0].click();", ToggleOffice);
 		demoqaLog.info("Clicked Office Toggle Button...");
 	}
-	
+
 	public void selectPublic() {
 		demoqaLog.info("Selecting Office | Public Check Box...");
 		SelectPublic.click();
 		demoqaLog.info("Selected Office | Public Check Box...");
 	}
-	
+
 	public void selectPrivate() {
 		demoqaLog.info("Selecting Office | Private Check Box...");
 		SelectPrivate.click();
 		demoqaLog.info("Selected Office | Private Check Box...");
 	}
-	
+
 	public void selectClassified() {
 		demoqaLog.info("Selecting Office | Classified Check Box...");
 		SelectClassified.click();
 		demoqaLog.info("Selected Office | Classified Check Box...");
 	}
-	
+
 	public void selectGeneral() {
 		demoqaLog.info("Selecting Office | General Check Box...");
 		SelectGeneral.click();
 		demoqaLog.info("Selected Office | General Check Box...");
 	}
-	
+
 	public void selectDownloads() {
 		demoqaLog.info("Selecting Downloads Check Box...");
 		JavascriptExecutor js = (JavascriptExecutor) driver;
@@ -341,7 +395,7 @@ public class elementsPage extends demoqaBase {
 		js.executeScript("arguments[0].click();", SelectDownloads);
 		demoqaLog.info("Selected Downloads Check Box...");
 	}
-	
+
 	public void ToggleDownloads() {
 		demoqaLog.info("Clicking Downloads Toggle Button...");
 		JavascriptExecutor js = (JavascriptExecutor) driver;
@@ -349,17 +403,171 @@ public class elementsPage extends demoqaBase {
 		js.executeScript("arguments[0].click();", ToggleDownloads);
 		demoqaLog.info("Clicked Downloads Toggle Button...");
 	}
-	
+
 	public void selectWordFile() {
 		demoqaLog.info("Selecting Downloads | Word File Check Box...");
 		SelectWordFile.click();
 		demoqaLog.info("Selected Downloads | Word File Check Box...");
 	}
-	
+
 	public void selectExcelFile() {
 		demoqaLog.info("Selecting Downloads | Excel File Check Box...");
 		SelectExcelFile.click();
 		demoqaLog.info("Selected Downloads | Excel File Check Box...");
+	}
+
+	public void radioButtonClick() {
+		demoqaLog.info("Clicking on Radio Button...");
+		radioButton.click();
+	}
+
+	public void validateRadioButtonClick() {
+		demoqaLog.info("Validating Radio Button Click...");
+		String radioPage = radioPageTitle.getText();
+		System.out.println("Page Title is: " + radioPage);
+	}
+
+	public void yesRadioSelect() {
+		demoqaLog.info("Selecting on Yes Radio Button...");
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript("arguments[0].scrollIntoView(true);", yesRadio);
+		js.executeScript("arguments[0].click();", yesRadio);
+	}
+	
+	public void validateRadioSelection() {
+		demoqaLog.info("Validating Radio Selection Test Result...");
+		String selectedRadioButton = radioButtonSelected.getText();
+		if (selectedRadioButton.equalsIgnoreCase("Yes") | (selectedRadioButton.equalsIgnoreCase("Impressive"))) {
+			demoqaLog.info("You have selected: " +radioButtonSelected.getText());
+			demoqaLog.info("Test Case of Radio Button Selection PASSED...");
+			
+		}
+	}
+
+	public void impressiveRadioSelect() {
+		demoqaLog.info("Selecting on Impressive Radio Button...");
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript("arguments[0].scrollIntoView(true);", impressiveRadio);
+		js.executeScript("arguments[0].click();", impressiveRadio);
+	}
+	
+	public void webTablesClick() {
+		demoqaLog.info("Click on Elements|Web Tables...");
+		webTables.click();
+	}
+	
+	
+	public void webTablesNewRegistration() {
+		demoqaLog.info("Click on Elements|Web Tables|Registration Form...");
+		webTableAdd.click();
+	}
+	public void fillWebTableForm(WebTableUser user) {
+	    wTAddFirstName(user.getFirstName());
+	    wTAddLastName(user.getLastName());
+	    wTAddUserEmail(user.getEmail());
+	    try {
+	    	
+	    	int age = DataSanitizer.parseSafeInt(user.getAge(), "age", user.getFirstName());
+
+	        wTAddAge(age);
+	    } catch (NumberFormatException e) {
+	        throw new RuntimeException("Invalid age format for user: " + user.getFirstName(), e);
+	    }
+	    
+	    try {
+	    	int salary = DataSanitizer.parseSafeInt(user.getSalary(), "salary", user.getFirstName());
+	        wTAddSalary(salary);
+	    } catch (NumberFormatException e) {
+	        throw new RuntimeException("Invalid salary format for user: " + user.getFirstName(), e);
+	    }
+
+	    wTAddDepartment(user.getDepartment());
+	    wTSubmitBtn();
+	}
+	
+	public void wTAddFirstName(String firstname) {
+		demoqaLog.info("Click on Elements|Web Tables|Registration Form|FirstName...");
+		wTableFirstName.click();
+		wTableFirstName.clear();
+		wTableFirstName.sendKeys(firstname);
+		demoqaLog.info("First Name entered is: " + wTableFirstName.getText());
+		this.wTFirstname = firstname;
+	}
+	
+	public void wTAddLastName(String lastname) {
+		demoqaLog.info("Click on Elements|Web Tables|Registration Form|LastName...");
+		System.out.println("Last Name is: " + lastname);
+		wTableLastName.click();
+		wTableLastName.clear();
+		wTableLastName.sendKeys(lastname);
+		demoqaLog.info("Last Name entered is: " + wTableLastName.getAttribute("value"));
+		this.wTLastname = lastname;
+	}
+	
+	public void wTAddUserEmail(String email) {
+		demoqaLog.info("Click on Elements|Web Tables|Registration Form|Email...");
+		System.out.println("Email ID is: " + email);
+		wTableUserEmail.click();
+		wTableUserEmail.clear();
+		wTableUserEmail.sendKeys(email);
+		demoqaLog.info("Email entered is: " + wTableUserEmail.getAttribute("value"));
+	}
+	
+	public void wTAddAge(int age) {
+		demoqaLog.info("Click on Elements|Web Tables|Registration Form|Age...");
+		wTableAge.click();
+		wTableAge.clear();
+		wTableAge.sendKeys(String.valueOf(age));
+		demoqaLog.info("Age entered is: " + wTableAge.getAttribute("value"));
+	}
+	
+	public void wTAddSalary(int salary) {
+		demoqaLog.info("Click on Elements|Web Tables|Registration Form|Salary...");
+		wTableSalary.click();
+		wTableSalary.clear();
+		wTableSalary.sendKeys(String.valueOf(salary));
+		demoqaLog.info("Age entered is: " + wTableSalary.getText());
+	}
+	
+	public void wTAddDepartment(String Department) {
+		demoqaLog.info("Click on Elements|Web Tables|Registration Form|Department...");
+		wTableDept.click();
+		wTableDept.clear();
+		wTableDept.sendKeys("Cyber Security");
+		demoqaLog.info("Department entered is: " + wTableDept.getText());
+	}
+	
+	public void wTSubmitBtn() {
+		demoqaLog.info("Submitting Registration Form...");
+		wTableSubmitBtn.click();
+		demoqaLog.info("Form Submitted: " + wTableDept.getText());
+	}
+	
+	public void wTSearchBox(String FirstName) {
+		demoqaLog.info("Searching by First Name...");
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+	    wait.until(ExpectedConditions.visibilityOf(wTablesSearchBox));
+
+		wTablesSearchBox.click();
+		wTablesSearchBox.clear();
+		wTablesSearchBox.sendKeys(FirstName);
+	}
+	
+	public void assertUserPresentInTable(WebTableUser user, ExtentTest extentTest) {
+	    extentTest.info("Searching for user: " + user.getFirstName());
+	    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+	    By resultLocator = By.xpath("//div[@class='rt-td' and text()='" + user.getFirstName() + "']");
+
+	    try {
+	        WebElement resultCell = wait.until(ExpectedConditions.visibilityOfElementLocated(resultLocator));
+	        Assert.assertTrue(resultCell.isDisplayed(), "User not found in web table after search.");
+	        extentTest.pass("User '" + user.getFirstName() + "' found in web table.");
+	    } catch (Exception e) {
+	        extentTest.fail("User '" + user.getFirstName() + "' not found in web table. Exception: " + e.getMessage());
+	        throw e;
+	    }
 	}
 
 }

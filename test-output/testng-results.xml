@@ -1,36 +1,140 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="21" total="22" passed="1" failed="0" skipped="0">
+<testng-results ignored="26" total="31" passed="5" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2025-07-29T10:14:50 IST" name="Default suite" finished-at="2025-07-29T10:14:57 IST" duration-ms="7173">
+  <suite started-at="2025-08-06T19:12:32 IST" name="Default suite" finished-at="2025-08-06T19:13:59 IST" duration-ms="87209">
     <groups>
     </groups>
-    <test started-at="2025-07-29T10:14:50 IST" name="Default test" finished-at="2025-07-29T10:14:57 IST" duration-ms="7173">
+    <test started-at="2025-08-06T19:12:32 IST" name="Default test" finished-at="2025-08-06T19:13:59 IST" duration-ms="87209">
       <class name="tests.ElementsTests">
-        <test-method is-config="true" signature="setupReport()[pri:0, instance:tests.ElementsTests@40005471]" started-at="2025-07-29T10:14:49 IST" name="setupReport" finished-at="2025-07-29T10:14:50 IST" duration-ms="270" status="PASS">
+        <test-method is-config="true" signature="setupReport()[pri:0, instance:tests.ElementsTests@544fa968]" started-at="2025-08-06T19:12:32 IST" name="setupReport" finished-at="2025-08-06T19:12:32 IST" duration-ms="205" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setupReport -->
-        <test-method is-config="true" signature="setUP()[pri:0, instance:tests.ElementsTests@40005471]" started-at="2025-07-29T10:14:50 IST" name="setUP" finished-at="2025-07-29T10:14:55 IST" duration-ms="5691" status="PASS">
+        <test-method is-config="true" signature="setUP()[pri:0, instance:tests.ElementsTests@544fa968]" started-at="2025-08-06T19:12:32 IST" name="setUP" finished-at="2025-08-06T19:12:41 IST" duration-ms="8589" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUP -->
-        <test-method signature="SelectingAllFiles()[pri:22, instance:tests.ElementsTests@40005471]" started-at="2025-07-29T10:14:55 IST" name="SelectingAllFiles" finished-at="2025-07-29T10:14:57 IST" duration-ms="1438" status="PASS">
+        <test-method signature="WebTablesClick()[pri:26, instance:tests.ElementsTests@544fa968]" started-at="2025-08-06T19:12:41 IST" name="WebTablesClick" finished-at="2025-08-06T19:12:41 IST" duration-ms="413" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- SelectingAllFiles -->
-        <test-method is-config="true" signature="TearDown(org.testng.ITestResult)[pri:0, instance:tests.ElementsTests@40005471]" started-at="2025-07-29T10:14:57 IST" name="TearDown" finished-at="2025-07-29T10:14:57 IST" duration-ms="6" status="PASS">
+        </test-method> <!-- WebTablesClick -->
+        <test-method is-config="true" signature="TearDown(org.testng.ITestResult)[pri:0, instance:tests.ElementsTests@544fa968]" started-at="2025-08-06T19:12:41 IST" name="TearDown" finished-at="2025-08-06T19:12:41 IST" duration-ms="6" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=SelectingAllFiles status=SUCCESS method=ElementsTests.SelectingAllFiles()[pri:22, instance:tests.ElementsTests@40005471] output={null}]]]>
+                <![CDATA[[TestResult name=WebTablesClick status=SUCCESS method=ElementsTests.WebTablesClick()[pri:26, instance:tests.ElementsTests@544fa968] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- TearDown -->
-        <test-method is-config="true" signature="teardownReport()[pri:0, instance:tests.ElementsTests@40005471]" started-at="2025-07-29T10:14:57 IST" name="teardownReport" finished-at="2025-07-29T10:14:57 IST" duration-ms="537" status="PASS">
+        <test-method is-config="true" signature="setUP()[pri:0, instance:tests.ElementsTests@544fa968]" started-at="2025-08-06T19:12:43 IST" name="setUP" finished-at="2025-08-06T19:13:06 IST" duration-ms="23058" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUP -->
+        <test-method signature="webTableNewRegistration(models.WebTableUser)[pri:27, instance:tests.ElementsTests@544fa968]" started-at="2025-08-06T19:13:06 IST" name="webTableNewRegistration" data-provider="WTFormBData" finished-at="2025-08-06T19:13:09 IST" depends-on-methods="tests.ElementsTests.WebTablesClick" duration-ms="2982" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[models.WebTableUser@1abebef3]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- webTableNewRegistration -->
+        <test-method is-config="true" signature="TearDown(org.testng.ITestResult)[pri:0, instance:tests.ElementsTests@544fa968]" started-at="2025-08-06T19:13:09 IST" name="TearDown" finished-at="2025-08-06T19:13:09 IST" duration-ms="1" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=webTableNewRegistration status=SUCCESS method=ElementsTests.webTableNewRegistration(models.WebTableUser)[pri:27, instance:tests.ElementsTests@544fa968] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- TearDown -->
+        <test-method is-config="true" signature="setUP()[pri:0, instance:tests.ElementsTests@544fa968]" started-at="2025-08-06T19:13:09 IST" name="setUP" finished-at="2025-08-06T19:13:21 IST" duration-ms="12460" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUP -->
+        <test-method signature="webTableNewRegistration(models.WebTableUser)[pri:27, instance:tests.ElementsTests@544fa968]" started-at="2025-08-06T19:13:21 IST" name="webTableNewRegistration" data-provider="WTFormBData" finished-at="2025-08-06T19:13:24 IST" depends-on-methods="tests.ElementsTests.WebTablesClick" duration-ms="3072" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[models.WebTableUser@4887de2b]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- webTableNewRegistration -->
+        <test-method is-config="true" signature="TearDown(org.testng.ITestResult)[pri:0, instance:tests.ElementsTests@544fa968]" started-at="2025-08-06T19:13:24 IST" name="TearDown" finished-at="2025-08-06T19:13:24 IST" duration-ms="1" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=webTableNewRegistration status=SUCCESS method=ElementsTests.webTableNewRegistration(models.WebTableUser)[pri:27, instance:tests.ElementsTests@544fa968] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- TearDown -->
+        <test-method is-config="true" signature="setUP()[pri:0, instance:tests.ElementsTests@544fa968]" started-at="2025-08-06T19:13:24 IST" name="setUP" finished-at="2025-08-06T19:13:36 IST" duration-ms="11519" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUP -->
+        <test-method signature="webTableNewRegistration(models.WebTableUser)[pri:27, instance:tests.ElementsTests@544fa968]" started-at="2025-08-06T19:13:36 IST" name="webTableNewRegistration" data-provider="WTFormBData" finished-at="2025-08-06T19:13:39 IST" depends-on-methods="tests.ElementsTests.WebTablesClick" duration-ms="3454" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[models.WebTableUser@62b3a2f6]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- webTableNewRegistration -->
+        <test-method is-config="true" signature="TearDown(org.testng.ITestResult)[pri:0, instance:tests.ElementsTests@544fa968]" started-at="2025-08-06T19:13:39 IST" name="TearDown" finished-at="2025-08-06T19:13:39 IST" duration-ms="2" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=webTableNewRegistration status=SUCCESS method=ElementsTests.webTableNewRegistration(models.WebTableUser)[pri:27, instance:tests.ElementsTests@544fa968] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- TearDown -->
+        <test-method is-config="true" signature="setUP()[pri:0, instance:tests.ElementsTests@544fa968]" started-at="2025-08-06T19:13:39 IST" name="setUP" finished-at="2025-08-06T19:13:57 IST" duration-ms="17803" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUP -->
+        <test-method signature="webTableNewRegistration(models.WebTableUser)[pri:27, instance:tests.ElementsTests@544fa968]" started-at="2025-08-06T19:13:57 IST" name="webTableNewRegistration" data-provider="WTFormBData" finished-at="2025-08-06T19:13:59 IST" depends-on-methods="tests.ElementsTests.WebTablesClick" duration-ms="2412" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[models.WebTableUser@7f27f59b]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- webTableNewRegistration -->
+        <test-method is-config="true" signature="TearDown(org.testng.ITestResult)[pri:0, instance:tests.ElementsTests@544fa968]" started-at="2025-08-06T19:13:59 IST" name="TearDown" finished-at="2025-08-06T19:13:59 IST" duration-ms="3" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=webTableNewRegistration status=SUCCESS method=ElementsTests.webTableNewRegistration(models.WebTableUser)[pri:27, instance:tests.ElementsTests@544fa968] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- TearDown -->
+        <test-method is-config="true" signature="teardownReport()[pri:0, instance:tests.ElementsTests@544fa968]" started-at="2025-08-06T19:14:00 IST" name="teardownReport" finished-at="2025-08-06T19:14:00 IST" duration-ms="667" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- teardownReport -->
