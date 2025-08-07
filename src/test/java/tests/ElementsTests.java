@@ -40,6 +40,24 @@ public class ElementsTests extends demoqaBase {
 
 		return data.toArray(new Object[0][]);
 	}
+	@DataProvider(name = "WTFormDataEdit")
+	public Object[][] getSingleWebTableUser() throws IOException {
+	    String sheetName = "Sheet1";
+	    String filePath = System.getProperty("user.dir") + "/TestData/Students_Details.xlsx";
+
+	    excelUtils.loadExcel(filePath, sheetName);
+
+	    int headerRowIndex = excelUtils.findHeaderRowIndex(excelUtils.getSheet(sheetName));
+	    int targetRowIndex = headerRowIndex + 1; // First data row
+
+	    Map<String, String> rowData = excelUtils.getRowDataAsMap(sheetName, targetRowIndex);
+	    WebTableUser user = WebTableUser.fromExcelRow(rowData);
+
+	    excelUtils.closeExcel();
+
+	    return new Object[][] { { user } };
+	}
+
 
 	@Test(priority = 1)
 	public void ElementsCard() {
@@ -457,9 +475,9 @@ public class ElementsTests extends demoqaBase {
 
 	@Test(priority = 27, dataProvider = "WTFormBData", dependsOnMethods = { "WebTablesClick" })
 	public void webTableNewRegistration(WebTableUser user) {
-		testRep = extentReportManager.createTest("Test Elements|Web Tables|Registration Form...");
-		testRep.info("Starting test for Web Tables|Registration Form...");
-		demoqaLog.info("Starting Test Elements|Web Tables|Registration Form Test...");
+		testRep = extentReportManager.createTest("Test Elements|Web Tables|Registration Form Create User...");
+		testRep.info("Starting test for Web Tables|Registration Form Create User...");
+		demoqaLog.info("Starting Test Elements|Web Tables|Registration Form Create User...");
 		elementsPage elementsPage = new elementsPage(driver);
 		elementsPage.accessElements();
 		elementsPage.webTablesClick();
@@ -467,15 +485,15 @@ public class ElementsTests extends demoqaBase {
 		// ✅ Use the user directly — no need to re-fetch from Excel
 		elementsPage.fillWebTableForm(user);
 		elementsPage.assertUserPresentInTable(user, testRep);
-		testRep.info("Test Elements|Web Tables|Registration Form Completed...");
-		demoqaLog.info("Test Elements|Web Tables|Registration Form Completed...");
+		testRep.info("Test Elements|Web Tables|Registration Form Create User Completed...");
+		demoqaLog.info("Test Elements|Web Tables|Registration Form Create User Completed...");
 	}
 
-	@Test(priority = 28, dataProvider = "WTFormBData", dependsOnMethods = { "WebTablesClick" })
+	@Test(priority = 28, dataProvider = "WTFormDataEdit", dependsOnMethods = { "WebTablesClick" })
 	public void webTableAddSearch(WebTableUser user) {
-		testRep = extentReportManager.createTest("Test Elements|Web Tables|Registration Form...");
-		testRep.info("Starting test for Web Tables|Registration Form...");
-		demoqaLog.info("Starting Test Elements|Web Tables|Registration Form Test...");
+		testRep = extentReportManager.createTest("Test Registration Form Add & Search...");
+		testRep.info("Starting test for Registration Form Add & Search...");
+		demoqaLog.info("Starting Test Registration Form Add & Search...");
 
 		elementsPage elementsPage = new elementsPage(driver);
 		elementsPage.accessElements();
@@ -488,8 +506,83 @@ public class ElementsTests extends demoqaBase {
 		elementsPage.wTSearchBox(user.getFirstName());
 		elementsPage.assertUserPresentInTable(user, testRep);
 
-		testRep.info("Test Elements|Web Tables|Registration Form Completed...");
-		demoqaLog.info("Test Elements|Web Tables|Registration Form Completed...");
+		testRep.info("Test for Registration Form Add & Search Completed...");
+		demoqaLog.info("Test for Registration Form Add & Search Completed...");
+	}
+	
+	@Test(priority = 29, dataProvider = "WTFormDataEdit", dependsOnMethods = { "WebTablesClick" })
+	public void webTableAddEditFirstName(WebTableUser user) {
+		testRep = extentReportManager.createTest("Test Registration Form Modify First Name...");
+		testRep.info("Starting Test for Registration Form Modify First Name...");
+		demoqaLog.info("Starting Test Registration Form Modify First Name...");
+
+		elementsPage elementsPage = new elementsPage(driver);
+		elementsPage.accessElements();
+		elementsPage.webTablesClick();
+		elementsPage.webTablesNewRegistration();
+
+		// ✅ Use the user directly — no need to re-fetch from Excel
+		elementsPage.fillWebTableForm(user);
+//		WebTableUser user = WebTableUser.fromExcelRow(); // Your POJO
+		String wTFirstname = user.getFirstName(); // Direct getter
+		testRep.info("Orignal First Name of the User is: "+ wTFirstname);
+
+		elementsPage.editUserByField(wTFirstname);
+		elementsPage.editFirstName(wTFirstname);
+		user.setFirstName("Tonny");
+
+//		elementsPage.wTSearchBox(user.getFirstName());
+		elementsPage.assertUserPresentInTable(user, testRep);
+		testRep.info("Updated First Name of the User is: "+ user.getFirstName());
+
+		testRep.pass("Test Registration Form Modify First Name Completed...");
+		demoqaLog.info("Test Registration Form Modify First Name Completed Successfully...");
+	}
+	
+	@Test(priority = 30, dataProvider = "WTFormDataEdit", dependsOnMethods = { "WebTablesClick" })
+	public void webTableAddSearchEdit(WebTableUser user) {
+		testRep = extentReportManager.createTest("Test Registration Form Search & Modify First Name...");
+		testRep.info("Starting Test for Registration Form Search & Modify First Name...");
+		demoqaLog.info("Starting Test Registration Form Search & Modify First Name...");
+
+		elementsPage elementsPage = new elementsPage(driver);
+		elementsPage.accessElements();
+		elementsPage.webTablesClick();
+		elementsPage.webTablesNewRegistration();
+
+		// ✅ Use the user directly — no need to re-fetch from Excel
+		elementsPage.fillWebTableForm(user);
+		String wTFirstname = user.getFirstName(); // Direct getter
+		testRep.info("Orignal First Name of the User is: "+ wTFirstname);
+		elementsPage.SearcheditUserByField(wTFirstname);
+		elementsPage.SearcheditFirstName(wTFirstname);
+		user.setFirstName("Tonny");
+		elementsPage.assertUserPresentInTable(user, testRep);
+		testRep.info("Updated First Name of the User is: "+ user.getFirstName());
+		testRep.pass("Test Registration Form Search & Modify First Name Completed...");
+		demoqaLog.info("Test Registration Form Search & Modify First Name Completed Successfully...");
+	}
+	
+
+	@Test(priority = 31, dataProvider = "WTFormDataEdit", dependsOnMethods = { "WebTablesClick" })
+	public void webTableDeleteUser(WebTableUser user) {
+		testRep = extentReportManager.createTest("Test Deleting User from Web Table...");
+		testRep.info("Starting Test for Deleting User from Web Table...");
+		demoqaLog.info("Starting Test for Deleting User from Web Table...");
+		elementsPage elementsPage = new elementsPage(driver);
+		elementsPage.accessElements();
+		elementsPage.webTablesClick();
+		elementsPage.webTablesNewRegistration();
+
+		// ✅ Use the user directly — no need to re-fetch from Excel
+		elementsPage.fillWebTableForm(user);
+		String wTFirstname = user.getFirstName(); // Direct getter
+		testRep.info("Deleting User from Webtable: " + user.getFirstName());
+		demoqaLog.info("Deleting User from Webtable: " + user.getFirstName());
+		elementsPage.DeleteUser(wTFirstname);
+		elementsPage.assertUserNotPresentInTable(user, testRep);
+		testRep.pass("Test for Deleting User from Web Table Completed...");
+		demoqaLog.info("Test for Deleting User from Web Table Completed Successfully...");
 	}
 
 }

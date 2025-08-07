@@ -4,8 +4,11 @@ C:\ASN\eclipse_workspace\demoqa-automation\src\main\java\customAnnotations\Captu
 C:\ASN\eclipse_workspace\demoqa-automation\src\main\java\utils\splitDOB.java
 C:\ASN\eclipse_workspace\demoqa-automation\src\main\java\utils\extentReportManager.java
 C:\ASN\eclipse_workspace\demoqa-automation\src\main\java\utils\waitForElement.java
+C:\ASN\eclipse_workspace\demoqa-automation\src\main\java\utils\mappers\ExcelToPOJOMapper.java
 C:\ASN\eclipse_workspace\demoqa-automation\src\main\java\pages\formsPage.java
 C:\ASN\eclipse_workspace\demoqa-automation\src\main\java\models\UserFormData.java
+C:\ASN\eclipse_workspace\demoqa-automation\src\main\java\models\WebTableUser.java
+C:\ASN\eclipse_workspace\demoqa-automation\src\main\java\utils\DataSanitizer.java
 C:\ASN\eclipse_workspace\demoqa-automation\src\main\java\pages\alertsframewindowsPage.java
 C:\ASN\eclipse_workspace\demoqa-automation\src\main\java\utils\dateUtils.java
 C:\ASN\eclipse_workspace\demoqa-automation\src\main\java\pages\homePage.java

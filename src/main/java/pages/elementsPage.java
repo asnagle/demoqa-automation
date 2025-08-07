@@ -2,10 +2,9 @@ package pages;
 
 import java.time.Duration;
 import java.util.List;
+import java.util.concurrent.TimeoutException;
 import org.openqa.selenium.By;
-import org.openqa.selenium.By.ByCssSelector;
 import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -13,9 +12,7 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
-
 import com.aventstack.extentreports.ExtentTest;
-
 //import com.aventstack.extentreports.util.Assert;
 import base.demoqaBase;
 import models.WebTableUser;
@@ -134,37 +131,37 @@ public class elementsPage extends demoqaBase {
 
 	@FindBy(xpath = "//input[@id='impressiveRadio']")
 	WebElement impressiveRadio;
-	
+
 	@FindBy(xpath = "//span[@class='text-success']")
 	WebElement radioButtonSelected;
-	
+
 	@FindBy(xpath = "//div[@class='element-list collapse show']//li[@id='item-3']")
 	WebElement webTables;
-	
+
 	@FindBy(xpath = "//button[@id='addNewRecordButton']")
 	WebElement webTableAdd;
-	
+
 	@FindBy(xpath = "//input[@id='firstName']")
 	WebElement wTableFirstName;
-	
+
 	@FindBy(xpath = "//input[@id='lastName']")
 	WebElement wTableLastName;
-	
+
 	@FindBy(xpath = "//input[@id='userEmail']")
 	WebElement wTableUserEmail;
-	
+
 	@FindBy(xpath = "//input[@id='age']")
 	WebElement wTableAge;
-	
+
 	@FindBy(xpath = "//input[@id='salary']")
 	WebElement wTableSalary;
-	
+
 	@FindBy(xpath = "//input[@id='department']")
 	WebElement wTableDept;
-	
+
 	@FindBy(xpath = "//button[@id='submit']")
 	WebElement wTableSubmitBtn;
-	
+
 	@FindBy(xpath = "//input[@id='searchBox']")
 	WebElement wTablesSearchBox;
 
@@ -434,14 +431,14 @@ public class elementsPage extends demoqaBase {
 		js.executeScript("arguments[0].scrollIntoView(true);", yesRadio);
 		js.executeScript("arguments[0].click();", yesRadio);
 	}
-	
+
 	public void validateRadioSelection() {
 		demoqaLog.info("Validating Radio Selection Test Result...");
 		String selectedRadioButton = radioButtonSelected.getText();
 		if (selectedRadioButton.equalsIgnoreCase("Yes") | (selectedRadioButton.equalsIgnoreCase("Impressive"))) {
-			demoqaLog.info("You have selected: " +radioButtonSelected.getText());
+			demoqaLog.info("You have selected: " + radioButtonSelected.getText());
 			demoqaLog.info("Test Case of Radio Button Selection PASSED...");
-			
+
 		}
 	}
 
@@ -452,50 +449,50 @@ public class elementsPage extends demoqaBase {
 		js.executeScript("arguments[0].scrollIntoView(true);", impressiveRadio);
 		js.executeScript("arguments[0].click();", impressiveRadio);
 	}
-	
+
 	public void webTablesClick() {
 		demoqaLog.info("Click on Elements|Web Tables...");
 		webTables.click();
 	}
-	
-	
+
 	public void webTablesNewRegistration() {
 		demoqaLog.info("Click on Elements|Web Tables|Registration Form...");
 		webTableAdd.click();
 	}
+
 	public void fillWebTableForm(WebTableUser user) {
-	    wTAddFirstName(user.getFirstName());
-	    wTAddLastName(user.getLastName());
-	    wTAddUserEmail(user.getEmail());
-	    try {
-	    	
-	    	int age = DataSanitizer.parseSafeInt(user.getAge(), "age", user.getFirstName());
+		wTAddFirstName(user.getFirstName());
+		wTAddLastName(user.getLastName());
+		wTAddUserEmail(user.getEmail());
+		try {
 
-	        wTAddAge(age);
-	    } catch (NumberFormatException e) {
-	        throw new RuntimeException("Invalid age format for user: " + user.getFirstName(), e);
-	    }
-	    
-	    try {
-	    	int salary = DataSanitizer.parseSafeInt(user.getSalary(), "salary", user.getFirstName());
-	        wTAddSalary(salary);
-	    } catch (NumberFormatException e) {
-	        throw new RuntimeException("Invalid salary format for user: " + user.getFirstName(), e);
-	    }
+			int age = DataSanitizer.parseSafeInt(user.getAge(), "age", user.getFirstName());
 
-	    wTAddDepartment(user.getDepartment());
-	    wTSubmitBtn();
+			wTAddAge(age);
+		} catch (NumberFormatException e) {
+			throw new RuntimeException("Invalid age format for user: " + user.getFirstName(), e);
+		}
+
+		try {
+			int salary = DataSanitizer.parseSafeInt(user.getSalary(), "salary", user.getFirstName());
+			wTAddSalary(salary);
+		} catch (NumberFormatException e) {
+			throw new RuntimeException("Invalid salary format for user: " + user.getFirstName(), e);
+		}
+
+		wTAddDepartment(user.getDepartment());
+		wTSubmitBtn();
 	}
-	
+
 	public void wTAddFirstName(String firstname) {
 		demoqaLog.info("Click on Elements|Web Tables|Registration Form|FirstName...");
 		wTableFirstName.click();
 		wTableFirstName.clear();
 		wTableFirstName.sendKeys(firstname);
-		demoqaLog.info("First Name entered is: " + wTableFirstName.getText());
+		demoqaLog.info("First Name entered is: " + wTableFirstName.getAttribute("value"));
 		this.wTFirstname = firstname;
 	}
-	
+
 	public void wTAddLastName(String lastname) {
 		demoqaLog.info("Click on Elements|Web Tables|Registration Form|LastName...");
 		System.out.println("Last Name is: " + lastname);
@@ -505,7 +502,7 @@ public class elementsPage extends demoqaBase {
 		demoqaLog.info("Last Name entered is: " + wTableLastName.getAttribute("value"));
 		this.wTLastname = lastname;
 	}
-	
+
 	public void wTAddUserEmail(String email) {
 		demoqaLog.info("Click on Elements|Web Tables|Registration Form|Email...");
 		System.out.println("Email ID is: " + email);
@@ -514,7 +511,7 @@ public class elementsPage extends demoqaBase {
 		wTableUserEmail.sendKeys(email);
 		demoqaLog.info("Email entered is: " + wTableUserEmail.getAttribute("value"));
 	}
-	
+
 	public void wTAddAge(int age) {
 		demoqaLog.info("Click on Elements|Web Tables|Registration Form|Age...");
 		wTableAge.click();
@@ -522,52 +519,161 @@ public class elementsPage extends demoqaBase {
 		wTableAge.sendKeys(String.valueOf(age));
 		demoqaLog.info("Age entered is: " + wTableAge.getAttribute("value"));
 	}
-	
+
 	public void wTAddSalary(int salary) {
 		demoqaLog.info("Click on Elements|Web Tables|Registration Form|Salary...");
 		wTableSalary.click();
 		wTableSalary.clear();
 		wTableSalary.sendKeys(String.valueOf(salary));
-		demoqaLog.info("Age entered is: " + wTableSalary.getText());
+		demoqaLog.info("Salary entered is: " + wTableSalary.getAttribute("value"));
 	}
-	
+
 	public void wTAddDepartment(String Department) {
 		demoqaLog.info("Click on Elements|Web Tables|Registration Form|Department...");
 		wTableDept.click();
 		wTableDept.clear();
 		wTableDept.sendKeys("Cyber Security");
-		demoqaLog.info("Department entered is: " + wTableDept.getText());
+		demoqaLog.info("Department entered is: " + wTableDept.getAttribute("value"));
 	}
-	
+
 	public void wTSubmitBtn() {
 		demoqaLog.info("Submitting Registration Form...");
 		wTableSubmitBtn.click();
-		demoqaLog.info("Form Submitted: " + wTableDept.getText());
+		demoqaLog.info("Registration Form Submitted...");
 	}
-	
+
 	public void wTSearchBox(String FirstName) {
 		demoqaLog.info("Searching by First Name...");
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
-	    wait.until(ExpectedConditions.visibilityOf(wTablesSearchBox));
+		wait.until(ExpectedConditions.visibilityOf(wTablesSearchBox));
 
 		wTablesSearchBox.click();
 		wTablesSearchBox.clear();
 		wTablesSearchBox.sendKeys(FirstName);
 	}
-	
+
 	public void assertUserPresentInTable(WebTableUser user, ExtentTest extentTest) {
-	    extentTest.info("Searching for user: " + user.getFirstName());
+		extentTest.info("Searching for user: " + user.getFirstName());
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+		By resultLocator = By.xpath("//div[@class='rt-td' and text()='" + user.getFirstName() + "']");
+
+		try {
+			WebElement resultCell = wait.until(ExpectedConditions.visibilityOfElementLocated(resultLocator));
+			Assert.assertTrue(resultCell.isDisplayed(), "User not found in web table after search.");
+			extentTest.pass("User '" + user.getFirstName() + "' found in web table.");
+		} catch (Exception e) {
+			extentTest.fail("User '" + user.getFirstName() + "' not found in web table. Exception: " + e.getMessage());
+			throw e;
+		}
+	}
+	
+	public void assertUserNotPresentInTable(WebTableUser user, ExtentTest extentTest) {
+	    String firstName = user.getFirstName();
+	    extentTest.info("Verifying absence of user: " + firstName);
+
+	    By resultLocator = By.xpath("//div[@class='rt-td' and text()='" + firstName + "']");
 	    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
-	    By resultLocator = By.xpath("//div[@class='rt-td' and text()='" + user.getFirstName() + "']");
 
 	    try {
-	        WebElement resultCell = wait.until(ExpectedConditions.visibilityOfElementLocated(resultLocator));
-	        Assert.assertTrue(resultCell.isDisplayed(), "User not found in web table after search.");
-	        extentTest.pass("User '" + user.getFirstName() + "' found in web table.");
+	        boolean isInvisible = wait.until(ExpectedConditions.invisibilityOfElementLocated(resultLocator));
+	        Assert.assertTrue(isInvisible, "User '" + firstName + "' is still visible in the web table.");
+	        extentTest.pass("User '" + firstName + "' is not present in the web table as expected.");
+	    } catch (org.openqa.selenium.TimeoutException te) {
+	        extentTest.fail("User '" + firstName + "' is still present in the web table.");
+	        throw te;
 	    } catch (Exception e) {
-	        extentTest.fail("User '" + user.getFirstName() + "' not found in web table. Exception: " + e.getMessage());
+	        extentTest.fail("Unexpected error while verifying user absence: " + e.getMessage());
 	        throw e;
 	    }
 	}
+	
+
+	public void editUserByField(String wTFirstname) {
+//	    WebElement searchBox = driver.findElement(By.cssSelector("input[placeholder='Search']"));
+//	    searchBox.clear();
+//	    searchBox.sendKeys(fieldValue);
+
+		new WebDriverWait(driver, Duration.ofSeconds(10)).until(ExpectedConditions.presenceOfElementLocated(
+				By.xpath("//div[@class='rt-tr-group'][.//div[text()='" + wTFirstname + "']]")));
+
+		WebElement editButton = driver.findElement(By.id("edit-record-4"));
+		((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", editButton);
+		editButton.click();
+	}
+	
+	public void SearcheditUserByField(String wTFirstname) {
+//	    WebElement searchBox = driver.findElement(By.cssSelector("input[placeholder='Search']"));
+//	    searchBox.clear();
+//	    searchBox.sendKeys(wTFirstname);
+		wTablesSearchBox.click();
+		wTablesSearchBox.clear();
+		wTablesSearchBox.sendKeys(wTFirstname);
+
+		new WebDriverWait(driver, Duration.ofSeconds(10)).until(ExpectedConditions.presenceOfElementLocated(
+				By.xpath("//div[@class='rt-tr-group'][.//div[text()='" + wTFirstname + "']]")));
+
+//		WebElement editButton = driver.findElement(By.id("edit-record-4"));
+		WebElement editButton = driver.findElement(By.xpath("//*[@id=\"edit-record-4\"]"));
+		((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", editButton);
+		editButton.click();
+	}
+
+	public void editFirstName(String oldName) {
+	    demoqaLog.info("Modifying First Name of the user...");
+
+	    // Clear and update the input field
+	    wTableFirstName.clear();
+	    String updatedName = "Tonny";
+	    wTableFirstName.sendKeys(updatedName);
+	    wTableSubmitBtn.click();
+
+	    try {
+			Thread.sleep(1000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+	    // Wait for the updated value to appear in the table
+	    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+	    By updatedNameLocator = By.xpath("//div[normalize-space()='" + updatedName + "']");
+	    WebElement updatedNameCell = wait.until(ExpectedConditions.visibilityOfElementLocated(updatedNameLocator));
+
+	    demoqaLog.info("Updated First Name is: " + updatedNameCell.getText());
+	}
+	
+	public void SearcheditFirstName(String oldName) {
+	    demoqaLog.info("Modifying First Name of the user...");
+
+	    // Clear and update the input field
+	    wTableFirstName.clear();
+	    String updatedName = "Tonny";
+	    wTableFirstName.sendKeys(updatedName);
+	    wTableSubmitBtn.click();
+	    try {
+			Thread.sleep(1000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+//	    wTablesSearchBox.click();
+		wTablesSearchBox.clear();
+		wTablesSearchBox.sendKeys(updatedName);
+
+	    // Wait for the updated value to appear in the table
+	    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+	    By updatedNameLocator = By.xpath("//div[normalize-space()='" + updatedName + "']");
+	    WebElement updatedNameCell = wait.until(ExpectedConditions.visibilityOfElementLocated(updatedNameLocator));
+
+	    demoqaLog.info("Updated First Name is: " + updatedNameCell.getText());
+	}
+	
+	
+	public void DeleteUser(String wTFirstname) {
+		WebElement deleteUser = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"delete-record-4\"]")));
+		((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", deleteUser);
+		deleteUser.click();
+	}
+	
 
 }

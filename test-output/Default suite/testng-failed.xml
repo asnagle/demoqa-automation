@@ -7,8 +7,8 @@
         <methods>
           <include name="WebTablesClick"/>
           <include name="TearDown"/>
-          <include name="webTableAddSearch" invocation-numbers="1 2 3"/>
           <include name="setupReport"/>
+          <include name="webTableDeleteUser" invocation-numbers="0"/>
           <include name="teardownReport"/>
           <include name="setUP"/>
         </methods>

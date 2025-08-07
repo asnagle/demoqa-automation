@@ -1,6 +1,7 @@
 pages\homePage.class
 utils\extentReportManager.class
 utils\splitDOB.class
+models\WebTableUser.class
 utils\excelUtils.class
 base\demoqaBase.class
 pages\formsPage.class
@@ -14,4 +15,6 @@ pages\alertsframewindowsPage.class
 pages\elementsPage.class
 customAnnotations\ValidateResult.class
 utils\closeAds.class
+utils\DataSanitizer.class
 utils\demoqaLog.class
+utils\mappers\ExcelToPOJOMapper.class
