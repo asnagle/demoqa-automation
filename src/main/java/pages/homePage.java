@@ -18,7 +18,8 @@ public class homePage {
 	
 	public void clickElementCard() {
 		demoqaLog.info("Clicking on Elements Card...");
-		driver.findElement(elementsCard).click();		
+		driver.findElement(elementsCard).click();
+		
 	}
 
 

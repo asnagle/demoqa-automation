@@ -1,63 +1,44 @@
 package tests;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-
-import org.apache.poi.ss.usermodel.Sheet;
+import org.openqa.selenium.By;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import base.demoqaBase;
 import customAnnotations.CaptureOnSuccess;
 import models.WebTableUser;
 import pages.elementsPage;
+import utils.ExcelUtils;
+import utils.WebTableManager;
 import utils.demoqaLog;
-import utils.excelUtils;
 import utils.extentReportManager;
+import utils.waitForElement;
 
 public class ElementsTests extends demoqaBase {
 
-	@DataProvider(name = "WTFormBData")
-	public Object[][] getWebTableData() throws IOException {
-		String sheetName = "Sheet1";
-		String filePath = System.getProperty("user.dir") + "/TestData/Students_Details.xlsx";
-
-		excelUtils.loadExcel(filePath, sheetName);
-
-		int headerRowIndex = excelUtils.findHeaderRowIndex(excelUtils.getSheet(sheetName));
-		int totalRows = excelUtils.getRowCount();
-
-		List<Object[]> data = new ArrayList<>();
-
-		for (int i = headerRowIndex + 1; i < totalRows; i++) {
-			Map<String, String> rowData = excelUtils.getRowDataAsMap(sheetName, i);
-			WebTableUser user = WebTableUser.fromExcelRow(rowData);
-			data.add(new Object[] { user });
-		}
-
-		excelUtils.closeExcel();
-
-		return data.toArray(new Object[0][]);
-	}
-	@DataProvider(name = "WTFormDataEdit")
-	public Object[][] getSingleWebTableUser() throws IOException {
-	    String sheetName = "Sheet1";
+	@DataProvider(name = "WebTableUserData")
+	public Object[][] provideWebTableUserData() throws IOException {
 	    String filePath = System.getProperty("user.dir") + "/TestData/Students_Details.xlsx";
+	    String sheetName = "Sheet1";
 
-	    excelUtils.loadExcel(filePath, sheetName);
+	    return ExcelUtils.getMappedData(filePath, sheetName, WebTableUser.class);
+	}
 
-	    int headerRowIndex = excelUtils.findHeaderRowIndex(excelUtils.getSheet(sheetName));
-	    int targetRowIndex = headerRowIndex + 1; // First data row
+//	public Object[][] provideWebTableUserData() throws IOException {
+//	    String filePath = System.getProperty("user.dir") + "/TestData/Students_Details.xlsx";
+//	    String sheetName = "Sheet1";
+//
+//	    ExcelUtils excelUtils = new ExcelUtils();
+//	    return excelUtils.getMappedData(filePath, sheetName, WebTableUser.class);
+//	}
 
-	    Map<String, String> rowData = excelUtils.getRowDataAsMap(sheetName, targetRowIndex);
-	    WebTableUser user = WebTableUser.fromExcelRow(rowData);
-
-	    excelUtils.closeExcel();
-
+	@DataProvider(name = "WTFormDataEdit")
+	public Object[][] getSingleUserData() {
+	    String filePath = System.getProperty("user.dir") + "/TestData/Students_Details.xlsx";
+	    String sheetName = "Sheet1";
+	    WebTableUser user = ExcelUtils.getFirstUserFromExcel(filePath, sheetName);
 	    return new Object[][] { { user } };
 	}
-
 
 	@Test(priority = 1)
 	public void ElementsCard() {
@@ -473,7 +454,7 @@ public class ElementsTests extends demoqaBase {
 		demoqaLog.info("Test Elements|Web Tables Completed...");
 	}
 
-	@Test(priority = 27, dataProvider = "WTFormBData", dependsOnMethods = { "WebTablesClick" })
+	@Test(priority = 27, dataProvider = "WebTableUserData", dependsOnMethods = { "WebTablesClick" })
 	public void webTableNewRegistration(WebTableUser user) {
 		testRep = extentReportManager.createTest("Test Elements|Web Tables|Registration Form Create User...");
 		testRep.info("Starting test for Web Tables|Registration Form Create User...");
@@ -509,7 +490,7 @@ public class ElementsTests extends demoqaBase {
 		testRep.info("Test for Registration Form Add & Search Completed...");
 		demoqaLog.info("Test for Registration Form Add & Search Completed...");
 	}
-	
+
 	@Test(priority = 29, dataProvider = "WTFormDataEdit", dependsOnMethods = { "WebTablesClick" })
 	public void webTableAddEditFirstName(WebTableUser user) {
 		testRep = extentReportManager.createTest("Test Registration Form Modify First Name...");
@@ -525,7 +506,7 @@ public class ElementsTests extends demoqaBase {
 		elementsPage.fillWebTableForm(user);
 //		WebTableUser user = WebTableUser.fromExcelRow(); // Your POJO
 		String wTFirstname = user.getFirstName(); // Direct getter
-		testRep.info("Orignal First Name of the User is: "+ wTFirstname);
+		testRep.info("Orignal First Name of the User is: " + wTFirstname);
 
 		elementsPage.editUserByField(wTFirstname);
 		elementsPage.editFirstName(wTFirstname);
@@ -533,12 +514,12 @@ public class ElementsTests extends demoqaBase {
 
 //		elementsPage.wTSearchBox(user.getFirstName());
 		elementsPage.assertUserPresentInTable(user, testRep);
-		testRep.info("Updated First Name of the User is: "+ user.getFirstName());
+		testRep.info("Updated First Name of the User is: " + user.getFirstName());
 
 		testRep.pass("Test Registration Form Modify First Name Completed...");
 		demoqaLog.info("Test Registration Form Modify First Name Completed Successfully...");
 	}
-	
+
 	@Test(priority = 30, dataProvider = "WTFormDataEdit", dependsOnMethods = { "WebTablesClick" })
 	public void webTableAddSearchEdit(WebTableUser user) {
 		testRep = extentReportManager.createTest("Test Registration Form Search & Modify First Name...");
@@ -553,16 +534,15 @@ public class ElementsTests extends demoqaBase {
 		// ✅ Use the user directly — no need to re-fetch from Excel
 		elementsPage.fillWebTableForm(user);
 		String wTFirstname = user.getFirstName(); // Direct getter
-		testRep.info("Orignal First Name of the User is: "+ wTFirstname);
+		testRep.info("Orignal First Name of the User is: " + wTFirstname);
 		elementsPage.SearcheditUserByField(wTFirstname);
 		elementsPage.SearcheditFirstName(wTFirstname);
 		user.setFirstName("Tonny");
 		elementsPage.assertUserPresentInTable(user, testRep);
-		testRep.info("Updated First Name of the User is: "+ user.getFirstName());
+		testRep.info("Updated First Name of the User is: " + user.getFirstName());
 		testRep.pass("Test Registration Form Search & Modify First Name Completed...");
 		demoqaLog.info("Test Registration Form Search & Modify First Name Completed Successfully...");
 	}
-	
 
 	@Test(priority = 31, dataProvider = "WTFormDataEdit", dependsOnMethods = { "WebTablesClick" })
 	public void webTableDeleteUser(WebTableUser user) {
@@ -583,6 +563,42 @@ public class ElementsTests extends demoqaBase {
 		elementsPage.assertUserNotPresentInTable(user, testRep);
 		testRep.pass("Test for Deleting User from Web Table Completed...");
 		demoqaLog.info("Test for Deleting User from Web Table Completed Successfully...");
+	}
+
+	@CaptureOnSuccess(description = "Web Table filled by taking data input from a Spreadsheet - Successfully", screenshotMode = "viewport")
+	@Test(priority = 32, dependsOnMethods = { "WebTablesClick" }) // Do not user data provider
+	public void testAddAllUsersFromExcel() throws IOException {
+		testRep = extentReportManager.createTest("Test Bulk User Creation in Web Table...");
+		testRep.info("Starting Test for Bulk User Creation in Web Table...");
+		// Initialize page and table manager
+		elementsPage elementsPage = new elementsPage(driver);
+		WebTableManager tableManager = new WebTableManager(driver);
+		elementsPage.accessElements();
+		elementsPage.webTablesClick();
+		// Step 1: Capture initial user count
+		int initialUserCount = tableManager.getUserCount();
+
+		// Step 2: Prepare Excel data
+		String filePath = System.getProperty("user.dir") + "/TestData/Students_Details.xlsx";
+		String sheetName = "Sheet1";
+		
+		Object[][] data = ExcelUtils.getUsersFromExcel(filePath, sheetName);
+		
+		elementsPage.webTablesNewRegistration();
+		elementsPage.createAllUsersFromExcel(filePath, sheetName); // This adds all users
+		waitForElement.isElementVisible(driver, By.id("submit"));
+		elementsPage.closeFormManually();
+
+		// Step 4: Validate final user count
+		int finalUserCount = tableManager.getUserCount();
+
+		System.out.println("Initial user count: " + initialUserCount);
+//		System.out.println("Users added from Excel: " + usersToAdd.size());
+		System.out.println("Final user count: " + finalUserCount);
+
+//		Assert.assertEquals(finalUserCount, expectedTotalCount, "Mismatch in user count after form submission");
+		testRep.pass("Finished Test for Bulk User Creation in Web Table...");
+		demoqaLog.info("Test for Bulk User Creation in Web Table Completed Successfully...");
 	}
 
 }

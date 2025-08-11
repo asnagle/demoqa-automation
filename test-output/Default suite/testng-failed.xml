@@ -8,8 +8,8 @@
           <include name="WebTablesClick"/>
           <include name="TearDown"/>
           <include name="setupReport"/>
-          <include name="webTableDeleteUser" invocation-numbers="0"/>
           <include name="teardownReport"/>
+          <include name="testAddAllUsersFromExcel"/>
           <include name="setUP"/>
         </methods>
       </class> <!-- tests.ElementsTests -->

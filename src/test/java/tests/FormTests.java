@@ -1,50 +1,37 @@
 package tests;
 
-import java.io.IOException;
+import static org.testng.Assert.assertNotNull;
 
+import java.io.IOException;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 //import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
+
 import base.demoqaBase;
 import customAnnotations.CaptureOnSuccess;
+import models.UserFormData;
 import pages.formsPage;
 import pages.homePage;
+import utils.DataSanitizer;
+import utils.ExcelUtils;
 import utils.demoqaLog;
-import utils.excelUtils;
 import utils.extentReportManager;
-import models.UserFormData;
+import utils.retryUrlAccess;
 
 public class FormTests extends demoqaBase {
-
-	@DataProvider(name = "UserFormData1")
-	public Object[][] getdataFormData() throws IOException {
-	    String srcFile = System.getProperty("user.dir") + "/TestData/Students_Details.xlsx";
-	    excelUtils.loadExcel(srcFile, "Sheet1");
-
-	    int rowCount = excelUtils.getRowCount(); // total rows
-	    Object[][] data = new Object[rowCount - 1][1]; // one UserFormData per row
-
-	    for (int i = 1; i < rowCount; i++) { // skip header row
-	        UserFormData user = new UserFormData();
-	        user.setFirstName(excelUtils.getCellData(i, 0));
-	        user.setLastName(excelUtils.getCellData(i, 1));
-	        user.setUserMail(excelUtils.getCellData(i, 2));
-	        user.setGender(excelUtils.getCellData(i, 3));
-	        user.setMobile(excelUtils.getCellData(i, 4));
-	        user.setDob(excelUtils.getCellData(i, 5));
-	        user.setSubject(excelUtils.getCellData(i, 6));
-	        user.setHobbies(excelUtils.getCellData(i, 7));
-	        user.setPicturePath(excelUtils.getCellData(i, 8));
-	        user.setAddress(excelUtils.getCellData(i, 9));
-	        user.setState(excelUtils.getCellData(i, 10));
-	        user.setCity(excelUtils.getCellData(i, 11));
-
-	        data[i - 1][0] = user; // ✅ insert UserFormData, not the whole array
-	    }
-
-	    excelUtils.closeExcel();
-	    return data;
+	@DataProvider(name = "UserFormData")
+	public Object[][] provideUserFormData() throws IOException {
+	    String filePath = System.getProperty("user.dir") + "/TestData/Students_Details.xlsx";
+	    return ExcelUtils.getMappedData(filePath, "Sheet1", UserFormData.class);
 	}
+//	public Object[][] provideUserFormData() throws IOException {
+//	    String filePath = System.getProperty("user.dir") + "/TestData/Students_Details.xlsx";
+//	    return new ExcelUtils().getMappedData(filePath, "Sheet1", UserFormData.class);
+//	}
+
+
 
 	@Test(priority = 1)
 	public void FormCard() {
@@ -64,33 +51,59 @@ public class FormTests extends demoqaBase {
 
 //		================= Code for Data Driven Testing ===============
 	@CaptureOnSuccess(description = "Form filled by taking data input from a Spreadsheet - Successfully", screenshotMode = "viewport")
-	@Test(priority = 2, dataProvider = "UserFormData1")
+	@Test(priority = 2, dataProvider = "UserFormData")
 	public void fillForm(models.UserFormData data) {
 
+//	public void testFormFilling(UserFormData data) {
 		testRep = extentReportManager.createTest("Test Form Filling");
 		testRep.info("Starting test for Form Filling");
 		demoqaLog.info("Starting Form Filling Test...");
+
 		formsPage formsPage = new formsPage(driver);
 		testRep.info("Accessing Practice Form");
+		retryUrlAccess.navigateWithRetry(driver, "https://demoqa.com", 3);
 		formsPage.accessForms();
-		demoqaLog.info("Filling form for: " + data.firstName + " " + data.lastName);
-		formsPage.entFirstName(data.firstName);
-		formsPage.entLastName(data.lastName);
-		formsPage.entEmail(data.userMail);// optional utility
-		formsPage.selectGender(data.gender);
-		formsPage.entMobileNo(data.mobile);
-		formsPage.entDob(data.dob); // accepts formatted date string like dd-MM-yyyy
-	    formsPage.enterSubject(data.subject);
-	    formsPage.selectHobbies(data.hobbies);
-	    formsPage.uploadPicture(data.picturePath);
-	    formsPage.enterAddress(data.address);
-	    formsPage.selectState(data.state);
-	    formsPage.selectCity(data.city);
-	    formsPage.submitButton();
-	    testRep.pass("Test Form Filling Test Completed...");
-		demoqaLog.info("Test Form Filling Completed...");
+
+		String fullName = data.getFirstName() + " " + data.getLastName();
+		demoqaLog.info("Filling form for: " + fullName);
+
+		// Basic Info
+		formsPage.entFirstName(data.getFirstName());
+		formsPage.entLastName(data.getLastName());
+		formsPage.entEmail(data.getUserMail()); // optional utility
+		formsPage.selectGender(data.getGender());
+		formsPage.entMobileNo(data.getMobile());
+//		DateComponents dob = data.getDob(); // Cast if needed
+//		formsPage.selectDay(dob.getDay());
+//		formsPage.selectMonth(dob.getMonth());
+		LocalDate dob = LocalDate.parse(
+		        DataSanitizer.sanitizeDOB(data.getDob()),
+		        DateTimeFormatter.ofPattern("dd-MM-yyyy")
+		    );
+
+		    System.out.println("📅 Parsed DOB: " + dob);
+
+//		LocalDate dob = DataSanitizer.sanitizeDOB(dob);
+	    System.out.println("📅 Parsed DOB: " + dob);
+
+	    // Use dob in assertions or form submission logic
+	    assertNotNull(dob, "DOB should be parsable");
+
+		formsPage.fillDob(data.getDob());
+		formsPage.enterSubject(data.getSubject());
+		formsPage.selectHobbies(data.getHobbies());
+		formsPage.uploadPicture(data.getPicturePath());
+
+		// Location
+		formsPage.enterAddress(data.getAddress());
+		formsPage.selectState(data.getState());
+		formsPage.selectCity(data.getCity());
+
+		// Submit
+		formsPage.submitButton();
+
+		testRep.pass("Test Form Filling Completed Successfully");
+		demoqaLog.info("Test Form Filling Completed for: " + fullName);
 	}
-	
-	
-	
+
 }

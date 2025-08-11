@@ -1,29 +1,31 @@
 package models;
 
+import java.lang.reflect.Field;
 import java.util.Map;
 
+import customAnnotations.ColumnMapping;
+
 public class WebTableUser {
-	private String firstName;
+
+    @ColumnMapping(name = "First Name")
+    private String firstName;
+
+    @ColumnMapping(name = "Last Name")
     private String lastName;
+
+    @ColumnMapping(name = "Email")
     private String email;
-    private String salary;
-    private String age;
+
+    @ColumnMapping(name = "Salary")
+    private int salary;
+
+    @ColumnMapping(name = "Age")
+    private int age;
+
+    @ColumnMapping(name = "Department")
     private String department;
 
-    // ✅ No-arg constructor
-    public WebTableUser() {}
-
-    // ✅ Optional all-args constructor
-    public WebTableUser(String firstName, String lastName, String email, String salary, String age, String department) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.email = email;
-        this.salary = salary;
-        this.age = age;
-        this.department = department;
-    }
-
-    // ✅ Getters and setters
+    // Getters and setters
     public String getFirstName() { return firstName; }
     public void setFirstName(String firstName) { this.firstName = firstName; }
 
@@ -33,25 +35,53 @@ public class WebTableUser {
     public String getEmail() { return email; }
     public void setEmail(String email) { this.email = email; }
 
-    public String getSalary() { return salary; }
-    public void setSalary(String salary) { this.salary = salary; }
+    public int getSalary() { return salary; }
+    public void setSalary(int salary) { this.salary = salary; }
 
-    public String getAge() { return age; }
-    public void setAge(String age) { this.age = age; }
+    public int getAge() { return age; }
+    public void setAge(int age) { this.age = age; }
 
     public String getDepartment() { return department; }
     public void setDepartment(String department) { this.department = department; }
 
-    public static WebTableUser fromExcelRow(Map<String, String> rowData) {
-        return new WebTableUser(
-            rowData.getOrDefault("First Name", ""),
-            rowData.getOrDefault("Last Name", ""),
-            rowData.getOrDefault("Email", ""),
-            rowData.getOrDefault("Salary", ""),
-            rowData.getOrDefault("Age", ""),
-            rowData.getOrDefault("Department", "")
-        );
+    @Override
+    public String toString() {
+        return "WebTableUser{" +
+                "firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", email='" + email + '\'' +
+                ", salary=" + salary +
+                ", age=" + age +
+                ", department='" + department + '\'' +
+                '}';
     }
 
+    public static WebTableUser fromExcelRow(Map<String, String> rowData) {
+        WebTableUser user = new WebTableUser();
+        Class<?> clazz = WebTableUser.class;
 
+        for (Field field : clazz.getDeclaredFields()) {
+            ColumnMapping mapping = field.getAnnotation(ColumnMapping.class);
+            if (mapping != null) {
+                String columnName = mapping.name();
+                String cellValue = rowData.get(columnName);
+                if (cellValue != null) {
+                    field.setAccessible(true);
+                    try {
+                        if (field.getType() == int.class) {
+                            field.set(user, Integer.parseInt(cellValue));
+                        } else if (field.getType() == double.class) {
+                            field.set(user, Double.parseDouble(cellValue));
+                        } else {
+                            field.set(user, cellValue);
+                        }
+                    } catch (Exception e) {
+                        throw new RuntimeException("Failed to map field: " + field.getName(), e);
+                    }
+                }
+            }
+        }
+
+        return user;
+    }
 }

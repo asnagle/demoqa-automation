@@ -1,62 +1,55 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="29" total="31" passed="2" failed="0" skipped="0">
+<testng-results ignored="30" total="32" passed="2" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2025-08-07T19:47:36 IST" name="Default suite" finished-at="2025-08-07T19:48:25 IST" duration-ms="48712">
+  <suite started-at="2025-08-11T14:09:23 IST" name="Default suite" finished-at="2025-08-11T14:10:45 IST" duration-ms="81600">
     <groups>
     </groups>
-    <test started-at="2025-08-07T19:47:36 IST" name="Default test" finished-at="2025-08-07T19:48:25 IST" duration-ms="48712">
+    <test started-at="2025-08-11T14:09:23 IST" name="Default test" finished-at="2025-08-11T14:10:45 IST" duration-ms="81600">
       <class name="tests.ElementsTests">
-        <test-method is-config="true" signature="setupReport()[pri:0, instance:tests.ElementsTests@5e5d171f]" started-at="2025-08-07T19:47:36 IST" name="setupReport" finished-at="2025-08-07T19:47:36 IST" duration-ms="386" status="PASS">
+        <test-method is-config="true" signature="setupReport()[pri:0, instance:tests.ElementsTests@27d4a09]" started-at="2025-08-11T14:09:23 IST" name="setupReport" finished-at="2025-08-11T14:09:23 IST" duration-ms="215" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setupReport -->
-        <test-method is-config="true" signature="setUP()[pri:0, instance:tests.ElementsTests@5e5d171f]" started-at="2025-08-07T19:47:36 IST" name="setUP" finished-at="2025-08-07T19:47:43 IST" duration-ms="6935" status="PASS">
+        <test-method is-config="true" signature="setUP()[pri:0, instance:tests.ElementsTests@27d4a09]" started-at="2025-08-11T14:09:23 IST" name="setUP" finished-at="2025-08-11T14:09:58 IST" duration-ms="35176" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUP -->
-        <test-method signature="WebTablesClick()[pri:26, instance:tests.ElementsTests@5e5d171f]" started-at="2025-08-07T19:47:43 IST" name="WebTablesClick" finished-at="2025-08-07T19:47:44 IST" duration-ms="444" status="PASS">
+        <test-method signature="WebTablesClick()[pri:26, instance:tests.ElementsTests@27d4a09]" started-at="2025-08-11T14:09:58 IST" name="WebTablesClick" finished-at="2025-08-11T14:09:59 IST" duration-ms="1117" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- WebTablesClick -->
-        <test-method is-config="true" signature="TearDown(org.testng.ITestResult)[pri:0, instance:tests.ElementsTests@5e5d171f]" started-at="2025-08-07T19:47:44 IST" name="TearDown" finished-at="2025-08-07T19:47:44 IST" duration-ms="5" status="PASS">
+        <test-method is-config="true" signature="TearDown(org.testng.ITestResult)[pri:0, instance:tests.ElementsTests@27d4a09]" started-at="2025-08-11T14:09:59 IST" name="TearDown" finished-at="2025-08-11T14:10:00 IST" duration-ms="297" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=WebTablesClick status=SUCCESS method=ElementsTests.WebTablesClick()[pri:26, instance:tests.ElementsTests@5e5d171f] output={null}]]]>
+                <![CDATA[[TestResult name=WebTablesClick status=SUCCESS method=ElementsTests.WebTablesClick()[pri:26, instance:tests.ElementsTests@27d4a09] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- TearDown -->
-        <test-method is-config="true" signature="setUP()[pri:0, instance:tests.ElementsTests@5e5d171f]" started-at="2025-08-07T19:47:45 IST" name="setUP" finished-at="2025-08-07T19:48:20 IST" duration-ms="34589" status="PASS">
+        <test-method is-config="true" signature="setUP()[pri:0, instance:tests.ElementsTests@27d4a09]" started-at="2025-08-11T14:10:00 IST" name="setUP" finished-at="2025-08-11T14:10:34 IST" duration-ms="34634" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUP -->
-        <test-method signature="webTableDeleteUser(models.WebTableUser)[pri:31, instance:tests.ElementsTests@5e5d171f]" started-at="2025-08-07T19:48:20 IST" name="webTableDeleteUser" data-provider="WTFormDataEdit" finished-at="2025-08-07T19:48:25 IST" depends-on-methods="tests.ElementsTests.WebTablesClick" duration-ms="5088" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[models.WebTableUser@6add8e3f]]>
-              </value>
-            </param>
-          </params>
+        <test-method signature="testAddAllUsersFromExcel()[pri:32, instance:tests.ElementsTests@27d4a09]" started-at="2025-08-11T14:10:34 IST" name="testAddAllUsersFromExcel" finished-at="2025-08-11T14:10:44 IST" depends-on-methods="tests.ElementsTests.WebTablesClick" duration-ms="9691" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- webTableDeleteUser -->
-        <test-method is-config="true" signature="TearDown(org.testng.ITestResult)[pri:0, instance:tests.ElementsTests@5e5d171f]" started-at="2025-08-07T19:48:25 IST" name="TearDown" finished-at="2025-08-07T19:48:25 IST" duration-ms="3" status="PASS">
+        </test-method> <!-- testAddAllUsersFromExcel -->
+        <test-method is-config="true" signature="TearDown(org.testng.ITestResult)[pri:0, instance:tests.ElementsTests@27d4a09]" started-at="2025-08-11T14:10:44 IST" name="TearDown" finished-at="2025-08-11T14:10:45 IST" duration-ms="641" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=webTableDeleteUser status=SUCCESS method=ElementsTests.webTableDeleteUser(models.WebTableUser)[pri:31, instance:tests.ElementsTests@5e5d171f] output={null}]]]>
+                <![CDATA[[TestResult name=testAddAllUsersFromExcel status=SUCCESS method=ElementsTests.testAddAllUsersFromExcel()[pri:32, instance:tests.ElementsTests@27d4a09] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- TearDown -->
-        <test-method is-config="true" signature="teardownReport()[pri:0, instance:tests.ElementsTests@5e5d171f]" started-at="2025-08-07T19:48:25 IST" name="teardownReport" finished-at="2025-08-07T19:48:26 IST" duration-ms="778" status="PASS">
+        <test-method is-config="true" signature="teardownReport()[pri:0, instance:tests.ElementsTests@27d4a09]" started-at="2025-08-11T14:10:45 IST" name="teardownReport" finished-at="2025-08-11T14:10:45 IST" duration-ms="442" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- teardownReport -->

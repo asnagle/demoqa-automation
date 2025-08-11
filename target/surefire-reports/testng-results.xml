@@ -1,129 +1,274 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="40" passed="40" failed="0" skipped="0">
+<testng-results ignored="0" total="41" passed="35" failed="6" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2025-08-07T20:00:49 IST" name="Surefire suite" finished-at="2025-08-07T20:06:56 IST" duration-ms="366794">
+  <suite started-at="2025-08-11T14:12:29 IST" name="Surefire suite" finished-at="2025-08-11T14:35:03 IST" duration-ms="1353904">
     <groups>
     </groups>
-    <test started-at="2025-08-07T20:00:49 IST" name="Surefire test" finished-at="2025-08-07T20:06:56 IST" duration-ms="366794">
+    <test started-at="2025-08-11T14:12:29 IST" name="Surefire test" finished-at="2025-08-11T14:35:03 IST" duration-ms="1353904">
       <class name="tests.FormTests">
-        <test-method is-config="true" signature="setUP()[pri:0, instance:tests.FormTests@1ea9f6af]" started-at="2025-08-07T20:05:59 IST" name="setUP" finished-at="2025-08-07T20:06:05 IST" duration-ms="5550" status="PASS">
+        <test-method is-config="true" signature="setUP()[pri:0, instance:tests.FormTests@345f69f3]" started-at="2025-08-11T14:32:13 IST" name="setUP" finished-at="2025-08-11T14:32:47 IST" duration-ms="34410" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUP -->
-        <test-method signature="FormCard()[pri:1, instance:tests.FormTests@1ea9f6af]" started-at="2025-08-07T20:06:05 IST" name="FormCard" finished-at="2025-08-07T20:06:05 IST" duration-ms="399" status="PASS">
+        <test-method signature="FormCard()[pri:1, instance:tests.FormTests@345f69f3]" started-at="2025-08-11T14:32:47 IST" name="FormCard" finished-at="2025-08-11T14:32:48 IST" duration-ms="42" status="FAIL">
+          <exception class="org.openqa.selenium.NoSuchElementException">
+            <message>
+              <![CDATA[no such element: Unable to locate element: {"method":"xpath","selector":"//*[@id="app"]/div/div/div[2]/div/div[2]"}
+  (Session info: chrome=137.0.7151.120)
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Build info: version: '4.34.0', revision: '707dcb4246*'
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '21.0.7'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [147821835689c2501f3530296a25dcf6, findElement {value=//*[@id="app"]/div/div/div[2]/div/div[2], using=xpath}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 137.0.7151.120, chrome: {chromedriverVersion: 137.0.7151.119 (e0ac9d12dff..., userDataDir: /tmp/chrome-profile-897b775...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:57592}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:57592/devtoo..., se:cdpVersion: 137.0.7151.120, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 147821835689c2501f3530296a25dcf6]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {"method":"xpath","selector":"//*[@id="app"]/div/div/div[2]/div/div[2]"}
+  (Session info: chrome=137.0.7151.120)
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Build info: version: '4.34.0', revision: '707dcb4246*'
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '21.0.7'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [147821835689c2501f3530296a25dcf6, findElement {value=//*[@id="app"]/div/div/div[2]/div/div[2], using=xpath}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 137.0.7151.120, chrome: {chromedriverVersion: 137.0.7151.119 (e0ac9d12dff..., userDataDir: /tmp/chrome-profile-897b775...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:57592}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:57592/devtoo..., se:cdpVersion: 137.0.7151.120, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 147821835689c2501f3530296a25dcf6
+at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
+at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502)
+at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:486)
+at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:167)
+at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:138)
+at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:50)
+at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:215)
+at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)
+at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)
+at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:544)
+at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:165)
+at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:59)
+at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:367)
+at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:361)
+at pages.homePage.clickFormCard(homePage.java:28)
+at tests.FormTests.FormCard(FormTests.java:43)
+at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:687)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:995)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+at org.testng.TestRunner.privateRun(TestRunner.java:741)
+at org.testng.TestRunner.run(TestRunner.java:616)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
+at org.testng.SuiteRunner.run(SuiteRunner.java:312)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
+at org.testng.TestNG.runSuites(TestNG.java:1112)
+at org.testng.TestNG.run(TestNG.java:1079)
+at org.apache.maven.surefire.testng.TestNGExecutor.run(TestNGExecutor.java:155)
+at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.executeMulti(TestNGDirectoryTestSuite.java:169)
+at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.execute(TestNGDirectoryTestSuite.java:88)
+at org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:137)
+at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385)
+at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
+at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
+at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
+]]>
+            </full-stacktrace>
+          </exception> <!-- org.openqa.selenium.NoSuchElementException -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- FormCard -->
-        <test-method is-config="true" signature="TearDown(org.testng.ITestResult)[pri:0, instance:tests.FormTests@1ea9f6af]" started-at="2025-08-07T20:06:05 IST" name="TearDown" finished-at="2025-08-07T20:06:05 IST" duration-ms="174" status="PASS">
+        <test-method is-config="true" signature="TearDown(org.testng.ITestResult)[pri:0, instance:tests.FormTests@345f69f3]" started-at="2025-08-11T14:32:48 IST" name="TearDown" finished-at="2025-08-11T14:32:48 IST" duration-ms="585" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=FormCard status=SUCCESS method=FormTests.FormCard()[pri:1, instance:tests.FormTests@1ea9f6af] output={null}]]]>
+                <![CDATA[[TestResult name=FormCard status=FAILURE method=FormTests.FormCard()[pri:1, instance:tests.FormTests@345f69f3] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- TearDown -->
-        <test-method is-config="true" signature="setUP()[pri:0, instance:tests.FormTests@1ea9f6af]" started-at="2025-08-07T20:06:05 IST" name="setUP" finished-at="2025-08-07T20:06:10 IST" duration-ms="5072" status="PASS">
+        <test-method is-config="true" signature="setUP()[pri:0, instance:tests.FormTests@345f69f3]" started-at="2025-08-11T14:32:48 IST" name="setUP" finished-at="2025-08-11T14:32:50 IST" duration-ms="2184" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUP -->
-        <test-method signature="fillForm(models.UserFormData)[pri:2, instance:tests.FormTests@1ea9f6af]" started-at="2025-08-07T20:06:10 IST" name="fillForm" data-provider="UserFormData1" finished-at="2025-08-07T20:06:16 IST" duration-ms="5587" status="PASS">
+        <test-method signature="fillForm(models.UserFormData)[pri:2, instance:tests.FormTests@345f69f3]" started-at="2025-08-11T14:32:50 IST" name="fillForm" data-provider="UserFormData" finished-at="2025-08-11T14:32:51 IST" duration-ms="595" status="FAIL">
           <params>
             <param index="0">
               <value>
-                <![CDATA[models.UserFormData@40ff56f7]]>
+                <![CDATA[UserFormData{firstName='Johny', lastName='Bravo', userMail='Jbravo@demoqa.com', gender='Male', mobile='9.238343488E9', dob='15-08-2000', subject='Computer Science', hobbies='Sports,Music', picturePath='/TestData/Mphoto.jpg', address='511 Grant 481, Prattsville\n Arkansas 72129\n United States', state='NCR', city='Delhi'}]]>
               </value>
             </param>
           </params>
+          <exception class="org.openqa.selenium.NoSuchElementException">
+            <message>
+              <![CDATA[no such element: Unable to locate element: {"method":"xpath","selector":"//*[@id="app"]/div/div/div[2]/div/div[2]"}
+  (Session info: chrome=137.0.7151.120)
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Build info: version: '4.34.0', revision: '707dcb4246*'
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '21.0.7'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [f82d2dda128dab0a781dec24b55a0eaa, findElement {value=//*[@id="app"]/div/div/div[2]/div/div[2], using=xpath}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 137.0.7151.120, chrome: {chromedriverVersion: 137.0.7151.119 (e0ac9d12dff..., userDataDir: /tmp/chrome-profile-27d1abb...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:57659}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:57659/devtoo..., se:cdpVersion: 137.0.7151.120, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: f82d2dda128dab0a781dec24b55a0eaa]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {"method":"xpath","selector":"//*[@id="app"]/div/div/div[2]/div/div[2]"}
+  (Session info: chrome=137.0.7151.120)
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Build info: version: '4.34.0', revision: '707dcb4246*'
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '21.0.7'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [f82d2dda128dab0a781dec24b55a0eaa, findElement {value=//*[@id="app"]/div/div/div[2]/div/div[2], using=xpath}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 137.0.7151.120, chrome: {chromedriverVersion: 137.0.7151.119 (e0ac9d12dff..., userDataDir: /tmp/chrome-profile-27d1abb...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:57659}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:57659/devtoo..., se:cdpVersion: 137.0.7151.120, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: f82d2dda128dab0a781dec24b55a0eaa
+at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
+at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502)
+at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:486)
+at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:167)
+at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:138)
+at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:50)
+at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:215)
+at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)
+at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)
+at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:544)
+at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:165)
+at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:59)
+at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:367)
+at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:361)
+at pages.homePage.clickFormCard(homePage.java:28)
+at pages.formsPage.accessForms(formsPage.java:79)
+at tests.FormTests.fillForm(FormTests.java:65)
+at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:687)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:995)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+at org.testng.TestRunner.privateRun(TestRunner.java:741)
+at org.testng.TestRunner.run(TestRunner.java:616)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
+at org.testng.SuiteRunner.run(SuiteRunner.java:312)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
+at org.testng.TestNG.runSuites(TestNG.java:1112)
+at org.testng.TestNG.run(TestNG.java:1079)
+at org.apache.maven.surefire.testng.TestNGExecutor.run(TestNGExecutor.java:155)
+at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.executeMulti(TestNGDirectoryTestSuite.java:169)
+at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.execute(TestNGDirectoryTestSuite.java:88)
+at org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:137)
+at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385)
+at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
+at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
+at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
+]]>
+            </full-stacktrace>
+          </exception> <!-- org.openqa.selenium.NoSuchElementException -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- fillForm -->
-        <test-method is-config="true" signature="TearDown(org.testng.ITestResult)[pri:0, instance:tests.FormTests@1ea9f6af]" started-at="2025-08-07T20:06:16 IST" name="TearDown" finished-at="2025-08-07T20:06:17 IST" duration-ms="618" status="PASS">
+        <test-method is-config="true" signature="TearDown(org.testng.ITestResult)[pri:0, instance:tests.FormTests@345f69f3]" started-at="2025-08-11T14:32:51 IST" name="TearDown" finished-at="2025-08-11T14:32:52 IST" duration-ms="711" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=fillForm status=SUCCESS method=FormTests.fillForm(models.UserFormData)[pri:2, instance:tests.FormTests@1ea9f6af] output={null}]]]>
+                <![CDATA[[TestResult name=fillForm status=FAILURE method=FormTests.fillForm(models.UserFormData)[pri:2, instance:tests.FormTests@345f69f3] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- TearDown -->
-        <test-method is-config="true" signature="setUP()[pri:0, instance:tests.FormTests@1ea9f6af]" started-at="2025-08-07T20:06:17 IST" name="setUP" finished-at="2025-08-07T20:06:22 IST" duration-ms="5329" status="PASS">
+        <test-method is-config="true" signature="setUP()[pri:0, instance:tests.FormTests@345f69f3]" started-at="2025-08-11T14:32:52 IST" name="setUP" finished-at="2025-08-11T14:33:29 IST" duration-ms="37762" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUP -->
-        <test-method signature="fillForm(models.UserFormData)[pri:2, instance:tests.FormTests@1ea9f6af]" started-at="2025-08-07T20:06:22 IST" name="fillForm" data-provider="UserFormData1" finished-at="2025-08-07T20:06:27 IST" duration-ms="5381" status="PASS">
+        <test-method signature="fillForm(models.UserFormData)[pri:2, instance:tests.FormTests@345f69f3]" started-at="2025-08-11T14:33:29 IST" name="fillForm" data-provider="UserFormData" finished-at="2025-08-11T14:33:37 IST" duration-ms="7922" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[models.UserFormData@1b9785aa]]>
+                <![CDATA[UserFormData{firstName='Gene', lastName='Femina', userMail='GFemina@demoqa.com', gender='Female', mobile='1.888343432E9', dob='22-05-2002', subject='Accounting', hobbies='Music,Reading', picturePath='/TestData/Fphoto.png', address='512 Grant 481, Prattsville\n Arkansas 72129\n United States', state='Uttar Pradesh', city='Merrut'}]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- fillForm -->
-        <test-method is-config="true" signature="TearDown(org.testng.ITestResult)[pri:0, instance:tests.FormTests@1ea9f6af]" started-at="2025-08-07T20:06:27 IST" name="TearDown" finished-at="2025-08-07T20:06:28 IST" duration-ms="480" status="PASS">
+        <test-method is-config="true" signature="TearDown(org.testng.ITestResult)[pri:0, instance:tests.FormTests@345f69f3]" started-at="2025-08-11T14:33:37 IST" name="TearDown" finished-at="2025-08-11T14:33:38 IST" duration-ms="1041" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=fillForm status=SUCCESS method=FormTests.fillForm(models.UserFormData)[pri:2, instance:tests.FormTests@1ea9f6af] output={null}]]]>
+                <![CDATA[[TestResult name=fillForm status=SUCCESS method=FormTests.fillForm(models.UserFormData)[pri:2, instance:tests.FormTests@345f69f3] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- TearDown -->
-        <test-method is-config="true" signature="setUP()[pri:0, instance:tests.FormTests@1ea9f6af]" started-at="2025-08-07T20:06:28 IST" name="setUP" finished-at="2025-08-07T20:06:33 IST" duration-ms="5342" status="PASS">
+        <test-method is-config="true" signature="setUP()[pri:0, instance:tests.FormTests@345f69f3]" started-at="2025-08-11T14:33:38 IST" name="setUP" finished-at="2025-08-11T14:34:14 IST" duration-ms="35277" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUP -->
-        <test-method signature="fillForm(models.UserFormData)[pri:2, instance:tests.FormTests@1ea9f6af]" started-at="2025-08-07T20:06:33 IST" name="fillForm" data-provider="UserFormData1" finished-at="2025-08-07T20:06:38 IST" duration-ms="5445" status="PASS">
+        <test-method signature="fillForm(models.UserFormData)[pri:2, instance:tests.FormTests@345f69f3]" started-at="2025-08-11T14:34:14 IST" name="fillForm" data-provider="UserFormData" finished-at="2025-08-11T14:34:20 IST" duration-ms="6162" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[models.UserFormData@78b3f926]]>
+                <![CDATA[UserFormData{firstName='Bud', lastName='Wisem', userMail='BWisem@demoqa.com', gender='Other', mobile='8.932465432E9', dob='31-12-1999', subject='Biology', hobbies='Reading', picturePath='/TestData/Ophoto.jpg', address='513 Grant 481, Prattsville\n Arkansas 72129\n United States', state='Haryana', city='Panipat'}]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- fillForm -->
-        <test-method is-config="true" signature="TearDown(org.testng.ITestResult)[pri:0, instance:tests.FormTests@1ea9f6af]" started-at="2025-08-07T20:06:38 IST" name="TearDown" finished-at="2025-08-07T20:06:39 IST" duration-ms="589" status="PASS">
+        <test-method is-config="true" signature="TearDown(org.testng.ITestResult)[pri:0, instance:tests.FormTests@345f69f3]" started-at="2025-08-11T14:34:20 IST" name="TearDown" finished-at="2025-08-11T14:34:21 IST" duration-ms="895" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=fillForm status=SUCCESS method=FormTests.fillForm(models.UserFormData)[pri:2, instance:tests.FormTests@1ea9f6af] output={null}]]]>
+                <![CDATA[[TestResult name=fillForm status=SUCCESS method=FormTests.fillForm(models.UserFormData)[pri:2, instance:tests.FormTests@345f69f3] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- TearDown -->
-        <test-method is-config="true" signature="setUP()[pri:0, instance:tests.FormTests@1ea9f6af]" started-at="2025-08-07T20:06:39 IST" name="setUP" finished-at="2025-08-07T20:06:50 IST" duration-ms="10713" status="PASS">
+        <test-method is-config="true" signature="setUP()[pri:0, instance:tests.FormTests@345f69f3]" started-at="2025-08-11T14:34:21 IST" name="setUP" finished-at="2025-08-11T14:34:55 IST" duration-ms="34712" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUP -->
-        <test-method signature="fillForm(models.UserFormData)[pri:2, instance:tests.FormTests@1ea9f6af]" started-at="2025-08-07T20:06:50 IST" name="fillForm" data-provider="UserFormData1" finished-at="2025-08-07T20:06:56 IST" duration-ms="5761" status="PASS">
+        <test-method signature="fillForm(models.UserFormData)[pri:2, instance:tests.FormTests@345f69f3]" started-at="2025-08-11T14:34:55 IST" name="fillForm" data-provider="UserFormData" finished-at="2025-08-11T14:35:02 IST" duration-ms="6576" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[models.UserFormData@770635f8]]>
+                <![CDATA[UserFormData{firstName='Tom', lastName='Boss', userMail='TBoss@demoqa.com', gender='Male', mobile='7.839875281E9', dob='26-01-2003', subject='Social Studies', hobbies='Sports,Reading', picturePath='/TestData/M2photo.jpg', address='514 Grant 481, Prattsville\n Arkansas 72129\n United States', state='Rajasthan', city='Jaiselmer'}]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- fillForm -->
-        <test-method is-config="true" signature="TearDown(org.testng.ITestResult)[pri:0, instance:tests.FormTests@1ea9f6af]" started-at="2025-08-07T20:06:56 IST" name="TearDown" finished-at="2025-08-07T20:06:56 IST" duration-ms="627" status="PASS">
+        <test-method is-config="true" signature="TearDown(org.testng.ITestResult)[pri:0, instance:tests.FormTests@345f69f3]" started-at="2025-08-11T14:35:02 IST" name="TearDown" finished-at="2025-08-11T14:35:03 IST" duration-ms="1074" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=fillForm status=SUCCESS method=FormTests.fillForm(models.UserFormData)[pri:2, instance:tests.FormTests@1ea9f6af] output={null}]]]>
+                <![CDATA[[TestResult name=fillForm status=SUCCESS method=FormTests.fillForm(models.UserFormData)[pri:2, instance:tests.FormTests@345f69f3] output={null}]]]>
               </value>
             </param>
           </params>
@@ -132,702 +277,1013 @@
         </test-method> <!-- TearDown -->
       </class> <!-- tests.FormTests -->
       <class name="tests.ElementsTests">
-        <test-method is-config="true" signature="setUP()[pri:0, instance:tests.ElementsTests@188715b5]" started-at="2025-08-07T20:00:59 IST" name="setUP" finished-at="2025-08-07T20:01:04 IST" duration-ms="5164" status="PASS">
+        <test-method is-config="true" signature="setUP()[pri:0, instance:tests.ElementsTests@457c9034]" started-at="2025-08-11T14:13:05 IST" name="setUP" finished-at="2025-08-11T14:13:40 IST" duration-ms="34593" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUP -->
-        <test-method signature="ElementsCard()[pri:1, instance:tests.ElementsTests@188715b5]" started-at="2025-08-07T20:01:04 IST" name="ElementsCard" finished-at="2025-08-07T20:01:04 IST" duration-ms="300" status="PASS">
+        <test-method signature="ElementsCard()[pri:1, instance:tests.ElementsTests@457c9034]" started-at="2025-08-11T14:13:40 IST" name="ElementsCard" finished-at="2025-08-11T14:13:41 IST" duration-ms="864" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- ElementsCard -->
-        <test-method is-config="true" signature="TearDown(org.testng.ITestResult)[pri:0, instance:tests.ElementsTests@188715b5]" started-at="2025-08-07T20:01:04 IST" name="TearDown" finished-at="2025-08-07T20:01:04 IST" duration-ms="195" status="PASS">
+        <test-method is-config="true" signature="TearDown(org.testng.ITestResult)[pri:0, instance:tests.ElementsTests@457c9034]" started-at="2025-08-11T14:13:41 IST" name="TearDown" finished-at="2025-08-11T14:13:41 IST" duration-ms="357" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=ElementsCard status=SUCCESS method=ElementsTests.ElementsCard()[pri:1, instance:tests.ElementsTests@188715b5] output={null}]]]>
+                <![CDATA[[TestResult name=ElementsCard status=SUCCESS method=ElementsTests.ElementsCard()[pri:1, instance:tests.ElementsTests@457c9034] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- TearDown -->
-        <test-method is-config="true" signature="setUP()[pri:0, instance:tests.ElementsTests@188715b5]" started-at="2025-08-07T20:01:04 IST" name="setUP" finished-at="2025-08-07T20:01:10 IST" duration-ms="5664" status="PASS">
+        <test-method is-config="true" signature="setUP()[pri:0, instance:tests.ElementsTests@457c9034]" started-at="2025-08-11T14:13:41 IST" name="setUP" finished-at="2025-08-11T14:14:15 IST" duration-ms="34582" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUP -->
-        <test-method signature="TextBox()[pri:2, instance:tests.ElementsTests@188715b5]" started-at="2025-08-07T20:01:10 IST" name="TextBox" finished-at="2025-08-07T20:01:12 IST" duration-ms="2193" status="PASS">
+        <test-method signature="TextBox()[pri:2, instance:tests.ElementsTests@457c9034]" started-at="2025-08-11T14:14:15 IST" name="TextBox" finished-at="2025-08-11T14:14:18 IST" duration-ms="2928" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- TextBox -->
-        <test-method is-config="true" signature="TearDown(org.testng.ITestResult)[pri:0, instance:tests.ElementsTests@188715b5]" started-at="2025-08-07T20:01:12 IST" name="TearDown" finished-at="2025-08-07T20:01:13 IST" duration-ms="517" status="PASS">
+        <test-method is-config="true" signature="TearDown(org.testng.ITestResult)[pri:0, instance:tests.ElementsTests@457c9034]" started-at="2025-08-11T14:14:18 IST" name="TearDown" finished-at="2025-08-11T14:14:19 IST" duration-ms="701" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=TextBox status=SUCCESS method=ElementsTests.TextBox()[pri:2, instance:tests.ElementsTests@188715b5] output={null}]]]>
+                <![CDATA[[TestResult name=TextBox status=SUCCESS method=ElementsTests.TextBox()[pri:2, instance:tests.ElementsTests@457c9034] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- TearDown -->
-        <test-method is-config="true" signature="setUP()[pri:0, instance:tests.ElementsTests@188715b5]" started-at="2025-08-07T20:01:13 IST" name="setUP" finished-at="2025-08-07T20:01:18 IST" duration-ms="5295" status="PASS">
+        <test-method is-config="true" signature="setUP()[pri:0, instance:tests.ElementsTests@457c9034]" started-at="2025-08-11T14:14:19 IST" name="setUP" finished-at="2025-08-11T14:14:47 IST" duration-ms="28067" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUP -->
-        <test-method signature="CheckBox()[pri:3, instance:tests.ElementsTests@188715b5]" started-at="2025-08-07T20:01:18 IST" name="CheckBox" finished-at="2025-08-07T20:01:19 IST" duration-ms="538" status="PASS">
+        <test-method signature="CheckBox()[pri:3, instance:tests.ElementsTests@457c9034]" started-at="2025-08-11T14:14:47 IST" name="CheckBox" finished-at="2025-08-11T14:14:49 IST" duration-ms="1380" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- CheckBox -->
-        <test-method is-config="true" signature="TearDown(org.testng.ITestResult)[pri:0, instance:tests.ElementsTests@188715b5]" started-at="2025-08-07T20:01:19 IST" name="TearDown" finished-at="2025-08-07T20:01:19 IST" duration-ms="225" status="PASS">
+        <test-method is-config="true" signature="TearDown(org.testng.ITestResult)[pri:0, instance:tests.ElementsTests@457c9034]" started-at="2025-08-11T14:14:49 IST" name="TearDown" finished-at="2025-08-11T14:14:49 IST" duration-ms="307" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=CheckBox status=SUCCESS method=ElementsTests.CheckBox()[pri:3, instance:tests.ElementsTests@188715b5] output={null}]]]>
+                <![CDATA[[TestResult name=CheckBox status=SUCCESS method=ElementsTests.CheckBox()[pri:3, instance:tests.ElementsTests@457c9034] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- TearDown -->
-        <test-method is-config="true" signature="setUP()[pri:0, instance:tests.ElementsTests@188715b5]" started-at="2025-08-07T20:01:19 IST" name="setUP" finished-at="2025-08-07T20:01:27 IST" duration-ms="7742" status="PASS">
+        <test-method is-config="true" signature="setUP()[pri:0, instance:tests.ElementsTests@457c9034]" started-at="2025-08-11T14:14:49 IST" name="setUP" finished-at="2025-08-11T14:15:24 IST" duration-ms="34722" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUP -->
-        <test-method signature="SelectingHomeCheckBox()[pri:4, instance:tests.ElementsTests@188715b5]" started-at="2025-08-07T20:01:27 IST" name="SelectingHomeCheckBox" finished-at="2025-08-07T20:01:27 IST" duration-ms="685" status="PASS">
+        <test-method signature="SelectingHomeCheckBox()[pri:4, instance:tests.ElementsTests@457c9034]" started-at="2025-08-11T14:15:24 IST" name="SelectingHomeCheckBox" finished-at="2025-08-11T14:15:25 IST" duration-ms="1445" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- SelectingHomeCheckBox -->
-        <test-method is-config="true" signature="TearDown(org.testng.ITestResult)[pri:0, instance:tests.ElementsTests@188715b5]" started-at="2025-08-07T20:01:27 IST" name="TearDown" finished-at="2025-08-07T20:01:27 IST" duration-ms="177" status="PASS">
+        <test-method is-config="true" signature="TearDown(org.testng.ITestResult)[pri:0, instance:tests.ElementsTests@457c9034]" started-at="2025-08-11T14:15:25 IST" name="TearDown" finished-at="2025-08-11T14:15:25 IST" duration-ms="373" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=SelectingHomeCheckBox status=SUCCESS method=ElementsTests.SelectingHomeCheckBox()[pri:4, instance:tests.ElementsTests@188715b5] output={null}]]]>
+                <![CDATA[[TestResult name=SelectingHomeCheckBox status=SUCCESS method=ElementsTests.SelectingHomeCheckBox()[pri:4, instance:tests.ElementsTests@457c9034] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- TearDown -->
-        <test-method is-config="true" signature="setUP()[pri:0, instance:tests.ElementsTests@188715b5]" started-at="2025-08-07T20:01:27 IST" name="setUP" finished-at="2025-08-07T20:01:33 IST" duration-ms="5918" status="PASS">
+        <test-method is-config="true" signature="setUP()[pri:0, instance:tests.ElementsTests@457c9034]" started-at="2025-08-11T14:15:25 IST" name="setUP" finished-at="2025-08-11T14:16:00 IST" duration-ms="34663" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUP -->
-        <test-method signature="SelectingDesktopCheckBox()[pri:5, instance:tests.ElementsTests@188715b5]" started-at="2025-08-07T20:01:33 IST" name="SelectingDesktopCheckBox" finished-at="2025-08-07T20:01:34 IST" duration-ms="792" status="PASS">
+        <test-method signature="SelectingDesktopCheckBox()[pri:5, instance:tests.ElementsTests@457c9034]" started-at="2025-08-11T14:16:00 IST" name="SelectingDesktopCheckBox" finished-at="2025-08-11T14:16:01 IST" duration-ms="1387" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- SelectingDesktopCheckBox -->
-        <test-method is-config="true" signature="TearDown(org.testng.ITestResult)[pri:0, instance:tests.ElementsTests@188715b5]" started-at="2025-08-07T20:01:34 IST" name="TearDown" finished-at="2025-08-07T20:01:34 IST" duration-ms="206" status="PASS">
+        <test-method is-config="true" signature="TearDown(org.testng.ITestResult)[pri:0, instance:tests.ElementsTests@457c9034]" started-at="2025-08-11T14:16:01 IST" name="TearDown" finished-at="2025-08-11T14:16:02 IST" duration-ms="323" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=SelectingDesktopCheckBox status=SUCCESS method=ElementsTests.SelectingDesktopCheckBox()[pri:5, instance:tests.ElementsTests@188715b5] output={null}]]]>
+                <![CDATA[[TestResult name=SelectingDesktopCheckBox status=SUCCESS method=ElementsTests.SelectingDesktopCheckBox()[pri:5, instance:tests.ElementsTests@457c9034] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- TearDown -->
-        <test-method is-config="true" signature="setUP()[pri:0, instance:tests.ElementsTests@188715b5]" started-at="2025-08-07T20:01:34 IST" name="setUP" finished-at="2025-08-07T20:01:44 IST" duration-ms="10138" status="PASS">
+        <test-method is-config="true" signature="setUP()[pri:0, instance:tests.ElementsTests@457c9034]" started-at="2025-08-11T14:16:02 IST" name="setUP" finished-at="2025-08-11T14:16:26 IST" duration-ms="24445" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUP -->
-        <test-method signature="SelectingNotesCommandsClick()[pri:6, instance:tests.ElementsTests@188715b5]" started-at="2025-08-07T20:01:44 IST" name="SelectingNotesCommandsClick" finished-at="2025-08-07T20:01:46 IST" duration-ms="1384" status="PASS">
+        <test-method signature="SelectingNotesCommandsClick()[pri:6, instance:tests.ElementsTests@457c9034]" started-at="2025-08-11T14:16:26 IST" name="SelectingNotesCommandsClick" finished-at="2025-08-11T14:16:28 IST" duration-ms="1465" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- SelectingNotesCommandsClick -->
-        <test-method is-config="true" signature="TearDown(org.testng.ITestResult)[pri:0, instance:tests.ElementsTests@188715b5]" started-at="2025-08-07T20:01:46 IST" name="TearDown" finished-at="2025-08-07T20:01:46 IST" duration-ms="204" status="PASS">
+        <test-method is-config="true" signature="TearDown(org.testng.ITestResult)[pri:0, instance:tests.ElementsTests@457c9034]" started-at="2025-08-11T14:16:28 IST" name="TearDown" finished-at="2025-08-11T14:16:28 IST" duration-ms="320" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=SelectingNotesCommandsClick status=SUCCESS method=ElementsTests.SelectingNotesCommandsClick()[pri:6, instance:tests.ElementsTests@188715b5] output={null}]]]>
+                <![CDATA[[TestResult name=SelectingNotesCommandsClick status=SUCCESS method=ElementsTests.SelectingNotesCommandsClick()[pri:6, instance:tests.ElementsTests@457c9034] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- TearDown -->
-        <test-method is-config="true" signature="setUP()[pri:0, instance:tests.ElementsTests@188715b5]" started-at="2025-08-07T20:01:46 IST" name="setUP" finished-at="2025-08-07T20:01:59 IST" duration-ms="12752" status="PASS">
+        <test-method is-config="true" signature="setUP()[pri:0, instance:tests.ElementsTests@457c9034]" started-at="2025-08-11T14:16:28 IST" name="setUP" finished-at="2025-08-11T14:17:03 IST" duration-ms="34632" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUP -->
-        <test-method signature="SelectingDocumentsCheckBox()[pri:7, instance:tests.ElementsTests@188715b5]" started-at="2025-08-07T20:01:59 IST" name="SelectingDocumentsCheckBox" finished-at="2025-08-07T20:02:00 IST" duration-ms="1255" status="PASS">
+        <test-method signature="SelectingDocumentsCheckBox()[pri:7, instance:tests.ElementsTests@457c9034]" started-at="2025-08-11T14:17:03 IST" name="SelectingDocumentsCheckBox" finished-at="2025-08-11T14:17:04 IST" duration-ms="1383" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- SelectingDocumentsCheckBox -->
-        <test-method is-config="true" signature="TearDown(org.testng.ITestResult)[pri:0, instance:tests.ElementsTests@188715b5]" started-at="2025-08-07T20:02:00 IST" name="TearDown" finished-at="2025-08-07T20:02:00 IST" duration-ms="208" status="PASS">
+        <test-method is-config="true" signature="TearDown(org.testng.ITestResult)[pri:0, instance:tests.ElementsTests@457c9034]" started-at="2025-08-11T14:17:04 IST" name="TearDown" finished-at="2025-08-11T14:17:04 IST" duration-ms="345" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=SelectingDocumentsCheckBox status=SUCCESS method=ElementsTests.SelectingDocumentsCheckBox()[pri:7, instance:tests.ElementsTests@188715b5] output={null}]]]>
+                <![CDATA[[TestResult name=SelectingDocumentsCheckBox status=SUCCESS method=ElementsTests.SelectingDocumentsCheckBox()[pri:7, instance:tests.ElementsTests@457c9034] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- TearDown -->
-        <test-method is-config="true" signature="setUP()[pri:0, instance:tests.ElementsTests@188715b5]" started-at="2025-08-07T20:02:00 IST" name="setUP" finished-at="2025-08-07T20:02:06 IST" duration-ms="5778" status="PASS">
+        <test-method is-config="true" signature="setUP()[pri:0, instance:tests.ElementsTests@457c9034]" started-at="2025-08-11T14:17:04 IST" name="setUP" finished-at="2025-08-11T14:17:39 IST" duration-ms="34640" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUP -->
-        <test-method signature="SelectingWorkSpace()[pri:8, instance:tests.ElementsTests@188715b5]" started-at="2025-08-07T20:02:06 IST" name="SelectingWorkSpace" finished-at="2025-08-07T20:02:07 IST" duration-ms="900" status="PASS">
+        <test-method signature="SelectingWorkSpace()[pri:8, instance:tests.ElementsTests@457c9034]" started-at="2025-08-11T14:17:39 IST" name="SelectingWorkSpace" finished-at="2025-08-11T14:17:41 IST" duration-ms="1491" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- SelectingWorkSpace -->
-        <test-method is-config="true" signature="TearDown(org.testng.ITestResult)[pri:0, instance:tests.ElementsTests@188715b5]" started-at="2025-08-07T20:02:07 IST" name="TearDown" finished-at="2025-08-07T20:02:07 IST" duration-ms="202" status="PASS">
+        <test-method is-config="true" signature="TearDown(org.testng.ITestResult)[pri:0, instance:tests.ElementsTests@457c9034]" started-at="2025-08-11T14:17:41 IST" name="TearDown" finished-at="2025-08-11T14:17:41 IST" duration-ms="343" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=SelectingWorkSpace status=SUCCESS method=ElementsTests.SelectingWorkSpace()[pri:8, instance:tests.ElementsTests@188715b5] output={null}]]]>
+                <![CDATA[[TestResult name=SelectingWorkSpace status=SUCCESS method=ElementsTests.SelectingWorkSpace()[pri:8, instance:tests.ElementsTests@457c9034] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- TearDown -->
-        <test-method is-config="true" signature="setUP()[pri:0, instance:tests.ElementsTests@188715b5]" started-at="2025-08-07T20:02:07 IST" name="setUP" finished-at="2025-08-07T20:02:14 IST" duration-ms="6586" status="PASS">
+        <test-method is-config="true" signature="setUP()[pri:0, instance:tests.ElementsTests@457c9034]" started-at="2025-08-11T14:17:41 IST" name="setUP" finished-at="2025-08-11T14:17:58 IST" duration-ms="16990" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUP -->
-        <test-method signature="SelectReact()[pri:9, instance:tests.ElementsTests@188715b5]" started-at="2025-08-07T20:02:14 IST" name="SelectReact" finished-at="2025-08-07T20:02:15 IST" duration-ms="999" status="PASS">
+        <test-method signature="SelectReact()[pri:9, instance:tests.ElementsTests@457c9034]" started-at="2025-08-11T14:17:58 IST" name="SelectReact" finished-at="2025-08-11T14:17:59 IST" duration-ms="1652" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- SelectReact -->
-        <test-method is-config="true" signature="TearDown(org.testng.ITestResult)[pri:0, instance:tests.ElementsTests@188715b5]" started-at="2025-08-07T20:02:15 IST" name="TearDown" finished-at="2025-08-07T20:02:15 IST" duration-ms="206" status="PASS">
+        <test-method is-config="true" signature="TearDown(org.testng.ITestResult)[pri:0, instance:tests.ElementsTests@457c9034]" started-at="2025-08-11T14:17:59 IST" name="TearDown" finished-at="2025-08-11T14:18:00 IST" duration-ms="337" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=SelectReact status=SUCCESS method=ElementsTests.SelectReact()[pri:9, instance:tests.ElementsTests@188715b5] output={null}]]]>
+                <![CDATA[[TestResult name=SelectReact status=SUCCESS method=ElementsTests.SelectReact()[pri:9, instance:tests.ElementsTests@457c9034] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- TearDown -->
-        <test-method is-config="true" signature="setUP()[pri:0, instance:tests.ElementsTests@188715b5]" started-at="2025-08-07T20:02:15 IST" name="setUP" finished-at="2025-08-07T20:02:22 IST" duration-ms="7080" status="PASS">
+        <test-method is-config="true" signature="setUP()[pri:0, instance:tests.ElementsTests@457c9034]" started-at="2025-08-11T14:18:00 IST" name="setUP" finished-at="2025-08-11T14:18:35 IST" duration-ms="34676" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUP -->
-        <test-method signature="SelectAngular()[pri:10, instance:tests.ElementsTests@188715b5]" started-at="2025-08-07T20:02:22 IST" name="SelectAngular" finished-at="2025-08-07T20:02:23 IST" duration-ms="1299" status="PASS">
+        <test-method signature="SelectAngular()[pri:10, instance:tests.ElementsTests@457c9034]" started-at="2025-08-11T14:18:35 IST" name="SelectAngular" finished-at="2025-08-11T14:18:36 IST" duration-ms="1736" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- SelectAngular -->
-        <test-method is-config="true" signature="TearDown(org.testng.ITestResult)[pri:0, instance:tests.ElementsTests@188715b5]" started-at="2025-08-07T20:02:23 IST" name="TearDown" finished-at="2025-08-07T20:02:23 IST" duration-ms="176" status="PASS">
+        <test-method is-config="true" signature="TearDown(org.testng.ITestResult)[pri:0, instance:tests.ElementsTests@457c9034]" started-at="2025-08-11T14:18:36 IST" name="TearDown" finished-at="2025-08-11T14:18:37 IST" duration-ms="392" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=SelectAngular status=SUCCESS method=ElementsTests.SelectAngular()[pri:10, instance:tests.ElementsTests@188715b5] output={null}]]]>
+                <![CDATA[[TestResult name=SelectAngular status=SUCCESS method=ElementsTests.SelectAngular()[pri:10, instance:tests.ElementsTests@457c9034] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- TearDown -->
-        <test-method is-config="true" signature="setUP()[pri:0, instance:tests.ElementsTests@188715b5]" started-at="2025-08-07T20:02:23 IST" name="setUP" finished-at="2025-08-07T20:02:29 IST" duration-ms="5426" status="PASS">
+        <test-method is-config="true" signature="setUP()[pri:0, instance:tests.ElementsTests@457c9034]" started-at="2025-08-11T14:18:37 IST" name="setUP" finished-at="2025-08-11T14:19:11 IST" duration-ms="34562" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUP -->
-        <test-method signature="SelectVeu()[pri:11, instance:tests.ElementsTests@188715b5]" started-at="2025-08-07T20:02:29 IST" name="SelectVeu" finished-at="2025-08-07T20:02:30 IST" duration-ms="1034" status="PASS">
+        <test-method signature="SelectVeu()[pri:11, instance:tests.ElementsTests@457c9034]" started-at="2025-08-11T14:19:11 IST" name="SelectVeu" finished-at="2025-08-11T14:19:13 IST" duration-ms="1621" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- SelectVeu -->
-        <test-method is-config="true" signature="TearDown(org.testng.ITestResult)[pri:0, instance:tests.ElementsTests@188715b5]" started-at="2025-08-07T20:02:30 IST" name="TearDown" finished-at="2025-08-07T20:02:30 IST" duration-ms="203" status="PASS">
+        <test-method is-config="true" signature="TearDown(org.testng.ITestResult)[pri:0, instance:tests.ElementsTests@457c9034]" started-at="2025-08-11T14:19:13 IST" name="TearDown" finished-at="2025-08-11T14:19:13 IST" duration-ms="351" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=SelectVeu status=SUCCESS method=ElementsTests.SelectVeu()[pri:11, instance:tests.ElementsTests@188715b5] output={null}]]]>
+                <![CDATA[[TestResult name=SelectVeu status=SUCCESS method=ElementsTests.SelectVeu()[pri:11, instance:tests.ElementsTests@457c9034] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- TearDown -->
-        <test-method is-config="true" signature="setUP()[pri:0, instance:tests.ElementsTests@188715b5]" started-at="2025-08-07T20:02:30 IST" name="setUP" finished-at="2025-08-07T20:02:36 IST" duration-ms="6329" status="PASS">
+        <test-method is-config="true" signature="setUP()[pri:0, instance:tests.ElementsTests@457c9034]" started-at="2025-08-11T14:19:13 IST" name="setUP" finished-at="2025-08-11T14:19:49 IST" duration-ms="35639" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUP -->
-        <test-method signature="SelectReactAnuglarVeu()[pri:12, instance:tests.ElementsTests@188715b5]" started-at="2025-08-07T20:02:36 IST" name="SelectReactAnuglarVeu" finished-at="2025-08-07T20:02:38 IST" duration-ms="1246" status="PASS">
+        <test-method signature="SelectReactAnuglarVeu()[pri:12, instance:tests.ElementsTests@457c9034]" started-at="2025-08-11T14:19:49 IST" name="SelectReactAnuglarVeu" finished-at="2025-08-11T14:19:51 IST" duration-ms="1769" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- SelectReactAnuglarVeu -->
-        <test-method is-config="true" signature="TearDown(org.testng.ITestResult)[pri:0, instance:tests.ElementsTests@188715b5]" started-at="2025-08-07T20:02:38 IST" name="TearDown" finished-at="2025-08-07T20:02:38 IST" duration-ms="273" status="PASS">
+        <test-method is-config="true" signature="TearDown(org.testng.ITestResult)[pri:0, instance:tests.ElementsTests@457c9034]" started-at="2025-08-11T14:19:51 IST" name="TearDown" finished-at="2025-08-11T14:19:51 IST" duration-ms="323" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=SelectReactAnuglarVeu status=SUCCESS method=ElementsTests.SelectReactAnuglarVeu()[pri:12, instance:tests.ElementsTests@188715b5] output={null}]]]>
+                <![CDATA[[TestResult name=SelectReactAnuglarVeu status=SUCCESS method=ElementsTests.SelectReactAnuglarVeu()[pri:12, instance:tests.ElementsTests@457c9034] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- TearDown -->
-        <test-method is-config="true" signature="setUP()[pri:0, instance:tests.ElementsTests@188715b5]" started-at="2025-08-07T20:02:38 IST" name="setUP" finished-at="2025-08-07T20:02:44 IST" duration-ms="5731" status="PASS">
+        <test-method is-config="true" signature="setUP()[pri:0, instance:tests.ElementsTests@457c9034]" started-at="2025-08-11T14:19:51 IST" name="setUP" finished-at="2025-08-11T14:20:26 IST" duration-ms="34741" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUP -->
-        <test-method signature="SelectingOffice()[pri:13, instance:tests.ElementsTests@188715b5]" started-at="2025-08-07T20:02:44 IST" name="SelectingOffice" finished-at="2025-08-07T20:02:45 IST" duration-ms="1237" status="PASS">
+        <test-method signature="SelectingOffice()[pri:13, instance:tests.ElementsTests@457c9034]" started-at="2025-08-11T14:20:26 IST" name="SelectingOffice" finished-at="2025-08-11T14:20:28 IST" duration-ms="2134" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- SelectingOffice -->
-        <test-method is-config="true" signature="TearDown(org.testng.ITestResult)[pri:0, instance:tests.ElementsTests@188715b5]" started-at="2025-08-07T20:02:45 IST" name="TearDown" finished-at="2025-08-07T20:02:45 IST" duration-ms="214" status="PASS">
+        <test-method is-config="true" signature="TearDown(org.testng.ITestResult)[pri:0, instance:tests.ElementsTests@457c9034]" started-at="2025-08-11T14:20:28 IST" name="TearDown" finished-at="2025-08-11T14:20:28 IST" duration-ms="493" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=SelectingOffice status=SUCCESS method=ElementsTests.SelectingOffice()[pri:13, instance:tests.ElementsTests@188715b5] output={null}]]]>
+                <![CDATA[[TestResult name=SelectingOffice status=SUCCESS method=ElementsTests.SelectingOffice()[pri:13, instance:tests.ElementsTests@457c9034] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- TearDown -->
-        <test-method is-config="true" signature="setUP()[pri:0, instance:tests.ElementsTests@188715b5]" started-at="2025-08-07T20:02:45 IST" name="setUP" finished-at="2025-08-07T20:02:51 IST" duration-ms="6020" status="PASS">
+        <test-method is-config="true" signature="setUP()[pri:0, instance:tests.ElementsTests@457c9034]" started-at="2025-08-11T14:20:28 IST" name="setUP" finished-at="2025-08-11T14:20:54 IST" duration-ms="25966" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUP -->
-        <test-method signature="SelectPublic()[pri:14, instance:tests.ElementsTests@188715b5]" started-at="2025-08-07T20:02:51 IST" name="SelectPublic" finished-at="2025-08-07T20:02:53 IST" duration-ms="1641" status="PASS">
+        <test-method signature="SelectPublic()[pri:14, instance:tests.ElementsTests@457c9034]" started-at="2025-08-11T14:20:54 IST" name="SelectPublic" finished-at="2025-08-11T14:20:57 IST" duration-ms="2399" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- SelectPublic -->
-        <test-method is-config="true" signature="TearDown(org.testng.ITestResult)[pri:0, instance:tests.ElementsTests@188715b5]" started-at="2025-08-07T20:02:53 IST" name="TearDown" finished-at="2025-08-07T20:02:53 IST" duration-ms="177" status="PASS">
+        <test-method is-config="true" signature="TearDown(org.testng.ITestResult)[pri:0, instance:tests.ElementsTests@457c9034]" started-at="2025-08-11T14:20:57 IST" name="TearDown" finished-at="2025-08-11T14:20:57 IST" duration-ms="422" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=SelectPublic status=SUCCESS method=ElementsTests.SelectPublic()[pri:14, instance:tests.ElementsTests@188715b5] output={null}]]]>
+                <![CDATA[[TestResult name=SelectPublic status=SUCCESS method=ElementsTests.SelectPublic()[pri:14, instance:tests.ElementsTests@457c9034] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- TearDown -->
-        <test-method is-config="true" signature="setUP()[pri:0, instance:tests.ElementsTests@188715b5]" started-at="2025-08-07T20:02:53 IST" name="setUP" finished-at="2025-08-07T20:02:59 IST" duration-ms="5719" status="PASS">
+        <test-method is-config="true" signature="setUP()[pri:0, instance:tests.ElementsTests@457c9034]" started-at="2025-08-11T14:20:57 IST" name="setUP" finished-at="2025-08-11T14:21:32 IST" duration-ms="35153" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUP -->
-        <test-method signature="SelectPrivate()[pri:15, instance:tests.ElementsTests@188715b5]" started-at="2025-08-07T20:02:59 IST" name="SelectPrivate" finished-at="2025-08-07T20:03:00 IST" duration-ms="1013" status="PASS">
+        <test-method signature="SelectPrivate()[pri:15, instance:tests.ElementsTests@457c9034]" started-at="2025-08-11T14:21:32 IST" name="SelectPrivate" finished-at="2025-08-11T14:21:34 IST" duration-ms="2020" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- SelectPrivate -->
-        <test-method is-config="true" signature="TearDown(org.testng.ITestResult)[pri:0, instance:tests.ElementsTests@188715b5]" started-at="2025-08-07T20:03:00 IST" name="TearDown" finished-at="2025-08-07T20:03:00 IST" duration-ms="261" status="PASS">
+        <test-method is-config="true" signature="TearDown(org.testng.ITestResult)[pri:0, instance:tests.ElementsTests@457c9034]" started-at="2025-08-11T14:21:34 IST" name="TearDown" finished-at="2025-08-11T14:21:35 IST" duration-ms="358" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=SelectPrivate status=SUCCESS method=ElementsTests.SelectPrivate()[pri:15, instance:tests.ElementsTests@188715b5] output={null}]]]>
+                <![CDATA[[TestResult name=SelectPrivate status=SUCCESS method=ElementsTests.SelectPrivate()[pri:15, instance:tests.ElementsTests@457c9034] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- TearDown -->
-        <test-method is-config="true" signature="setUP()[pri:0, instance:tests.ElementsTests@188715b5]" started-at="2025-08-07T20:03:00 IST" name="setUP" finished-at="2025-08-07T20:03:06 IST" duration-ms="5751" status="PASS">
+        <test-method is-config="true" signature="setUP()[pri:0, instance:tests.ElementsTests@457c9034]" started-at="2025-08-11T14:21:35 IST" name="setUP" finished-at="2025-08-11T14:21:37 IST" duration-ms="2365" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUP -->
-        <test-method signature="SelectClassified()[pri:16, instance:tests.ElementsTests@188715b5]" started-at="2025-08-07T20:03:06 IST" name="SelectClassified" finished-at="2025-08-07T20:03:07 IST" duration-ms="1734" status="PASS">
+        <test-method signature="SelectClassified()[pri:16, instance:tests.ElementsTests@457c9034]" started-at="2025-08-11T14:21:37 IST" name="SelectClassified" finished-at="2025-08-11T14:21:37 IST" duration-ms="224" status="FAIL">
+          <exception class="org.openqa.selenium.NoSuchElementException">
+            <message>
+              <![CDATA[no such element: Unable to locate element: {"method":"xpath","selector":"//div[@class='category-cards']//div[1]//div[1]//div[2]//*[name()='svg']"}
+  (Session info: chrome=137.0.7151.120)
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Build info: version: '4.34.0', revision: '707dcb4246*'
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '21.0.7'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [1c655d31476cc2636b653e43bd4d4463, findElement {value=//div[@class='category-cards']//div[1]//div[1]//div[2]//*[name()='svg'], using=xpath}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 137.0.7151.120, chrome: {chromedriverVersion: 137.0.7151.119 (e0ac9d12dff..., userDataDir: /tmp/chrome-profile-be64ddf...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:55830}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:55830/devtoo..., se:cdpVersion: 137.0.7151.120, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 1c655d31476cc2636b653e43bd4d4463]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {"method":"xpath","selector":"//div[@class='category-cards']//div[1]//div[1]//div[2]//*[name()='svg']"}
+  (Session info: chrome=137.0.7151.120)
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Build info: version: '4.34.0', revision: '707dcb4246*'
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '21.0.7'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [1c655d31476cc2636b653e43bd4d4463, findElement {value=//div[@class='category-cards']//div[1]//div[1]//div[2]//*[name()='svg'], using=xpath}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 137.0.7151.120, chrome: {chromedriverVersion: 137.0.7151.119 (e0ac9d12dff..., userDataDir: /tmp/chrome-profile-be64ddf...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:55830}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:55830/devtoo..., se:cdpVersion: 137.0.7151.120, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 1c655d31476cc2636b653e43bd4d4463
+at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
+at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502)
+at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:486)
+at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:167)
+at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:138)
+at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:50)
+at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:215)
+at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)
+at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)
+at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:544)
+at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:165)
+at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:59)
+at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:367)
+at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:361)
+at pages.homePage.clickElementCard(homePage.java:21)
+at pages.elementsPage.accessElements(elementsPage.java:190)
+at tests.ElementsTests.SelectClassified(ElementsTests.java:292)
+at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:687)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:995)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+at org.testng.TestRunner.privateRun(TestRunner.java:741)
+at org.testng.TestRunner.run(TestRunner.java:616)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
+at org.testng.SuiteRunner.run(SuiteRunner.java:312)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
+at org.testng.TestNG.runSuites(TestNG.java:1112)
+at org.testng.TestNG.run(TestNG.java:1079)
+at org.apache.maven.surefire.testng.TestNGExecutor.run(TestNGExecutor.java:155)
+at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.executeMulti(TestNGDirectoryTestSuite.java:169)
+at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.execute(TestNGDirectoryTestSuite.java:88)
+at org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:137)
+at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385)
+at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
+at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
+at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
+]]>
+            </full-stacktrace>
+          </exception> <!-- org.openqa.selenium.NoSuchElementException -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- SelectClassified -->
-        <test-method is-config="true" signature="TearDown(org.testng.ITestResult)[pri:0, instance:tests.ElementsTests@188715b5]" started-at="2025-08-07T20:03:07 IST" name="TearDown" finished-at="2025-08-07T20:03:08 IST" duration-ms="193" status="PASS">
+        <test-method is-config="true" signature="TearDown(org.testng.ITestResult)[pri:0, instance:tests.ElementsTests@457c9034]" started-at="2025-08-11T14:21:37 IST" name="TearDown" finished-at="2025-08-11T14:21:38 IST" duration-ms="537" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=SelectClassified status=SUCCESS method=ElementsTests.SelectClassified()[pri:16, instance:tests.ElementsTests@188715b5] output={null}]]]>
+                <![CDATA[[TestResult name=SelectClassified status=FAILURE method=ElementsTests.SelectClassified()[pri:16, instance:tests.ElementsTests@457c9034] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- TearDown -->
-        <test-method is-config="true" signature="setUP()[pri:0, instance:tests.ElementsTests@188715b5]" started-at="2025-08-07T20:03:08 IST" name="setUP" finished-at="2025-08-07T20:03:13 IST" duration-ms="5095" status="PASS">
+        <test-method is-config="true" signature="setUP()[pri:0, instance:tests.ElementsTests@457c9034]" started-at="2025-08-11T14:21:38 IST" name="setUP" finished-at="2025-08-11T14:21:40 IST" duration-ms="2239" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUP -->
-        <test-method signature="SelectGeneral()[pri:17, instance:tests.ElementsTests@188715b5]" started-at="2025-08-07T20:03:13 IST" name="SelectGeneral" finished-at="2025-08-07T20:03:14 IST" duration-ms="1203" status="PASS">
+        <test-method signature="SelectGeneral()[pri:17, instance:tests.ElementsTests@457c9034]" started-at="2025-08-11T14:21:40 IST" name="SelectGeneral" finished-at="2025-08-11T14:21:40 IST" duration-ms="307" status="FAIL">
+          <exception class="org.openqa.selenium.NoSuchElementException">
+            <message>
+              <![CDATA[no such element: Unable to locate element: {"method":"xpath","selector":"//div[@class='category-cards']//div[1]//div[1]//div[2]//*[name()='svg']"}
+  (Session info: chrome=137.0.7151.120)
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Build info: version: '4.34.0', revision: '707dcb4246*'
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '21.0.7'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [95de273f771a6073e51c5ac13db98353, findElement {value=//div[@class='category-cards']//div[1]//div[1]//div[2]//*[name()='svg'], using=xpath}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 137.0.7151.120, chrome: {chromedriverVersion: 137.0.7151.119 (e0ac9d12dff..., userDataDir: /tmp/chrome-profile-b77dcfd...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:55849}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:55849/devtoo..., se:cdpVersion: 137.0.7151.120, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 95de273f771a6073e51c5ac13db98353]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {"method":"xpath","selector":"//div[@class='category-cards']//div[1]//div[1]//div[2]//*[name()='svg']"}
+  (Session info: chrome=137.0.7151.120)
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Build info: version: '4.34.0', revision: '707dcb4246*'
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '21.0.7'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [95de273f771a6073e51c5ac13db98353, findElement {value=//div[@class='category-cards']//div[1]//div[1]//div[2]//*[name()='svg'], using=xpath}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 137.0.7151.120, chrome: {chromedriverVersion: 137.0.7151.119 (e0ac9d12dff..., userDataDir: /tmp/chrome-profile-b77dcfd...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:55849}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:55849/devtoo..., se:cdpVersion: 137.0.7151.120, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 95de273f771a6073e51c5ac13db98353
+at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
+at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502)
+at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:486)
+at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:167)
+at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:138)
+at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:50)
+at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:215)
+at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)
+at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)
+at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:544)
+at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:165)
+at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:59)
+at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:367)
+at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:361)
+at pages.homePage.clickElementCard(homePage.java:21)
+at pages.elementsPage.accessElements(elementsPage.java:190)
+at tests.ElementsTests.SelectGeneral(ElementsTests.java:309)
+at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:687)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:995)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+at org.testng.TestRunner.privateRun(TestRunner.java:741)
+at org.testng.TestRunner.run(TestRunner.java:616)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
+at org.testng.SuiteRunner.run(SuiteRunner.java:312)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
+at org.testng.TestNG.runSuites(TestNG.java:1112)
+at org.testng.TestNG.run(TestNG.java:1079)
+at org.apache.maven.surefire.testng.TestNGExecutor.run(TestNGExecutor.java:155)
+at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.executeMulti(TestNGDirectoryTestSuite.java:169)
+at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.execute(TestNGDirectoryTestSuite.java:88)
+at org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:137)
+at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385)
+at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
+at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
+at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
+]]>
+            </full-stacktrace>
+          </exception> <!-- org.openqa.selenium.NoSuchElementException -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- SelectGeneral -->
-        <test-method is-config="true" signature="TearDown(org.testng.ITestResult)[pri:0, instance:tests.ElementsTests@188715b5]" started-at="2025-08-07T20:03:14 IST" name="TearDown" finished-at="2025-08-07T20:03:14 IST" duration-ms="189" status="PASS">
+        <test-method is-config="true" signature="TearDown(org.testng.ITestResult)[pri:0, instance:tests.ElementsTests@457c9034]" started-at="2025-08-11T14:21:40 IST" name="TearDown" finished-at="2025-08-11T14:21:41 IST" duration-ms="590" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=SelectGeneral status=SUCCESS method=ElementsTests.SelectGeneral()[pri:17, instance:tests.ElementsTests@188715b5] output={null}]]]>
+                <![CDATA[[TestResult name=SelectGeneral status=FAILURE method=ElementsTests.SelectGeneral()[pri:17, instance:tests.ElementsTests@457c9034] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- TearDown -->
-        <test-method is-config="true" signature="setUP()[pri:0, instance:tests.ElementsTests@188715b5]" started-at="2025-08-07T20:03:14 IST" name="setUP" finished-at="2025-08-07T20:03:20 IST" duration-ms="6190" status="PASS">
+        <test-method is-config="true" signature="setUP()[pri:0, instance:tests.ElementsTests@457c9034]" started-at="2025-08-11T14:21:41 IST" name="setUP" finished-at="2025-08-11T14:21:43 IST" duration-ms="2192" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUP -->
-        <test-method signature="SelectOfficeAll()[pri:18, instance:tests.ElementsTests@188715b5]" started-at="2025-08-07T20:03:20 IST" name="SelectOfficeAll" finished-at="2025-08-07T20:03:22 IST" duration-ms="1411" status="PASS">
+        <test-method signature="SelectOfficeAll()[pri:18, instance:tests.ElementsTests@457c9034]" started-at="2025-08-11T14:21:43 IST" name="SelectOfficeAll" finished-at="2025-08-11T14:21:43 IST" duration-ms="327" status="FAIL">
+          <exception class="org.openqa.selenium.NoSuchElementException">
+            <message>
+              <![CDATA[no such element: Unable to locate element: {"method":"xpath","selector":"//div[@class='category-cards']//div[1]//div[1]//div[2]//*[name()='svg']"}
+  (Session info: chrome=137.0.7151.120)
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Build info: version: '4.34.0', revision: '707dcb4246*'
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '21.0.7'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [d28087911fc35ffe9bbf8fd1cdc23d45, findElement {value=//div[@class='category-cards']//div[1]//div[1]//div[2]//*[name()='svg'], using=xpath}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 137.0.7151.120, chrome: {chromedriverVersion: 137.0.7151.119 (e0ac9d12dff..., userDataDir: /tmp/chrome-profile-c0610e8...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:55868}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:55868/devtoo..., se:cdpVersion: 137.0.7151.120, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: d28087911fc35ffe9bbf8fd1cdc23d45]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {"method":"xpath","selector":"//div[@class='category-cards']//div[1]//div[1]//div[2]//*[name()='svg']"}
+  (Session info: chrome=137.0.7151.120)
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Build info: version: '4.34.0', revision: '707dcb4246*'
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '21.0.7'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [d28087911fc35ffe9bbf8fd1cdc23d45, findElement {value=//div[@class='category-cards']//div[1]//div[1]//div[2]//*[name()='svg'], using=xpath}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 137.0.7151.120, chrome: {chromedriverVersion: 137.0.7151.119 (e0ac9d12dff..., userDataDir: /tmp/chrome-profile-c0610e8...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:55868}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:55868/devtoo..., se:cdpVersion: 137.0.7151.120, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: d28087911fc35ffe9bbf8fd1cdc23d45
+at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
+at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502)
+at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:486)
+at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:167)
+at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:138)
+at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:50)
+at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:215)
+at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)
+at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)
+at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:544)
+at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:165)
+at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:59)
+at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:367)
+at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:361)
+at pages.homePage.clickElementCard(homePage.java:21)
+at pages.elementsPage.accessElements(elementsPage.java:190)
+at tests.ElementsTests.SelectOfficeAll(ElementsTests.java:326)
+at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:687)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:995)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+at org.testng.TestRunner.privateRun(TestRunner.java:741)
+at org.testng.TestRunner.run(TestRunner.java:616)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
+at org.testng.SuiteRunner.run(SuiteRunner.java:312)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
+at org.testng.TestNG.runSuites(TestNG.java:1112)
+at org.testng.TestNG.run(TestNG.java:1079)
+at org.apache.maven.surefire.testng.TestNGExecutor.run(TestNGExecutor.java:155)
+at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.executeMulti(TestNGDirectoryTestSuite.java:169)
+at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.execute(TestNGDirectoryTestSuite.java:88)
+at org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:137)
+at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385)
+at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
+at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
+at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
+]]>
+            </full-stacktrace>
+          </exception> <!-- org.openqa.selenium.NoSuchElementException -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- SelectOfficeAll -->
-        <test-method is-config="true" signature="TearDown(org.testng.ITestResult)[pri:0, instance:tests.ElementsTests@188715b5]" started-at="2025-08-07T20:03:22 IST" name="TearDown" finished-at="2025-08-07T20:03:22 IST" duration-ms="222" status="PASS">
+        <test-method is-config="true" signature="TearDown(org.testng.ITestResult)[pri:0, instance:tests.ElementsTests@457c9034]" started-at="2025-08-11T14:21:43 IST" name="TearDown" finished-at="2025-08-11T14:21:44 IST" duration-ms="542" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=SelectOfficeAll status=SUCCESS method=ElementsTests.SelectOfficeAll()[pri:18, instance:tests.ElementsTests@188715b5] output={null}]]]>
+                <![CDATA[[TestResult name=SelectOfficeAll status=FAILURE method=ElementsTests.SelectOfficeAll()[pri:18, instance:tests.ElementsTests@457c9034] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- TearDown -->
-        <test-method is-config="true" signature="setUP()[pri:0, instance:tests.ElementsTests@188715b5]" started-at="2025-08-07T20:03:22 IST" name="setUP" finished-at="2025-08-07T20:03:42 IST" duration-ms="19705" status="PASS">
+        <test-method is-config="true" signature="setUP()[pri:0, instance:tests.ElementsTests@457c9034]" started-at="2025-08-11T14:21:44 IST" name="setUP" finished-at="2025-08-11T14:22:19 IST" duration-ms="35136" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUP -->
-        <test-method signature="SelectingDownloads()[pri:19, instance:tests.ElementsTests@188715b5]" started-at="2025-08-07T20:03:42 IST" name="SelectingDownloads" finished-at="2025-08-07T20:03:43 IST" duration-ms="890" status="PASS">
+        <test-method signature="SelectingDownloads()[pri:19, instance:tests.ElementsTests@457c9034]" started-at="2025-08-11T14:22:19 IST" name="SelectingDownloads" finished-at="2025-08-11T14:22:21 IST" duration-ms="2302" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- SelectingDownloads -->
-        <test-method is-config="true" signature="TearDown(org.testng.ITestResult)[pri:0, instance:tests.ElementsTests@188715b5]" started-at="2025-08-07T20:03:43 IST" name="TearDown" finished-at="2025-08-07T20:03:43 IST" duration-ms="196" status="PASS">
+        <test-method is-config="true" signature="TearDown(org.testng.ITestResult)[pri:0, instance:tests.ElementsTests@457c9034]" started-at="2025-08-11T14:22:21 IST" name="TearDown" finished-at="2025-08-11T14:22:22 IST" duration-ms="381" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=SelectingDownloads status=SUCCESS method=ElementsTests.SelectingDownloads()[pri:19, instance:tests.ElementsTests@188715b5] output={null}]]]>
+                <![CDATA[[TestResult name=SelectingDownloads status=SUCCESS method=ElementsTests.SelectingDownloads()[pri:19, instance:tests.ElementsTests@457c9034] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- TearDown -->
-        <test-method is-config="true" signature="setUP()[pri:0, instance:tests.ElementsTests@188715b5]" started-at="2025-08-07T20:03:43 IST" name="setUP" finished-at="2025-08-07T20:03:49 IST" duration-ms="5843" status="PASS">
+        <test-method is-config="true" signature="setUP()[pri:0, instance:tests.ElementsTests@457c9034]" started-at="2025-08-11T14:22:22 IST" name="setUP" finished-at="2025-08-11T14:22:56 IST" duration-ms="34726" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUP -->
-        <test-method signature="SelectingWordFile()[pri:20, instance:tests.ElementsTests@188715b5]" started-at="2025-08-07T20:03:49 IST" name="SelectingWordFile" finished-at="2025-08-07T20:03:50 IST" duration-ms="1100" status="PASS">
+        <test-method signature="SelectingWordFile()[pri:20, instance:tests.ElementsTests@457c9034]" started-at="2025-08-11T14:22:56 IST" name="SelectingWordFile" finished-at="2025-08-11T14:22:58 IST" duration-ms="1599" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- SelectingWordFile -->
-        <test-method is-config="true" signature="TearDown(org.testng.ITestResult)[pri:0, instance:tests.ElementsTests@188715b5]" started-at="2025-08-07T20:03:50 IST" name="TearDown" finished-at="2025-08-07T20:03:50 IST" duration-ms="245" status="PASS">
+        <test-method is-config="true" signature="TearDown(org.testng.ITestResult)[pri:0, instance:tests.ElementsTests@457c9034]" started-at="2025-08-11T14:22:58 IST" name="TearDown" finished-at="2025-08-11T14:22:58 IST" duration-ms="408" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=SelectingWordFile status=SUCCESS method=ElementsTests.SelectingWordFile()[pri:20, instance:tests.ElementsTests@188715b5] output={null}]]]>
+                <![CDATA[[TestResult name=SelectingWordFile status=SUCCESS method=ElementsTests.SelectingWordFile()[pri:20, instance:tests.ElementsTests@457c9034] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- TearDown -->
-        <test-method is-config="true" signature="setUP()[pri:0, instance:tests.ElementsTests@188715b5]" started-at="2025-08-07T20:03:50 IST" name="setUP" finished-at="2025-08-07T20:03:56 IST" duration-ms="5799" status="PASS">
+        <test-method is-config="true" signature="setUP()[pri:0, instance:tests.ElementsTests@457c9034]" started-at="2025-08-11T14:22:59 IST" name="setUP" finished-at="2025-08-11T14:23:33 IST" duration-ms="34899" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUP -->
-        <test-method signature="SelectingExcelFile()[pri:21, instance:tests.ElementsTests@188715b5]" started-at="2025-08-07T20:03:56 IST" name="SelectingExcelFile" finished-at="2025-08-07T20:03:57 IST" duration-ms="1241" status="PASS">
+        <test-method signature="SelectingExcelFile()[pri:21, instance:tests.ElementsTests@457c9034]" started-at="2025-08-11T14:23:33 IST" name="SelectingExcelFile" finished-at="2025-08-11T14:23:35 IST" duration-ms="1497" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- SelectingExcelFile -->
-        <test-method is-config="true" signature="TearDown(org.testng.ITestResult)[pri:0, instance:tests.ElementsTests@188715b5]" started-at="2025-08-07T20:03:57 IST" name="TearDown" finished-at="2025-08-07T20:03:57 IST" duration-ms="187" status="PASS">
+        <test-method is-config="true" signature="TearDown(org.testng.ITestResult)[pri:0, instance:tests.ElementsTests@457c9034]" started-at="2025-08-11T14:23:35 IST" name="TearDown" finished-at="2025-08-11T14:23:35 IST" duration-ms="377" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=SelectingExcelFile status=SUCCESS method=ElementsTests.SelectingExcelFile()[pri:21, instance:tests.ElementsTests@188715b5] output={null}]]]>
+                <![CDATA[[TestResult name=SelectingExcelFile status=SUCCESS method=ElementsTests.SelectingExcelFile()[pri:21, instance:tests.ElementsTests@457c9034] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- TearDown -->
-        <test-method is-config="true" signature="setUP()[pri:0, instance:tests.ElementsTests@188715b5]" started-at="2025-08-07T20:03:57 IST" name="setUP" finished-at="2025-08-07T20:04:03 IST" duration-ms="5659" status="PASS">
+        <test-method is-config="true" signature="setUP()[pri:0, instance:tests.ElementsTests@457c9034]" started-at="2025-08-11T14:23:35 IST" name="setUP" finished-at="2025-08-11T14:24:10 IST" duration-ms="34908" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUP -->
-        <test-method signature="SelectingAllFiles()[pri:22, instance:tests.ElementsTests@188715b5]" started-at="2025-08-07T20:04:03 IST" name="SelectingAllFiles" finished-at="2025-08-07T20:04:04 IST" duration-ms="1167" status="PASS">
+        <test-method signature="SelectingAllFiles()[pri:22, instance:tests.ElementsTests@457c9034]" started-at="2025-08-11T14:24:10 IST" name="SelectingAllFiles" finished-at="2025-08-11T14:24:12 IST" duration-ms="1827" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- SelectingAllFiles -->
-        <test-method is-config="true" signature="TearDown(org.testng.ITestResult)[pri:0, instance:tests.ElementsTests@188715b5]" started-at="2025-08-07T20:04:04 IST" name="TearDown" finished-at="2025-08-07T20:04:06 IST" duration-ms="1776" status="PASS">
+        <test-method is-config="true" signature="TearDown(org.testng.ITestResult)[pri:0, instance:tests.ElementsTests@457c9034]" started-at="2025-08-11T14:24:12 IST" name="TearDown" finished-at="2025-08-11T14:24:12 IST" duration-ms="419" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=SelectingAllFiles status=SUCCESS method=ElementsTests.SelectingAllFiles()[pri:22, instance:tests.ElementsTests@188715b5] output={null}]]]>
+                <![CDATA[[TestResult name=SelectingAllFiles status=SUCCESS method=ElementsTests.SelectingAllFiles()[pri:22, instance:tests.ElementsTests@457c9034] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- TearDown -->
-        <test-method is-config="true" signature="setUP()[pri:0, instance:tests.ElementsTests@188715b5]" started-at="2025-08-07T20:04:06 IST" name="setUP" finished-at="2025-08-07T20:04:12 IST" duration-ms="5719" status="PASS">
+        <test-method is-config="true" signature="setUP()[pri:0, instance:tests.ElementsTests@457c9034]" started-at="2025-08-11T14:24:12 IST" name="setUP" finished-at="2025-08-11T14:24:48 IST" duration-ms="35114" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUP -->
-        <test-method signature="clickRadioButton()[pri:23, instance:tests.ElementsTests@188715b5]" started-at="2025-08-07T20:04:12 IST" name="clickRadioButton" finished-at="2025-08-07T20:04:12 IST" duration-ms="578" status="PASS">
+        <test-method signature="clickRadioButton()[pri:23, instance:tests.ElementsTests@457c9034]" started-at="2025-08-11T14:24:48 IST" name="clickRadioButton" finished-at="2025-08-11T14:24:49 IST" duration-ms="1081" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- clickRadioButton -->
-        <test-method is-config="true" signature="TearDown(org.testng.ITestResult)[pri:0, instance:tests.ElementsTests@188715b5]" started-at="2025-08-07T20:04:12 IST" name="TearDown" finished-at="2025-08-07T20:04:12 IST" duration-ms="198" status="PASS">
+        <test-method is-config="true" signature="TearDown(org.testng.ITestResult)[pri:0, instance:tests.ElementsTests@457c9034]" started-at="2025-08-11T14:24:49 IST" name="TearDown" finished-at="2025-08-11T14:24:49 IST" duration-ms="382" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=clickRadioButton status=SUCCESS method=ElementsTests.clickRadioButton()[pri:23, instance:tests.ElementsTests@188715b5] output={null}]]]>
+                <![CDATA[[TestResult name=clickRadioButton status=SUCCESS method=ElementsTests.clickRadioButton()[pri:23, instance:tests.ElementsTests@457c9034] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- TearDown -->
-        <test-method is-config="true" signature="setUP()[pri:0, instance:tests.ElementsTests@188715b5]" started-at="2025-08-07T20:04:12 IST" name="setUP" finished-at="2025-08-07T20:04:19 IST" duration-ms="6247" status="PASS">
+        <test-method is-config="true" signature="setUP()[pri:0, instance:tests.ElementsTests@457c9034]" started-at="2025-08-11T14:24:49 IST" name="setUP" finished-at="2025-08-11T14:25:26 IST" duration-ms="36674" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUP -->
-        <test-method signature="SelectYesRadioButton()[pri:24, instance:tests.ElementsTests@188715b5]" started-at="2025-08-07T20:04:19 IST" name="SelectYesRadioButton" finished-at="2025-08-07T20:04:19 IST" duration-ms="489" status="PASS">
+        <test-method signature="SelectYesRadioButton()[pri:24, instance:tests.ElementsTests@457c9034]" started-at="2025-08-11T14:25:26 IST" name="SelectYesRadioButton" finished-at="2025-08-11T14:25:27 IST" duration-ms="1326" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- SelectYesRadioButton -->
-        <test-method is-config="true" signature="TearDown(org.testng.ITestResult)[pri:0, instance:tests.ElementsTests@188715b5]" started-at="2025-08-07T20:04:19 IST" name="TearDown" finished-at="2025-08-07T20:04:19 IST" duration-ms="204" status="PASS">
+        <test-method is-config="true" signature="TearDown(org.testng.ITestResult)[pri:0, instance:tests.ElementsTests@457c9034]" started-at="2025-08-11T14:25:27 IST" name="TearDown" finished-at="2025-08-11T14:25:27 IST" duration-ms="385" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=SelectYesRadioButton status=SUCCESS method=ElementsTests.SelectYesRadioButton()[pri:24, instance:tests.ElementsTests@188715b5] output={null}]]]>
+                <![CDATA[[TestResult name=SelectYesRadioButton status=SUCCESS method=ElementsTests.SelectYesRadioButton()[pri:24, instance:tests.ElementsTests@457c9034] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- TearDown -->
-        <test-method is-config="true" signature="setUP()[pri:0, instance:tests.ElementsTests@188715b5]" started-at="2025-08-07T20:04:19 IST" name="setUP" finished-at="2025-08-07T20:04:25 IST" duration-ms="5369" status="PASS">
+        <test-method is-config="true" signature="setUP()[pri:0, instance:tests.ElementsTests@457c9034]" started-at="2025-08-11T14:25:27 IST" name="setUP" finished-at="2025-08-11T14:26:02 IST" duration-ms="35031" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUP -->
-        <test-method signature="SelectImpressiveRadioButton()[pri:25, instance:tests.ElementsTests@188715b5]" started-at="2025-08-07T20:04:25 IST" name="SelectImpressiveRadioButton" finished-at="2025-08-07T20:04:25 IST" depends-on-methods="tests.ElementsTests.clickRadioButton" duration-ms="659" status="PASS">
+        <test-method signature="SelectImpressiveRadioButton()[pri:25, instance:tests.ElementsTests@457c9034]" started-at="2025-08-11T14:26:02 IST" name="SelectImpressiveRadioButton" finished-at="2025-08-11T14:26:04 IST" depends-on-methods="tests.ElementsTests.clickRadioButton" duration-ms="1222" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- SelectImpressiveRadioButton -->
-        <test-method is-config="true" signature="TearDown(org.testng.ITestResult)[pri:0, instance:tests.ElementsTests@188715b5]" started-at="2025-08-07T20:04:25 IST" name="TearDown" finished-at="2025-08-07T20:04:26 IST" duration-ms="209" status="PASS">
+        <test-method is-config="true" signature="TearDown(org.testng.ITestResult)[pri:0, instance:tests.ElementsTests@457c9034]" started-at="2025-08-11T14:26:04 IST" name="TearDown" finished-at="2025-08-11T14:26:04 IST" duration-ms="411" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=SelectImpressiveRadioButton status=SUCCESS method=ElementsTests.SelectImpressiveRadioButton()[pri:25, instance:tests.ElementsTests@188715b5] output={null}]]]>
+                <![CDATA[[TestResult name=SelectImpressiveRadioButton status=SUCCESS method=ElementsTests.SelectImpressiveRadioButton()[pri:25, instance:tests.ElementsTests@457c9034] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- TearDown -->
-        <test-method is-config="true" signature="setUP()[pri:0, instance:tests.ElementsTests@188715b5]" started-at="2025-08-07T20:04:26 IST" name="setUP" finished-at="2025-08-07T20:04:31 IST" duration-ms="5322" status="PASS">
+        <test-method is-config="true" signature="setUP()[pri:0, instance:tests.ElementsTests@457c9034]" started-at="2025-08-11T14:26:04 IST" name="setUP" finished-at="2025-08-11T14:26:39 IST" duration-ms="34963" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUP -->
-        <test-method signature="WebTablesClick()[pri:26, instance:tests.ElementsTests@188715b5]" started-at="2025-08-07T20:04:31 IST" name="WebTablesClick" finished-at="2025-08-07T20:04:31 IST" duration-ms="488" status="PASS">
+        <test-method signature="WebTablesClick()[pri:26, instance:tests.ElementsTests@457c9034]" started-at="2025-08-11T14:26:39 IST" name="WebTablesClick" finished-at="2025-08-11T14:26:40 IST" duration-ms="1047" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- WebTablesClick -->
-        <test-method is-config="true" signature="TearDown(org.testng.ITestResult)[pri:0, instance:tests.ElementsTests@188715b5]" started-at="2025-08-07T20:04:31 IST" name="TearDown" finished-at="2025-08-07T20:04:32 IST" duration-ms="177" status="PASS">
+        <test-method is-config="true" signature="TearDown(org.testng.ITestResult)[pri:0, instance:tests.ElementsTests@457c9034]" started-at="2025-08-11T14:26:40 IST" name="TearDown" finished-at="2025-08-11T14:26:40 IST" duration-ms="420" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=WebTablesClick status=SUCCESS method=ElementsTests.WebTablesClick()[pri:26, instance:tests.ElementsTests@188715b5] output={null}]]]>
+                <![CDATA[[TestResult name=WebTablesClick status=SUCCESS method=ElementsTests.WebTablesClick()[pri:26, instance:tests.ElementsTests@457c9034] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- TearDown -->
-        <test-method is-config="true" signature="setUP()[pri:0, instance:tests.ElementsTests@188715b5]" started-at="2025-08-07T20:04:33 IST" name="setUP" finished-at="2025-08-07T20:04:38 IST" duration-ms="5497" status="PASS">
+        <test-method is-config="true" signature="setUP()[pri:0, instance:tests.ElementsTests@457c9034]" started-at="2025-08-11T14:26:41 IST" name="setUP" finished-at="2025-08-11T14:27:16 IST" duration-ms="34935" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUP -->
-        <test-method signature="webTableNewRegistration(models.WebTableUser)[pri:27, instance:tests.ElementsTests@188715b5]" started-at="2025-08-07T20:04:38 IST" name="webTableNewRegistration" data-provider="WTFormBData" finished-at="2025-08-07T20:04:41 IST" depends-on-methods="tests.ElementsTests.WebTablesClick" duration-ms="3436" status="PASS">
+        <test-method signature="webTableNewRegistration(models.WebTableUser)[pri:27, instance:tests.ElementsTests@457c9034]" started-at="2025-08-11T14:27:16 IST" name="webTableNewRegistration" data-provider="WebTableUserData" finished-at="2025-08-11T14:27:21 IST" depends-on-methods="tests.ElementsTests.WebTablesClick" duration-ms="4113" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[models.WebTableUser@3ad558bf]]>
+                <![CDATA[WebTableUser{firstName='Johny', lastName='Bravo', email='Jbravo@demoqa.com', salary=280000, age=340, department='Information Technology'}]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- webTableNewRegistration -->
-        <test-method is-config="true" signature="TearDown(org.testng.ITestResult)[pri:0, instance:tests.ElementsTests@188715b5]" started-at="2025-08-07T20:04:41 IST" name="TearDown" finished-at="2025-08-07T20:04:42 IST" duration-ms="190" status="PASS">
+        <test-method is-config="true" signature="TearDown(org.testng.ITestResult)[pri:0, instance:tests.ElementsTests@457c9034]" started-at="2025-08-11T14:27:21 IST" name="TearDown" finished-at="2025-08-11T14:27:21 IST" duration-ms="519" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=webTableNewRegistration status=SUCCESS method=ElementsTests.webTableNewRegistration(models.WebTableUser)[pri:27, instance:tests.ElementsTests@188715b5] output={null}]]]>
+                <![CDATA[[TestResult name=webTableNewRegistration status=SUCCESS method=ElementsTests.webTableNewRegistration(models.WebTableUser)[pri:27, instance:tests.ElementsTests@457c9034] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- TearDown -->
-        <test-method is-config="true" signature="setUP()[pri:0, instance:tests.ElementsTests@188715b5]" started-at="2025-08-07T20:04:42 IST" name="setUP" finished-at="2025-08-07T20:04:49 IST" duration-ms="6887" status="PASS">
+        <test-method is-config="true" signature="setUP()[pri:0, instance:tests.ElementsTests@457c9034]" started-at="2025-08-11T14:27:21 IST" name="setUP" finished-at="2025-08-11T14:27:56 IST" duration-ms="34835" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUP -->
-        <test-method signature="webTableNewRegistration(models.WebTableUser)[pri:27, instance:tests.ElementsTests@188715b5]" started-at="2025-08-07T20:04:49 IST" name="webTableNewRegistration" data-provider="WTFormBData" finished-at="2025-08-07T20:04:53 IST" depends-on-methods="tests.ElementsTests.WebTablesClick" duration-ms="4551" status="PASS">
+        <test-method signature="webTableNewRegistration(models.WebTableUser)[pri:27, instance:tests.ElementsTests@457c9034]" started-at="2025-08-11T14:27:56 IST" name="webTableNewRegistration" data-provider="WebTableUserData" finished-at="2025-08-11T14:28:00 IST" depends-on-methods="tests.ElementsTests.WebTablesClick" duration-ms="4069" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[models.WebTableUser@50f13494]]>
+                <![CDATA[WebTableUser{firstName='Gene', lastName='Femina', email='GFemina@demoqa.com', salary=180000, age=300, department='Finance'}]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- webTableNewRegistration -->
-        <test-method is-config="true" signature="TearDown(org.testng.ITestResult)[pri:0, instance:tests.ElementsTests@188715b5]" started-at="2025-08-07T20:04:53 IST" name="TearDown" finished-at="2025-08-07T20:04:53 IST" duration-ms="299" status="PASS">
+        <test-method is-config="true" signature="TearDown(org.testng.ITestResult)[pri:0, instance:tests.ElementsTests@457c9034]" started-at="2025-08-11T14:28:00 IST" name="TearDown" finished-at="2025-08-11T14:28:00 IST" duration-ms="490" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=webTableNewRegistration status=SUCCESS method=ElementsTests.webTableNewRegistration(models.WebTableUser)[pri:27, instance:tests.ElementsTests@188715b5] output={null}]]]>
+                <![CDATA[[TestResult name=webTableNewRegistration status=SUCCESS method=ElementsTests.webTableNewRegistration(models.WebTableUser)[pri:27, instance:tests.ElementsTests@457c9034] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- TearDown -->
-        <test-method is-config="true" signature="setUP()[pri:0, instance:tests.ElementsTests@188715b5]" started-at="2025-08-07T20:04:53 IST" name="setUP" finished-at="2025-08-07T20:05:04 IST" duration-ms="10922" status="PASS">
+        <test-method is-config="true" signature="setUP()[pri:0, instance:tests.ElementsTests@457c9034]" started-at="2025-08-11T14:28:00 IST" name="setUP" finished-at="2025-08-11T14:28:36 IST" duration-ms="35143" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUP -->
-        <test-method signature="webTableNewRegistration(models.WebTableUser)[pri:27, instance:tests.ElementsTests@188715b5]" started-at="2025-08-07T20:05:04 IST" name="webTableNewRegistration" data-provider="WTFormBData" finished-at="2025-08-07T20:05:07 IST" depends-on-methods="tests.ElementsTests.WebTablesClick" duration-ms="2327" status="PASS">
+        <test-method signature="webTableNewRegistration(models.WebTableUser)[pri:27, instance:tests.ElementsTests@457c9034]" started-at="2025-08-11T14:28:36 IST" name="webTableNewRegistration" data-provider="WebTableUserData" finished-at="2025-08-11T14:28:40 IST" depends-on-methods="tests.ElementsTests.WebTablesClick" duration-ms="4447" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[models.WebTableUser@2d114d27]]>
+                <![CDATA[WebTableUser{firstName='Bud', lastName='Wisem', email='BWisem@demoqa.com', salary=150000, age=400, department='Medicine'}]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- webTableNewRegistration -->
-        <test-method is-config="true" signature="TearDown(org.testng.ITestResult)[pri:0, instance:tests.ElementsTests@188715b5]" started-at="2025-08-07T20:05:07 IST" name="TearDown" finished-at="2025-08-07T20:05:07 IST" duration-ms="204" status="PASS">
+        <test-method is-config="true" signature="TearDown(org.testng.ITestResult)[pri:0, instance:tests.ElementsTests@457c9034]" started-at="2025-08-11T14:28:40 IST" name="TearDown" finished-at="2025-08-11T14:28:41 IST" duration-ms="630" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=webTableNewRegistration status=SUCCESS method=ElementsTests.webTableNewRegistration(models.WebTableUser)[pri:27, instance:tests.ElementsTests@188715b5] output={null}]]]>
+                <![CDATA[[TestResult name=webTableNewRegistration status=SUCCESS method=ElementsTests.webTableNewRegistration(models.WebTableUser)[pri:27, instance:tests.ElementsTests@457c9034] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- TearDown -->
-        <test-method is-config="true" signature="setUP()[pri:0, instance:tests.ElementsTests@188715b5]" started-at="2025-08-07T20:05:07 IST" name="setUP" finished-at="2025-08-07T20:05:12 IST" duration-ms="5330" status="PASS">
+        <test-method is-config="true" signature="setUP()[pri:0, instance:tests.ElementsTests@457c9034]" started-at="2025-08-11T14:28:41 IST" name="setUP" finished-at="2025-08-11T14:29:16 IST" duration-ms="34858" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUP -->
-        <test-method signature="webTableNewRegistration(models.WebTableUser)[pri:27, instance:tests.ElementsTests@188715b5]" started-at="2025-08-07T20:05:12 IST" name="webTableNewRegistration" data-provider="WTFormBData" finished-at="2025-08-07T20:05:16 IST" depends-on-methods="tests.ElementsTests.WebTablesClick" duration-ms="4283" status="PASS">
+        <test-method signature="webTableNewRegistration(models.WebTableUser)[pri:27, instance:tests.ElementsTests@457c9034]" started-at="2025-08-11T14:29:16 IST" name="webTableNewRegistration" data-provider="WebTableUserData" finished-at="2025-08-11T14:29:19 IST" depends-on-methods="tests.ElementsTests.WebTablesClick" duration-ms="3445" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[models.WebTableUser@4a490518]]>
+                <![CDATA[WebTableUser{firstName='Tom', lastName='Boss', email='TBoss@demoqa.com', salary=190000, age=420, department='Recreation'}]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- webTableNewRegistration -->
-        <test-method is-config="true" signature="TearDown(org.testng.ITestResult)[pri:0, instance:tests.ElementsTests@188715b5]" started-at="2025-08-07T20:05:16 IST" name="TearDown" finished-at="2025-08-07T20:05:17 IST" duration-ms="288" status="PASS">
+        <test-method is-config="true" signature="TearDown(org.testng.ITestResult)[pri:0, instance:tests.ElementsTests@457c9034]" started-at="2025-08-11T14:29:19 IST" name="TearDown" finished-at="2025-08-11T14:29:19 IST" duration-ms="494" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=webTableNewRegistration status=SUCCESS method=ElementsTests.webTableNewRegistration(models.WebTableUser)[pri:27, instance:tests.ElementsTests@188715b5] output={null}]]]>
+                <![CDATA[[TestResult name=webTableNewRegistration status=SUCCESS method=ElementsTests.webTableNewRegistration(models.WebTableUser)[pri:27, instance:tests.ElementsTests@457c9034] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- TearDown -->
-        <test-method is-config="true" signature="setUP()[pri:0, instance:tests.ElementsTests@188715b5]" started-at="2025-08-07T20:05:17 IST" name="setUP" finished-at="2025-08-07T20:05:22 IST" duration-ms="5446" status="PASS">
+        <test-method is-config="true" signature="setUP()[pri:0, instance:tests.ElementsTests@457c9034]" started-at="2025-08-11T14:29:20 IST" name="setUP" finished-at="2025-08-11T14:29:54 IST" duration-ms="34871" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUP -->
-        <test-method signature="webTableAddSearch(models.WebTableUser)[pri:28, instance:tests.ElementsTests@188715b5]" started-at="2025-08-07T20:05:22 IST" name="webTableAddSearch" data-provider="WTFormDataEdit" finished-at="2025-08-07T20:05:26 IST" depends-on-methods="tests.ElementsTests.WebTablesClick" duration-ms="3291" status="PASS">
+        <test-method signature="webTableAddSearch(models.WebTableUser)[pri:28, instance:tests.ElementsTests@457c9034]" started-at="2025-08-11T14:29:54 IST" name="webTableAddSearch" data-provider="WTFormDataEdit" finished-at="2025-08-11T14:29:59 IST" depends-on-methods="tests.ElementsTests.WebTablesClick" duration-ms="4665" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[models.WebTableUser@64e247e]]>
+                <![CDATA[WebTableUser{firstName='Johny', lastName='Bravo', email='Jbravo@demoqa.com', salary=280000, age=340, department='Information Technology'}]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- webTableAddSearch -->
-        <test-method is-config="true" signature="TearDown(org.testng.ITestResult)[pri:0, instance:tests.ElementsTests@188715b5]" started-at="2025-08-07T20:05:26 IST" name="TearDown" finished-at="2025-08-07T20:05:26 IST" duration-ms="230" status="PASS">
+        <test-method is-config="true" signature="TearDown(org.testng.ITestResult)[pri:0, instance:tests.ElementsTests@457c9034]" started-at="2025-08-11T14:29:59 IST" name="TearDown" finished-at="2025-08-11T14:29:59 IST" duration-ms="421" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=webTableAddSearch status=SUCCESS method=ElementsTests.webTableAddSearch(models.WebTableUser)[pri:28, instance:tests.ElementsTests@188715b5] output={null}]]]>
+                <![CDATA[[TestResult name=webTableAddSearch status=SUCCESS method=ElementsTests.webTableAddSearch(models.WebTableUser)[pri:28, instance:tests.ElementsTests@457c9034] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- TearDown -->
-        <test-method is-config="true" signature="setUP()[pri:0, instance:tests.ElementsTests@188715b5]" started-at="2025-08-07T20:05:26 IST" name="setUP" finished-at="2025-08-07T20:05:31 IST" duration-ms="5608" status="PASS">
+        <test-method is-config="true" signature="setUP()[pri:0, instance:tests.ElementsTests@457c9034]" started-at="2025-08-11T14:30:00 IST" name="setUP" finished-at="2025-08-11T14:30:34 IST" duration-ms="34813" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUP -->
-        <test-method signature="webTableAddEditFirstName(models.WebTableUser)[pri:29, instance:tests.ElementsTests@188715b5]" started-at="2025-08-07T20:05:31 IST" name="webTableAddEditFirstName" data-provider="WTFormDataEdit" finished-at="2025-08-07T20:05:37 IST" depends-on-methods="tests.ElementsTests.WebTablesClick" duration-ms="5128" status="PASS">
+        <test-method signature="webTableAddEditFirstName(models.WebTableUser)[pri:29, instance:tests.ElementsTests@457c9034]" started-at="2025-08-11T14:30:34 IST" name="webTableAddEditFirstName" data-provider="WTFormDataEdit" finished-at="2025-08-11T14:30:41 IST" depends-on-methods="tests.ElementsTests.WebTablesClick" duration-ms="6976" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[models.WebTableUser@1b84d03d]]>
+                <![CDATA[WebTableUser{firstName='Tonny', lastName='Bravo', email='Jbravo@demoqa.com', salary=280000, age=340, department='Information Technology'}]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- webTableAddEditFirstName -->
-        <test-method is-config="true" signature="TearDown(org.testng.ITestResult)[pri:0, instance:tests.ElementsTests@188715b5]" started-at="2025-08-07T20:05:37 IST" name="TearDown" finished-at="2025-08-07T20:05:37 IST" duration-ms="246" status="PASS">
+        <test-method is-config="true" signature="TearDown(org.testng.ITestResult)[pri:0, instance:tests.ElementsTests@457c9034]" started-at="2025-08-11T14:30:41 IST" name="TearDown" finished-at="2025-08-11T14:30:42 IST" duration-ms="561" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=webTableAddEditFirstName status=SUCCESS method=ElementsTests.webTableAddEditFirstName(models.WebTableUser)[pri:29, instance:tests.ElementsTests@188715b5] output={null}]]]>
+                <![CDATA[[TestResult name=webTableAddEditFirstName status=SUCCESS method=ElementsTests.webTableAddEditFirstName(models.WebTableUser)[pri:29, instance:tests.ElementsTests@457c9034] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- TearDown -->
-        <test-method is-config="true" signature="setUP()[pri:0, instance:tests.ElementsTests@188715b5]" started-at="2025-08-07T20:05:37 IST" name="setUP" finished-at="2025-08-07T20:05:43 IST" duration-ms="5988" status="PASS">
+        <test-method is-config="true" signature="setUP()[pri:0, instance:tests.ElementsTests@457c9034]" started-at="2025-08-11T14:30:42 IST" name="setUP" finished-at="2025-08-11T14:30:44 IST" duration-ms="2456" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUP -->
-        <test-method signature="webTableAddSearchEdit(models.WebTableUser)[pri:30, instance:tests.ElementsTests@188715b5]" started-at="2025-08-07T20:05:43 IST" name="webTableAddSearchEdit" data-provider="WTFormDataEdit" finished-at="2025-08-07T20:05:49 IST" depends-on-methods="tests.ElementsTests.WebTablesClick" duration-ms="5976" status="PASS">
+        <test-method signature="webTableAddSearchEdit(models.WebTableUser)[pri:30, instance:tests.ElementsTests@457c9034]" started-at="2025-08-11T14:30:44 IST" name="webTableAddSearchEdit" data-provider="WTFormDataEdit" finished-at="2025-08-11T14:30:45 IST" depends-on-methods="tests.ElementsTests.WebTablesClick" duration-ms="288" status="FAIL">
           <params>
             <param index="0">
               <value>
-                <![CDATA[models.WebTableUser@f4b2d13]]>
+                <![CDATA[WebTableUser{firstName='Johny', lastName='Bravo', email='Jbravo@demoqa.com', salary=280000, age=340, department='Information Technology'}]]>
               </value>
             </param>
           </params>
+          <exception class="org.openqa.selenium.NoSuchElementException">
+            <message>
+              <![CDATA[no such element: Unable to locate element: {"method":"xpath","selector":"//div[@class='category-cards']//div[1]//div[1]//div[2]//*[name()='svg']"}
+  (Session info: chrome=137.0.7151.120)
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Build info: version: '4.34.0', revision: '707dcb4246*'
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '21.0.7'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [c142f519bc3b3f555ef615dbe246aefb, findElement {value=//div[@class='category-cards']//div[1]//div[1]//div[2]//*[name()='svg'], using=xpath}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 137.0.7151.120, chrome: {chromedriverVersion: 137.0.7151.119 (e0ac9d12dff..., userDataDir: /tmp/chrome-profile-8590fa0...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:57278}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:57278/devtoo..., se:cdpVersion: 137.0.7151.120, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: c142f519bc3b3f555ef615dbe246aefb]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {"method":"xpath","selector":"//div[@class='category-cards']//div[1]//div[1]//div[2]//*[name()='svg']"}
+  (Session info: chrome=137.0.7151.120)
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Build info: version: '4.34.0', revision: '707dcb4246*'
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '21.0.7'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [c142f519bc3b3f555ef615dbe246aefb, findElement {value=//div[@class='category-cards']//div[1]//div[1]//div[2]//*[name()='svg'], using=xpath}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 137.0.7151.120, chrome: {chromedriverVersion: 137.0.7151.119 (e0ac9d12dff..., userDataDir: /tmp/chrome-profile-8590fa0...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:57278}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:57278/devtoo..., se:cdpVersion: 137.0.7151.120, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: c142f519bc3b3f555ef615dbe246aefb
+at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
+at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502)
+at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:486)
+at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:167)
+at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:138)
+at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:50)
+at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:215)
+at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)
+at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)
+at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:544)
+at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:165)
+at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:59)
+at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:367)
+at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:361)
+at pages.homePage.clickElementCard(homePage.java:21)
+at pages.elementsPage.accessElements(elementsPage.java:190)
+at tests.ElementsTests.webTableAddSearchEdit(ElementsTests.java:530)
+at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:687)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:995)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+at org.testng.TestRunner.privateRun(TestRunner.java:741)
+at org.testng.TestRunner.run(TestRunner.java:616)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
+at org.testng.SuiteRunner.run(SuiteRunner.java:312)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
+at org.testng.TestNG.runSuites(TestNG.java:1112)
+at org.testng.TestNG.run(TestNG.java:1079)
+at org.apache.maven.surefire.testng.TestNGExecutor.run(TestNGExecutor.java:155)
+at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.executeMulti(TestNGDirectoryTestSuite.java:169)
+at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.execute(TestNGDirectoryTestSuite.java:88)
+at org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:137)
+at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385)
+at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
+at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
+at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
+]]>
+            </full-stacktrace>
+          </exception> <!-- org.openqa.selenium.NoSuchElementException -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- webTableAddSearchEdit -->
-        <test-method is-config="true" signature="TearDown(org.testng.ITestResult)[pri:0, instance:tests.ElementsTests@188715b5]" started-at="2025-08-07T20:05:49 IST" name="TearDown" finished-at="2025-08-07T20:05:49 IST" duration-ms="285" status="PASS">
+        <test-method is-config="true" signature="TearDown(org.testng.ITestResult)[pri:0, instance:tests.ElementsTests@457c9034]" started-at="2025-08-11T14:30:45 IST" name="TearDown" finished-at="2025-08-11T14:30:45 IST" duration-ms="533" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=webTableAddSearchEdit status=SUCCESS method=ElementsTests.webTableAddSearchEdit(models.WebTableUser)[pri:30, instance:tests.ElementsTests@188715b5] output={null}]]]>
+                <![CDATA[[TestResult name=webTableAddSearchEdit status=FAILURE method=ElementsTests.webTableAddSearchEdit(models.WebTableUser)[pri:30, instance:tests.ElementsTests@457c9034] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- TearDown -->
-        <test-method is-config="true" signature="setUP()[pri:0, instance:tests.ElementsTests@188715b5]" started-at="2025-08-07T20:05:49 IST" name="setUP" finished-at="2025-08-07T20:05:55 IST" duration-ms="5860" status="PASS">
+        <test-method is-config="true" signature="setUP()[pri:0, instance:tests.ElementsTests@457c9034]" started-at="2025-08-11T14:30:45 IST" name="setUP" finished-at="2025-08-11T14:31:20 IST" duration-ms="34705" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUP -->
-        <test-method signature="webTableDeleteUser(models.WebTableUser)[pri:31, instance:tests.ElementsTests@188715b5]" started-at="2025-08-07T20:05:55 IST" name="webTableDeleteUser" data-provider="WTFormDataEdit" finished-at="2025-08-07T20:05:59 IST" depends-on-methods="tests.ElementsTests.WebTablesClick" duration-ms="3877" status="PASS">
+        <test-method signature="webTableDeleteUser(models.WebTableUser)[pri:31, instance:tests.ElementsTests@457c9034]" started-at="2025-08-11T14:31:20 IST" name="webTableDeleteUser" data-provider="WTFormDataEdit" finished-at="2025-08-11T14:31:25 IST" depends-on-methods="tests.ElementsTests.WebTablesClick" duration-ms="4549" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[models.WebTableUser@3423f353]]>
+                <![CDATA[WebTableUser{firstName='Johny', lastName='Bravo', email='Jbravo@demoqa.com', salary=280000, age=340, department='Information Technology'}]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- webTableDeleteUser -->
-        <test-method is-config="true" signature="TearDown(org.testng.ITestResult)[pri:0, instance:tests.ElementsTests@188715b5]" started-at="2025-08-07T20:05:59 IST" name="TearDown" finished-at="2025-08-07T20:05:59 IST" duration-ms="196" status="PASS">
+        <test-method is-config="true" signature="TearDown(org.testng.ITestResult)[pri:0, instance:tests.ElementsTests@457c9034]" started-at="2025-08-11T14:31:25 IST" name="TearDown" finished-at="2025-08-11T14:31:25 IST" duration-ms="437" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=webTableDeleteUser status=SUCCESS method=ElementsTests.webTableDeleteUser(models.WebTableUser)[pri:31, instance:tests.ElementsTests@188715b5] output={null}]]]>
+                <![CDATA[[TestResult name=webTableDeleteUser status=SUCCESS method=ElementsTests.webTableDeleteUser(models.WebTableUser)[pri:31, instance:tests.ElementsTests@457c9034] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- TearDown -->
+        <test-method is-config="true" signature="setUP()[pri:0, instance:tests.ElementsTests@457c9034]" started-at="2025-08-11T14:31:25 IST" name="setUP" finished-at="2025-08-11T14:32:00 IST" duration-ms="34776" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUP -->
+        <test-method signature="testAddAllUsersFromExcel()[pri:32, instance:tests.ElementsTests@457c9034]" started-at="2025-08-11T14:32:00 IST" name="testAddAllUsersFromExcel" finished-at="2025-08-11T14:32:12 IST" depends-on-methods="tests.ElementsTests.WebTablesClick" duration-ms="12356" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testAddAllUsersFromExcel -->
+        <test-method is-config="true" signature="TearDown(org.testng.ITestResult)[pri:0, instance:tests.ElementsTests@457c9034]" started-at="2025-08-11T14:32:12 IST" name="TearDown" finished-at="2025-08-11T14:32:13 IST" duration-ms="930" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=testAddAllUsersFromExcel status=SUCCESS method=ElementsTests.testAddAllUsersFromExcel()[pri:32, instance:tests.ElementsTests@457c9034] output={null}]]]>
               </value>
             </param>
           </params>
@@ -836,30 +1292,30 @@
         </test-method> <!-- TearDown -->
       </class> <!-- tests.ElementsTests -->
       <class name="tests.AlertsFramesWindowsTests">
-        <test-method is-config="true" signature="setupReport()[pri:0, instance:tests.AlertsFramesWindowsTests@7722c3c3]" started-at="2025-08-07T20:00:49 IST" name="setupReport" finished-at="2025-08-07T20:00:49 IST" duration-ms="245" status="PASS">
+        <test-method is-config="true" signature="setupReport()[pri:0, instance:tests.AlertsFramesWindowsTests@7393222f]" started-at="2025-08-11T14:12:29 IST" name="setupReport" finished-at="2025-08-11T14:12:29 IST" duration-ms="205" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setupReport -->
-        <test-method is-config="true" signature="setUP()[pri:0, instance:tests.AlertsFramesWindowsTests@7722c3c3]" started-at="2025-08-07T20:00:49 IST" name="setUP" finished-at="2025-08-07T20:00:58 IST" duration-ms="8662" status="PASS">
+        <test-method is-config="true" signature="setUP()[pri:0, instance:tests.AlertsFramesWindowsTests@7393222f]" started-at="2025-08-11T14:12:29 IST" name="setUP" finished-at="2025-08-11T14:13:04 IST" duration-ms="35129" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUP -->
-        <test-method signature="accessAlertsFrameWindows()[pri:1, instance:tests.AlertsFramesWindowsTests@7722c3c3]" started-at="2025-08-07T20:00:58 IST" name="accessAlertsFrameWindows" finished-at="2025-08-07T20:00:58 IST" duration-ms="303" status="PASS">
+        <test-method signature="accessAlertsFrameWindows()[pri:1, instance:tests.AlertsFramesWindowsTests@7393222f]" started-at="2025-08-11T14:13:04 IST" name="accessAlertsFrameWindows" finished-at="2025-08-11T14:13:05 IST" duration-ms="349" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- accessAlertsFrameWindows -->
-        <test-method is-config="true" signature="TearDown(org.testng.ITestResult)[pri:0, instance:tests.AlertsFramesWindowsTests@7722c3c3]" started-at="2025-08-07T20:00:58 IST" name="TearDown" finished-at="2025-08-07T20:00:59 IST" duration-ms="256" status="PASS">
+        <test-method is-config="true" signature="TearDown(org.testng.ITestResult)[pri:0, instance:tests.AlertsFramesWindowsTests@7393222f]" started-at="2025-08-11T14:13:05 IST" name="TearDown" finished-at="2025-08-11T14:13:05 IST" duration-ms="385" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=accessAlertsFrameWindows status=SUCCESS method=AlertsFramesWindowsTests.accessAlertsFrameWindows()[pri:1, instance:tests.AlertsFramesWindowsTests@7722c3c3] output={null}]]]>
+                <![CDATA[[TestResult name=accessAlertsFrameWindows status=SUCCESS method=AlertsFramesWindowsTests.accessAlertsFrameWindows()[pri:1, instance:tests.AlertsFramesWindowsTests@7393222f] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- TearDown -->
-        <test-method is-config="true" signature="teardownReport()[pri:0, instance:tests.AlertsFramesWindowsTests@7722c3c3]" started-at="2025-08-07T20:06:56 IST" name="teardownReport" finished-at="2025-08-07T20:07:03 IST" duration-ms="6275" status="PASS">
+        <test-method is-config="true" signature="teardownReport()[pri:0, instance:tests.AlertsFramesWindowsTests@7393222f]" started-at="2025-08-11T14:35:03 IST" name="teardownReport" finished-at="2025-08-11T14:35:04 IST" duration-ms="536" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- teardownReport -->

@@ -11,11 +11,17 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
+
 import base.demoqaBase;
+import models.UserFormData;
+import utils.DataSanitizer;
+import utils.DateParts;
+import utils.DatePickerUtils;
+import utils.DateUtils;
 import utils.demoqaLog;
-import utils.dateUtils;
+import utils.retryUrlAccess;
+
 //import utils.splitDOB;
 
 public class formsPage extends demoqaBase {
@@ -55,6 +61,8 @@ public class formsPage extends demoqaBase {
 	WebElement city;
 
 	private WebDriver driver;
+	private UserFormData data = new UserFormData();
+//	private DateUtils dateUtils;
 	private By PracticeForm = By.cssSelector("div.element-list.collapse.show > ul.menu-list > #item-0 > span.text");
 	WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(3));
 
@@ -67,10 +75,12 @@ public class formsPage extends demoqaBase {
 
 		demoqaLog.info("Accessing Form Card...");
 		homePage homePage = new homePage(driver);
+		retryUrlAccess.navigateWithRetry(driver, "https://demoqa.com", 3);
 		homePage.clickFormCard();
+//		wait.until(ExpectedConditions.titleContains("Practice Form"));
 		clickPracticeForm();
 	}
-	
+
 	public void clickPracticeForm() {
 		demoqaLog.info("Clicking on Practice Form...");
 		driver.findElement(PracticeForm).click();
@@ -128,45 +138,55 @@ public class formsPage extends demoqaBase {
 	}
 
 	public void entMobileNo(String mobileNumber) {
-		mobile.clear();
-		if (mobileNumber.length() != 10) {
-			System.out.println("Invalid mobile number: " + mobileNumber);
+//		mobile.clear();
+//		if (mobileNumber.length() != 10) {
+//			System.out.println("Invalid mobile number: " + mobileNumber);
+//			return;
+//		}
+//		mobile.sendKeys(mobileNumber);
+		String sanitized = DataSanitizer.sanitizeMobile(mobileNumber, "Mobile", null);
+		if (sanitized.length() != 10) {
+			System.out.println("Invalid mobile number after sanitization: " + sanitized);
 			return;
 		}
-		mobile.sendKeys(mobileNumber);
+		mobile.clear();
+		mobile.sendKeys(sanitized);
+
 	}
+	
+	
+    public void fillDob(String dobStr) {
+        System.out.println("📥 Received DOB: " + dobStr);
 
-	public String getMobileNoFromForm() {
-		return mobile.getAttribute("value").trim();
-	}
+        if (dobStr == null || dobStr.trim().isEmpty()) {
+            System.out.println("⚠️ DOB is empty or null. Skipping date picker.");
+            return;
+        }
 
-	public void entDob(String dobStr) {
-		demoqaLog.info("Entering Date of Birth: " + dobStr);
-		System.out.println("Parsed DOB from Excel: " + dobStr);
-//		 ✅ Step 1: Validate Format BEFORE splitting
-		if (!dateUtils.isValidDobFormat(dobStr)) {
-			throw new RuntimeException("Invalid DOB format. Expected dd-MM-yyyy but got: " + dobStr);
-		}
+        try {
+            // Step 1: Extract structured date components
+            DateParts parts = DateUtils.extractDateParts(dobStr);
 
-//		 ✅ Step 2: Now it's safe to split
-		String[] parts = dobStr.split("-");
-		String day = parts[0];
-		String month = dateUtils.getMonthName(parts[1]);
-		String year = parts[2];
+            // Step 2: Normalize and store DOB
+            String normalizedDob = String.format("%02d-%02d-%04d", parts.day, parts.month, parts.year);
+            data.setDob(normalizedDob);
+            System.out.println("📅 Normalized DOB: " + normalizedDob);
 
-		// ✅ Step 3: Proceed with calendar interaction
-		datePicker.click();
+            // Step 3: Select date using utility
+            DatePickerUtils picker = new DatePickerUtils(driver);
+            picker.selectDate(normalizedDob); // Use normalized format for calendar interaction
 
-		new Select(driver.findElement(By.className("react-datepicker__month-select"))).selectByVisibleText(month);
-
-		new Select(driver.findElement(By.className("react-datepicker__year-select"))).selectByVisibleText(year);
-
-		String paddedDay = String.format("%02d", Integer.parseInt(day));
-		String daySelector = String.format("div.react-datepicker__day--0%s", paddedDay);
-		WebElement dayElement = driver.findElement(By.cssSelector(daySelector));
-		((JavascriptExecutor) driver).executeScript("arguments[0].click();", dayElement);
-	}
-
+        } catch (NumberFormatException nfe) {
+            System.err.println("❌ Invalid number format in DOB: " + dobStr);
+            throw new RuntimeException("DOB contains non-numeric values", nfe);
+        } catch (IllegalArgumentException iae) {
+            System.err.println("❌ DOB format is incorrect: " + dobStr);
+            throw new RuntimeException("DOB must be in dd-MM-yyyy format", iae);
+        } catch (Exception e) {
+            System.err.println("❌ Unexpected error while processing DOB: " + dobStr);
+            throw new RuntimeException("Failed to process DOB", e);
+        }
+    }    
 	public String getDobFromForm() {
 		return datePicker.getAttribute("value").trim();
 	}
@@ -386,6 +406,12 @@ public class formsPage extends demoqaBase {
 //	         Fallback to JS click
 			demoqaLog.warn("Normal click failed. Trying JS click...");
 			((JavascriptExecutor) driver).executeScript("arguments[0].click();", btn);
+			try {
+				Thread.sleep(500);
+			} catch (InterruptedException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			} // Pause added to ensure we get the screenshot of summary page
 			demoqaLog.info("Form Submitted via JS click...");
 		}
 	}

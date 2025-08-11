@@ -4,7 +4,13 @@ import java.io.File;
 //import java.io.File;
 //import java.lang.annotation.Annotation;
 import java.lang.reflect.Method;
+import java.time.Duration;
 import java.util.Arrays;
+import java.util.UUID;
+
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -18,10 +24,10 @@ import org.testng.annotations.BeforeSuite;
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.MediaEntityBuilder;
-import utils.demoqaLog;
+import customAnnotations.CaptureOnSuccess;
 import utils.emailUtils;
 import utils.extentReportManager;
-import customAnnotations.CaptureOnSuccess;
+import utils.retryUrlAccess;
 
 
 public class demoqaBase {
@@ -29,6 +35,8 @@ public class demoqaBase {
 	protected WebDriver driver;
 	protected static ExtentReports extentRep;
 	protected ExtentTest testRep;
+	private static final Logger demoqaLog = LogManager.getLogger(demoqaBase.class);
+
 	
 	@BeforeSuite
 	public static void setupReport() {
@@ -58,16 +66,27 @@ public class demoqaBase {
 		ChromeOptions options = new ChromeOptions();
 		options.addArguments("--incognito");  // ← This is the key!
 		options.addArguments("--start-maximized");
-		options.addArguments("--disable-blink-features=AutomationControlled");
+//		options.addArguments("--disable-blink-features=AutomationControlled");
 		options.setExperimentalOption("excludeSwitches", Arrays.asList("enable-automation"));
 		options.setExperimentalOption("excludeSwitches", new String[] { "enable-automation" });
-		options.setExperimentalOption("useAutomationExtension", false);
+//		options.setExperimentalOption("useAutomationExtension", false);
 		options.addArguments("user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
 				+ "AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36");
+		options.addArguments("--disable-application-cache");
+		options.addArguments("--disk-cache-size=0");
+		options.addArguments("user-data-dir=/tmp/chrome-profile-" + UUID.randomUUID());
 		driver = new ChromeDriver(options);
+		 driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(30));
+		    driver.manage().deleteAllCookies();
+		    ((JavascriptExecutor) driver).executeScript("window.localStorage.clear();");
+		    ((JavascriptExecutor) driver).executeScript("window.sessionStorage.clear();");
+
+
 		
 		demoqaLog.info("Navigating to demoqa.com Website");
-		driver.get("https://demoqa.com/");
+//		driver.get("https://demoqa.com/");
+		retryUrlAccess.navigateWithRetry(driver, "https://demoqa.com", 3);
+
 //		
 //		=================== For Using Edge Browser =====================
 		
