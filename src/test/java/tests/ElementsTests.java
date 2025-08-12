@@ -1,6 +1,8 @@
 package tests;
 
 import java.io.IOException;
+import java.util.List;
+
 import org.openqa.selenium.By;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
@@ -18,10 +20,25 @@ public class ElementsTests extends demoqaBase {
 
 	@DataProvider(name = "WebTableUserData")
 	public Object[][] provideWebTableUserData() throws IOException {
-	    String filePath = System.getProperty("user.dir") + "/TestData/Students_Details.xlsx";
-	    String sheetName = "Sheet1";
+		String filePath = System.getProperty("user.dir") + "/TestData/Students_Details.xlsx";
+		String sheetName = "Sheet1";
 
-	    return ExcelUtils.getMappedData(filePath, sheetName, WebTableUser.class);
+		return ExcelUtils.getMappedData(filePath, sheetName, WebTableUser.class);
+	}
+
+	@DataProvider(name = "WebTableUserData2")
+	public Object[][] provideWebTableUserData2() throws IOException {
+		String filePath = System.getProperty("user.dir") + "/TestData/Students_Details.xlsx";
+		String sheetName = "Sheet1";
+
+		List<WebTableUser> users = ExcelUtils.getMappedList(filePath, sheetName, WebTableUser.class);
+
+		Object[][] data = new Object[users.size()][1];
+		for (int i = 0; i < users.size(); i++) {
+			data[i][0] = users.get(i);
+		}
+		return data;
+
 	}
 
 //	public Object[][] provideWebTableUserData() throws IOException {
@@ -34,10 +51,10 @@ public class ElementsTests extends demoqaBase {
 
 	@DataProvider(name = "WTFormDataEdit")
 	public Object[][] getSingleUserData() {
-	    String filePath = System.getProperty("user.dir") + "/TestData/Students_Details.xlsx";
-	    String sheetName = "Sheet1";
-	    WebTableUser user = ExcelUtils.getFirstUserFromExcel(filePath, sheetName);
-	    return new Object[][] { { user } };
+		String filePath = System.getProperty("user.dir") + "/TestData/Students_Details.xlsx";
+		String sheetName = "Sheet1";
+		WebTableUser user = ExcelUtils.getFirstUserFromExcel(filePath, sheetName);
+		return new Object[][] { { user } };
 	}
 
 	@Test(priority = 1)
@@ -536,7 +553,9 @@ public class ElementsTests extends demoqaBase {
 		String wTFirstname = user.getFirstName(); // Direct getter
 		testRep.info("Orignal First Name of the User is: " + wTFirstname);
 		elementsPage.SearcheditUserByField(wTFirstname);
-		elementsPage.SearcheditFirstName(wTFirstname);
+		
+		String updatedName = "Tonny";
+		elementsPage.SearcheditFirstName(updatedName);
 		user.setFirstName("Tonny");
 		elementsPage.assertUserPresentInTable(user, testRep);
 		testRep.info("Updated First Name of the User is: " + user.getFirstName());
@@ -581,9 +600,9 @@ public class ElementsTests extends demoqaBase {
 		// Step 2: Prepare Excel data
 		String filePath = System.getProperty("user.dir") + "/TestData/Students_Details.xlsx";
 		String sheetName = "Sheet1";
-		
+
 		Object[][] data = ExcelUtils.getUsersFromExcel(filePath, sheetName);
-		
+
 		elementsPage.webTablesNewRegistration();
 		elementsPage.createAllUsersFromExcel(filePath, sheetName); // This adds all users
 		waitForElement.isElementVisible(driver, By.id("submit"));
@@ -601,4 +620,129 @@ public class ElementsTests extends demoqaBase {
 		demoqaLog.info("Test for Bulk User Creation in Web Table Completed Successfully...");
 	}
 
+	@Test(priority = 33, dependsOnMethods = { "WebTablesClick" })
+	public void testAddAllUsersSearchEdit() throws IOException {
+		// Initialize page and table manager
+		elementsPage elementsPage = new elementsPage(driver);
+		WebTableManager tableManager = new WebTableManager(driver);
+
+		elementsPage.accessElements();
+		elementsPage.webTablesClick();
+		testRep = extentReportManager.createTest("Test Bulk User Creation in Web Table...");
+		testRep.info("Starting Test for Bulk User Creation in Web Table...");
+
+		// Step 1: Capture initial user count
+		int initialUserCount = tableManager.getUserCount();
+
+		// Step 2: Prepare Excel data
+		String filePath = System.getProperty("user.dir") + "/TestData/Students_Details.xlsx";
+		String sheetName = "Sheet1";
+
+		List<WebTableUser> users = ExcelUtils.getMappedList(filePath, sheetName, WebTableUser.class);
+
+		// Step 3: Create all users
+		elementsPage.webTablesNewRegistration();
+		elementsPage.createAllUsersFromExcel(filePath, sheetName); // This adds all users
+		waitForElement.isElementVisible(driver, By.id("submit"));
+		elementsPage.closeFormManually();
+
+		// Step 4: Search and edit a specific user
+		String originalFirstName = "Gene"; // Name to search
+		String updatedFirstName = "Genelia"; // New name to set
+
+		elementsPage.SearcheditUserByField(originalFirstName);
+		elementsPage.SearcheditFirstName(updatedFirstName);
+
+		WebTableUser targetUser = users.stream().filter(u -> originalFirstName.equalsIgnoreCase(u.getFirstName()))
+				.findFirst().orElse(null);
+
+		if (targetUser != null) {
+			targetUser.setFirstName(updatedFirstName);
+			elementsPage.assertUserPresentInTable(targetUser, testRep);
+			testRep.info("Updated First Name of the User is: " + updatedFirstName);
+		} else {
+			testRep.warning("User with first name '" + originalFirstName + "' not found in Excel data.");
+		}
+
+		// Step 5: Validate final user count
+		int finalUserCount = tableManager.getUserCount();
+		System.out.println("Initial user count: " + initialUserCount);
+		System.out.println("Final user count: " + finalUserCount);
+
+		testRep.pass("Finished Test for Bulk User Creation and Edit in Web Table...");
+		demoqaLog.info("Test for Bulk User Creation and Edit Completed Successfully...");
+
+	}
+	
+	@Test(priority = 34, dependsOnMethods = { "WebTablesClick" })
+	public void EditSalaryDepartment() throws IOException {
+		elementsPage elementsPage = new elementsPage(driver);
+		WebTableManager tableManager = new WebTableManager(driver);
+
+		elementsPage.accessElements();
+		elementsPage.webTablesClick();
+		testRep = extentReportManager.createTest("Test Modidfy Users Department & Salary in Web Table...");
+		testRep.info("Starting Test Modidfy Users Department & Salary in Web Table...");
+
+		// Step 1: Capture initial user count
+		int initialUserCount = tableManager.getUserCount();
+		System.out.println("Total Number of user before adding new ones are: " + initialUserCount);
+
+		// Step 2: Prepare Excel data
+		String filePath = System.getProperty("user.dir") + "/TestData/Students_Details.xlsx";
+		String sheetName = "Sheet1";
+
+		List<WebTableUser> users = ExcelUtils.getMappedList(filePath, sheetName, WebTableUser.class);
+
+		// Step 3: Create all users
+		elementsPage.webTablesNewRegistration();
+		elementsPage.createAllUsersFromExcel(filePath, sheetName); // This adds all users
+		waitForElement.isElementVisible(driver, By.id("submit"));
+		elementsPage.closeFormManually();
+		WebTableUser user = new WebTableUser();
+
+		// Step 4: Search and edit a specific user
+		String wTFirstName = "Tom";
+		int originalSalary = user.getSalary(); // Name to search
+		System.out.println("Current Salary is: " + originalSalary);
+		int updatedSalary = 345000; // New Salary to set
+		String originalDepartment = user.getDepartment();
+		String updatedDepartment = "Architecture";
+
+		elementsPage.SearcheditUserByField(wTFirstName);
+		elementsPage.SearcheditFirstName(wTFirstName);
+		elementsPage.EditUsersField(wTFirstName);
+		elementsPage.editSalary(updatedSalary);
+		elementsPage.SearcheditUserByField(wTFirstName);
+		elementsPage.SearcheditFirstName(wTFirstName);
+		elementsPage.EditUsersField(wTFirstName);
+		elementsPage.editDepartment(updatedDepartment);
+
+		WebTableUser targetUser = users.stream().filter(u -> wTFirstName.equalsIgnoreCase(u.getFirstName()))
+				.findFirst().orElse(null);
+
+		if (targetUser != null) {
+			targetUser.setSalary(updatedSalary);
+			elementsPage.assertUserPresentInTable(targetUser, testRep);
+			testRep.info("Updated Users Salary is: " + updatedSalary);
+		} else {
+			testRep.warning("User with first name '" + originalSalary + "' not found in Excel data.");
+		}
+		
+		if (targetUser != null) {
+			targetUser.setDepartment(updatedDepartment);
+			elementsPage.assertUserPresentInTable(targetUser, testRep);
+			testRep.info("Updated Users Department is: " + updatedDepartment);
+		} else {
+			testRep.warning("User with first name '" + originalDepartment + "' not found in Excel data.");
+		}
+
+		// Step 5: Validate final user count
+//		int finalUserCount = tableManager.getUserCount();
+//		System.out.println("Initial user count: " + initialUserCount);
+//		System.out.println("Final user count: " + finalUserCount);
+
+		testRep.pass("Finished Test for Bulk User Creation and Edit in Web Table...");
+		demoqaLog.info("Test for Bulk User Creation and Edit Completed Successfully...");
+	}
 }

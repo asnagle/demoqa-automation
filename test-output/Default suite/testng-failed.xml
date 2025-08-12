@@ -5,11 +5,11 @@
     <classes>
       <class name="tests.ElementsTests">
         <methods>
-          <include name="WebTablesClick"/>
           <include name="TearDown"/>
+          <include name="WebTablesClick"/>
           <include name="setupReport"/>
           <include name="teardownReport"/>
-          <include name="testAddAllUsersFromExcel"/>
+          <include name="EditSalaryDepartment"/>
           <include name="setUP"/>
         </methods>
       </class> <!-- tests.ElementsTests -->

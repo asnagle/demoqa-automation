@@ -202,4 +202,17 @@ public class ExcelUtils {
             }
         }
     }
+    
+    public static <T> List<T> getMappedList(String filePath, String sheetName, Class<T> clazz) {
+        Object[][] rawData = getMappedData(filePath, sheetName, clazz);
+        List<T> result = new ArrayList<>();
+
+        for (Object[] row : rawData) {
+            if (row.length > 0 && clazz.isInstance(row[0])) {
+                result.add(clazz.cast(row[0]));
+            }
+        }
+        return result;
+    }
+
 }
