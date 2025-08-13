@@ -553,7 +553,7 @@ public class ElementsTests extends demoqaBase {
 		String wTFirstname = user.getFirstName(); // Direct getter
 		testRep.info("Orignal First Name of the User is: " + wTFirstname);
 		elementsPage.SearcheditUserByField(wTFirstname);
-		
+
 		String updatedName = "Tonny";
 		elementsPage.SearcheditFirstName(updatedName);
 		user.setFirstName("Tonny");
@@ -673,7 +673,7 @@ public class ElementsTests extends demoqaBase {
 		demoqaLog.info("Test for Bulk User Creation and Edit Completed Successfully...");
 
 	}
-	
+
 	@Test(priority = 34, dependsOnMethods = { "WebTablesClick" })
 	public void EditSalaryDepartment() throws IOException {
 		elementsPage elementsPage = new elementsPage(driver);
@@ -718,8 +718,8 @@ public class ElementsTests extends demoqaBase {
 		elementsPage.EditUsersField(wTFirstName);
 		elementsPage.editDepartment(updatedDepartment);
 
-		WebTableUser targetUser = users.stream().filter(u -> wTFirstName.equalsIgnoreCase(u.getFirstName()))
-				.findFirst().orElse(null);
+		WebTableUser targetUser = users.stream().filter(u -> wTFirstName.equalsIgnoreCase(u.getFirstName())).findFirst()
+				.orElse(null);
 
 		if (targetUser != null) {
 			targetUser.setSalary(updatedSalary);
@@ -728,7 +728,7 @@ public class ElementsTests extends demoqaBase {
 		} else {
 			testRep.warning("User with first name '" + originalSalary + "' not found in Excel data.");
 		}
-		
+
 		if (targetUser != null) {
 			targetUser.setDepartment(updatedDepartment);
 			elementsPage.assertUserPresentInTable(targetUser, testRep);
@@ -744,5 +744,76 @@ public class ElementsTests extends demoqaBase {
 
 		testRep.pass("Finished Test for Bulk User Creation and Edit in Web Table...");
 		demoqaLog.info("Test for Bulk User Creation and Edit Completed Successfully...");
+	}
+
+	@Test(priority = 35)
+	public void Buttons() {
+		elementsPage elementsPage = new elementsPage(driver);
+
+		elementsPage.accessElements();
+		testRep = extentReportManager.createTest("Test Elements|Buttons Click...");
+		testRep.info("Starting Test for Elements|Buttons Click...");
+		elementsPage.clickButtons();
+
+		testRep.pass("Finished Test for Elements|Buttons Click...");
+		demoqaLog.info("Test for Elements|Buttons Click Completed Successfully...");
+	}
+
+	@Test(priority = 36)
+	public void DoubleClickButtons() {
+		elementsPage elementsPage = new elementsPage(driver);
+
+		elementsPage.accessElements();
+		testRep = extentReportManager.createTest("Test Elements|Buttons Click...");
+		testRep.info("Starting Test for Elements|Buttons|Double Click...");
+		elementsPage.clickButtons();
+		elementsPage.DoubleClickbtn();
+
+		testRep.pass("Finished Test for Elements|Buttons|Double Click...");
+		demoqaLog.info("Test for Elements|Buttons|Double Click Completed Successfully...");
+	}
+
+	@Test(priority = 37)
+	public void RightClickButton() {
+		elementsPage elementsPage = new elementsPage(driver);
+
+		elementsPage.accessElements();
+		testRep = extentReportManager.createTest("Test Elements|Buttons|Right Click...");
+		testRep.info("Starting Test for Elements|Buttons|Right Click...");
+		elementsPage.clickButtons();
+		elementsPage.RightClickBtn();
+
+		testRep.pass("Finished Test for Elements|Buttons|Right Click...");
+		demoqaLog.info("Test for Elements|Buttons|Right Click Completed Successfully...");
+	}
+
+	@Test(priority = 37)
+	public void ClickMeButton() {
+		elementsPage elementsPage = new elementsPage(driver);
+		elementsPage.accessElements();
+		testRep = extentReportManager.createTest("Test Elements|Click Me Button...");
+		testRep.info("Starting Test for Elements|Buttons|Click Me Button...");
+		elementsPage.clickButtons();
+		elementsPage.ClickMeBtn();
+
+		testRep.pass("Finished Test for Elements|Buttons|Click Me Button Completed Successfully...");
+		demoqaLog.info("Test for Elements|Buttons|Click Me Button Completed Successfully...");
+	}
+
+	@CaptureOnSuccess(description = "Clicked on All Buttons of Elements|Buttons page - Successfully", screenshotMode = "viewport")
+	@Test(priority = 38)
+	public void ClickAllButtons() {
+		elementsPage elementsPage = new elementsPage(driver);
+
+		elementsPage.accessElements();
+		testRep = extentReportManager.createTest("Test Elements|Buttons|Click All...");
+		testRep.info("Starting Test for Elements|Buttons|Click All...");
+		elementsPage.clickButtons();
+		elementsPage.DoubleClickbtn();
+		elementsPage.RightClickBtn();
+		elementsPage.ClickMeBtn();
+		
+		testRep.pass("Finished Test for Elements|Buttons|Click All Buttons Completed Successfully...");
+		demoqaLog.info("Test for Elements|Buttons|Click All Buttons Completed Successfully...");
 	}
 }

@@ -7,11 +7,14 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
+import org.testng.asserts.Assertion;
+
 import com.aventstack.extentreports.ExtentTest;
 
 //import com.aventstack.extentreports.util.Assert;
@@ -170,6 +173,18 @@ public class elementsPage extends demoqaBase {
 
 	@FindBy(xpath = "//button[@class='close']")
 	WebElement wTableFormCloseBtn;
+
+	@FindBy(xpath = "//span[normalize-space()='Buttons']")
+	WebElement Buttons;
+
+	@FindBy(xpath = "//button[@id='doubleClickBtn']")
+	WebElement doubleClickBtn;
+
+	@FindBy(xpath = "//button[@id='rightClickBtn']")
+	WebElement rightClickBtn;
+	
+	@FindBy(xpath = "//button[text()='Click Me' and contains(@class, 'btn-primary')]")
+	WebElement ClickMeBtn;
 
 	private WebDriver driver;
 	private String wTFirstname;
@@ -661,15 +676,11 @@ public class elementsPage extends demoqaBase {
 		new WebDriverWait(driver, Duration.ofSeconds(10)).until(ExpectedConditions.presenceOfElementLocated(
 				By.xpath("//div[@class='rt-tr-group'][.//div[text()='" + wTFieldname + "']]")));
 
-//		WebElement editButton = driver.findElement(By.id("edit-record-4"));
-//		WebElement editButton = driver.findElement(By.xpath("//*[@id=\"edit-record-4\"]"));
 		String xpath = String.format("//div[@class='rt-tr-group'][.//div[text()='%s']]//span[@title='Edit']",
 				wTFieldname);
 		WebElement editButton = driver.findElement(By.xpath(xpath));
 		((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", editButton);
 		editButton.click();
-//		((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", editButton);
-//		editButton.click();
 	}
 
 	public void editFirstName(String oldName) {
@@ -713,7 +724,7 @@ public class elementsPage extends demoqaBase {
 
 		demoqaLog.info("Updated Salarye is: " + updatedNameCell.getText());
 	}
-	
+
 	public void editDepartment(String updatedDepartment) {
 		demoqaLog.info("Updating Users Department...");
 
@@ -769,6 +780,54 @@ public class elementsPage extends demoqaBase {
 				.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"delete-record-4\"]")));
 		((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", deleteUser);
 		deleteUser.click();
+	}
+
+	public void clickButtons() {
+		demoqaLog.info("Clicking on Elements|Buttons...");
+		Buttons.click();
+		demoqaLog.info("Clicked on Elements|Buttons...");
+	}
+
+	public void DoubleClickbtn() {
+		demoqaLog.info("Clicking on Elements|Buttons|Double Click button...");
+//		Buttons.click();
+		new Actions(driver).doubleClick(doubleClickBtn).perform();
+		String result = driver.findElement(By.xpath("//p[@id='doubleClickMessage']")).getText();
+		System.out.println(result);
+		Assertion assertion = new Assertion();
+		assertion.assertEquals("You have done a double click",
+				driver.findElement(By.xpath("//p[@id='doubleClickMessage']")).getText());
+		demoqaLog.info("Clicked on Elements|Buttons|Double Click button..."
+				+ driver.findElement(By.xpath("//p[@id='doubleClickMessage']")).getText());
+	}
+
+	public void RightClickBtn() {
+		demoqaLog.info("Clicking on Elements|Buttons|Right Click button...");
+		new Actions(driver).contextClick(rightClickBtn).perform();
+
+		Assert.assertEquals("You have done a right click",
+				driver.findElement(By.xpath("//p[@id='rightClickMessage']")).getText());
+		demoqaLog.info("Clicked on Elements|Buttons|Right Click button..."
+				+ driver.findElement(By.xpath("//p[@id='rightClickMessage']")).getText());
+	}
+	
+	public void ClickMeBtn() {
+		demoqaLog.info("Clicking on Elements|Buttons|Click Me button...");
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript("arguments[0].scrollIntoView(true);", ClickMeBtn);
+		js.executeScript("arguments[0].click();", ClickMeBtn);
+
+
+//		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+//		WebElement clickMeButton = wait.until(ExpectedConditions.elementToBeClickable(
+//		    By.xpath("ClickMeBtn")));
+
+//		new Actions(driver).click(ClickMeBtn).perform();
+
+		Assert.assertEquals("You have done a dynamic click",
+				driver.findElement(By.xpath("//p[normalize-space(text())='You have done a dynamic click' and @id='dynamicClickMessage']")).getText());
+		demoqaLog.info("Clicked on Elements|Buttons|Click Me button..."
+				+ driver.findElement(By.xpath("//p[normalize-space(text())='You have done a dynamic click' and @id='dynamicClickMessage']")).getText());
 	}
 
 }

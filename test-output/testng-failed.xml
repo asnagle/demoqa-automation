@@ -6,10 +6,9 @@
       <class name="tests.ElementsTests">
         <methods>
           <include name="TearDown"/>
-          <include name="WebTablesClick"/>
           <include name="setupReport"/>
           <include name="teardownReport"/>
-          <include name="EditSalaryDepartment"/>
+          <include name="ClickMeButton"/>
           <include name="setUP"/>
         </methods>
       </class> <!-- tests.ElementsTests -->
