@@ -753,7 +753,7 @@ public class ElementsTests extends demoqaBase {
 		elementsPage.accessElements();
 		testRep = extentReportManager.createTest("Test Elements|Buttons Click...");
 		testRep.info("Starting Test for Elements|Buttons Click...");
-		elementsPage.clickButtons();
+		elementsPage.ClickButtons();
 
 		testRep.pass("Finished Test for Elements|Buttons Click...");
 		demoqaLog.info("Test for Elements|Buttons Click Completed Successfully...");
@@ -766,7 +766,7 @@ public class ElementsTests extends demoqaBase {
 		elementsPage.accessElements();
 		testRep = extentReportManager.createTest("Test Elements|Buttons Click...");
 		testRep.info("Starting Test for Elements|Buttons|Double Click...");
-		elementsPage.clickButtons();
+		elementsPage.ClickButtons();
 		elementsPage.DoubleClickbtn();
 
 		testRep.pass("Finished Test for Elements|Buttons|Double Click...");
@@ -780,20 +780,20 @@ public class ElementsTests extends demoqaBase {
 		elementsPage.accessElements();
 		testRep = extentReportManager.createTest("Test Elements|Buttons|Right Click...");
 		testRep.info("Starting Test for Elements|Buttons|Right Click...");
-		elementsPage.clickButtons();
+		elementsPage.ClickButtons();
 		elementsPage.RightClickBtn();
 
 		testRep.pass("Finished Test for Elements|Buttons|Right Click...");
 		demoqaLog.info("Test for Elements|Buttons|Right Click Completed Successfully...");
 	}
 
-	@Test(priority = 37)
+	@Test(priority = 38)
 	public void ClickMeButton() {
 		elementsPage elementsPage = new elementsPage(driver);
 		elementsPage.accessElements();
 		testRep = extentReportManager.createTest("Test Elements|Click Me Button...");
 		testRep.info("Starting Test for Elements|Buttons|Click Me Button...");
-		elementsPage.clickButtons();
+		elementsPage.ClickButtons();
 		elementsPage.ClickMeBtn();
 
 		testRep.pass("Finished Test for Elements|Buttons|Click Me Button Completed Successfully...");
@@ -801,19 +801,236 @@ public class ElementsTests extends demoqaBase {
 	}
 
 	@CaptureOnSuccess(description = "Clicked on All Buttons of Elements|Buttons page - Successfully", screenshotMode = "viewport")
-	@Test(priority = 38)
+	@Test(priority = 39)
 	public void ClickAllButtons() {
 		elementsPage elementsPage = new elementsPage(driver);
 
 		elementsPage.accessElements();
 		testRep = extentReportManager.createTest("Test Elements|Buttons|Click All...");
 		testRep.info("Starting Test for Elements|Buttons|Click All...");
-		elementsPage.clickButtons();
+		elementsPage.ClickButtons();
+		try {
+			Thread.sleep(3000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		elementsPage.DoubleClickbtn();
+		try {
+			Thread.sleep(3000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		elementsPage.RightClickBtn();
+		try {
+			Thread.sleep(3000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		elementsPage.ClickMeBtn();
-		
+
 		testRep.pass("Finished Test for Elements|Buttons|Click All Buttons Completed Successfully...");
 		demoqaLog.info("Test for Elements|Buttons|Click All Buttons Completed Successfully...");
 	}
+
+	@Test(priority = 40)
+	public void ClickLinks() {
+		elementsPage elementsPage = new elementsPage(driver);
+
+		elementsPage.accessElements();
+		testRep = extentReportManager.createTest("Test Elements|Links...");
+		testRep.info("Starting Test for Elements|Links...");
+		elementsPage.ClickLinks();
+		testRep.pass("Finished Test for Elements|Links Completed Successfully...");
+		demoqaLog.info("Test for Elements|Links Completed Successfully...");
+	}
+
+	@Test(priority = 41)
+	public void ClickHomeLink() {
+		elementsPage elementsPage = new elementsPage(driver);
+
+		elementsPage.accessElements();
+		testRep = extentReportManager.createTest("Test Elements|Links|Home...");
+		testRep.info("Starting Test for Elements|Links|Home...");
+		elementsPage.ClickLinks();
+		elementsPage.ClickHomeLink();
+		testRep.pass("Finished Test for Elements|Links|Home Completed Successfully...");
+		demoqaLog.info("Test for Elements|Links|Home Completed Successfully...");
+	}
+	
+	@Test(priority = 42)
+	public void ClickDynamicHomeLink() {
+		elementsPage elementsPage = new elementsPage(driver);
+
+		elementsPage.accessElements();
+		testRep = extentReportManager.createTest("Test Elements|Links|Dynamic Home...");
+		testRep.info("Starting Test for Elements|Links|Dynamic Home...");
+		elementsPage.ClickLinks();
+		elementsPage.ClickDynamicHomeLink();
+		testRep.pass("Finished Test for Elements|Links|Dynamic Home Completed Successfully...");
+		demoqaLog.info("Test for Elements|Links|Dynamic Home Completed Successfully...");
+	}
+	
+	@Test(priority = 43)
+	public void ClickCreatedAPILink() {
+		elementsPage elementsPage = new elementsPage(driver);
+
+		elementsPage.accessElements();
+		testRep = extentReportManager.createTest("Test Elements|Links|Created Link...");
+		testRep.info("Starting Test for Elements|Links|Created Link...");
+		elementsPage.ClickLinks();
+		elementsPage.ClickCreatedAPILink();
+		testRep.pass("Finished Test for Elements|Links|Created Link Completed Successfully...");
+		demoqaLog.info("Test for Elements|Links|Created Link Completed Successfully...");
+	}
+	
+	@Test(priority = 44)
+	public void ClickNoContentLink() {
+		elementsPage elementsPage = new elementsPage(driver);
+
+		elementsPage.accessElements();
+		testRep = extentReportManager.createTest("Test Elements|Links|No Content Link...");
+		testRep.info("Starting Test for Elements|Links|No Content Link...");
+		elementsPage.ClickLinks();
+		elementsPage.ClickNoContentLink();
+		testRep.pass("Finished Test for Elements|Links|No Content Link Completed Successfully...");
+		demoqaLog.info("Test for Elements|Links|No Content Link Completed Successfully...");
+	}
+	
+	@Test(priority = 45)
+	public void ClickMovedLink() {
+		elementsPage elementsPage = new elementsPage(driver);
+
+		elementsPage.accessElements();
+		testRep = extentReportManager.createTest("Test Elements|Links|Moved Link...");
+		testRep.info("Starting Test for Elements|Links|Moved Link...");
+		elementsPage.ClickLinks();
+		elementsPage.ClickMovedLink();
+		testRep.pass("Finished Test for Elements|Links|Moved Link Completed Successfully...");
+		demoqaLog.info("Test for Elements|Links|Moved Link Completed Successfully...");
+	}
+	
+	@Test(priority = 46)
+	public void ClickBadRequestLink() {
+		elementsPage elementsPage = new elementsPage(driver);
+
+		elementsPage.accessElements();
+		testRep = extentReportManager.createTest("Test Elements|Links|Bad Request Link...");
+		testRep.info("Starting Test for Elements|Links|Bad Request Link...");
+		elementsPage.ClickLinks();
+		elementsPage.ClickBadRequestLink();
+		testRep.pass("Finished Test for Elements|Links|Bad Request Link Completed Successfully...");
+		demoqaLog.info("Test for Elements|Links|Bad Request Link Completed Successfully...");
+	}
+	
+	@Test(priority = 47)
+	public void ClickUnauthorizedLink() {
+		elementsPage elementsPage = new elementsPage(driver);
+
+		elementsPage.accessElements();
+		testRep = extentReportManager.createTest("Test Elements|Links|Unathorized Link...");
+		testRep.info("Starting Test for Elements|Links|Unauthorized Link...");
+		elementsPage.ClickLinks();
+		elementsPage.ClickUnauthorizedLink();
+		testRep.pass("Finished Test for Elements|Links|Unauthorized Link Completed Successfully...");
+		demoqaLog.info("Test for Elements|Links|Unauthorized Link Completed Successfully...");
+	}
+	
+	@Test(priority = 48)
+	public void ClickForbiddenLink() {
+		elementsPage elementsPage = new elementsPage(driver);
+
+		elementsPage.accessElements();
+		testRep = extentReportManager.createTest("Test Elements|Links|Forbidden Link...");
+		testRep.info("Starting Test for Elements|Links|Forbidden Link...");
+		elementsPage.ClickLinks();
+		elementsPage.ClickForbiddenLink();
+		testRep.pass("Finished Test for Elements|Links|Forbidden Link Completed Successfully...");
+		demoqaLog.info("Test for Elements|Links|Forbidden Link Completed Successfully...");
+	}
+	
+	@Test(priority = 49)
+	public void ClickNotFoundLink() {
+		elementsPage elementsPage = new elementsPage(driver);
+
+		elementsPage.accessElements();
+		testRep = extentReportManager.createTest("Test Elements|Links|NotFound Link...");
+		testRep.info("Starting Test for Elements|Links|NotFound Link...");
+		elementsPage.ClickLinks();
+		elementsPage.ClickNotFoundLink();
+		testRep.pass("Finished Test for Elements|Links|NotFound Link Completed Successfully...");
+		demoqaLog.info("Test for Elements|Links|NotFound Link Completed Successfully...");
+	}
+	
+	@Test(priority = 46)
+	public void ClickAllLinks() {
+		elementsPage elementsPage = new elementsPage(driver);
+
+		elementsPage.accessElements();
+		testRep = extentReportManager.createTest("Test Elements|Links|All Links in One GO...");
+		testRep.info("Starting Test for Elements|Links|All Links in One GO...");
+		elementsPage.ClickLinks();
+		elementsPage.ClickHomeLink();
+		try {
+			Thread.sleep(3000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		elementsPage.ClickDynamicHomeLink();
+		try {
+			Thread.sleep(3000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		elementsPage.ClickCreatedAPILink();
+		try {
+			Thread.sleep(3000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		elementsPage.ClickNoContentLink();
+		try {
+			Thread.sleep(3000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		elementsPage.ClickMovedLink();
+		try {
+			Thread.sleep(3000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		elementsPage.ClickBadRequestLink();
+		try {
+			Thread.sleep(3000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		elementsPage.ClickUnauthorizedLink();
+		try {
+			Thread.sleep(3000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		elementsPage.ClickForbiddenLink();
+		try {
+			Thread.sleep(3000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		elementsPage.ClickNotFoundLink();
+		testRep.pass("Finished Test for Elements|Links|All Links in One GO Completed Successfully...");
+		demoqaLog.info("Test for Elements|Links|All Links in One GO Completed Successfully...");
+	}
+
 }

@@ -25,7 +25,7 @@
       <span class="top-banner-title-font">Test results</span>
       <button id="button" class="button">Switch Retro Theme</button> <!-- button -->
       <br/>
-      <span class="top-banner-font-1">1 suite</span>
+      <span class="top-banner-font-1">1 suite, 3 failed tests</span>
     </div> <!-- top-banner-root -->
     <div class="navigator-root">
       <div class="navigator-suite-header">
@@ -39,7 +39,7 @@
         <div class="rounded-window">
           <div class="suite-header light-rounded-window-top">
             <a href="#" panel-name="suite-Surefire_suite" class="navigator-link">
-              <span class="suite-name border-passed">Surefire suite</span>
+              <span class="suite-name border-failed">Surefire suite</span>
             </a> <!-- navigator-link -->
           </div> <!-- suite-header light-rounded-window-top -->
           <div class="navigator-suite-content">
@@ -92,7 +92,80 @@
               <div class="suite-section-content">
                 <ul>
                   <li>
-                    <span class="method-stats">43 methods,   43 passed</span>
+                    <span class="method-stats">56 methods, 3 failed,  8 skipped,  45 passed</span>
+                  </li>
+                  <li>
+                    <span class="method-list-title failed">Failed methods</span>
+                    <span class="show-or-hide-methods failed">
+                      <a href="#" panel-name="suite-Surefire_suite" class="hide-methods failed suite-Surefire_suite"> (hide)</a> <!-- hide-methods failed suite-Surefire_suite -->
+                      <a href="#" panel-name="suite-Surefire_suite" class="show-methods failed suite-Surefire_suite"> (show)</a> <!-- show-methods failed suite-Surefire_suite -->
+                    </span>
+                    <div class="method-list-content failed suite-Surefire_suite">
+                      <span>
+                        <img src="failed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Surefire_suite" title="tests.ElementsTests" class="method navigator-link" hash-for-method="Buttons">Buttons</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="failed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Surefire_suite" title="tests.ElementsTests" class="method navigator-link" hash-for-method="DoubleClickButtons">DoubleClickButtons</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="failed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Surefire_suite" title="tests.ElementsTests" class="method navigator-link" hash-for-method="WebTablesClick">WebTablesClick</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                    </div> <!-- method-list-content failed suite-Surefire_suite -->
+                  </li>
+                  <li>
+                    <span class="method-list-title skipped">Skipped methods</span>
+                    <span class="show-or-hide-methods skipped">
+                      <a href="#" panel-name="suite-Surefire_suite" class="hide-methods skipped suite-Surefire_suite"> (hide)</a> <!-- hide-methods skipped suite-Surefire_suite -->
+                      <a href="#" panel-name="suite-Surefire_suite" class="show-methods skipped suite-Surefire_suite"> (show)</a> <!-- show-methods skipped suite-Surefire_suite -->
+                    </span>
+                    <div class="method-list-content skipped suite-Surefire_suite">
+                      <span>
+                        <img src="skipped.png" width="3%"/>
+                        <a href="#" panel-name="suite-Surefire_suite" title="tests.ElementsTests" class="method navigator-link" hash-for-method="EditSalaryDepartment">EditSalaryDepartment</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="skipped.png" width="3%"/>
+                        <a href="#" panel-name="suite-Surefire_suite" title="tests.ElementsTests" class="method navigator-link" hash-for-method="testAddAllUsersFromExcel">testAddAllUsersFromExcel</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="skipped.png" width="3%"/>
+                        <a href="#" panel-name="suite-Surefire_suite" title="tests.ElementsTests" class="method navigator-link" hash-for-method="testAddAllUsersSearchEdit">testAddAllUsersSearchEdit</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="skipped.png" width="3%"/>
+                        <a href="#" panel-name="suite-Surefire_suite" title="tests.ElementsTests" class="method navigator-link" hash-for-method="webTableAddEditFirstName">webTableAddEditFirstName</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="skipped.png" width="3%"/>
+                        <a href="#" panel-name="suite-Surefire_suite" title="tests.ElementsTests" class="method navigator-link" hash-for-method="webTableAddSearch">webTableAddSearch</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="skipped.png" width="3%"/>
+                        <a href="#" panel-name="suite-Surefire_suite" title="tests.ElementsTests" class="method navigator-link" hash-for-method="webTableAddSearchEdit">webTableAddSearchEdit</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="skipped.png" width="3%"/>
+                        <a href="#" panel-name="suite-Surefire_suite" title="tests.ElementsTests" class="method navigator-link" hash-for-method="webTableDeleteUser">webTableDeleteUser</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="skipped.png" width="3%"/>
+                        <a href="#" panel-name="suite-Surefire_suite" title="tests.ElementsTests" class="method navigator-link" hash-for-method="webTableNewRegistration">webTableNewRegistration</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                    </div> <!-- method-list-content skipped suite-Surefire_suite -->
                   </li>
                   <li>
                     <span class="method-list-title passed">Passed methods</span>
@@ -108,7 +181,67 @@
                       <br/>
                       <span>
                         <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Surefire_suite" title="tests.ElementsTests" class="method navigator-link" hash-for-method="EditSalaryDepartment">EditSalaryDepartment</a> <!-- method navigator-link -->
+                        <a href="#" panel-name="suite-Surefire_suite" title="tests.ElementsTests" class="method navigator-link" hash-for-method="ClickAllButtons">ClickAllButtons</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Surefire_suite" title="tests.ElementsTests" class="method navigator-link" hash-for-method="ClickAllLinks">ClickAllLinks</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Surefire_suite" title="tests.ElementsTests" class="method navigator-link" hash-for-method="ClickBadRequestLink">ClickBadRequestLink</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Surefire_suite" title="tests.ElementsTests" class="method navigator-link" hash-for-method="ClickCreatedAPILink">ClickCreatedAPILink</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Surefire_suite" title="tests.ElementsTests" class="method navigator-link" hash-for-method="ClickDynamicHomeLink">ClickDynamicHomeLink</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Surefire_suite" title="tests.ElementsTests" class="method navigator-link" hash-for-method="ClickForbiddenLink">ClickForbiddenLink</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Surefire_suite" title="tests.ElementsTests" class="method navigator-link" hash-for-method="ClickHomeLink">ClickHomeLink</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Surefire_suite" title="tests.ElementsTests" class="method navigator-link" hash-for-method="ClickLinks">ClickLinks</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Surefire_suite" title="tests.ElementsTests" class="method navigator-link" hash-for-method="ClickMeButton">ClickMeButton</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Surefire_suite" title="tests.ElementsTests" class="method navigator-link" hash-for-method="ClickMovedLink">ClickMovedLink</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Surefire_suite" title="tests.ElementsTests" class="method navigator-link" hash-for-method="ClickNoContentLink">ClickNoContentLink</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Surefire_suite" title="tests.ElementsTests" class="method navigator-link" hash-for-method="ClickNotFoundLink">ClickNotFoundLink</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Surefire_suite" title="tests.ElementsTests" class="method navigator-link" hash-for-method="ClickUnauthorizedLink">ClickUnauthorizedLink</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                       <span>
@@ -119,6 +252,11 @@
                       <span>
                         <img src="passed.png" width="3%"/>
                         <a href="#" panel-name="suite-Surefire_suite" title="tests.FormTests" class="method navigator-link" hash-for-method="FormCard">FormCard</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Surefire_suite" title="tests.ElementsTests" class="method navigator-link" hash-for-method="RightClickButton">RightClickButton</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                       <span>
@@ -233,11 +371,6 @@
                       <br/>
                       <span>
                         <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Surefire_suite" title="tests.ElementsTests" class="method navigator-link" hash-for-method="WebTablesClick">WebTablesClick</a> <!-- method navigator-link -->
-                      </span>
-                      <br/>
-                      <span>
-                        <img src="passed.png" width="3%"/>
                         <a href="#" panel-name="suite-Surefire_suite" title="tests.AlertsFramesWindowsTests" class="method navigator-link" hash-for-method="accessAlertsFrameWindows">accessAlertsFrameWindows</a> <!-- method navigator-link -->
                       </span>
                       <br/>
@@ -248,17 +381,7 @@
                       <br/>
                       <span>
                         <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Surefire_suite" title="tests.FormTests" class="method navigator-link" hash-for-method="fillForm(UserFormData{firstName=&#039;Gene&#039;, lastName=&#039;Femina&#039;, userMail=&#039;GFemina@demoqa.com&#039;, gender=&#039;Female&#039;, mo...)">fillForm(UserFormData{firstName='Gene', lastName='Femina', userMail='GFemina@demoqa.com', gender='Female', mo...)</a> <!-- method navigator-link -->
-                      </span>
-                      <br/>
-                      <span>
-                        <img src="passed.png" width="3%"/>
                         <a href="#" panel-name="suite-Surefire_suite" title="tests.FormTests" class="method navigator-link" hash-for-method="fillForm(UserFormData{firstName=&#039;Bud&#039;, lastName=&#039;Wisem&#039;, userMail=&#039;BWisem@demoqa.com&#039;, gender=&#039;Other&#039;, mobile...)">fillForm(UserFormData{firstName='Bud', lastName='Wisem', userMail='BWisem@demoqa.com', gender='Other', mobile...)</a> <!-- method navigator-link -->
-                      </span>
-                      <br/>
-                      <span>
-                        <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Surefire_suite" title="tests.FormTests" class="method navigator-link" hash-for-method="fillForm(UserFormData{firstName=&#039;Tom&#039;, lastName=&#039;Boss&#039;, userMail=&#039;TBoss@demoqa.com&#039;, gender=&#039;Male&#039;, mobile=&#039;7...)">fillForm(UserFormData{firstName='Tom', lastName='Boss', userMail='TBoss@demoqa.com', gender='Male', mobile='7...)</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                       <span>
@@ -268,52 +391,12 @@
                       <br/>
                       <span>
                         <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Surefire_suite" title="tests.ElementsTests" class="method navigator-link" hash-for-method="testAddAllUsersFromExcel">testAddAllUsersFromExcel</a> <!-- method navigator-link -->
+                        <a href="#" panel-name="suite-Surefire_suite" title="tests.FormTests" class="method navigator-link" hash-for-method="fillForm(UserFormData{firstName=&#039;Tom&#039;, lastName=&#039;Boss&#039;, userMail=&#039;TBoss@demoqa.com&#039;, gender=&#039;Male&#039;, mobile=&#039;7...)">fillForm(UserFormData{firstName='Tom', lastName='Boss', userMail='TBoss@demoqa.com', gender='Male', mobile='7...)</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                       <span>
                         <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Surefire_suite" title="tests.ElementsTests" class="method navigator-link" hash-for-method="testAddAllUsersSearchEdit">testAddAllUsersSearchEdit</a> <!-- method navigator-link -->
-                      </span>
-                      <br/>
-                      <span>
-                        <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Surefire_suite" title="tests.ElementsTests" class="method navigator-link" hash-for-method="webTableAddEditFirstName(WebTableUser{firstName=&#039;Tonny&#039;, lastName=&#039;Bravo&#039;, email=&#039;Jbravo@demoqa.com&#039;, salary=280000, age=340,...)">webTableAddEditFirstName(WebTableUser{firstName='Tonny', lastName='Bravo', email='Jbravo@demoqa.com', salary=280000, age=340,...)</a> <!-- method navigator-link -->
-                      </span>
-                      <br/>
-                      <span>
-                        <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Surefire_suite" title="tests.ElementsTests" class="method navigator-link" hash-for-method="webTableAddSearch(WebTableUser{firstName=&#039;Johny&#039;, lastName=&#039;Bravo&#039;, email=&#039;Jbravo@demoqa.com&#039;, salary=280000, age=340,...)">webTableAddSearch(WebTableUser{firstName='Johny', lastName='Bravo', email='Jbravo@demoqa.com', salary=280000, age=340,...)</a> <!-- method navigator-link -->
-                      </span>
-                      <br/>
-                      <span>
-                        <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Surefire_suite" title="tests.ElementsTests" class="method navigator-link" hash-for-method="webTableAddSearchEdit(WebTableUser{firstName=&#039;Tonny&#039;, lastName=&#039;Bravo&#039;, email=&#039;Jbravo@demoqa.com&#039;, salary=280000, age=340,...)">webTableAddSearchEdit(WebTableUser{firstName='Tonny', lastName='Bravo', email='Jbravo@demoqa.com', salary=280000, age=340,...)</a> <!-- method navigator-link -->
-                      </span>
-                      <br/>
-                      <span>
-                        <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Surefire_suite" title="tests.ElementsTests" class="method navigator-link" hash-for-method="webTableDeleteUser(WebTableUser{firstName=&#039;Johny&#039;, lastName=&#039;Bravo&#039;, email=&#039;Jbravo@demoqa.com&#039;, salary=280000, age=340,...)">webTableDeleteUser(WebTableUser{firstName='Johny', lastName='Bravo', email='Jbravo@demoqa.com', salary=280000, age=340,...)</a> <!-- method navigator-link -->
-                      </span>
-                      <br/>
-                      <span>
-                        <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Surefire_suite" title="tests.ElementsTests" class="method navigator-link" hash-for-method="webTableNewRegistration(WebTableUser{firstName=&#039;Tom&#039;, lastName=&#039;Boss&#039;, email=&#039;TBoss@demoqa.com&#039;, salary=190000, age=420, dep...)">webTableNewRegistration(WebTableUser{firstName='Tom', lastName='Boss', email='TBoss@demoqa.com', salary=190000, age=420, dep...)</a> <!-- method navigator-link -->
-                      </span>
-                      <br/>
-                      <span>
-                        <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Surefire_suite" title="tests.ElementsTests" class="method navigator-link" hash-for-method="webTableNewRegistration(WebTableUser{firstName=&#039;Bud&#039;, lastName=&#039;Wisem&#039;, email=&#039;BWisem@demoqa.com&#039;, salary=150000, age=400, d...)">webTableNewRegistration(WebTableUser{firstName='Bud', lastName='Wisem', email='BWisem@demoqa.com', salary=150000, age=400, d...)</a> <!-- method navigator-link -->
-                      </span>
-                      <br/>
-                      <span>
-                        <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Surefire_suite" title="tests.ElementsTests" class="method navigator-link" hash-for-method="webTableNewRegistration(WebTableUser{firstName=&#039;Gene&#039;, lastName=&#039;Femina&#039;, email=&#039;GFemina@demoqa.com&#039;, salary=180000, age=300...)">webTableNewRegistration(WebTableUser{firstName='Gene', lastName='Femina', email='GFemina@demoqa.com', salary=180000, age=300...)</a> <!-- method navigator-link -->
-                      </span>
-                      <br/>
-                      <span>
-                        <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Surefire_suite" title="tests.ElementsTests" class="method navigator-link" hash-for-method="webTableNewRegistration(WebTableUser{firstName=&#039;Johny&#039;, lastName=&#039;Bravo&#039;, email=&#039;Jbravo@demoqa.com&#039;, salary=280000, age=340,...)">webTableNewRegistration(WebTableUser{firstName='Johny', lastName='Bravo', email='Jbravo@demoqa.com', salary=280000, age=340,...)</a> <!-- method navigator-link -->
+                        <a href="#" panel-name="suite-Surefire_suite" title="tests.FormTests" class="method navigator-link" hash-for-method="fillForm(UserFormData{firstName=&#039;Gene&#039;, lastName=&#039;Femina&#039;, userMail=&#039;GFemina@demoqa.com&#039;, gender=&#039;Female&#039;, mo...)">fillForm(UserFormData{firstName='Gene', lastName='Femina', userMail='GFemina@demoqa.com', gender='Female', mo...)</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                     </div> <!-- method-list-content passed suite-Surefire_suite -->
@@ -328,6 +411,217 @@
     <div class="wrapper">
       <div class="main-panel-root">
         <div panel-name="suite-Surefire_suite" class="panel Surefire_suite">
+          <div class="suite-Surefire_suite-class-failed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="failed.png"/>
+              <span class="class-name">tests.ElementsTests</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="Buttons">
+                  </a> <!-- Buttons -->
+                  <span class="method-name">Buttons</span>
+                  <div class="stack-trace">org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;//div[@class=&apos;category-cards&apos;]//div[1]//div[1]//div[2]//*[name()=&apos;svg&apos;]&quot;}
+  (Session info: chrome=137.0.7151.120)
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Build info: version: &apos;4.34.0&apos;, revision: &apos;707dcb4246*&apos;
+System info: os.name: &apos;Windows 11&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;21.0.7&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [e2ce8ea2838bf5fd06c3dd6a8c47271b, findElement {value=//div[@class=&apos;category-cards&apos;]//div[1]//div[1]//div[2]//*[name()=&apos;svg&apos;], using=xpath}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 137.0.7151.120, chrome: {chromedriverVersion: 137.0.7151.119 (e0ac9d12dff..., userDataDir: /tmp/chrome-profile-23b5ba5...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:58598}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:58598/devtoo..., se:cdpVersion: 137.0.7151.120, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: e2ce8ea2838bf5fd06c3dd6a8c47271b
+	at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:167)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:138)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:50)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:215)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:544)
+	at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:165)
+	at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:59)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:367)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:361)
+	at pages.homePage.clickElementCard(homePage.java:21)
+	at pages.elementsPage.accessElements(elementsPage.java:239)
+	at tests.ElementsTests.Buttons(ElementsTests.java:753)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+... Removed 33 stack frames
+</div> <!-- stack-trace -->
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="DoubleClickButtons">
+                  </a> <!-- DoubleClickButtons -->
+                  <span class="method-name">DoubleClickButtons</span>
+                  <div class="stack-trace">org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;//div[@class=&apos;category-cards&apos;]//div[1]//div[1]//div[2]//*[name()=&apos;svg&apos;]&quot;}
+  (Session info: chrome=137.0.7151.120)
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Build info: version: &apos;4.34.0&apos;, revision: &apos;707dcb4246*&apos;
+System info: os.name: &apos;Windows 11&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;21.0.7&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [3b084d9446c4e6c594dd1753b9705fed, findElement {value=//div[@class=&apos;category-cards&apos;]//div[1]//div[1]//div[2]//*[name()=&apos;svg&apos;], using=xpath}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 137.0.7151.120, chrome: {chromedriverVersion: 137.0.7151.119 (e0ac9d12dff..., userDataDir: /tmp/chrome-profile-cf00894...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:58619}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:58619/devtoo..., se:cdpVersion: 137.0.7151.120, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 3b084d9446c4e6c594dd1753b9705fed
+	at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:167)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:138)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:50)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:215)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:544)
+	at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:165)
+	at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:59)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:367)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:361)
+	at pages.homePage.clickElementCard(homePage.java:21)
+	at pages.elementsPage.accessElements(elementsPage.java:239)
+	at tests.ElementsTests.DoubleClickButtons(ElementsTests.java:766)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+... Removed 33 stack frames
+</div> <!-- stack-trace -->
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="WebTablesClick">
+                  </a> <!-- WebTablesClick -->
+                  <span class="method-name">WebTablesClick</span>
+                  <div class="stack-trace">org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;//div[@class=&apos;category-cards&apos;]//div[1]//div[1]//div[2]//*[name()=&apos;svg&apos;]&quot;}
+  (Session info: chrome=137.0.7151.120)
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Build info: version: &apos;4.34.0&apos;, revision: &apos;707dcb4246*&apos;
+System info: os.name: &apos;Windows 11&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;21.0.7&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [cdb81776222942c5180ef16bb0b2f288, findElement {value=//div[@class=&apos;category-cards&apos;]//div[1]//div[1]//div[2]//*[name()=&apos;svg&apos;], using=xpath}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 137.0.7151.120, chrome: {chromedriverVersion: 137.0.7151.119 (e0ac9d12dff..., userDataDir: /tmp/chrome-profile-f88dfb5...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:58531}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:58531/devtoo..., se:cdpVersion: 137.0.7151.120, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: cdb81776222942c5180ef16bb0b2f288
+	at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:167)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:138)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:50)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:215)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:544)
+	at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:165)
+	at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:59)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:367)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:361)
+	at pages.homePage.clickElementCard(homePage.java:21)
+	at pages.elementsPage.accessElements(elementsPage.java:239)
+	at tests.ElementsTests.WebTablesClick(ElementsTests.java:468)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+... Removed 33 stack frames
+</div> <!-- stack-trace -->
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-Surefire_suite-class-failed -->
+          <div class="suite-Surefire_suite-class-skipped">
+            <div class="main-panel-header rounded-window-top">
+              <img src="skipped.png"/>
+              <span class="class-name">tests.ElementsTests</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="EditSalaryDepartment">
+                  </a> <!-- EditSalaryDepartment -->
+                  <span class="method-name">EditSalaryDepartment</span>
+                  <div class="stack-trace">java.lang.Throwable: Method tests.ElementsTests.EditSalaryDepartment() on instance tests.ElementsTests@5ddcc487 depends on not successfully finished methods 
+[tests.ElementsTests.WebTablesClick() on instance tests.ElementsTests@5ddcc487]
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+... Removed 23 stack frames
+</div> <!-- stack-trace -->
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="testAddAllUsersFromExcel">
+                  </a> <!-- testAddAllUsersFromExcel -->
+                  <span class="method-name">testAddAllUsersFromExcel</span>
+                  <div class="stack-trace">java.lang.Throwable: Method tests.ElementsTests.testAddAllUsersFromExcel() on instance tests.ElementsTests@5ddcc487 depends on not successfully finished methods 
+[tests.ElementsTests.WebTablesClick() on instance tests.ElementsTests@5ddcc487]
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+... Removed 23 stack frames
+</div> <!-- stack-trace -->
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="testAddAllUsersSearchEdit">
+                  </a> <!-- testAddAllUsersSearchEdit -->
+                  <span class="method-name">testAddAllUsersSearchEdit</span>
+                  <div class="stack-trace">java.lang.Throwable: Method tests.ElementsTests.testAddAllUsersSearchEdit() on instance tests.ElementsTests@5ddcc487 depends on not successfully finished methods 
+[tests.ElementsTests.WebTablesClick() on instance tests.ElementsTests@5ddcc487]
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+... Removed 23 stack frames
+</div> <!-- stack-trace -->
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="webTableAddEditFirstName">
+                  </a> <!-- webTableAddEditFirstName -->
+                  <span class="method-name">webTableAddEditFirstName</span>
+                  <div class="stack-trace">java.lang.Throwable: Method tests.ElementsTests.webTableAddEditFirstName() on instance tests.ElementsTests@5ddcc487 depends on not successfully finished methods 
+[tests.ElementsTests.WebTablesClick() on instance tests.ElementsTests@5ddcc487]
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+... Removed 23 stack frames
+</div> <!-- stack-trace -->
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="webTableAddSearch">
+                  </a> <!-- webTableAddSearch -->
+                  <span class="method-name">webTableAddSearch</span>
+                  <div class="stack-trace">java.lang.Throwable: Method tests.ElementsTests.webTableAddSearch() on instance tests.ElementsTests@5ddcc487 depends on not successfully finished methods 
+[tests.ElementsTests.WebTablesClick() on instance tests.ElementsTests@5ddcc487]
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+... Removed 23 stack frames
+</div> <!-- stack-trace -->
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="webTableAddSearchEdit">
+                  </a> <!-- webTableAddSearchEdit -->
+                  <span class="method-name">webTableAddSearchEdit</span>
+                  <div class="stack-trace">java.lang.Throwable: Method tests.ElementsTests.webTableAddSearchEdit() on instance tests.ElementsTests@5ddcc487 depends on not successfully finished methods 
+[tests.ElementsTests.WebTablesClick() on instance tests.ElementsTests@5ddcc487]
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+... Removed 23 stack frames
+</div> <!-- stack-trace -->
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="webTableDeleteUser">
+                  </a> <!-- webTableDeleteUser -->
+                  <span class="method-name">webTableDeleteUser</span>
+                  <div class="stack-trace">java.lang.Throwable: Method tests.ElementsTests.webTableDeleteUser() on instance tests.ElementsTests@5ddcc487 depends on not successfully finished methods 
+[tests.ElementsTests.WebTablesClick() on instance tests.ElementsTests@5ddcc487]
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+... Removed 23 stack frames
+</div> <!-- stack-trace -->
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="webTableNewRegistration">
+                  </a> <!-- webTableNewRegistration -->
+                  <span class="method-name">webTableNewRegistration</span>
+                  <div class="stack-trace">java.lang.Throwable: Method tests.ElementsTests.webTableNewRegistration() on instance tests.ElementsTests@5ddcc487 depends on not successfully finished methods 
+[tests.ElementsTests.WebTablesClick() on instance tests.ElementsTests@5ddcc487]
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+... Removed 23 stack frames
+</div> <!-- stack-trace -->
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-Surefire_suite-class-skipped -->
           <div class="suite-Surefire_suite-class-passed">
             <div class="main-panel-header rounded-window-top">
               <img src="passed.png"/>
@@ -358,18 +652,18 @@
               </div> <!-- method -->
               <div class="method">
                 <div class="method-content">
-                  <a name="fillForm(UserFormData{firstName=&#039;Gene&#039;, lastName=&#039;Femina&#039;, userMail=&#039;GFemina@demoqa.com&#039;, gender=&#039;Female&#039;, mo...)">
-                  </a> <!-- fillForm(UserFormData{firstName='Gene', lastName='Femina', userMail='GFemina@demoqa.com', gender='Female', mo...) -->
-                  <span class="method-name">fillForm</span>
-                  <span class="parameters">(UserFormData{firstName='Gene', lastName='Femina', userMail='GFemina@demoqa.com', gender='Female', mobile='1.888343432E9', dob='22-05-2002', subject='Accounting', hobbies='Music,Reading', picturePath='/TestData/Fphoto.png', address='512 Grant 481, Prattsville\n Arkansas 72129\n United States', state='Uttar Pradesh', city='Merrut'})</span>
-                </div> <!-- method-content -->
-              </div> <!-- method -->
-              <div class="method">
-                <div class="method-content">
                   <a name="fillForm(UserFormData{firstName=&#039;Bud&#039;, lastName=&#039;Wisem&#039;, userMail=&#039;BWisem@demoqa.com&#039;, gender=&#039;Other&#039;, mobile...)">
                   </a> <!-- fillForm(UserFormData{firstName='Bud', lastName='Wisem', userMail='BWisem@demoqa.com', gender='Other', mobile...) -->
                   <span class="method-name">fillForm</span>
                   <span class="parameters">(UserFormData{firstName='Bud', lastName='Wisem', userMail='BWisem@demoqa.com', gender='Other', mobile='8.932465432E9', dob='31-12-1999', subject='Biology', hobbies='Reading', picturePath='/TestData/Ophoto.jpg', address='513 Grant 481, Prattsville\n Arkansas 72129\n United States', state='Haryana', city='Panipat'})</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="fillForm(UserFormData{firstName=&#039;Johny&#039;, lastName=&#039;Bravo&#039;, userMail=&#039;Jbravo@demoqa.com&#039;, gender=&#039;Male&#039;, mobil...)">
+                  </a> <!-- fillForm(UserFormData{firstName='Johny', lastName='Bravo', userMail='Jbravo@demoqa.com', gender='Male', mobil...) -->
+                  <span class="method-name">fillForm</span>
+                  <span class="parameters">(UserFormData{firstName='Johny', lastName='Bravo', userMail='Jbravo@demoqa.com', gender='Male', mobile='9.238343488E9', dob='15-08-2000', subject='Computer Science', hobbies='Sports,Music', picturePath='/TestData/Mphoto.jpg', address='511 Grant 481, Prattsville\n Arkansas 72129\n United States', state='NCR', city='Delhi'})</span>
                 </div> <!-- method-content -->
               </div> <!-- method -->
               <div class="method">
@@ -382,10 +676,10 @@
               </div> <!-- method -->
               <div class="method">
                 <div class="method-content">
-                  <a name="fillForm(UserFormData{firstName=&#039;Johny&#039;, lastName=&#039;Bravo&#039;, userMail=&#039;Jbravo@demoqa.com&#039;, gender=&#039;Male&#039;, mobil...)">
-                  </a> <!-- fillForm(UserFormData{firstName='Johny', lastName='Bravo', userMail='Jbravo@demoqa.com', gender='Male', mobil...) -->
+                  <a name="fillForm(UserFormData{firstName=&#039;Gene&#039;, lastName=&#039;Femina&#039;, userMail=&#039;GFemina@demoqa.com&#039;, gender=&#039;Female&#039;, mo...)">
+                  </a> <!-- fillForm(UserFormData{firstName='Gene', lastName='Femina', userMail='GFemina@demoqa.com', gender='Female', mo...) -->
                   <span class="method-name">fillForm</span>
-                  <span class="parameters">(UserFormData{firstName='Johny', lastName='Bravo', userMail='Jbravo@demoqa.com', gender='Male', mobile='9.238343488E9', dob='15-08-2000', subject='Computer Science', hobbies='Sports,Music', picturePath='/TestData/Mphoto.jpg', address='511 Grant 481, Prattsville\n Arkansas 72129\n United States', state='NCR', city='Delhi'})</span>
+                  <span class="parameters">(UserFormData{firstName='Gene', lastName='Femina', userMail='GFemina@demoqa.com', gender='Female', mobile='1.888343432E9', dob='22-05-2002', subject='Accounting', hobbies='Music,Reading', picturePath='/TestData/Fphoto.png', address='512 Grant 481, Prattsville\n Arkansas 72129\n United States', state='Uttar Pradesh', city='Merrut'})</span>
                 </div> <!-- method-content -->
               </div> <!-- method -->
             </div> <!-- main-panel-content rounded-window-bottom -->
@@ -405,9 +699,93 @@
               </div> <!-- method -->
               <div class="method">
                 <div class="method-content">
-                  <a name="EditSalaryDepartment">
-                  </a> <!-- EditSalaryDepartment -->
-                  <span class="method-name">EditSalaryDepartment</span>
+                  <a name="ClickAllButtons">
+                  </a> <!-- ClickAllButtons -->
+                  <span class="method-name">ClickAllButtons</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="ClickAllLinks">
+                  </a> <!-- ClickAllLinks -->
+                  <span class="method-name">ClickAllLinks</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="ClickBadRequestLink">
+                  </a> <!-- ClickBadRequestLink -->
+                  <span class="method-name">ClickBadRequestLink</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="ClickCreatedAPILink">
+                  </a> <!-- ClickCreatedAPILink -->
+                  <span class="method-name">ClickCreatedAPILink</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="ClickDynamicHomeLink">
+                  </a> <!-- ClickDynamicHomeLink -->
+                  <span class="method-name">ClickDynamicHomeLink</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="ClickForbiddenLink">
+                  </a> <!-- ClickForbiddenLink -->
+                  <span class="method-name">ClickForbiddenLink</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="ClickHomeLink">
+                  </a> <!-- ClickHomeLink -->
+                  <span class="method-name">ClickHomeLink</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="ClickLinks">
+                  </a> <!-- ClickLinks -->
+                  <span class="method-name">ClickLinks</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="ClickMeButton">
+                  </a> <!-- ClickMeButton -->
+                  <span class="method-name">ClickMeButton</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="ClickMovedLink">
+                  </a> <!-- ClickMovedLink -->
+                  <span class="method-name">ClickMovedLink</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="ClickNoContentLink">
+                  </a> <!-- ClickNoContentLink -->
+                  <span class="method-name">ClickNoContentLink</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="ClickNotFoundLink">
+                  </a> <!-- ClickNotFoundLink -->
+                  <span class="method-name">ClickNotFoundLink</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="ClickUnauthorizedLink">
+                  </a> <!-- ClickUnauthorizedLink -->
+                  <span class="method-name">ClickUnauthorizedLink</span>
                 </div> <!-- method-content -->
               </div> <!-- method -->
               <div class="method">
@@ -415,6 +793,13 @@
                   <a name="ElementsCard">
                   </a> <!-- ElementsCard -->
                   <span class="method-name">ElementsCard</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="RightClickButton">
+                  </a> <!-- RightClickButton -->
+                  <span class="method-name">RightClickButton</span>
                 </div> <!-- method-content -->
               </div> <!-- method -->
               <div class="method">
@@ -573,94 +958,9 @@
               </div> <!-- method -->
               <div class="method">
                 <div class="method-content">
-                  <a name="WebTablesClick">
-                  </a> <!-- WebTablesClick -->
-                  <span class="method-name">WebTablesClick</span>
-                </div> <!-- method-content -->
-              </div> <!-- method -->
-              <div class="method">
-                <div class="method-content">
                   <a name="clickRadioButton">
                   </a> <!-- clickRadioButton -->
                   <span class="method-name">clickRadioButton</span>
-                </div> <!-- method-content -->
-              </div> <!-- method -->
-              <div class="method">
-                <div class="method-content">
-                  <a name="testAddAllUsersFromExcel">
-                  </a> <!-- testAddAllUsersFromExcel -->
-                  <span class="method-name">testAddAllUsersFromExcel</span>
-                </div> <!-- method-content -->
-              </div> <!-- method -->
-              <div class="method">
-                <div class="method-content">
-                  <a name="testAddAllUsersSearchEdit">
-                  </a> <!-- testAddAllUsersSearchEdit -->
-                  <span class="method-name">testAddAllUsersSearchEdit</span>
-                </div> <!-- method-content -->
-              </div> <!-- method -->
-              <div class="method">
-                <div class="method-content">
-                  <a name="webTableAddEditFirstName(WebTableUser{firstName=&#039;Tonny&#039;, lastName=&#039;Bravo&#039;, email=&#039;Jbravo@demoqa.com&#039;, salary=280000, age=340,...)">
-                  </a> <!-- webTableAddEditFirstName(WebTableUser{firstName='Tonny', lastName='Bravo', email='Jbravo@demoqa.com', salary=280000, age=340,...) -->
-                  <span class="method-name">webTableAddEditFirstName</span>
-                  <span class="parameters">(WebTableUser{firstName='Tonny', lastName='Bravo', email='Jbravo@demoqa.com', salary=280000, age=340, department='Information Technology'})</span>
-                </div> <!-- method-content -->
-              </div> <!-- method -->
-              <div class="method">
-                <div class="method-content">
-                  <a name="webTableAddSearch(WebTableUser{firstName=&#039;Johny&#039;, lastName=&#039;Bravo&#039;, email=&#039;Jbravo@demoqa.com&#039;, salary=280000, age=340,...)">
-                  </a> <!-- webTableAddSearch(WebTableUser{firstName='Johny', lastName='Bravo', email='Jbravo@demoqa.com', salary=280000, age=340,...) -->
-                  <span class="method-name">webTableAddSearch</span>
-                  <span class="parameters">(WebTableUser{firstName='Johny', lastName='Bravo', email='Jbravo@demoqa.com', salary=280000, age=340, department='Information Technology'})</span>
-                </div> <!-- method-content -->
-              </div> <!-- method -->
-              <div class="method">
-                <div class="method-content">
-                  <a name="webTableAddSearchEdit(WebTableUser{firstName=&#039;Tonny&#039;, lastName=&#039;Bravo&#039;, email=&#039;Jbravo@demoqa.com&#039;, salary=280000, age=340,...)">
-                  </a> <!-- webTableAddSearchEdit(WebTableUser{firstName='Tonny', lastName='Bravo', email='Jbravo@demoqa.com', salary=280000, age=340,...) -->
-                  <span class="method-name">webTableAddSearchEdit</span>
-                  <span class="parameters">(WebTableUser{firstName='Tonny', lastName='Bravo', email='Jbravo@demoqa.com', salary=280000, age=340, department='Information Technology'})</span>
-                </div> <!-- method-content -->
-              </div> <!-- method -->
-              <div class="method">
-                <div class="method-content">
-                  <a name="webTableDeleteUser(WebTableUser{firstName=&#039;Johny&#039;, lastName=&#039;Bravo&#039;, email=&#039;Jbravo@demoqa.com&#039;, salary=280000, age=340,...)">
-                  </a> <!-- webTableDeleteUser(WebTableUser{firstName='Johny', lastName='Bravo', email='Jbravo@demoqa.com', salary=280000, age=340,...) -->
-                  <span class="method-name">webTableDeleteUser</span>
-                  <span class="parameters">(WebTableUser{firstName='Johny', lastName='Bravo', email='Jbravo@demoqa.com', salary=280000, age=340, department='Information Technology'})</span>
-                </div> <!-- method-content -->
-              </div> <!-- method -->
-              <div class="method">
-                <div class="method-content">
-                  <a name="webTableNewRegistration(WebTableUser{firstName=&#039;Tom&#039;, lastName=&#039;Boss&#039;, email=&#039;TBoss@demoqa.com&#039;, salary=190000, age=420, dep...)">
-                  </a> <!-- webTableNewRegistration(WebTableUser{firstName='Tom', lastName='Boss', email='TBoss@demoqa.com', salary=190000, age=420, dep...) -->
-                  <span class="method-name">webTableNewRegistration</span>
-                  <span class="parameters">(WebTableUser{firstName='Tom', lastName='Boss', email='TBoss@demoqa.com', salary=190000, age=420, department='Recreation'})</span>
-                </div> <!-- method-content -->
-              </div> <!-- method -->
-              <div class="method">
-                <div class="method-content">
-                  <a name="webTableNewRegistration(WebTableUser{firstName=&#039;Bud&#039;, lastName=&#039;Wisem&#039;, email=&#039;BWisem@demoqa.com&#039;, salary=150000, age=400, d...)">
-                  </a> <!-- webTableNewRegistration(WebTableUser{firstName='Bud', lastName='Wisem', email='BWisem@demoqa.com', salary=150000, age=400, d...) -->
-                  <span class="method-name">webTableNewRegistration</span>
-                  <span class="parameters">(WebTableUser{firstName='Bud', lastName='Wisem', email='BWisem@demoqa.com', salary=150000, age=400, department='Medicine'})</span>
-                </div> <!-- method-content -->
-              </div> <!-- method -->
-              <div class="method">
-                <div class="method-content">
-                  <a name="webTableNewRegistration(WebTableUser{firstName=&#039;Gene&#039;, lastName=&#039;Femina&#039;, email=&#039;GFemina@demoqa.com&#039;, salary=180000, age=300...)">
-                  </a> <!-- webTableNewRegistration(WebTableUser{firstName='Gene', lastName='Femina', email='GFemina@demoqa.com', salary=180000, age=300...) -->
-                  <span class="method-name">webTableNewRegistration</span>
-                  <span class="parameters">(WebTableUser{firstName='Gene', lastName='Femina', email='GFemina@demoqa.com', salary=180000, age=300, department='Finance'})</span>
-                </div> <!-- method-content -->
-              </div> <!-- method -->
-              <div class="method">
-                <div class="method-content">
-                  <a name="webTableNewRegistration(WebTableUser{firstName=&#039;Johny&#039;, lastName=&#039;Bravo&#039;, email=&#039;Jbravo@demoqa.com&#039;, salary=280000, age=340,...)">
-                  </a> <!-- webTableNewRegistration(WebTableUser{firstName='Johny', lastName='Bravo', email='Jbravo@demoqa.com', salary=280000, age=340,...) -->
-                  <span class="method-name">webTableNewRegistration</span>
-                  <span class="parameters">(WebTableUser{firstName='Johny', lastName='Bravo', email='Jbravo@demoqa.com', salary=280000, age=340, department='Information Technology'})</span>
                 </div> <!-- method-content -->
               </div> <!-- method -->
             </div> <!-- main-panel-content rounded-window-bottom -->
@@ -718,179 +1018,231 @@ data.addColumn('number', 'Number');
 data.addColumn('string', 'Method');
 data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
-data.addRows(43);
+data.addRows(56);
 data.setCell(0, 0, 0)
-data.setCell(0, 1, 'EditSalaryDepartment')
+data.setCell(0, 1, 'ClickAllLinks')
 data.setCell(0, 2, 'tests.ElementsTests')
-data.setCell(0, 3, 13875);
+data.setCell(0, 3, 26580);
 data.setCell(1, 0, 1)
-data.setCell(1, 1, 'testAddAllUsersSearchEdit')
+data.setCell(1, 1, 'ClickAllButtons')
 data.setCell(1, 2, 'tests.ElementsTests')
-data.setCell(1, 3, 10076);
+data.setCell(1, 3, 10630);
 data.setCell(2, 0, 2)
-data.setCell(2, 1, 'testAddAllUsersFromExcel')
-data.setCell(2, 2, 'tests.ElementsTests')
-data.setCell(2, 3, 8512);
+data.setCell(2, 1, 'fillForm')
+data.setCell(2, 2, 'tests.FormTests')
+data.setCell(2, 3, 6138);
 data.setCell(3, 0, 3)
 data.setCell(3, 1, 'fillForm')
 data.setCell(3, 2, 'tests.FormTests')
-data.setCell(3, 3, 6218);
+data.setCell(3, 3, 5703);
 data.setCell(4, 0, 4)
 data.setCell(4, 1, 'fillForm')
 data.setCell(4, 2, 'tests.FormTests')
-data.setCell(4, 3, 6201);
+data.setCell(4, 3, 5503);
 data.setCell(5, 0, 5)
 data.setCell(5, 1, 'fillForm')
 data.setCell(5, 2, 'tests.FormTests')
-data.setCell(5, 3, 5803);
+data.setCell(5, 3, 5388);
 data.setCell(6, 0, 6)
-data.setCell(6, 1, 'webTableAddSearchEdit')
+data.setCell(6, 1, 'TextBox')
 data.setCell(6, 2, 'tests.ElementsTests')
-data.setCell(6, 3, 5535);
+data.setCell(6, 3, 3125);
 data.setCell(7, 0, 7)
-data.setCell(7, 1, 'webTableAddEditFirstName')
+data.setCell(7, 1, 'SelectAngular')
 data.setCell(7, 2, 'tests.ElementsTests')
-data.setCell(7, 3, 4933);
+data.setCell(7, 3, 2271);
 data.setCell(8, 0, 8)
-data.setCell(8, 1, 'fillForm')
-data.setCell(8, 2, 'tests.FormTests')
-data.setCell(8, 3, 4742);
+data.setCell(8, 1, 'SelectReactAnuglarVeu')
+data.setCell(8, 2, 'tests.ElementsTests')
+data.setCell(8, 3, 2232);
 data.setCell(9, 0, 9)
-data.setCell(9, 1, 'webTableAddSearch')
+data.setCell(9, 1, 'SelectingNotesCommandsClick')
 data.setCell(9, 2, 'tests.ElementsTests')
-data.setCell(9, 3, 3912);
+data.setCell(9, 3, 2191);
 data.setCell(10, 0, 10)
-data.setCell(10, 1, 'webTableNewRegistration')
+data.setCell(10, 1, 'SelectVeu')
 data.setCell(10, 2, 'tests.ElementsTests')
-data.setCell(10, 3, 3706);
+data.setCell(10, 3, 1984);
 data.setCell(11, 0, 11)
-data.setCell(11, 1, 'webTableNewRegistration')
+data.setCell(11, 1, 'SelectPrivate')
 data.setCell(11, 2, 'tests.ElementsTests')
-data.setCell(11, 3, 3426);
+data.setCell(11, 3, 1917);
 data.setCell(12, 0, 12)
-data.setCell(12, 1, 'webTableNewRegistration')
+data.setCell(12, 1, 'SelectOfficeAll')
 data.setCell(12, 2, 'tests.ElementsTests')
-data.setCell(12, 3, 3385);
+data.setCell(12, 3, 1895);
 data.setCell(13, 0, 13)
-data.setCell(13, 1, 'webTableDeleteUser')
+data.setCell(13, 1, 'SelectClassified')
 data.setCell(13, 2, 'tests.ElementsTests')
-data.setCell(13, 3, 3348);
+data.setCell(13, 3, 1883);
 data.setCell(14, 0, 14)
-data.setCell(14, 1, 'webTableNewRegistration')
+data.setCell(14, 1, 'SelectPublic')
 data.setCell(14, 2, 'tests.ElementsTests')
-data.setCell(14, 3, 2905);
+data.setCell(14, 3, 1854);
 data.setCell(15, 0, 15)
-data.setCell(15, 1, 'TextBox')
+data.setCell(15, 1, 'SelectGeneral')
 data.setCell(15, 2, 'tests.ElementsTests')
-data.setCell(15, 3, 2746);
+data.setCell(15, 3, 1847);
 data.setCell(16, 0, 16)
-data.setCell(16, 1, 'SelectOfficeAll')
+data.setCell(16, 1, 'ClickDynamicHomeLink')
 data.setCell(16, 2, 'tests.ElementsTests')
-data.setCell(16, 3, 2121);
+data.setCell(16, 3, 1843);
 data.setCell(17, 0, 17)
-data.setCell(17, 1, 'SelectReactAnuglarVeu')
+data.setCell(17, 1, 'SelectingWordFile')
 data.setCell(17, 2, 'tests.ElementsTests')
-data.setCell(17, 3, 2097);
+data.setCell(17, 3, 1833);
 data.setCell(18, 0, 18)
-data.setCell(18, 1, 'SelectingWordFile')
+data.setCell(18, 1, 'SelectingWorkSpace')
 data.setCell(18, 2, 'tests.ElementsTests')
-data.setCell(18, 3, 1936);
+data.setCell(18, 3, 1801);
 data.setCell(19, 0, 19)
 data.setCell(19, 1, 'SelectingExcelFile')
 data.setCell(19, 2, 'tests.ElementsTests')
-data.setCell(19, 3, 1880);
+data.setCell(19, 3, 1781);
 data.setCell(20, 0, 20)
-data.setCell(20, 1, 'SelectReact')
+data.setCell(20, 1, 'RightClickButton')
 data.setCell(20, 2, 'tests.ElementsTests')
-data.setCell(20, 3, 1865);
+data.setCell(20, 3, 1743);
 data.setCell(21, 0, 21)
-data.setCell(21, 1, 'SelectClassified')
+data.setCell(21, 1, 'SelectingAllFiles')
 data.setCell(21, 2, 'tests.ElementsTests')
-data.setCell(21, 3, 1837);
+data.setCell(21, 3, 1704);
 data.setCell(22, 0, 22)
-data.setCell(22, 1, 'SelectAngular')
+data.setCell(22, 1, 'SelectingHomeCheckBox')
 data.setCell(22, 2, 'tests.ElementsTests')
-data.setCell(22, 3, 1825);
+data.setCell(22, 3, 1648);
 data.setCell(23, 0, 23)
-data.setCell(23, 1, 'SelectPublic')
+data.setCell(23, 1, 'ClickForbiddenLink')
 data.setCell(23, 2, 'tests.ElementsTests')
-data.setCell(23, 3, 1812);
+data.setCell(23, 3, 1639);
 data.setCell(24, 0, 24)
-data.setCell(24, 1, 'SelectingDesktopCheckBox')
+data.setCell(24, 1, 'CheckBox')
 data.setCell(24, 2, 'tests.ElementsTests')
-data.setCell(24, 3, 1798);
+data.setCell(24, 3, 1594);
 data.setCell(25, 0, 25)
-data.setCell(25, 1, 'SelectingOffice')
+data.setCell(25, 1, 'SelectReact')
 data.setCell(25, 2, 'tests.ElementsTests')
-data.setCell(25, 3, 1786);
+data.setCell(25, 3, 1585);
 data.setCell(26, 0, 26)
-data.setCell(26, 1, 'SelectVeu')
+data.setCell(26, 1, 'ClickBadRequestLink')
 data.setCell(26, 2, 'tests.ElementsTests')
-data.setCell(26, 3, 1784);
+data.setCell(26, 3, 1581);
 data.setCell(27, 0, 27)
-data.setCell(27, 1, 'SelectingAllFiles')
+data.setCell(27, 1, 'SelectImpressiveRadioButton')
 data.setCell(27, 2, 'tests.ElementsTests')
-data.setCell(27, 3, 1784);
+data.setCell(27, 3, 1578);
 data.setCell(28, 0, 28)
-data.setCell(28, 1, 'SelectingWorkSpace')
+data.setCell(28, 1, 'ClickUnauthorizedLink')
 data.setCell(28, 2, 'tests.ElementsTests')
-data.setCell(28, 3, 1760);
+data.setCell(28, 3, 1562);
 data.setCell(29, 0, 29)
-data.setCell(29, 1, 'SelectingNotesCommandsClick')
+data.setCell(29, 1, 'ClickMovedLink')
 data.setCell(29, 2, 'tests.ElementsTests')
-data.setCell(29, 3, 1709);
+data.setCell(29, 3, 1443);
 data.setCell(30, 0, 30)
-data.setCell(30, 1, 'SelectGeneral')
+data.setCell(30, 1, 'ElementsCard')
 data.setCell(30, 2, 'tests.ElementsTests')
-data.setCell(30, 3, 1683);
+data.setCell(30, 3, 1393);
 data.setCell(31, 0, 31)
-data.setCell(31, 1, 'CheckBox')
+data.setCell(31, 1, 'ClickLinks')
 data.setCell(31, 2, 'tests.ElementsTests')
-data.setCell(31, 3, 1627);
+data.setCell(31, 3, 1365);
 data.setCell(32, 0, 32)
-data.setCell(32, 1, 'SelectingDownloads')
+data.setCell(32, 1, 'SelectingOffice')
 data.setCell(32, 2, 'tests.ElementsTests')
-data.setCell(32, 3, 1593);
+data.setCell(32, 3, 1361);
 data.setCell(33, 0, 33)
-data.setCell(33, 1, 'clickRadioButton')
+data.setCell(33, 1, 'SelectingDownloads')
 data.setCell(33, 2, 'tests.ElementsTests')
-data.setCell(33, 3, 1587);
+data.setCell(33, 3, 1348);
 data.setCell(34, 0, 34)
-data.setCell(34, 1, 'SelectYesRadioButton')
+data.setCell(34, 1, 'ClickHomeLink')
 data.setCell(34, 2, 'tests.ElementsTests')
-data.setCell(34, 3, 1569);
+data.setCell(34, 3, 1309);
 data.setCell(35, 0, 35)
-data.setCell(35, 1, 'WebTablesClick')
+data.setCell(35, 1, 'SelectingDocumentsCheckBox')
 data.setCell(35, 2, 'tests.ElementsTests')
-data.setCell(35, 3, 1551);
+data.setCell(35, 3, 1299);
 data.setCell(36, 0, 36)
-data.setCell(36, 1, 'SelectPrivate')
+data.setCell(36, 1, 'SelectingDesktopCheckBox')
 data.setCell(36, 2, 'tests.ElementsTests')
-data.setCell(36, 3, 1542);
+data.setCell(36, 3, 1270);
 data.setCell(37, 0, 37)
-data.setCell(37, 1, 'SelectingHomeCheckBox')
+data.setCell(37, 1, 'ClickMeButton')
 data.setCell(37, 2, 'tests.ElementsTests')
-data.setCell(37, 3, 1541);
+data.setCell(37, 3, 1249);
 data.setCell(38, 0, 38)
-data.setCell(38, 1, 'ElementsCard')
+data.setCell(38, 1, 'ClickNoContentLink')
 data.setCell(38, 2, 'tests.ElementsTests')
-data.setCell(38, 3, 1421);
+data.setCell(38, 3, 1205);
 data.setCell(39, 0, 39)
-data.setCell(39, 1, 'SelectImpressiveRadioButton')
+data.setCell(39, 1, 'ClickCreatedAPILink')
 data.setCell(39, 2, 'tests.ElementsTests')
-data.setCell(39, 3, 1274);
+data.setCell(39, 3, 1139);
 data.setCell(40, 0, 40)
-data.setCell(40, 1, 'SelectingDocumentsCheckBox')
+data.setCell(40, 1, 'SelectYesRadioButton')
 data.setCell(40, 2, 'tests.ElementsTests')
-data.setCell(40, 3, 1271);
+data.setCell(40, 3, 1137);
 data.setCell(41, 0, 41)
-data.setCell(41, 1, 'FormCard')
-data.setCell(41, 2, 'tests.FormTests')
-data.setCell(41, 3, 277);
+data.setCell(41, 1, 'clickRadioButton')
+data.setCell(41, 2, 'tests.ElementsTests')
+data.setCell(41, 3, 1094);
 data.setCell(42, 0, 42)
-data.setCell(42, 1, 'accessAlertsFrameWindows')
-data.setCell(42, 2, 'tests.AlertsFramesWindowsTests')
-data.setCell(42, 3, 243);
+data.setCell(42, 1, 'ClickNotFoundLink')
+data.setCell(42, 2, 'tests.ElementsTests')
+data.setCell(42, 3, 1093);
+data.setCell(43, 0, 43)
+data.setCell(43, 1, 'Buttons')
+data.setCell(43, 2, 'tests.ElementsTests')
+data.setCell(43, 3, 287);
+data.setCell(44, 0, 44)
+data.setCell(44, 1, 'FormCard')
+data.setCell(44, 2, 'tests.FormTests')
+data.setCell(44, 3, 283);
+data.setCell(45, 0, 45)
+data.setCell(45, 1, 'WebTablesClick')
+data.setCell(45, 2, 'tests.ElementsTests')
+data.setCell(45, 3, 269);
+data.setCell(46, 0, 46)
+data.setCell(46, 1, 'DoubleClickButtons')
+data.setCell(46, 2, 'tests.ElementsTests')
+data.setCell(46, 3, 261);
+data.setCell(47, 0, 47)
+data.setCell(47, 1, 'accessAlertsFrameWindows')
+data.setCell(47, 2, 'tests.AlertsFramesWindowsTests')
+data.setCell(47, 3, 256);
+data.setCell(48, 0, 48)
+data.setCell(48, 1, 'EditSalaryDepartment')
+data.setCell(48, 2, 'tests.ElementsTests')
+data.setCell(48, 3, 4);
+data.setCell(49, 0, 49)
+data.setCell(49, 1, 'webTableAddEditFirstName')
+data.setCell(49, 2, 'tests.ElementsTests')
+data.setCell(49, 3, 0);
+data.setCell(50, 0, 50)
+data.setCell(50, 1, 'webTableAddSearch')
+data.setCell(50, 2, 'tests.ElementsTests')
+data.setCell(50, 3, 0);
+data.setCell(51, 0, 51)
+data.setCell(51, 1, 'testAddAllUsersSearchEdit')
+data.setCell(51, 2, 'tests.ElementsTests')
+data.setCell(51, 3, 0);
+data.setCell(52, 0, 52)
+data.setCell(52, 1, 'webTableNewRegistration')
+data.setCell(52, 2, 'tests.ElementsTests')
+data.setCell(52, 3, 0);
+data.setCell(53, 0, 53)
+data.setCell(53, 1, 'testAddAllUsersFromExcel')
+data.setCell(53, 2, 'tests.ElementsTests')
+data.setCell(53, 3, 0);
+data.setCell(54, 0, 54)
+data.setCell(54, 1, 'webTableAddSearchEdit')
+data.setCell(54, 2, 'tests.ElementsTests')
+data.setCell(54, 3, 0);
+data.setCell(55, 0, 55)
+data.setCell(55, 1, 'webTableDeleteUser')
+data.setCell(55, 2, 'tests.ElementsTests')
+data.setCell(55, 3, 0);
 window.suiteTableData['Surefire_suite']= { tableData: data, tableDiv: 'times-div-Surefire_suite'}
 return data;
 }
@@ -916,9 +1268,9 @@ return data;
             <div class="ignored-class-div">
               <span class="ignored-class-name">tests.FormTests</span>
               <div class="ignored-methods-div">
-                <span class="ignored-method-name">setupReport</span>
-                <br/>
                 <span class="ignored-method-name">teardownReport</span>
+                <br/>
+                <span class="ignored-method-name">setupReport</span>
                 <br/>
               </div> <!-- ignored-methods-div -->
             </div> <!-- ignored-class-div -->
@@ -946,532 +1298,598 @@ return data;
               </div> <!-- configuration-suite before -->
               <div class="configuration-method before">
                 <span class="method-name">setUP</span>
-                <span class="method-start">220 ms</span>
+                <span class="method-start">236 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
                 <span class="method-name">accessAlertsFrameWindows</span>
-                <span class="method-start">7539 ms</span>
+                <span class="method-start">6302 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">TearDown([TestResult name=accessAlertsFrameWindows status=SUCCESS method=AlertsFramesWindowsTests.accessAlert...)</span>
-                <span class="method-start">7787 ms</span>
+                <span class="method-start">6560 ms</span>
               </div> <!-- configuration-method after -->
             </div> <!-- chronological-class -->
             <div class="chronological-class">
               <div class="chronological-class-name">tests.ElementsTests</div> <!-- chronological-class-name -->
               <div class="configuration-method before">
                 <span class="method-name">setUP</span>
-                <span class="method-start">8136 ms</span>
+                <span class="method-start">6889 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
                 <span class="method-name">ElementsCard</span>
-                <span class="method-start">13045 ms</span>
+                <span class="method-start">12177 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">TearDown([TestResult name=ElementsCard status=SUCCESS method=ElementsTests.ElementsCard()[pri:1, instance:tes...)</span>
-                <span class="method-start">14469 ms</span>
+                <span class="method-start">13571 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-method before">
                 <span class="method-name">setUP</span>
-                <span class="method-start">14825 ms</span>
+                <span class="method-start">13879 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
                 <span class="method-name">TextBox</span>
-                <span class="method-start">19974 ms</span>
+                <span class="method-start">19113 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">TearDown([TestResult name=TextBox status=SUCCESS method=ElementsTests.TextBox()[pri:2, instance:tests.Element...)</span>
-                <span class="method-start">22722 ms</span>
+                <span class="method-start">22238 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-method before">
                 <span class="method-name">setUP</span>
-                <span class="method-start">23318 ms</span>
+                <span class="method-start">23119 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
                 <span class="method-name">CheckBox</span>
-                <span class="method-start">28420 ms</span>
+                <span class="method-start">28421 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">TearDown([TestResult name=CheckBox status=SUCCESS method=ElementsTests.CheckBox()[pri:3, instance:tests.Eleme...)</span>
-                <span class="method-start">30047 ms</span>
+                <span class="method-start">30015 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-method before">
                 <span class="method-name">setUP</span>
-                <span class="method-start">30334 ms</span>
+                <span class="method-start">30330 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
                 <span class="method-name">SelectingHomeCheckBox</span>
-                <span class="method-start">35270 ms</span>
+                <span class="method-start">35480 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">TearDown([TestResult name=SelectingHomeCheckBox status=SUCCESS method=ElementsTests.SelectingHomeCheckBox()[p...)</span>
-                <span class="method-start">36812 ms</span>
+                <span class="method-start">37128 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-method before">
                 <span class="method-name">setUP</span>
-                <span class="method-start">37112 ms</span>
+                <span class="method-start">37452 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
                 <span class="method-name">SelectingDesktopCheckBox</span>
-                <span class="method-start">42110 ms</span>
+                <span class="method-start">42801 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">TearDown([TestResult name=SelectingDesktopCheckBox status=SUCCESS method=ElementsTests.SelectingDesktopCheckB...)</span>
-                <span class="method-start">43908 ms</span>
+                <span class="method-start">44072 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-method before">
                 <span class="method-name">setUP</span>
-                <span class="method-start">44337 ms</span>
+                <span class="method-start">44389 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
                 <span class="method-name">SelectingNotesCommandsClick</span>
-                <span class="method-start">49256 ms</span>
+                <span class="method-start">49551 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">TearDown([TestResult name=SelectingNotesCommandsClick status=SUCCESS method=ElementsTests.SelectingNotesComma...)</span>
-                <span class="method-start">50965 ms</span>
+                <span class="method-start">51742 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-method before">
                 <span class="method-name">setUP</span>
-                <span class="method-start">51505 ms</span>
+                <span class="method-start">52064 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
                 <span class="method-name">SelectingDocumentsCheckBox</span>
-                <span class="method-start">57296 ms</span>
+                <span class="method-start">57738 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">TearDown([TestResult name=SelectingDocumentsCheckBox status=SUCCESS method=ElementsTests.SelectingDocumentsCh...)</span>
-                <span class="method-start">58568 ms</span>
+                <span class="method-start">59037 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-method before">
                 <span class="method-name">setUP</span>
-                <span class="method-start">58879 ms</span>
+                <span class="method-start">59322 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
                 <span class="method-name">SelectingWorkSpace</span>
-                <span class="method-start">63958 ms</span>
+                <span class="method-start">64475 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">TearDown([TestResult name=SelectingWorkSpace status=SUCCESS method=ElementsTests.SelectingWorkSpace()[pri:8, ...)</span>
-                <span class="method-start">65719 ms</span>
+                <span class="method-start">66276 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-method before">
                 <span class="method-name">setUP</span>
-                <span class="method-start">66004 ms</span>
+                <span class="method-start">66595 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
                 <span class="method-name">SelectReact</span>
-                <span class="method-start">71047 ms</span>
+                <span class="method-start">72616 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">TearDown([TestResult name=SelectReact status=SUCCESS method=ElementsTests.SelectReact()[pri:9, instance:tests...)</span>
-                <span class="method-start">72913 ms</span>
+                <span class="method-start">74201 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-method before">
                 <span class="method-name">setUP</span>
-                <span class="method-start">73214 ms</span>
+                <span class="method-start">74495 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
                 <span class="method-name">SelectAngular</span>
-                <span class="method-start">78190 ms</span>
+                <span class="method-start">81652 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">TearDown([TestResult name=SelectAngular status=SUCCESS method=ElementsTests.SelectAngular()[pri:10, instance:...)</span>
-                <span class="method-start">80015 ms</span>
+                <span class="method-start">83923 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-method before">
                 <span class="method-name">setUP</span>
-                <span class="method-start">80388 ms</span>
+                <span class="method-start">84231 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
                 <span class="method-name">SelectVeu</span>
-                <span class="method-start">85377 ms</span>
+                <span class="method-start">89483 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">TearDown([TestResult name=SelectVeu status=SUCCESS method=ElementsTests.SelectVeu()[pri:11, instance:tests.El...)</span>
-                <span class="method-start">87161 ms</span>
+                <span class="method-start">91470 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-method before">
                 <span class="method-name">setUP</span>
-                <span class="method-start">87462 ms</span>
+                <span class="method-start">92040 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
                 <span class="method-name">SelectReactAnuglarVeu</span>
-                <span class="method-start">92519 ms</span>
+                <span class="method-start">97226 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">TearDown([TestResult name=SelectReactAnuglarVeu status=SUCCESS method=ElementsTests.SelectReactAnuglarVeu()[p...)</span>
-                <span class="method-start">94616 ms</span>
+                <span class="method-start">99458 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-method before">
                 <span class="method-name">setUP</span>
-                <span class="method-start">94908 ms</span>
+                <span class="method-start">99770 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
                 <span class="method-name">SelectingOffice</span>
-                <span class="method-start">100171 ms</span>
+                <span class="method-start">105102 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">TearDown([TestResult name=SelectingOffice status=SUCCESS method=ElementsTests.SelectingOffice()[pri:13, insta...)</span>
-                <span class="method-start">101957 ms</span>
+                <span class="method-start">106463 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-method before">
                 <span class="method-name">setUP</span>
-                <span class="method-start">102237 ms</span>
+                <span class="method-start">106764 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
                 <span class="method-name">SelectPublic</span>
-                <span class="method-start">107053 ms</span>
+                <span class="method-start">111831 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">TearDown([TestResult name=SelectPublic status=SUCCESS method=ElementsTests.SelectPublic()[pri:14, instance:te...)</span>
-                <span class="method-start">108865 ms</span>
+                <span class="method-start">113685 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-method before">
                 <span class="method-name">setUP</span>
-                <span class="method-start">109156 ms</span>
+                <span class="method-start">113977 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
                 <span class="method-name">SelectPrivate</span>
-                <span class="method-start">114577 ms</span>
+                <span class="method-start">118928 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">TearDown([TestResult name=SelectPrivate status=SUCCESS method=ElementsTests.SelectPrivate()[pri:15, instance:...)</span>
-                <span class="method-start">116120 ms</span>
+                <span class="method-start">120845 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-method before">
                 <span class="method-name">setUP</span>
-                <span class="method-start">116443 ms</span>
+                <span class="method-start">121122 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
                 <span class="method-name">SelectClassified</span>
-                <span class="method-start">121626 ms</span>
+                <span class="method-start">126154 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">TearDown([TestResult name=SelectClassified status=SUCCESS method=ElementsTests.SelectClassified()[pri:16, ins...)</span>
-                <span class="method-start">123463 ms</span>
+                <span class="method-start">128037 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-method before">
                 <span class="method-name">setUP</span>
-                <span class="method-start">123808 ms</span>
+                <span class="method-start">128330 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
                 <span class="method-name">SelectGeneral</span>
-                <span class="method-start">128705 ms</span>
+                <span class="method-start">133603 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">TearDown([TestResult name=SelectGeneral status=SUCCESS method=ElementsTests.SelectGeneral()[pri:17, instance:...)</span>
-                <span class="method-start">130389 ms</span>
+                <span class="method-start">135450 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-method before">
                 <span class="method-name">setUP</span>
-                <span class="method-start">130663 ms</span>
+                <span class="method-start">135723 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
                 <span class="method-name">SelectOfficeAll</span>
-                <span class="method-start">135668 ms</span>
+                <span class="method-start">144076 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">TearDown([TestResult name=SelectOfficeAll status=SUCCESS method=ElementsTests.SelectOfficeAll()[pri:18, insta...)</span>
-                <span class="method-start">137789 ms</span>
+                <span class="method-start">145971 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-method before">
                 <span class="method-name">setUP</span>
-                <span class="method-start">138247 ms</span>
+                <span class="method-start">146329 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
                 <span class="method-name">SelectingDownloads</span>
-                <span class="method-start">143054 ms</span>
+                <span class="method-start">151737 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">TearDown([TestResult name=SelectingDownloads status=SUCCESS method=ElementsTests.SelectingDownloads()[pri:19,...)</span>
-                <span class="method-start">144648 ms</span>
+                <span class="method-start">153085 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-method before">
                 <span class="method-name">setUP</span>
-                <span class="method-start">144958 ms</span>
+                <span class="method-start">153379 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
                 <span class="method-name">SelectingWordFile</span>
-                <span class="method-start">149820 ms</span>
+                <span class="method-start">158428 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">TearDown([TestResult name=SelectingWordFile status=SUCCESS method=ElementsTests.SelectingWordFile()[pri:20, i...)</span>
-                <span class="method-start">151757 ms</span>
+                <span class="method-start">160262 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-method before">
                 <span class="method-name">setUP</span>
-                <span class="method-start">152081 ms</span>
+                <span class="method-start">160567 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
                 <span class="method-name">SelectingExcelFile</span>
-                <span class="method-start">156979 ms</span>
+                <span class="method-start">165420 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">TearDown([TestResult name=SelectingExcelFile status=SUCCESS method=ElementsTests.SelectingExcelFile()[pri:21,...)</span>
-                <span class="method-start">158860 ms</span>
+                <span class="method-start">167201 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-method before">
                 <span class="method-name">setUP</span>
-                <span class="method-start">159154 ms</span>
+                <span class="method-start">167504 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
                 <span class="method-name">SelectingAllFiles</span>
-                <span class="method-start">164077 ms</span>
+                <span class="method-start">173582 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">TearDown([TestResult name=SelectingAllFiles status=SUCCESS method=ElementsTests.SelectingAllFiles()[pri:22, i...)</span>
-                <span class="method-start">165862 ms</span>
+                <span class="method-start">175288 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-method before">
                 <span class="method-name">setUP</span>
-                <span class="method-start">166215 ms</span>
+                <span class="method-start">175642 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
                 <span class="method-name">clickRadioButton</span>
-                <span class="method-start">171080 ms</span>
+                <span class="method-start">181329 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">TearDown([TestResult name=clickRadioButton status=SUCCESS method=ElementsTests.clickRadioButton()[pri:23, ins...)</span>
-                <span class="method-start">172667 ms</span>
+                <span class="method-start">182423 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-method before">
                 <span class="method-name">setUP</span>
-                <span class="method-start">173013 ms</span>
+                <span class="method-start">182753 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
                 <span class="method-name">SelectYesRadioButton</span>
-                <span class="method-start">178227 ms</span>
+                <span class="method-start">188147 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">TearDown([TestResult name=SelectYesRadioButton status=SUCCESS method=ElementsTests.SelectYesRadioButton()[pri...)</span>
-                <span class="method-start">179796 ms</span>
+                <span class="method-start">189284 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-method before">
                 <span class="method-name">setUP</span>
-                <span class="method-start">180077 ms</span>
+                <span class="method-start">189566 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
                 <span class="method-name">SelectImpressiveRadioButton</span>
-                <span class="method-start">185371 ms</span>
+                <span class="method-start">194595 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">TearDown([TestResult name=SelectImpressiveRadioButton status=SUCCESS method=ElementsTests.SelectImpressiveRad...)</span>
-                <span class="method-start">186648 ms</span>
+                <span class="method-start">196173 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-method before">
                 <span class="method-name">setUP</span>
-                <span class="method-start">186943 ms</span>
+                <span class="method-start">196461 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
+                <img src="failed.png">
+                </img>
                 <span class="method-name">WebTablesClick</span>
-                <span class="method-start">192182 ms</span>
+                <span class="method-start">201457 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
-                <span class="method-name">TearDown([TestResult name=WebTablesClick status=SUCCESS method=ElementsTests.WebTablesClick()[pri:26, instanc...)</span>
-                <span class="method-start">193733 ms</span>
+                <span class="method-name">TearDown([TestResult name=WebTablesClick status=FAILURE method=ElementsTests.WebTablesClick()[pri:26, instanc...)</span>
+                <span class="method-start">201731 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-method before">
                 <span class="method-name">setUP</span>
-                <span class="method-start">194798 ms</span>
+                <span class="method-start">202199 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
-                <span class="method-name">webTableNewRegistration(WebTableUser{firstName='Johny', lastName='Bravo', email='Jbravo@demoqa.com', salary=280000, age=340,...)</span>
-                <span class="method-start">200173 ms</span>
+                <img src="failed.png">
+                </img>
+                <span class="method-name">Buttons</span>
+                <span class="method-start">204034 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
-                <span class="method-name">TearDown([TestResult name=webTableNewRegistration status=SUCCESS method=ElementsTests.webTableNewRegistration...)</span>
-                <span class="method-start">203078 ms</span>
+                <span class="method-name">TearDown([TestResult name=Buttons status=FAILURE method=ElementsTests.Buttons()[pri:35, instance:tests.Elemen...)</span>
+                <span class="method-start">204322 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-method before">
                 <span class="method-name">setUP</span>
-                <span class="method-start">203450 ms</span>
+                <span class="method-start">204723 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
-                <span class="method-name">webTableNewRegistration(WebTableUser{firstName='Gene', lastName='Femina', email='GFemina@demoqa.com', salary=180000, age=300...)</span>
-                <span class="method-start">208789 ms</span>
+                <img src="failed.png">
+                </img>
+                <span class="method-name">DoubleClickButtons</span>
+                <span class="method-start">206585 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
-                <span class="method-name">TearDown([TestResult name=webTableNewRegistration status=SUCCESS method=ElementsTests.webTableNewRegistration...)</span>
-                <span class="method-start">212174 ms</span>
+                <span class="method-name">TearDown([TestResult name=DoubleClickButtons status=FAILURE method=ElementsTests.DoubleClickButtons()[pri:36,...)</span>
+                <span class="method-start">206847 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-method before">
                 <span class="method-name">setUP</span>
-                <span class="method-start">212587 ms</span>
+                <span class="method-start">207267 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
-                <span class="method-name">webTableNewRegistration(WebTableUser{firstName='Bud', lastName='Wisem', email='BWisem@demoqa.com', salary=150000, age=400, d...)</span>
-                <span class="method-start">217545 ms</span>
+                <span class="method-name">RightClickButton</span>
+                <span class="method-start">212234 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
-                <span class="method-name">TearDown([TestResult name=webTableNewRegistration status=SUCCESS method=ElementsTests.webTableNewRegistration...)</span>
-                <span class="method-start">221252 ms</span>
+                <span class="method-name">TearDown([TestResult name=RightClickButton status=SUCCESS method=ElementsTests.RightClickButton()[pri:37, ins...)</span>
+                <span class="method-start">213977 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-method before">
                 <span class="method-name">setUP</span>
-                <span class="method-start">221654 ms</span>
+                <span class="method-start">214265 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
-                <span class="method-name">webTableNewRegistration(WebTableUser{firstName='Tom', lastName='Boss', email='TBoss@demoqa.com', salary=190000, age=420, dep...)</span>
-                <span class="method-start">226642 ms</span>
+                <span class="method-name">ClickMeButton</span>
+                <span class="method-start">219845 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
-                <span class="method-name">TearDown([TestResult name=webTableNewRegistration status=SUCCESS method=ElementsTests.webTableNewRegistration...)</span>
-                <span class="method-start">230069 ms</span>
+                <span class="method-name">TearDown([TestResult name=ClickMeButton status=SUCCESS method=ElementsTests.ClickMeButton()[pri:38, instance:...)</span>
+                <span class="method-start">221095 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-method before">
                 <span class="method-name">setUP</span>
-                <span class="method-start">230533 ms</span>
+                <span class="method-start">221391 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
-                <span class="method-name">webTableAddSearch(WebTableUser{firstName='Johny', lastName='Bravo', email='Jbravo@demoqa.com', salary=280000, age=340,...)</span>
-                <span class="method-start">235418 ms</span>
+                <span class="method-name">ClickAllButtons</span>
+                <span class="method-start">226817 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
-                <span class="method-name">TearDown([TestResult name=webTableAddSearch status=SUCCESS method=ElementsTests.webTableAddSearch(models.WebT...)</span>
-                <span class="method-start">239330 ms</span>
+                <span class="method-name">TearDown([TestResult name=ClickAllButtons status=SUCCESS method=ElementsTests.ClickAllButtons()[pri:39, insta...)</span>
+                <span class="method-start">237448 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-method before">
                 <span class="method-name">setUP</span>
-                <span class="method-start">239779 ms</span>
+                <span class="method-start">238027 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
-                <span class="method-name">webTableAddEditFirstName(WebTableUser{firstName='Tonny', lastName='Bravo', email='Jbravo@demoqa.com', salary=280000, age=340,...)</span>
-                <span class="method-start">244937 ms</span>
+                <span class="method-name">ClickLinks</span>
+                <span class="method-start">243021 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
-                <span class="method-name">TearDown([TestResult name=webTableAddEditFirstName status=SUCCESS method=ElementsTests.webTableAddEditFirstNa...)</span>
-                <span class="method-start">249870 ms</span>
+                <span class="method-name">TearDown([TestResult name=ClickLinks status=SUCCESS method=ElementsTests.ClickLinks()[pri:40, instance:tests....)</span>
+                <span class="method-start">244386 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-method before">
                 <span class="method-name">setUP</span>
-                <span class="method-start">250373 ms</span>
+                <span class="method-start">244684 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
-                <span class="method-name">webTableAddSearchEdit(WebTableUser{firstName='Tonny', lastName='Bravo', email='Jbravo@demoqa.com', salary=280000, age=340,...)</span>
-                <span class="method-start">255347 ms</span>
+                <span class="method-name">ClickHomeLink</span>
+                <span class="method-start">249620 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
-                <span class="method-name">TearDown([TestResult name=webTableAddSearchEdit status=SUCCESS method=ElementsTests.webTableAddSearchEdit(mod...)</span>
-                <span class="method-start">260882 ms</span>
+                <span class="method-name">TearDown([TestResult name=ClickHomeLink status=SUCCESS method=ElementsTests.ClickHomeLink()[pri:41, instance:...)</span>
+                <span class="method-start">250929 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-method before">
                 <span class="method-name">setUP</span>
-                <span class="method-start">261339 ms</span>
+                <span class="method-start">251245 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
-                <span class="method-name">webTableDeleteUser(WebTableUser{firstName='Johny', lastName='Bravo', email='Jbravo@demoqa.com', salary=280000, age=340,...)</span>
-                <span class="method-start">266470 ms</span>
+                <span class="method-name">ClickDynamicHomeLink</span>
+                <span class="method-start">256284 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
-                <span class="method-name">TearDown([TestResult name=webTableDeleteUser status=SUCCESS method=ElementsTests.webTableDeleteUser(models.We...)</span>
-                <span class="method-start">269819 ms</span>
+                <span class="method-name">TearDown([TestResult name=ClickDynamicHomeLink status=SUCCESS method=ElementsTests.ClickDynamicHomeLink()[pri...)</span>
+                <span class="method-start">258128 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-method before">
                 <span class="method-name">setUP</span>
-                <span class="method-start">270152 ms</span>
+                <span class="method-start">258421 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
-                <span class="method-name">testAddAllUsersFromExcel</span>
-                <span class="method-start">275068 ms</span>
+                <span class="method-name">ClickCreatedAPILink</span>
+                <span class="method-start">264488 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
-                <span class="method-name">TearDown([TestResult name=testAddAllUsersFromExcel status=SUCCESS method=ElementsTests.testAddAllUsersFromExc...)</span>
-                <span class="method-start">283580 ms</span>
+                <span class="method-name">TearDown([TestResult name=ClickCreatedAPILink status=SUCCESS method=ElementsTests.ClickCreatedAPILink()[pri:4...)</span>
+                <span class="method-start">265627 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-method before">
                 <span class="method-name">setUP</span>
-                <span class="method-start">284208 ms</span>
+                <span class="method-start">265922 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
-                <span class="method-name">testAddAllUsersSearchEdit</span>
-                <span class="method-start">289054 ms</span>
+                <span class="method-name">ClickNoContentLink</span>
+                <span class="method-start">271555 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
-                <span class="method-name">TearDown([TestResult name=testAddAllUsersSearchEdit status=SUCCESS method=ElementsTests.testAddAllUsersSearch...)</span>
-                <span class="method-start">299131 ms</span>
+                <span class="method-name">TearDown([TestResult name=ClickNoContentLink status=SUCCESS method=ElementsTests.ClickNoContentLink()[pri:44,...)</span>
+                <span class="method-start">272760 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-method before">
                 <span class="method-name">setUP</span>
-                <span class="method-start">299540 ms</span>
+                <span class="method-start">273058 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
-                <span class="method-name">EditSalaryDepartment</span>
-                <span class="method-start">304507 ms</span>
+                <span class="method-name">ClickMovedLink</span>
+                <span class="method-start">277830 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
-                <span class="method-name">TearDown([TestResult name=EditSalaryDepartment status=SUCCESS method=ElementsTests.EditSalaryDepartment()[pri...)</span>
-                <span class="method-start">318382 ms</span>
+                <span class="method-name">TearDown([TestResult name=ClickMovedLink status=SUCCESS method=ElementsTests.ClickMovedLink()[pri:45, instanc...)</span>
+                <span class="method-start">279273 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method before">
+                <span class="method-name">setUP</span>
+                <span class="method-start">279572 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">ClickAllLinks</span>
+                <span class="method-start">284713 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">TearDown([TestResult name=ClickAllLinks status=SUCCESS method=ElementsTests.ClickAllLinks()[pri:46, instance:...)</span>
+                <span class="method-start">311293 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method before">
+                <span class="method-name">setUP</span>
+                <span class="method-start">311632 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">ClickBadRequestLink</span>
+                <span class="method-start">316811 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">TearDown([TestResult name=ClickBadRequestLink status=SUCCESS method=ElementsTests.ClickBadRequestLink()[pri:4...)</span>
+                <span class="method-start">318392 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method before">
+                <span class="method-name">setUP</span>
+                <span class="method-start">318711 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">ClickUnauthorizedLink</span>
+                <span class="method-start">323983 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">TearDown([TestResult name=ClickUnauthorizedLink status=SUCCESS method=ElementsTests.ClickUnauthorizedLink()[p...)</span>
+                <span class="method-start">325545 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method before">
+                <span class="method-name">setUP</span>
+                <span class="method-start">325836 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">ClickForbiddenLink</span>
+                <span class="method-start">330866 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">TearDown([TestResult name=ClickForbiddenLink status=SUCCESS method=ElementsTests.ClickForbiddenLink()[pri:48,...)</span>
+                <span class="method-start">332505 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method before">
+                <span class="method-name">setUP</span>
+                <span class="method-start">332814 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">ClickNotFoundLink</span>
+                <span class="method-start">338389 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">TearDown([TestResult name=ClickNotFoundLink status=SUCCESS method=ElementsTests.ClickNotFoundLink()[pri:49, i...)</span>
+                <span class="method-start">339482 ms</span>
               </div> <!-- configuration-method after -->
             </div> <!-- chronological-class -->
             <div class="chronological-class">
               <div class="chronological-class-name">tests.FormTests</div> <!-- chronological-class-name -->
               <div class="configuration-method before">
                 <span class="method-name">setUP</span>
-                <span class="method-start">318770 ms</span>
+                <span class="method-start">339775 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
                 <span class="method-name">FormCard</span>
-                <span class="method-start">323899 ms</span>
+                <span class="method-start">344665 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">TearDown([TestResult name=FormCard status=SUCCESS method=FormTests.FormCard()[pri:1, instance:tests.FormTests...)</span>
-                <span class="method-start">324176 ms</span>
+                <span class="method-start">344948 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-method before">
                 <span class="method-name">setUP</span>
-                <span class="method-start">324531 ms</span>
+                <span class="method-start">346014 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
                 <span class="method-name">fillForm(UserFormData{firstName='Johny', lastName='Bravo', userMail='Jbravo@demoqa.com', gender='Male', mobil...)</span>
-                <span class="method-start">329607 ms</span>
+                <span class="method-start">350904 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">TearDown([TestResult name=fillForm status=SUCCESS method=FormTests.fillForm(models.UserFormData)[pri:2, insta...)</span>
-                <span class="method-start">335411 ms</span>
+                <span class="method-start">357042 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-method before">
                 <span class="method-name">setUP</span>
-                <span class="method-start">336044 ms</span>
+                <span class="method-start">357821 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
                 <span class="method-name">fillForm(UserFormData{firstName='Gene', lastName='Femina', userMail='GFemina@demoqa.com', gender='Female', mo...)</span>
-                <span class="method-start">341004 ms</span>
+                <span class="method-start">363185 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">TearDown([TestResult name=fillForm status=SUCCESS method=FormTests.fillForm(models.UserFormData)[pri:2, insta...)</span>
-                <span class="method-start">347222 ms</span>
+                <span class="method-start">368573 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-method before">
                 <span class="method-name">setUP</span>
-                <span class="method-start">347917 ms</span>
+                <span class="method-start">369196 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
                 <span class="method-name">fillForm(UserFormData{firstName='Bud', lastName='Wisem', userMail='BWisem@demoqa.com', gender='Other', mobile...)</span>
-                <span class="method-start">354026 ms</span>
+                <span class="method-start">374603 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">TearDown([TestResult name=fillForm status=SUCCESS method=FormTests.fillForm(models.UserFormData)[pri:2, insta...)</span>
-                <span class="method-start">358768 ms</span>
+                <span class="method-start">380306 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-method before">
                 <span class="method-name">setUP</span>
-                <span class="method-start">359436 ms</span>
+                <span class="method-start">380927 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
                 <span class="method-name">fillForm(UserFormData{firstName='Tom', lastName='Boss', userMail='TBoss@demoqa.com', gender='Male', mobile='7...)</span>
-                <span class="method-start">364676 ms</span>
+                <span class="method-start">386655 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">TearDown([TestResult name=fillForm status=SUCCESS method=FormTests.fillForm(models.UserFormData)[pri:2, insta...)</span>
-                <span class="method-start">370878 ms</span>
+                <span class="method-start">392159 ms</span>
               </div> <!-- configuration-method after -->
             </div> <!-- chronological-class -->
             <div class="chronological-class">
               <div class="chronological-class-name">tests.AlertsFramesWindowsTests</div> <!-- chronological-class-name -->
               <div class="configuration-suite after">
                 <span class="method-name">teardownReport</span>
-                <span class="method-start">371671 ms</span>
+                <span class="method-start">392883 ms</span>
               </div> <!-- configuration-suite after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->

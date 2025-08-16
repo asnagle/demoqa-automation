@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [Surefire suite]" verbose="0">
+  <test thread-count="5" name="Surefire test(failed)" verbose="0">
+    <classes>
+      <class name="tests.ElementsTests">
+        <methods>
+          <include name="webTableAddSearch"/>
+          <include name="TearDown"/>
+          <include name="setupReport"/>
+          <include name="teardownReport"/>
+          <include name="webTableAddEditFirstName"/>
+          <include name="testAddAllUsersSearchEdit"/>
+          <include name="WebTablesClick"/>
+          <include name="webTableDeleteUser"/>
+          <include name="webTableAddSearchEdit"/>
+          <include name="Buttons"/>
+          <include name="testAddAllUsersFromExcel"/>
+          <include name="EditSalaryDepartment"/>
+          <include name="DoubleClickButtons"/>
+          <include name="setUP"/>
+          <include name="webTableNewRegistration"/>
+        </methods>
+      </class> <!-- tests.ElementsTests -->
+    </classes>
+  </test> <!-- Surefire test(failed) -->
+</suite> <!-- Failed suite [Surefire suite] -->

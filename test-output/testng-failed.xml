@@ -8,7 +8,7 @@
           <include name="TearDown"/>
           <include name="setupReport"/>
           <include name="teardownReport"/>
-          <include name="ClickMeButton"/>
+          <include name="ClickMovedLink"/>
           <include name="setUP"/>
         </methods>
       </class> <!-- tests.ElementsTests -->

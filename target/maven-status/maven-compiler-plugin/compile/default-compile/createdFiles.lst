@@ -1,6 +1,7 @@
 pages\homePage.class
 utils\ExcelUtils.class
 utils\extentReportManager.class
+utils\FetchLinkResponse.class
 base\demoqaBase.class
 pages\formsPage.class
 utils\emailUtils.class

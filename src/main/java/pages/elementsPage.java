@@ -22,6 +22,7 @@ import base.demoqaBase;
 import models.WebTableUser;
 //import models.WebTableUser;
 import utils.ExcelUtils;
+import utils.FetchLinkResponse;
 import utils.demoqaLog;
 import utils.retryUrlAccess;
 
@@ -185,6 +186,39 @@ public class elementsPage extends demoqaBase {
 	
 	@FindBy(xpath = "//button[text()='Click Me' and contains(@class, 'btn-primary')]")
 	WebElement ClickMeBtn;
+	
+	@FindBy(xpath = "//span[normalize-space()='Links']")
+	WebElement Links;
+	
+	@FindBy(xpath = "//a[@id='simpleLink']")
+	WebElement HomeLink;
+	
+	@FindBy(xpath = "//a[@id='dynamicLink']")
+	WebElement DynamicHomeLink;
+	
+	@FindBy(xpath = "//*[@id='created']")
+	WebElement CreatedAPI;
+	
+	@FindBy(xpath = "//*[@id=\"no-content\"]")
+	WebElement NoContent;
+	
+	@FindBy(xpath = "//*[@id='moved']")
+	WebElement MovedLink;
+	
+	@FindBy(xpath = "//*[@id='bad-request']")
+	WebElement BadRequestLink;
+	
+	@FindBy(xpath = "//*[@id='unauthorized']")
+	WebElement UnAuthorizedLink;
+	
+	@FindBy(xpath = "//*[@id=\"forbidden\"]")
+	WebElement ForbiddenLink;
+	
+	@FindBy(xpath = "//*[@id='invalid-url']")
+	WebElement NotFoundLink;
+	
+	@FindBy(xpath = "//p[@id='linkResponse']")
+	WebElement LinkResponse;
 
 	private WebDriver driver;
 	private String wTFirstname;
@@ -397,7 +431,11 @@ public class elementsPage extends demoqaBase {
 
 	public void selectClassified() {
 		demoqaLog.info("Selecting Office | Classified Check Box...");
-		SelectClassified.click();
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript("arguments[0].scrollIntoView(true);", SelectClassified);
+		js.executeScript("arguments[0].click();", SelectClassified);
+//		SelectClassified.click();
 		demoqaLog.info("Selected Office | Classified Check Box...");
 	}
 
@@ -782,7 +820,7 @@ public class elementsPage extends demoqaBase {
 		deleteUser.click();
 	}
 
-	public void clickButtons() {
+	public void ClickButtons() {
 		demoqaLog.info("Clicking on Elements|Buttons...");
 		Buttons.click();
 		demoqaLog.info("Clicked on Elements|Buttons...");
@@ -790,7 +828,7 @@ public class elementsPage extends demoqaBase {
 
 	public void DoubleClickbtn() {
 		demoqaLog.info("Clicking on Elements|Buttons|Double Click button...");
-//		Buttons.click();
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 		new Actions(driver).doubleClick(doubleClickBtn).perform();
 		String result = driver.findElement(By.xpath("//p[@id='doubleClickMessage']")).getText();
 		System.out.println(result);
@@ -803,6 +841,8 @@ public class elementsPage extends demoqaBase {
 
 	public void RightClickBtn() {
 		demoqaLog.info("Clicking on Elements|Buttons|Right Click button...");
+		WebElement RightClickbtn = wait.until(ExpectedConditions.presenceOfElementLocated(
+			    By.xpath("//button[@id='rightClickBtn']")));
 		new Actions(driver).contextClick(rightClickBtn).perform();
 
 		Assert.assertEquals("You have done a right click",
@@ -813,6 +853,7 @@ public class elementsPage extends demoqaBase {
 	
 	public void ClickMeBtn() {
 		demoqaLog.info("Clicking on Elements|Buttons|Click Me button...");
+		
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("arguments[0].scrollIntoView(true);", ClickMeBtn);
 		js.executeScript("arguments[0].click();", ClickMeBtn);
@@ -828,6 +869,157 @@ public class elementsPage extends demoqaBase {
 				driver.findElement(By.xpath("//p[normalize-space(text())='You have done a dynamic click' and @id='dynamicClickMessage']")).getText());
 		demoqaLog.info("Clicked on Elements|Buttons|Click Me button..."
 				+ driver.findElement(By.xpath("//p[normalize-space(text())='You have done a dynamic click' and @id='dynamicClickMessage']")).getText());
+	}
+	
+	public void ClickLinks() {
+		demoqaLog.info("Clicking on Elements|Links|Home Link...");
+		Links.click();
+		demoqaLog.info("Clicked on Elements|Links|Home Link...");
+	}
+	
+	public void ClickHomeLink() {
+		demoqaLog.info("Clicking on Elements|Links|Home Link...");
+		HomeLink.click();
+		demoqaLog.info("Clicked on Elements|Links|Home Link...");
+	}
+	
+	public void ClickDynamicHomeLink() {
+		demoqaLog.info("Clicking on Elements|Links|DynamicHome Link...");
+		DynamicHomeLink.click();
+		demoqaLog.info("Clicked on Elements|Links|DynamicHome Link...");
+	}
+	
+	public void ClickCreatedAPILink() {
+		demoqaLog.info("Clicking on Elements|Links|Created Link...");
+		WebElement Createdlink = wait.until(ExpectedConditions.presenceOfElementLocated(
+			    By.xpath("//*[@id='created']")));
+//		CreatedAPI.click();
+		
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript("arguments[0].scrollIntoView(true);", Createdlink);
+		js.executeScript("arguments[0].click();", CreatedAPI);
+		demoqaLog.info("Clicked on Elements|Links|Created Link...");
+		String linkResponse = FetchLinkResponse.fetchLinkResponseText(driver, CreatedAPI);
+		
+		Assert.assertEquals("Created",
+				linkResponse);
+		demoqaLog.info("Clicked on Elements|Links|Created Link response is: "
+				+ linkResponse);
+	}
+	
+	public void ClickNoContentLink() {
+		demoqaLog.info("Clicking on Elements|Links|No Content Link...");
+		WebElement NoContentlink = wait.until(ExpectedConditions.presenceOfElementLocated(
+			    By.xpath("//*[@id=\"no-content\"]")));
+//		NoContent.click();
+		
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript("arguments[0].scrollIntoView(true);", NoContentlink);
+		js.executeScript("arguments[0].click();", NoContent);
+		
+		demoqaLog.info("Clicked on Elements|Links|No Content Link...");
+		String linkResponse = FetchLinkResponse.fetchLinkResponseText(driver, NoContent);
+		
+		Assert.assertEquals("No Content",
+				linkResponse);
+		demoqaLog.info("Clicked on Elements|Links|No Content Link response is: "
+				+ linkResponse);
+	}
+	
+	public void ClickMovedLink() {
+		demoqaLog.info("Clicking on Elements|Links|Moved Link...");
+		WebElement Movedlink = wait.until(ExpectedConditions.presenceOfElementLocated(
+			    By.xpath("//*[@id='moved']")));
+//		MovedLink.click();
+		
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript("arguments[0].scrollIntoView(true);", Movedlink);
+		js.executeScript("arguments[0].click();", MovedLink);
+		
+		demoqaLog.info("Clicked on Elements|Links|Moved Link...");
+		
+		String linkResponse = FetchLinkResponse.fetchLinkResponseText(driver, Movedlink);
+		
+		Assert.assertEquals("Moved",
+				linkResponse);
+		demoqaLog.info("Clicked on Elements|Links|Moved Link Link response is: "
+				+ linkResponse);
+	}
+	
+	public void ClickBadRequestLink() {
+		demoqaLog.info("Clicking on Elements|Links|Bad Request Link...");
+		WebElement BadRequestlink = wait.until(ExpectedConditions.presenceOfElementLocated(
+			    By.xpath("//*[@id='bad-request']")));
+//		BadRequestLink.click();
+		
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript("arguments[0].scrollIntoView(true);", BadRequestlink);
+		js.executeScript("arguments[0].click();", BadRequestLink);
+		
+		demoqaLog.info("Clicked on Elements|Links|Bad Request Link...");
+		String linkResponse = FetchLinkResponse.fetchLinkResponseText(driver, BadRequestlink);
+		
+		Assert.assertEquals("Bad Request",
+				linkResponse);
+		demoqaLog.info("Clicked on Elements|Links|Bad Request Link response is: "
+				+ linkResponse);
+	}
+	
+	public void ClickUnauthorizedLink() {
+		demoqaLog.info("Clicking on Elements|Links|Unauthorized Link...");
+		WebElement Unauthorizedlink = wait.until(ExpectedConditions.presenceOfElementLocated(
+			    By.xpath("//*[@id=\"unauthorized\"]")));
+//		UnAuthorizedLink.click();
+		
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript("arguments[0].scrollIntoView(true);", Unauthorizedlink);
+		js.executeScript("arguments[0].click();", UnAuthorizedLink);
+		
+		demoqaLog.info("Clicked on Elements|Links|Unauthorized Link...");
+		String linkResponse = FetchLinkResponse.fetchLinkResponseText(driver, UnAuthorizedLink);
+		
+		Assert.assertEquals("Unauthorized",
+				linkResponse);
+		demoqaLog.info("Clicked on Elements|Links|Unauthorized Link response is: "
+				+ linkResponse);
+	}
+	
+	public void ClickForbiddenLink() {
+		demoqaLog.info("Clicking on Elements|Links|Forbidden Link...");
+		WebElement Forbiddenlink = wait.until(ExpectedConditions.presenceOfElementLocated(
+			    By.xpath("//*[@id=\"forbidden\"]")));
+//		ForbiddenLink.click();
+		
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript("arguments[0].scrollIntoView(true);", Forbiddenlink);
+		js.executeScript("arguments[0].click();", ForbiddenLink);
+
+		
+		demoqaLog.info("Clicked on Elements|Links|Forbidden Link...");
+		String linkResponse = FetchLinkResponse.fetchLinkResponseText(driver, Forbiddenlink);
+		
+		Assert.assertEquals("Forbidden",
+				linkResponse);
+		demoqaLog.info("Clicked on Elements|Links|Forbidden Link response is: "
+				+ linkResponse);
+	}
+	
+	public void ClickNotFoundLink() {
+		demoqaLog.info("Clicking on Elements|Links|NotFound Link...");
+		WebElement NotFoundlink = wait.until(ExpectedConditions.presenceOfElementLocated(
+			    By.xpath("//*[@id='invalid-url']")));
+//		NotFoundLink.click();
+		
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript("arguments[0].scrollIntoView(true);", NotFoundlink);
+		js.executeScript("arguments[0].click();", NotFoundLink);
+		
+		demoqaLog.info("Clicked on Elements|Links|NotFound Link...");
+		String linkResponse = FetchLinkResponse.fetchLinkResponseText(driver, NotFoundlink);
+		Assert.assertEquals("Not Found",
+				linkResponse);
+		demoqaLog.info("Clicked on Elements|Links|Not Found Link response is: "
+				+ linkResponse);
 	}
 
 }
