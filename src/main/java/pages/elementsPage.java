@@ -183,44 +183,67 @@ public class elementsPage extends demoqaBase {
 
 	@FindBy(xpath = "//button[@id='rightClickBtn']")
 	WebElement rightClickBtn;
-	
+
 	@FindBy(xpath = "//button[text()='Click Me' and contains(@class, 'btn-primary')]")
 	WebElement ClickMeBtn;
-	
+
 	@FindBy(xpath = "//span[normalize-space()='Links']")
 	WebElement Links;
-	
+
 	@FindBy(xpath = "//a[@id='simpleLink']")
 	WebElement HomeLink;
-	
+
 	@FindBy(xpath = "//a[@id='dynamicLink']")
 	WebElement DynamicHomeLink;
-	
+
 	@FindBy(xpath = "//*[@id='created']")
 	WebElement CreatedAPI;
-	
+
 	@FindBy(xpath = "//*[@id=\"no-content\"]")
 	WebElement NoContent;
-	
+
 	@FindBy(xpath = "//*[@id='moved']")
 	WebElement MovedLink;
-	
+
 	@FindBy(xpath = "//*[@id='bad-request']")
 	WebElement BadRequestLink;
-	
+
 	@FindBy(xpath = "//*[@id='unauthorized']")
 	WebElement UnAuthorizedLink;
-	
+
 	@FindBy(xpath = "//*[@id=\"forbidden\"]")
 	WebElement ForbiddenLink;
-	
+
 	@FindBy(xpath = "//*[@id='invalid-url']")
 	WebElement NotFoundLink;
-	
+
 	@FindBy(xpath = "//p[@id='linkResponse']")
 	WebElement LinkResponse;
 
-	private WebDriver driver;
+	@FindBy(xpath = "//div[@class='element-list collapse show']//li[@id='item-6']")
+	WebElement BrokenLinksImages;
+
+	@FindBy(xpath = "//p[normalize-space()='Valid image']")
+	WebElement ValidImage;
+
+	@FindBy(xpath = "//p[normalize-space()='Broken image']")
+	WebElement BrokenImage;
+
+	@FindBy(xpath = "//h1[normalize-space()='Broken Links - Images']")
+	WebElement BrokenLinksPageTitle;
+
+	@FindBy(xpath = "//a[normalize-space()='Click Here for Valid Link']")
+	WebElement BrokenLinksValidLink;
+
+	@FindBy(xpath = "//header//img[contains(@src, 'Toolsqa.jpg')]")
+	WebElement ValidLinkPage;
+
+	@FindBy(xpath = "//a[normalize-space()='Click Here for Broken Link']")
+	WebElement BrokenLinksBrokenLink;
+
+	@FindBy(xpath = "//div[@id='content']//p[contains(text(), '500 status code')]")
+	WebElement BrokenLinksBrokenLinkPage;
+
 	private String wTFirstname;
 	private String wTLastname;
 	WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(3));
@@ -229,6 +252,7 @@ public class elementsPage extends demoqaBase {
 		this.driver = driver;
 		this.wait = new WebDriverWait(driver, Duration.ofSeconds(3));
 		PageFactory.initElements(driver, this);
+		System.out.println("Instance Variables Declared are: " + wTFirstname + wTLastname);
 	}
 
 	public void accessElements() {
@@ -432,10 +456,10 @@ public class elementsPage extends demoqaBase {
 	public void selectClassified() {
 		demoqaLog.info("Selecting Office | Classified Check Box...");
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+		System.out.println("Declared WebDriverWait: " + wait);
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("arguments[0].scrollIntoView(true);", SelectClassified);
 		js.executeScript("arguments[0].click();", SelectClassified);
-//		SelectClassified.click();
 		demoqaLog.info("Selected Office | Classified Check Box...");
 	}
 
@@ -487,6 +511,7 @@ public class elementsPage extends demoqaBase {
 	public void yesRadioSelect() {
 		demoqaLog.info("Selecting on Yes Radio Button...");
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+		System.out.println("Declared WebDriverWait: " + wait);
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("arguments[0].scrollIntoView(true);", yesRadio);
 		js.executeScript("arguments[0].click();", yesRadio);
@@ -505,6 +530,7 @@ public class elementsPage extends demoqaBase {
 	public void impressiveRadioSelect() {
 		demoqaLog.info("Selecting on Impressive Radio Button...");
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+		System.out.println("Declared WebDriverWait: " + wait);
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("arguments[0].scrollIntoView(true);", impressiveRadio);
 		js.executeScript("arguments[0].click();", impressiveRadio);
@@ -801,7 +827,6 @@ public class elementsPage extends demoqaBase {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-//	    wTablesSearchBox.click();
 		wTablesSearchBox.clear();
 		wTablesSearchBox.sendKeys(updatedFirstName);
 
@@ -829,6 +854,7 @@ public class elementsPage extends demoqaBase {
 	public void DoubleClickbtn() {
 		demoqaLog.info("Clicking on Elements|Buttons|Double Click button...");
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+		System.out.println("Declared WebDriverWait: " + wait);
 		new Actions(driver).doubleClick(doubleClickBtn).perform();
 		String result = driver.findElement(By.xpath("//p[@id='doubleClickMessage']")).getText();
 		System.out.println(result);
@@ -841,8 +867,9 @@ public class elementsPage extends demoqaBase {
 
 	public void RightClickBtn() {
 		demoqaLog.info("Clicking on Elements|Buttons|Right Click button...");
-		WebElement RightClickbtn = wait.until(ExpectedConditions.presenceOfElementLocated(
-			    By.xpath("//button[@id='rightClickBtn']")));
+		WebElement RightClickbtn = wait
+				.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//button[@id='rightClickBtn']")));
+		System.out.println("Wating for Element: " + RightClickbtn);
 		new Actions(driver).contextClick(rightClickBtn).perform();
 
 		Assert.assertEquals("You have done a right click",
@@ -850,176 +877,216 @@ public class elementsPage extends demoqaBase {
 		demoqaLog.info("Clicked on Elements|Buttons|Right Click button..."
 				+ driver.findElement(By.xpath("//p[@id='rightClickMessage']")).getText());
 	}
-	
+
 	public void ClickMeBtn() {
 		demoqaLog.info("Clicking on Elements|Buttons|Click Me button...");
-		
+
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("arguments[0].scrollIntoView(true);", ClickMeBtn);
 		js.executeScript("arguments[0].click();", ClickMeBtn);
 
-
-//		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-//		WebElement clickMeButton = wait.until(ExpectedConditions.elementToBeClickable(
-//		    By.xpath("ClickMeBtn")));
-
-//		new Actions(driver).click(ClickMeBtn).perform();
-
 		Assert.assertEquals("You have done a dynamic click",
-				driver.findElement(By.xpath("//p[normalize-space(text())='You have done a dynamic click' and @id='dynamicClickMessage']")).getText());
-		demoqaLog.info("Clicked on Elements|Buttons|Click Me button..."
-				+ driver.findElement(By.xpath("//p[normalize-space(text())='You have done a dynamic click' and @id='dynamicClickMessage']")).getText());
+				driver.findElement(By.xpath(
+						"//p[normalize-space(text())='You have done a dynamic click' and @id='dynamicClickMessage']"))
+						.getText());
+		demoqaLog.info("Clicked on Elements|Buttons|Click Me button..." + driver
+				.findElement(By.xpath(
+						"//p[normalize-space(text())='You have done a dynamic click' and @id='dynamicClickMessage']"))
+				.getText());
 	}
-	
+
 	public void ClickLinks() {
 		demoqaLog.info("Clicking on Elements|Links|Home Link...");
 		Links.click();
 		demoqaLog.info("Clicked on Elements|Links|Home Link...");
 	}
-	
+
 	public void ClickHomeLink() {
 		demoqaLog.info("Clicking on Elements|Links|Home Link...");
 		HomeLink.click();
 		demoqaLog.info("Clicked on Elements|Links|Home Link...");
 	}
-	
+
 	public void ClickDynamicHomeLink() {
 		demoqaLog.info("Clicking on Elements|Links|DynamicHome Link...");
 		DynamicHomeLink.click();
 		demoqaLog.info("Clicked on Elements|Links|DynamicHome Link...");
 	}
-	
+
 	public void ClickCreatedAPILink() {
 		demoqaLog.info("Clicking on Elements|Links|Created Link...");
-		WebElement Createdlink = wait.until(ExpectedConditions.presenceOfElementLocated(
-			    By.xpath("//*[@id='created']")));
-//		CreatedAPI.click();
-		
+		WebElement Createdlink = wait
+				.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@id='created']")));
+
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("arguments[0].scrollIntoView(true);", Createdlink);
 		js.executeScript("arguments[0].click();", CreatedAPI);
 		demoqaLog.info("Clicked on Elements|Links|Created Link...");
 		String linkResponse = FetchLinkResponse.fetchLinkResponseText(driver, CreatedAPI);
-		
-		Assert.assertEquals("Created",
-				linkResponse);
-		demoqaLog.info("Clicked on Elements|Links|Created Link response is: "
-				+ linkResponse);
+
+		Assert.assertEquals("Created", linkResponse);
+		demoqaLog.info("Clicked on Elements|Links|Created Link response is: " + linkResponse);
 	}
-	
+
 	public void ClickNoContentLink() {
 		demoqaLog.info("Clicking on Elements|Links|No Content Link...");
-		WebElement NoContentlink = wait.until(ExpectedConditions.presenceOfElementLocated(
-			    By.xpath("//*[@id=\"no-content\"]")));
-//		NoContent.click();
-		
+		WebElement NoContentlink = wait
+				.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@id=\"no-content\"]")));
+
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("arguments[0].scrollIntoView(true);", NoContentlink);
 		js.executeScript("arguments[0].click();", NoContent);
-		
+
 		demoqaLog.info("Clicked on Elements|Links|No Content Link...");
 		String linkResponse = FetchLinkResponse.fetchLinkResponseText(driver, NoContent);
-		
-		Assert.assertEquals("No Content",
-				linkResponse);
-		demoqaLog.info("Clicked on Elements|Links|No Content Link response is: "
-				+ linkResponse);
+
+		Assert.assertEquals("No Content", linkResponse);
+		demoqaLog.info("Clicked on Elements|Links|No Content Link response is: " + linkResponse);
 	}
-	
+
 	public void ClickMovedLink() {
 		demoqaLog.info("Clicking on Elements|Links|Moved Link...");
-		WebElement Movedlink = wait.until(ExpectedConditions.presenceOfElementLocated(
-			    By.xpath("//*[@id='moved']")));
-//		MovedLink.click();
-		
+		WebElement Movedlink = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@id='moved']")));
+
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("arguments[0].scrollIntoView(true);", Movedlink);
 		js.executeScript("arguments[0].click();", MovedLink);
-		
+
 		demoqaLog.info("Clicked on Elements|Links|Moved Link...");
-		
+
 		String linkResponse = FetchLinkResponse.fetchLinkResponseText(driver, Movedlink);
-		
-		Assert.assertEquals("Moved",
-				linkResponse);
-		demoqaLog.info("Clicked on Elements|Links|Moved Link Link response is: "
-				+ linkResponse);
+
+		Assert.assertEquals("Moved", linkResponse);
+		demoqaLog.info("Clicked on Elements|Links|Moved Link Link response is: " + linkResponse);
 	}
-	
+
 	public void ClickBadRequestLink() {
 		demoqaLog.info("Clicking on Elements|Links|Bad Request Link...");
-		WebElement BadRequestlink = wait.until(ExpectedConditions.presenceOfElementLocated(
-			    By.xpath("//*[@id='bad-request']")));
-//		BadRequestLink.click();
-		
+		WebElement BadRequestlink = wait
+				.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@id='bad-request']")));
+
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("arguments[0].scrollIntoView(true);", BadRequestlink);
 		js.executeScript("arguments[0].click();", BadRequestLink);
-		
+
 		demoqaLog.info("Clicked on Elements|Links|Bad Request Link...");
 		String linkResponse = FetchLinkResponse.fetchLinkResponseText(driver, BadRequestlink);
-		
-		Assert.assertEquals("Bad Request",
-				linkResponse);
-		demoqaLog.info("Clicked on Elements|Links|Bad Request Link response is: "
-				+ linkResponse);
+
+		Assert.assertEquals("Bad Request", linkResponse);
+		demoqaLog.info("Clicked on Elements|Links|Bad Request Link response is: " + linkResponse);
 	}
-	
+
 	public void ClickUnauthorizedLink() {
 		demoqaLog.info("Clicking on Elements|Links|Unauthorized Link...");
-		WebElement Unauthorizedlink = wait.until(ExpectedConditions.presenceOfElementLocated(
-			    By.xpath("//*[@id=\"unauthorized\"]")));
-//		UnAuthorizedLink.click();
-		
+		WebElement Unauthorizedlink = wait
+				.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@id=\"unauthorized\"]")));
+
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("arguments[0].scrollIntoView(true);", Unauthorizedlink);
 		js.executeScript("arguments[0].click();", UnAuthorizedLink);
-		
+
 		demoqaLog.info("Clicked on Elements|Links|Unauthorized Link...");
 		String linkResponse = FetchLinkResponse.fetchLinkResponseText(driver, UnAuthorizedLink);
-		
-		Assert.assertEquals("Unauthorized",
-				linkResponse);
-		demoqaLog.info("Clicked on Elements|Links|Unauthorized Link response is: "
-				+ linkResponse);
+
+		Assert.assertEquals("Unauthorized", linkResponse);
+		demoqaLog.info("Clicked on Elements|Links|Unauthorized Link response is: " + linkResponse);
 	}
-	
+
 	public void ClickForbiddenLink() {
 		demoqaLog.info("Clicking on Elements|Links|Forbidden Link...");
-		WebElement Forbiddenlink = wait.until(ExpectedConditions.presenceOfElementLocated(
-			    By.xpath("//*[@id=\"forbidden\"]")));
-//		ForbiddenLink.click();
-		
+		WebElement Forbiddenlink = wait
+				.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@id=\"forbidden\"]")));
+
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("arguments[0].scrollIntoView(true);", Forbiddenlink);
 		js.executeScript("arguments[0].click();", ForbiddenLink);
 
-		
 		demoqaLog.info("Clicked on Elements|Links|Forbidden Link...");
 		String linkResponse = FetchLinkResponse.fetchLinkResponseText(driver, Forbiddenlink);
-		
-		Assert.assertEquals("Forbidden",
-				linkResponse);
-		demoqaLog.info("Clicked on Elements|Links|Forbidden Link response is: "
-				+ linkResponse);
+
+		Assert.assertEquals("Forbidden", linkResponse);
+		demoqaLog.info("Clicked on Elements|Links|Forbidden Link response is: " + linkResponse);
 	}
-	
+
 	public void ClickNotFoundLink() {
 		demoqaLog.info("Clicking on Elements|Links|NotFound Link...");
-		WebElement NotFoundlink = wait.until(ExpectedConditions.presenceOfElementLocated(
-			    By.xpath("//*[@id='invalid-url']")));
-//		NotFoundLink.click();
-		
+		WebElement NotFoundlink = wait
+				.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@id='invalid-url']")));
+
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("arguments[0].scrollIntoView(true);", NotFoundlink);
 		js.executeScript("arguments[0].click();", NotFoundLink);
-		
+
 		demoqaLog.info("Clicked on Elements|Links|NotFound Link...");
 		String linkResponse = FetchLinkResponse.fetchLinkResponseText(driver, NotFoundlink);
-		Assert.assertEquals("Not Found",
-				linkResponse);
-		demoqaLog.info("Clicked on Elements|Links|Not Found Link response is: "
-				+ linkResponse);
+		Assert.assertEquals("Not Found", linkResponse);
+		demoqaLog.info("Clicked on Elements|Links|Not Found Link response is: " + linkResponse);
+	}
+
+	public void ClickBrokenLinks() {
+		demoqaLog.info("Clicking on Elements|Broken Links - Images...");
+//		BrokenLinksImages.click();
+		WebElement Brokenlink = wait.until(ExpectedConditions
+				.presenceOfElementLocated(By.xpath("//span[normalize-space()='Broken Links - Images']")));
+
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript("arguments[0].scrollIntoView(true);", Brokenlink);
+		js.executeScript("arguments[0].click();", BrokenLinksImages);
+		demoqaLog.info("Clicked on Elements|Broken Links - Images...");
+		System.out.println("Page Title is: " + BrokenLinksPageTitle.getText());
+		Assert.assertEquals("Broken Links - Images", BrokenLinksPageTitle.getText());
+	}
+
+	public void CheckValidImage() {
+		demoqaLog.info("Checking for Elements|Broken Links|Valid Image...");
+		WebElement validimage = wait
+				.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//p[normalize-space()='Valid image']")));
+		System.out.println("Found WebElement of: " + validimage.getText());
+		Assert.assertEquals("Valid image", ValidImage.getText());
+		demoqaLog.info("Checked Elements|Broken Links|Valid Image " + ValidImage.getText());
+	}
+
+	public void CheckBrokenImage() {
+		demoqaLog.info("Checking for Elements|Broken Links|Valid Image...");
+		WebElement brokenimage = wait
+				.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//p[normalize-space()='Broken image']")));
+		System.out.println("Found WebElement of: " + brokenimage.getText());
+		
+		Assert.assertEquals("Broken image", BrokenImage.getText());
+		demoqaLog.info("Checked Elements|Broken Links|Broken Image " + BrokenImage.getText());
+	}
+
+	public void ClickValidLink() {
+		demoqaLog.info("Checking for Elements|Broken Links|Valid Link...");
+		WebElement brkvalidlink = wait.until(ExpectedConditions
+				.presenceOfElementLocated(By.xpath("//a[normalize-space()='Click Here for Valid Link']")));
+
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript("arguments[0].scrollIntoView(true);", brkvalidlink);
+		js.executeScript("arguments[0].click();", BrokenLinksValidLink);
+		demoqaLog.info("Clicked on Elements|Broken Links - Images|Valid Link...");
+		
+		WebElement logo = driver.findElement(By.xpath("//header//img[contains(@src, 'Toolsqa.jpg')]"));
+		Assert.assertTrue(logo.isDisplayed(), "Logo image is not visible");
+		System.out.println("Logo of Valid Link Clicked " + logo.getAttribute("src"));
+		demoqaLog.info("Logo source: " + logo.getAttribute("src"));
+	}
+	
+	public void ClickBrokenLink() {
+		demoqaLog.info("Checking for Elements|Broken Links|Broken Link...");
+		WebElement brokenlink = wait.until(ExpectedConditions
+				.presenceOfElementLocated(By.xpath("//a[normalize-space()='Click Here for Broken Link']")));
+
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript("arguments[0].scrollIntoView(true);", brokenlink);
+		js.executeScript("arguments[0].click();", BrokenLinksBrokenLink);
+		demoqaLog.info("Clicked on Elements|Broken Links - Images|Broken Link...");
+		String URLresponse = BrokenLinksBrokenLinkPage.getText();
+		System.out.println("Broken Link Response is: " + URLresponse);
+		WebElement statusMessage = driver.findElement(By.xpath("//*[contains(text(), '500 status code')]"));
+		Assert.assertTrue(statusMessage.isDisplayed(), "Expected 500 status code message is not displayed");
+
+		demoqaLog.info("Broken Link Response is: " + URLresponse);
 	}
 
 }

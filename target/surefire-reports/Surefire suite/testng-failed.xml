@@ -5,21 +5,11 @@
     <classes>
       <class name="tests.ElementsTests">
         <methods>
-          <include name="webTableAddSearch"/>
           <include name="TearDown"/>
           <include name="setupReport"/>
           <include name="teardownReport"/>
-          <include name="webTableAddEditFirstName"/>
-          <include name="testAddAllUsersSearchEdit"/>
-          <include name="WebTablesClick"/>
-          <include name="webTableDeleteUser"/>
-          <include name="webTableAddSearchEdit"/>
-          <include name="Buttons"/>
-          <include name="testAddAllUsersFromExcel"/>
-          <include name="EditSalaryDepartment"/>
-          <include name="DoubleClickButtons"/>
           <include name="setUP"/>
-          <include name="webTableNewRegistration"/>
+          <include name="ClickAllLinks"/>
         </methods>
       </class> <!-- tests.ElementsTests -->
     </classes>

@@ -602,6 +602,7 @@ public class ElementsTests extends demoqaBase {
 		String sheetName = "Sheet1";
 
 		Object[][] data = ExcelUtils.getUsersFromExcel(filePath, sheetName);
+		System.out.println("Declared Object: " + data);
 
 		elementsPage.webTablesNewRegistration();
 		elementsPage.createAllUsersFromExcel(filePath, sheetName); // This adds all users
@@ -612,7 +613,6 @@ public class ElementsTests extends demoqaBase {
 		int finalUserCount = tableManager.getUserCount();
 
 		System.out.println("Initial user count: " + initialUserCount);
-//		System.out.println("Users added from Excel: " + usersToAdd.size());
 		System.out.println("Final user count: " + finalUserCount);
 
 //		Assert.assertEquals(finalUserCount, expectedTotalCount, "Mismatch in user count after form submission");
@@ -964,7 +964,7 @@ public class ElementsTests extends demoqaBase {
 		demoqaLog.info("Test for Elements|Links|NotFound Link Completed Successfully...");
 	}
 	
-	@Test(priority = 46)
+	@Test(priority = 50)
 	public void ClickAllLinks() {
 		elementsPage elementsPage = new elementsPage(driver);
 
@@ -1031,6 +1031,70 @@ public class ElementsTests extends demoqaBase {
 		elementsPage.ClickNotFoundLink();
 		testRep.pass("Finished Test for Elements|Links|All Links in One GO Completed Successfully...");
 		demoqaLog.info("Test for Elements|Links|All Links in One GO Completed Successfully...");
+	}
+	
+	@Test(priority = 51)
+	public void ClickBrokenLinksImages() {
+		elementsPage elementsPage = new elementsPage(driver);
+
+		elementsPage.accessElements();
+		testRep = extentReportManager.createTest("Test Elements|Broken Links - Images...");
+		testRep.info("Starting Test for Elements|Broken Links - Images...");
+		elementsPage.ClickBrokenLinks();
+		testRep.pass("Finished Test for Elements|Broken Links - Images Completed Successfully...");
+		demoqaLog.info("Test for Elements|Broken Links - Images Completed Successfully...");
+	}
+	
+	@Test(priority = 52)
+	public void GetValidImage() {
+		elementsPage elementsPage = new elementsPage(driver);
+
+		elementsPage.accessElements();
+		testRep = extentReportManager.createTest("Test Elements|Broken Links - Images|Valid Image...");
+		testRep.info("Starting Test for Elements|Broken Links - Images|Valid Image...");
+		elementsPage.ClickBrokenLinks();
+		elementsPage.CheckValidImage();
+		testRep.pass("Finished Test for Elements|Broken Links - Images|Valid Image Completed Successfully...");
+		demoqaLog.info("Test for Elements|Broken Links - Images|Valid Image Completed Successfully...");
+	}
+	
+	@Test(priority = 53)
+	public void GetBrokenImage() {
+		elementsPage elementsPage = new elementsPage(driver);
+
+		elementsPage.accessElements();
+		testRep = extentReportManager.createTest("Test Elements|Broken Links - Images|Broken Image...");
+		testRep.info("Starting Test for Elements|Broken Links - Images|Broken Image...");
+		elementsPage.ClickBrokenLinks();
+		elementsPage.CheckBrokenImage();
+		testRep.pass("Finished Test for Elements|Broken Links - Images|Broken Image Completed Successfully...");
+		demoqaLog.info("Test for Elements|Broken Links - Images|Broken Image Completed Successfully...");
+	}
+	
+	@Test(priority = 54)
+	public void BrokenLinksValidlink() {
+		elementsPage elementsPage = new elementsPage(driver);
+
+		elementsPage.accessElements();
+		testRep = extentReportManager.createTest("Test Elements|Broken Links - Images|Valid Link...");
+		testRep.info("Starting Test for Elements|Broken Links - Images|Valid Link...");
+		elementsPage.ClickBrokenLinks();
+		elementsPage.ClickValidLink();
+		testRep.pass("Finished Test for Elements|Broken Links - Images|Valid Link Completed Successfully...");
+		demoqaLog.info("Test for Elements|Broken Links - Images|Valid Link Completed Successfully...");
+	}
+	
+	@Test(priority = 54)
+	public void BrokenLinksBrokenlink() {
+		elementsPage elementsPage = new elementsPage(driver);
+
+		elementsPage.accessElements();
+		testRep = extentReportManager.createTest("Test Elements|Broken Links - Images|Broken Link...");
+		testRep.info("Starting Test for Elements|Broken Links - Images|Broken Link...");
+		elementsPage.ClickBrokenLinks();
+		elementsPage.ClickBrokenLink();
+		testRep.pass("Finished Test for Elements|Broken Links - Images|Broken Link Completed Successfully...");
+		demoqaLog.info("Test for Elements|Broken Links - Images|Broken Link Completed Successfully...");
 	}
 
 }

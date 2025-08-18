@@ -52,7 +52,7 @@ public class demoqaBase {
 //			***** Uncomment to enable emailing report feature
 			File fullPath = new File(extentReportManager.reportPath);
 			String reportFolder = fullPath.getParent();
-			emailUtils.sendTestReport(reportFolder);
+//			emailUtils.sendTestReport(reportFolder);
 		} catch (Exception e) {
 			System.err.println("Flush failed: " + e.getMessage());
 		}

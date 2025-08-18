@@ -1,36 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="49" total="50" passed="1" failed="0" skipped="0">
+<testng-results ignored="54" total="55" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2025-08-16T12:00:51 IST" name="Default suite" finished-at="2025-08-16T12:01:24 IST" duration-ms="32391">
+  <suite started-at="2025-08-18T19:55:18 IST" name="Default suite" finished-at="2025-08-18T19:55:53 IST" duration-ms="34464">
     <groups>
     </groups>
-    <test started-at="2025-08-16T12:00:51 IST" name="Default test" finished-at="2025-08-16T12:01:24 IST" duration-ms="32391">
+    <test started-at="2025-08-18T19:55:18 IST" name="Default test" finished-at="2025-08-18T19:55:53 IST" duration-ms="34464">
       <class name="tests.ElementsTests">
-        <test-method is-config="true" signature="setupReport()[pri:0, instance:tests.ElementsTests@19b93fa8]" started-at="2025-08-16T12:00:51 IST" name="setupReport" finished-at="2025-08-16T12:00:51 IST" duration-ms="195" status="PASS">
+        <test-method is-config="true" signature="setupReport()[pri:0, instance:tests.ElementsTests@1921ad94]" started-at="2025-08-18T19:55:18 IST" name="setupReport" finished-at="2025-08-18T19:55:18 IST" duration-ms="205" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setupReport -->
-        <test-method is-config="true" signature="setUP()[pri:0, instance:tests.ElementsTests@19b93fa8]" started-at="2025-08-16T12:00:51 IST" name="setUP" finished-at="2025-08-16T12:00:57 IST" duration-ms="5849" status="PASS">
+        <test-method is-config="true" signature="setUP()[pri:0, instance:tests.ElementsTests@1921ad94]" started-at="2025-08-18T19:55:18 IST" name="setUP" finished-at="2025-08-18T19:55:26 IST" duration-ms="7671" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUP -->
-        <test-method signature="ClickAllLinks()[pri:46, instance:tests.ElementsTests@19b93fa8]" started-at="2025-08-16T12:00:57 IST" name="ClickAllLinks" finished-at="2025-08-16T12:01:24 IST" duration-ms="26194" status="PASS">
+        <test-method signature="ClickAllLinks()[pri:50, instance:tests.ElementsTests@1921ad94]" started-at="2025-08-18T19:55:26 IST" name="ClickAllLinks" finished-at="2025-08-18T19:55:52 IST" duration-ms="26286" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- ClickAllLinks -->
-        <test-method is-config="true" signature="TearDown(org.testng.ITestResult)[pri:0, instance:tests.ElementsTests@19b93fa8]" started-at="2025-08-16T12:01:24 IST" name="TearDown" finished-at="2025-08-16T12:01:24 IST" duration-ms="317" status="PASS">
+        <test-method is-config="true" signature="TearDown(org.testng.ITestResult)[pri:0, instance:tests.ElementsTests@1921ad94]" started-at="2025-08-18T19:55:52 IST" name="TearDown" finished-at="2025-08-18T19:55:53 IST" duration-ms="475" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=ClickAllLinks status=SUCCESS method=ElementsTests.ClickAllLinks()[pri:46, instance:tests.ElementsTests@19b93fa8] output={null}]]]>
+                <![CDATA[[TestResult name=ClickAllLinks status=SUCCESS method=ElementsTests.ClickAllLinks()[pri:50, instance:tests.ElementsTests@1921ad94] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- TearDown -->
-        <test-method is-config="true" signature="teardownReport()[pri:0, instance:tests.ElementsTests@19b93fa8]" started-at="2025-08-16T12:01:24 IST" name="teardownReport" finished-at="2025-08-16T12:01:24 IST" duration-ms="305" status="PASS">
+        <test-method is-config="true" signature="teardownReport()[pri:0, instance:tests.ElementsTests@1921ad94]" started-at="2025-08-18T19:55:53 IST" name="teardownReport" finished-at="2025-08-18T19:55:53 IST" duration-ms="360" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- teardownReport -->

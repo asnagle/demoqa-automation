@@ -28,6 +28,7 @@ public class alertsframewindowsPage extends demoqaBase {
 
 		demoqaLog.info("Accessing Alerts, Frame & Windows Card...");
 		homePage homePage = new homePage(driver);
+		System.out.println("Declared Instance WebDriverWait: " + wait);
 		homePage.clickAlertsFrameWindowsCard();
 		System.out.println("Title of this Page is: " + driver.getTitle());
 		System.out.println("You can now access: " + pageText.getText());
