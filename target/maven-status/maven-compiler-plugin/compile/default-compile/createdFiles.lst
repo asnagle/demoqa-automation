@@ -28,6 +28,7 @@ converters\DobConverter.class
 models\UserFormData.class
 pages\alertsframewindowsPage.class
 pages\elementsPage.class
+utils\FileDownloadValidator.class
 utils\DataSanitizer.class
 converters\DatePickerConverter.class
 utils\mappers\ExcelToPOJOMapper.class

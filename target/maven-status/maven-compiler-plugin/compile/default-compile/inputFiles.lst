@@ -12,6 +12,7 @@ C:\ASN\eclipse_workspace\demoqa-automation\src\main\java\models\WebTableUser.jav
 C:\ASN\eclipse_workspace\demoqa-automation\src\main\java\pages\alertsframewindowsPage.java
 C:\ASN\eclipse_workspace\demoqa-automation\src\main\java\converters\DatePickerConverter.java
 C:\ASN\eclipse_workspace\demoqa-automation\src\main\java\utils\DateUtils.java
+C:\ASN\eclipse_workspace\demoqa-automation\src\main\java\utils\FileDownloadValidator.java
 C:\ASN\eclipse_workspace\demoqa-automation\src\main\java\customAnnotations\AnnotationDrivenMapper.java
 C:\ASN\eclipse_workspace\demoqa-automation\src\main\java\converters\NoOpConverter.java
 C:\ASN\eclipse_workspace\demoqa-automation\src\main\java\pages\homePage.java

@@ -18,7 +18,7 @@ public class retryUrlAccess {
             } catch (WebDriverException e) {
                 String msg = e.getMessage().toLowerCase();
 
-                if (msg.contains("502") || msg.contains("bad gateway") || e instanceof TimeoutException) {
+                if (msg.contains("502") || msg.contains("500") || msg.contains("This page returned a 500 status code")|| e instanceof TimeoutException) {
                     attempts++;
                     demoqaLog.warn("Navigation failed due to 502 or timeout. Retrying... Attempt " + attempts);
 

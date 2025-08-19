@@ -6,6 +6,7 @@ import java.io.File;
 import java.lang.reflect.Method;
 import java.time.Duration;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.UUID;
 
 import org.apache.logging.log4j.LogManager;
@@ -64,7 +65,7 @@ public class demoqaBase {
 		demoqaLog.info("Starting Web Browser...");
 		
 		ChromeOptions options = new ChromeOptions();
-		options.addArguments("--incognito");  // ← This is the key!
+//		options.addArguments("--incognito");  // ← This is the key!
 		options.addArguments("--start-maximized");
 //		options.addArguments("--disable-blink-features=AutomationControlled");
 		options.setExperimentalOption("excludeSwitches", Arrays.asList("enable-automation"));
@@ -75,6 +76,17 @@ public class demoqaBase {
 		options.addArguments("--disable-application-cache");
 		options.addArguments("--disk-cache-size=0");
 		options.addArguments("user-data-dir=/tmp/chrome-profile-" + UUID.randomUUID());
+		HashMap<String, Object> prefs = new HashMap<>();
+		prefs.put("download.prompt_for_download", false);  // disable prompt
+		prefs.put("download.directory_upgrade", true);
+		prefs.put("safebrowsing.enabled", false);
+		prefs.put("profile.default_content_settings.popups", 0); // disable popup
+//		prefs.put("download.default_directory", "C:\\\\FC\\");
+
+		// Force PDFs to download instead of opening in browser
+		prefs.put("plugins.always_open_pdf_externally", true);
+
+		options.setExperimentalOption("prefs", prefs);
 		driver = new ChromeDriver(options);
 		 driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(30));
 		    driver.manage().deleteAllCookies();

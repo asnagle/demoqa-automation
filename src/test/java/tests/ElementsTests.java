@@ -1096,5 +1096,44 @@ public class ElementsTests extends demoqaBase {
 		testRep.pass("Finished Test for Elements|Broken Links - Images|Broken Link Completed Successfully...");
 		demoqaLog.info("Test for Elements|Broken Links - Images|Broken Link Completed Successfully...");
 	}
+	
+	@Test(priority = 55)
+	public void UploadDownloadlink() {
+		elementsPage elementsPage = new elementsPage(driver);
+
+		elementsPage.accessElements();
+		testRep = extentReportManager.createTest("Test Elements|Upload and Download Link...");
+		testRep.info("Starting Test for Elements|Upload and Download Link...");
+		elementsPage.ClickUploadDownload();
+		testRep.pass("Finished Test for Elements|Upload and Download Link Completed Successfully...");
+		demoqaLog.info("Test for Elements|Upload and Download Link Completed Successfully...");
+	}
+	
+	@Test(priority = 56)
+	public void Downloadbtn() {
+		elementsPage elementsPage = new elementsPage(driver);
+
+		elementsPage.accessElements();
+		testRep = extentReportManager.createTest("Test Elements|Upload and Download|Download Button...");
+		testRep.info("Starting Test for Elements|Upload and Download|Download Button...");
+		elementsPage.ClickUploadDownload();
+		elementsPage.DownloadFile();
+		testRep.pass("Finished Test for Elements|Upload and Download|Download Button Completed Successfully...");
+		demoqaLog.info("Test for Elements|Upload and Download|Download Button Completed Successfully...");
+	}
+	
+	@Test(priority = 57)
+	public void Uploadbtn() {
+		elementsPage elementsPage = new elementsPage(driver);
+
+		elementsPage.accessElements();
+		testRep = extentReportManager.createTest("Test Elements|Upload and Download|Upload Button...");
+		testRep.info("Starting Test for Elements|Upload and Download|Upload Button...");
+		elementsPage.ClickUploadDownload();
+		elementsPage.UploadFile();
+		testRep.pass("Finished Test for Elements|Upload and Download|Upload Button Completed Successfully...");
+		demoqaLog.info("Test for Elements|Upload and Download|Upload Button Completed Successfully...");
+	}
+
 
 }

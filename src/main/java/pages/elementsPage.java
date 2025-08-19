@@ -1,5 +1,6 @@
 package pages;
 
+import java.io.File;
 import java.io.IOException;
 import java.time.Duration;
 import java.util.List;
@@ -23,6 +24,7 @@ import models.WebTableUser;
 //import models.WebTableUser;
 import utils.ExcelUtils;
 import utils.FetchLinkResponse;
+import utils.FileDownloadValidator;
 import utils.demoqaLog;
 import utils.retryUrlAccess;
 
@@ -243,6 +245,18 @@ public class elementsPage extends demoqaBase {
 
 	@FindBy(xpath = "//div[@id='content']//p[contains(text(), '500 status code')]")
 	WebElement BrokenLinksBrokenLinkPage;
+
+	@FindBy(xpath = "//div[@class='element-list collapse show']//li[@id='item-7']")
+	WebElement UploadDownloadBtn;
+
+	@FindBy(xpath = "//*[@id='downloadButton']")
+	WebElement DownloadBtn;
+
+	@FindBy(xpath = "//input[@id='uploadFile']")
+	WebElement UploadBtn;
+	
+	@FindBy(xpath = "//p[@id='uploadedFilePath']")
+	WebElement UploadedFilePath;
 
 	private String wTFirstname;
 	private String wTLastname;
@@ -1051,7 +1065,7 @@ public class elementsPage extends demoqaBase {
 		WebElement brokenimage = wait
 				.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//p[normalize-space()='Broken image']")));
 		System.out.println("Found WebElement of: " + brokenimage.getText());
-		
+
 		Assert.assertEquals("Broken image", BrokenImage.getText());
 		demoqaLog.info("Checked Elements|Broken Links|Broken Image " + BrokenImage.getText());
 	}
@@ -1065,13 +1079,13 @@ public class elementsPage extends demoqaBase {
 		js.executeScript("arguments[0].scrollIntoView(true);", brkvalidlink);
 		js.executeScript("arguments[0].click();", BrokenLinksValidLink);
 		demoqaLog.info("Clicked on Elements|Broken Links - Images|Valid Link...");
-		
+
 		WebElement logo = driver.findElement(By.xpath("//header//img[contains(@src, 'Toolsqa.jpg')]"));
 		Assert.assertTrue(logo.isDisplayed(), "Logo image is not visible");
 		System.out.println("Logo of Valid Link Clicked " + logo.getAttribute("src"));
 		demoqaLog.info("Logo source: " + logo.getAttribute("src"));
 	}
-	
+
 	public void ClickBrokenLink() {
 		demoqaLog.info("Checking for Elements|Broken Links|Broken Link...");
 		WebElement brokenlink = wait.until(ExpectedConditions
@@ -1087,6 +1101,89 @@ public class elementsPage extends demoqaBase {
 		Assert.assertTrue(statusMessage.isDisplayed(), "Expected 500 status code message is not displayed");
 
 		demoqaLog.info("Broken Link Response is: " + URLresponse);
+	}
+
+	public void ClickUploadDownload() {
+		demoqaLog.info("Checking for Elements|Upload and Download|Download Button...");
+		WebElement uploaddownloadbtn = wait.until(ExpectedConditions
+				.elementToBeClickable(By.xpath("//div[@class='element-list collapse show']//li[@id='item-7']")));
+
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript("arguments[0].scrollIntoView(true);", uploaddownloadbtn);
+		js.executeScript("arguments[0].click();", UploadDownloadBtn);
+		demoqaLog.info("Clicked on Elements|Upload and Download...");
+
+	}
+
+	public void DownloadFile() {
+		demoqaLog.info("Clicking on Elements|Upload and Download|Download Button...");
+		String downloadDir = "C:\\Users\\dell\\Downloads";
+		String expectedFileName = "sampleFile.jpeg";
+		String filePath = "C:\\Users\\dell\\Downloads\\sampleFile.jpeg";
+
+//		Cleanup existing file for successful download
+
+		File file = new File(filePath);
+		if (file.exists()) {
+			System.out.println("Deleting Existing file before download...");
+			file.delete();
+		}
+//		Cleanup completed
+
+		WebElement downloadbtn = wait
+				.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id='downloadButton']")));
+
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript("arguments[0].scrollIntoView(true);", downloadbtn);
+		js.executeScript("arguments[0].click();", DownloadBtn);
+		demoqaLog.info("Clicked on Elements|Upload and Download|Download Button...");
+
+		System.out.println("Downloaded file is: " + downloadDir + expectedFileName);
+
+		boolean isDownloaded = FileDownloadValidator.isFileDownloaded(downloadDir, expectedFileName);
+		Assert.assertTrue(isDownloaded, "File was not downloaded successfully.");
+	}
+
+	public void UploadFile() {
+		demoqaLog.info("Checking for Elements|Upload and Download|Upload Button...");
+		String uploadFile = "Ophoto.jpg";
+
+		try {
+			if (uploadFile == null || uploadFile.trim().isEmpty()) {
+				System.err.println("Photo path is empty in test data.");
+				return;
+			}
+
+			String fullPath = System.getProperty("user.dir") + "\\"+ "TestData";
+			System.out.println("File being Uploaded is: " + fullPath);
+
+			WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+			WebElement fileInput = wait.until(ExpectedConditions.presenceOfElementLocated(By.id("uploadFile")));
+
+//			UploadBtn.sendKeys(fullPath);
+//			WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+			wait.until(ExpectedConditions.elementToBeClickable(UploadBtn));
+			String Uploadthis = fullPath+"\\"+uploadFile;
+			System.out.println("Uploading: " +Uploadthis);
+			UploadBtn.sendKeys(Uploadthis);
+			System.out.println("Uploaded photo: " + fileInput);
+		} catch (Exception e) {
+			System.err.println("Photo upload failed.");
+			e.printStackTrace();
+		}
+		
+		WebElement uploadStatus = wait
+				.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//p[@id='uploadedFilePath']")));
+
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript("arguments[0].scrollIntoView(true);", uploadStatus);
+//		js.executeScript("arguments[0].click();", NotFoundLink);
+
+		demoqaLog.info("Clicked on Elements|Upload and Download|Upload Button...");
+		String uploadedFilePath = FetchLinkResponse.fetchLinkResponseText(driver, UploadedFilePath);
+		Assert.assertEquals("C:\\fakepath\\Ophoto.jpg", uploadedFilePath);
+		demoqaLog.info("Clicked on Elements|Upload and Download|Upload response is: " + uploadedFilePath);
+		
 	}
 
 }
