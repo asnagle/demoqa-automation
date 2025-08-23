@@ -12,7 +12,7 @@ import models.WebTableUser;
 import pages.elementsPage;
 import utils.ExcelUtils;
 import utils.WebTableManager;
-import utils.demoqaLog;
+//import utils.demoqaLog;
 import utils.extentReportManager;
 import utils.waitForElement;
 
@@ -1133,6 +1133,57 @@ public class ElementsTests extends demoqaBase {
 		elementsPage.UploadFile();
 		testRep.pass("Finished Test for Elements|Upload and Download|Upload Button Completed Successfully...");
 		demoqaLog.info("Test for Elements|Upload and Download|Upload Button Completed Successfully...");
+	}
+	
+	@Test(priority = 58)
+	public void DynamicPropertiesbtn() {
+		elementsPage elementsPage = new elementsPage(driver);
+
+		elementsPage.accessElements();
+		testRep = extentReportManager.createTest("Test Elements|Dynamic Properties Button...");
+		testRep.info("Starting Test for Elements|Dynamic Properties Button...");
+		elementsPage.ClickDynamicProperties();
+		testRep.pass("Finished Test for Elements|Dynamic Properties Button Completed Successfully...");
+		demoqaLog.info("Test for Elements|Dynamic Properties Button Completed Successfully...");
+	}
+	
+	@Test(priority = 59)
+	public void WillEnablebtn() {
+		elementsPage elementsPage = new elementsPage(driver);
+
+		elementsPage.accessElements();
+		testRep = extentReportManager.createTest("Test Elements|Dynamic Properties|Will enable 5 sec Button...");
+		testRep.info("Starting Test for Elements|Dynamic Properties|Will enable 5 sec Button...");
+		elementsPage.ClickDynamicProperties();
+		elementsPage.ClickWillEnable();
+		testRep.pass("Finished Test for Elements|Dynamic Properties|Will enable 5 sec Button Completed Successfully...");
+		demoqaLog.info("Test for Elements|Dynamic Properties|Will enable 5 sec Button Completed Successfully...");
+	}
+	
+	@Test(priority = 59)
+	public void ColorChangebtn() {
+		elementsPage elementsPage = new elementsPage(driver);
+
+		elementsPage.accessElements();
+		testRep = extentReportManager.createTest("Test Elements|Dynamic Properties|Color Change Button...");
+		testRep.info("Starting Test for Elements|Dynamic Properties|Color Change Button...");
+		elementsPage.ClickDynamicProperties();
+		elementsPage.ClickColorChange();
+		testRep.pass("Finished Test for Elements|Dynamic Properties|Color Change Button Completed Successfully...");
+		demoqaLog.info("Test for Elements|Dynamic Properties|Color Change Button Completed Successfully...");
+	}
+	
+	@Test(priority = 60)
+	public void VisibleAfterbtn() {
+		elementsPage elementsPage = new elementsPage(driver);
+
+		elementsPage.accessElements();
+		testRep = extentReportManager.createTest("Test Elements|Dynamic Properties|Visible After 5 Seconds Button...");
+		testRep.info("Starting Test for Elements|Dynamic Properties|Color Change Button...");
+		elementsPage.ClickDynamicProperties();
+		elementsPage.ClickVisbleAfter();;
+		testRep.pass("Finished Test for Elements|Dynamic Properties|Visible After 5 Seconds Button Completed Successfully...");
+		demoqaLog.info("Test for Elements|Dynamic Properties|Visible After 5 Seconds Button Completed Successfully...");
 	}
 
 

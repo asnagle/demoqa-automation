@@ -7,11 +7,12 @@ import java.lang.reflect.Method;
 import java.time.Duration;
 import java.util.Arrays;
 import java.util.HashMap;
+//import java.util.List;
 import java.util.UUID;
-
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.PageLoadStrategy;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -26,9 +27,9 @@ import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.MediaEntityBuilder;
 import customAnnotations.CaptureOnSuccess;
+import utils.RetryUrlAccess;
 import utils.emailUtils;
 import utils.extentReportManager;
-import utils.retryUrlAccess;
 
 
 public class demoqaBase {
@@ -36,7 +37,7 @@ public class demoqaBase {
 	protected WebDriver driver;
 	protected static ExtentReports extentRep;
 	protected ExtentTest testRep;
-	private static final Logger demoqaLog = LogManager.getLogger(demoqaBase.class);
+	protected static final Logger demoqaLog = LogManager.getLogger(demoqaBase.class);
 
 	
 	@BeforeSuite
@@ -89,6 +90,8 @@ public class demoqaBase {
 		options.setExperimentalOption("prefs", prefs);
 		driver = new ChromeDriver(options);
 		 driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(30));
+		 options.setPageLoadStrategy(PageLoadStrategy.NONE);
+
 		    driver.manage().deleteAllCookies();
 		    ((JavascriptExecutor) driver).executeScript("window.localStorage.clear();");
 		    ((JavascriptExecutor) driver).executeScript("window.sessionStorage.clear();");
@@ -96,8 +99,8 @@ public class demoqaBase {
 
 		
 		demoqaLog.info("Navigating to demoqa.com Website");
-//		driver.get("https://demoqa.com/");
-		retryUrlAccess.navigateWithRetry(driver, "https://demoqa.com", 3);
+		driver.get("https://demoqa.com/");
+		RetryUrlAccess.navigateWithRetry(driver, "https://demoqa.com", 3);
 
 //		
 //		=================== For Using Edge Browser =====================
@@ -106,7 +109,8 @@ public class demoqaBase {
 //		 options.addArguments("--start-maximized");
 //		 options.setExperimentalOption("excludeSwitches", List.of("disable-popup-blocking"));
 //		 driver = new EdgeDriver(options);
-//		 driver.get("https://demoqa.com/");
+////		 driver.get("https://demoqa.com/");
+//		 RetryUrlAccess.navigateWithRetry(driver, "https://demoqa.com", 3);
 		
 	}
 	

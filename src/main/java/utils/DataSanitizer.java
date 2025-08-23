@@ -5,6 +5,7 @@ import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Locale;
 
 import models.WebTableUser;
 
@@ -15,7 +16,9 @@ public class DataSanitizer {
         DateTimeFormatter.ofPattern("MM/dd/yyyy"),
         DateTimeFormatter.ofPattern("yyyy-MM-dd"),
         DateTimeFormatter.ofPattern("dd-MMM-yyyy"),
-        DateTimeFormatter.ofPattern("dd-MM-yyyy")
+        DateTimeFormatter.ofPattern("dd-MM-yyyy"),
+        DateTimeFormatter.ofPattern("d MMMM yyyy", Locale.ENGLISH),
+        DateTimeFormatter.ofPattern("d MMMM,yyyy", Locale.ENGLISH)
     );
 
     private static final DateTimeFormatter TARGET_DOB_FORMAT = DateTimeFormatter.ofPattern("dd-MM-yyyy");
@@ -71,13 +74,15 @@ public class DataSanitizer {
         return trimmed;
     }
 
-    // ✅ DOB sanitization with multiple format support
+    // ✅ DOB sanitization with expanded format support
     public static String sanitizeDOB(String rawValue, String fieldName, String context) {
         if (rawValue == null || rawValue.trim().isEmpty()) {
             return "";
         }
 
-        String trimmed = rawValue.trim();
+        String trimmed = rawValue.trim()
+                                 .replace(",", " ")
+                                 .replaceAll("\\s+", " ");
 
         for (DateTimeFormatter formatter : KNOWN_DOB_FORMATS) {
             try {
@@ -98,8 +103,67 @@ public class DataSanitizer {
         return trimmed;
     }
 
-    // ✅ Overload for simpler usage in tests
     public static String sanitizeDOB(String rawValue) {
         return sanitizeDOB(rawValue, "DOB", "FormTests");
+    }
+
+    public static String normalizeText(String input) {
+        return input
+            .replaceAll("\\r?\\n", " ")
+            .replaceAll("\\s+", " ")
+            .trim();
+    }
+
+    // ✅ Picture sanitization: extract filename only
+    public static String sanitizePicture(String rawValue, String fieldName, String context) {
+        if (rawValue == null || rawValue.trim().isEmpty()) {
+            return "";
+        }
+
+        String trimmed = rawValue.trim();
+
+        int lastSlash = Math.max(trimmed.lastIndexOf('/'), trimmed.lastIndexOf('\\'));
+        if (lastSlash != -1 && lastSlash < trimmed.length() - 1) {
+            trimmed = trimmed.substring(lastSlash + 1);
+        }
+
+        return normalizeText(trimmed);
+    }
+    
+    private static String sanitizeList(String value) {
+        return value.replaceAll("\\s*,\\s*", ",").trim(); // removes spaces around commas
+    }
+
+    // ✅ Field-aware sanitization with alias support
+    public static String sanitizeField(String value, String fieldName) {
+        if (value == null || value.trim().isEmpty()) return "";
+
+        String key = fieldName.trim().toLowerCase();
+
+        switch (key) {
+            case "dob":
+            case "date of birth":
+                return sanitizeDOB(value, fieldName, "AutoSanitizer");
+
+            case "mobile":
+            case "phone":
+            case "contact":
+                return sanitizeMobile(value, fieldName, "AutoSanitizer");
+
+            case "picture":
+            case "photo":
+            case "image":
+            case "upload":
+            case "file":
+            case "attachment":
+                return sanitizePicture(value, fieldName, "AutoSanitizer");
+
+            case "hobbies":
+            case "subjects":
+                return sanitizeList(value);
+
+            default:
+                return normalizeText(value);
+        }
     }
 }

@@ -15,27 +15,30 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.asserts.Assertion;
-
 import com.aventstack.extentreports.ExtentTest;
-
-//import com.aventstack.extentreports.util.Assert;
 import base.demoqaBase;
 import models.WebTableUser;
-//import models.WebTableUser;
 import utils.ExcelUtils;
 import utils.FetchLinkResponse;
 import utils.FileDownloadValidator;
-import utils.demoqaLog;
-import utils.retryUrlAccess;
+import utils.JSclick;
+import utils.RetryUrlAccess;
+//import utils.demoqaLog;
 
 public class elementsPage extends demoqaBase {
 
+	@FindBy(xpath = "//div[contains(@class,'col-12 mt-4 col-md-6')]")
+	WebElement Cardpage;
+	
 	@FindBy(xpath = "//body/div/div/div/div/div/div/div/div[1]/span[1]/div[1]")
 	WebElement pageText;
 
 	@FindBy(xpath = "//span[normalize-space()='Text Box']")
 	WebElement TextBox;
-
+	
+	@FindBy(xpath = "//h1[normalize-space()='Text Box']")
+	WebElement TextBoxPage;
+	
 	@FindBy(xpath = "//span[normalize-space()='Check Box']")
 	WebElement CheckBox;
 
@@ -257,6 +260,21 @@ public class elementsPage extends demoqaBase {
 	
 	@FindBy(xpath = "//p[@id='uploadedFilePath']")
 	WebElement UploadedFilePath;
+	
+	@FindBy(xpath = "//div[@class='element-list collapse show']//li[@id='item-8']")
+	WebElement DynamicProp;
+	
+	@FindBy(xpath = "//h1[normalize-space()='Dynamic Properties']")
+	WebElement DynamicPropPage;
+	
+	@FindBy(xpath = "//button[@id='enableAfter']")
+	WebElement EnableAfter;
+	
+	@FindBy(xpath = "//button[@id='colorChange']")
+	WebElement ColorChange;
+	
+	@FindBy(xpath = "//button[@id='visibleAfter']")
+	WebElement VisibleAfter;
 
 	private String wTFirstname;
 	private String wTLastname;
@@ -273,17 +291,23 @@ public class elementsPage extends demoqaBase {
 
 		demoqaLog.info("Accessing Elements Card...");
 		homePage homePage = new homePage(driver);
-		retryUrlAccess.navigateWithRetry(driver, "https://demoqa.com", 3);
+		RetryUrlAccess.navigateWithRetry(driver, "https://demoqa.com", 3);
 		homePage.clickElementCard();
 		System.out.println("Title of this Page is: " + driver.getTitle());
 		System.out.println("You can now Access: " + pageText.getText());
+		System.out.println("Page Text is: " + Cardpage.getText());
+		String cardpage = Cardpage.getText();
+
+		Assert.assertEquals("Please select an item from left to start practice.", cardpage);
 	}
 
 	public void clickTextBox() {
 		demoqaLog.info("Accessing Text Box...");
 		TextBox.click();
-		System.out.println(TextBox.getText());
-		demoqaLog.info("You are accessing: " + TextBox.getText());
+		String textBoxPage = TextBoxPage.getText();
+		System.out.println(textBoxPage);
+		demoqaLog.info("You are accessing: " + textBoxPage);
+		Assert.assertEquals("Text Box", textBoxPage);
 	}
 
 	public void enterFullName() {
@@ -304,12 +328,12 @@ public class elementsPage extends demoqaBase {
 
 	public void enterCurrentAddress() {
 		demoqaLog.info("Entering Current Address...");
-		JavascriptExecutor js = (JavascriptExecutor) driver;
-		js.executeScript("arguments[0].scrollIntoView(true);", currentAddress);
-		js.executeScript("arguments[0].click();", currentAddress);
+//		JavascriptExecutor js = (JavascriptExecutor) driver;
+//		js.executeScript("arguments[0].scrollIntoView(true);", currentAddress);
+//		js.executeScript("arguments[0].click();", currentAddress);
+		JSclick.scrollAndClick(driver, currentAddress);
 		currentAddress.sendKeys("511 Grant 481, Prattsville\n Arkansas 72129\n United States");
 		demoqaLog.info("Current Address is: " + currentAddress.getAttribute("value"));
-//		demoqaLog.info("Current Address is: " + currentAddress.getText());
 	}
 
 	public void enterPermanentAddress() {
@@ -382,9 +406,10 @@ public class elementsPage extends demoqaBase {
 
 	public void selectNotesCommands() {
 		demoqaLog.info("Clicking on Home Toggle Button...");
-		JavascriptExecutor js = (JavascriptExecutor) driver;
-		js.executeScript("arguments[0].scrollIntoView(true);", ToggleHome);
-		js.executeScript("arguments[0].click();", ToggleHome);
+//		JavascriptExecutor js = (JavascriptExecutor) driver;
+//		js.executeScript("arguments[0].scrollIntoView(true);", ToggleHome);
+//		js.executeScript("arguments[0].click();", ToggleHome);
+		JSclick.scrollAndClick(driver, ToggleHome);
 		demoqaLog.info("Clicking on Desktop Toggle Button...");
 		ToggleDesktop.click();
 		demoqaLog.info("Clicking on Notes Button...");
@@ -407,17 +432,19 @@ public class elementsPage extends demoqaBase {
 
 	public void selectWorkSpace() {
 		demoqaLog.info("Selecting WorkSpace Check Box...");
-		JavascriptExecutor js = (JavascriptExecutor) driver;
-		js.executeScript("arguments[0].scrollIntoView(true);", SelectWorkSpace);
-		js.executeScript("arguments[0].click();", SelectWorkSpace);
+//		JavascriptExecutor js = (JavascriptExecutor) driver;
+//		js.executeScript("arguments[0].scrollIntoView(true);", SelectWorkSpace);
+//		js.executeScript("arguments[0].click();", SelectWorkSpace);
+		JSclick.scrollAndClick(driver, SelectWorkSpace);
 		demoqaLog.info("Selected WorkSpace Check Box...");
 	}
 
 	public void ToggleWorkSpace() {
 		demoqaLog.info("Clicking WorkSpace Toggle Button...");
-		JavascriptExecutor js = (JavascriptExecutor) driver;
-		js.executeScript("arguments[0].scrollIntoView(true);", ToggleWorkSpace);
-		js.executeScript("arguments[0].click();", ToggleWorkSpace);
+//		JavascriptExecutor js = (JavascriptExecutor) driver;
+//		js.executeScript("arguments[0].scrollIntoView(true);", ToggleWorkSpace);
+//		js.executeScript("arguments[0].click();", ToggleWorkSpace);
+		JSclick.scrollAndClick(driver, ToggleWorkSpace);
 		demoqaLog.info("Clicked WorkSpace Toggle Button...");
 	}
 
@@ -441,17 +468,19 @@ public class elementsPage extends demoqaBase {
 
 	public void selectOffice() {
 		demoqaLog.info("Selecting WorkSpace Check Box...");
-		JavascriptExecutor js = (JavascriptExecutor) driver;
-		js.executeScript("arguments[0].scrollIntoView(true);", SelectOffice);
-		js.executeScript("arguments[0].click();", SelectOffice);
+//		JavascriptExecutor js = (JavascriptExecutor) driver;
+//		js.executeScript("arguments[0].scrollIntoView(true);", SelectOffice);
+//		js.executeScript("arguments[0].click();", SelectOffice);
+		JSclick.scrollAndClick(driver, SelectOffice);
 		demoqaLog.info("Selected WorkSpace Check Box...");
 	}
 
 	public void ToggleOffice() {
 		demoqaLog.info("Clicking Office Toggle Button...");
-		JavascriptExecutor js = (JavascriptExecutor) driver;
-		js.executeScript("arguments[0].scrollIntoView(true);", ToggleOffice);
-		js.executeScript("arguments[0].click();", ToggleOffice);
+//		JavascriptExecutor js = (JavascriptExecutor) driver;
+//		js.executeScript("arguments[0].scrollIntoView(true);", ToggleOffice);
+//		js.executeScript("arguments[0].click();", ToggleOffice);
+		JSclick.scrollAndClick(driver, ToggleOffice);
 		demoqaLog.info("Clicked Office Toggle Button...");
 	}
 
@@ -471,9 +500,10 @@ public class elementsPage extends demoqaBase {
 		demoqaLog.info("Selecting Office | Classified Check Box...");
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 		System.out.println("Declared WebDriverWait: " + wait);
-		JavascriptExecutor js = (JavascriptExecutor) driver;
-		js.executeScript("arguments[0].scrollIntoView(true);", SelectClassified);
-		js.executeScript("arguments[0].click();", SelectClassified);
+//		JavascriptExecutor js = (JavascriptExecutor) driver;
+//		js.executeScript("arguments[0].scrollIntoView(true);", SelectClassified);
+//		js.executeScript("arguments[0].click();", SelectClassified);
+		JSclick.scrollAndClick(driver, SelectClassified);
 		demoqaLog.info("Selected Office | Classified Check Box...");
 	}
 
@@ -485,17 +515,19 @@ public class elementsPage extends demoqaBase {
 
 	public void selectDownloads() {
 		demoqaLog.info("Selecting Downloads Check Box...");
-		JavascriptExecutor js = (JavascriptExecutor) driver;
-		js.executeScript("arguments[0].scrollIntoView(true);", SelectDownloads);
-		js.executeScript("arguments[0].click();", SelectDownloads);
+//		JavascriptExecutor js = (JavascriptExecutor) driver;
+//		js.executeScript("arguments[0].scrollIntoView(true);", SelectDownloads);
+//		js.executeScript("arguments[0].click();", SelectDownloads);
+		JSclick.scrollAndClick(driver, SelectDownloads);
 		demoqaLog.info("Selected Downloads Check Box...");
 	}
 
 	public void ToggleDownloads() {
 		demoqaLog.info("Clicking Downloads Toggle Button...");
-		JavascriptExecutor js = (JavascriptExecutor) driver;
-		js.executeScript("arguments[0].scrollIntoView(true);", ToggleDownloads);
-		js.executeScript("arguments[0].click();", ToggleDownloads);
+//		JavascriptExecutor js = (JavascriptExecutor) driver;
+//		js.executeScript("arguments[0].scrollIntoView(true);", ToggleDownloads);
+//		js.executeScript("arguments[0].click();", ToggleDownloads);
+		JSclick.scrollAndClick(driver, ToggleDownloads);
 		demoqaLog.info("Clicked Downloads Toggle Button...");
 	}
 
@@ -526,9 +558,10 @@ public class elementsPage extends demoqaBase {
 		demoqaLog.info("Selecting on Yes Radio Button...");
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 		System.out.println("Declared WebDriverWait: " + wait);
-		JavascriptExecutor js = (JavascriptExecutor) driver;
-		js.executeScript("arguments[0].scrollIntoView(true);", yesRadio);
-		js.executeScript("arguments[0].click();", yesRadio);
+//		JavascriptExecutor js = (JavascriptExecutor) driver;
+//		js.executeScript("arguments[0].scrollIntoView(true);", yesRadio);
+//		js.executeScript("arguments[0].click();", yesRadio);
+		JSclick.scrollAndClick(driver, yesRadio);
 	}
 
 	public void validateRadioSelection() {
@@ -545,9 +578,10 @@ public class elementsPage extends demoqaBase {
 		demoqaLog.info("Selecting on Impressive Radio Button...");
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 		System.out.println("Declared WebDriverWait: " + wait);
-		JavascriptExecutor js = (JavascriptExecutor) driver;
-		js.executeScript("arguments[0].scrollIntoView(true);", impressiveRadio);
-		js.executeScript("arguments[0].click();", impressiveRadio);
+//		JavascriptExecutor js = (JavascriptExecutor) driver;
+//		js.executeScript("arguments[0].scrollIntoView(true);", impressiveRadio);
+//		js.executeScript("arguments[0].click();", impressiveRadio);
+		JSclick.scrollAndClick(driver, impressiveRadio);
 	}
 
 	public void webTablesClick() {
@@ -557,9 +591,10 @@ public class elementsPage extends demoqaBase {
 
 	public void webTablesNewRegistration() {
 		demoqaLog.info("Click on Elements|Web Tables|Registration Form...");
-		JavascriptExecutor js = (JavascriptExecutor) driver;
-		js.executeScript("arguments[0].scrollIntoView(true);", webTableAdd);
-		js.executeScript("arguments[0].click();", webTableAdd);
+//		JavascriptExecutor js = (JavascriptExecutor) driver;
+//		js.executeScript("arguments[0].scrollIntoView(true);", webTableAdd);
+//		js.executeScript("arguments[0].click();", webTableAdd);
+		JSclick.scrollAndClick(driver, webTableAdd);
 	}
 
 	public void createSingleUserFromExcel(String filePath, String sheetName) {
@@ -895,9 +930,10 @@ public class elementsPage extends demoqaBase {
 	public void ClickMeBtn() {
 		demoqaLog.info("Clicking on Elements|Buttons|Click Me button...");
 
-		JavascriptExecutor js = (JavascriptExecutor) driver;
-		js.executeScript("arguments[0].scrollIntoView(true);", ClickMeBtn);
-		js.executeScript("arguments[0].click();", ClickMeBtn);
+//		JavascriptExecutor js = (JavascriptExecutor) driver;
+//		js.executeScript("arguments[0].scrollIntoView(true);", ClickMeBtn);
+//		js.executeScript("arguments[0].click();", ClickMeBtn);
+		JSclick.scrollAndClick(driver, ClickMeBtn);
 
 		Assert.assertEquals("You have done a dynamic click",
 				driver.findElement(By.xpath(
@@ -917,13 +953,15 @@ public class elementsPage extends demoqaBase {
 
 	public void ClickHomeLink() {
 		demoqaLog.info("Clicking on Elements|Links|Home Link...");
-		HomeLink.click();
+//		HomeLink.click();
+		JSclick.scrollAndClick(driver, HomeLink);
 		demoqaLog.info("Clicked on Elements|Links|Home Link...");
 	}
 
 	public void ClickDynamicHomeLink() {
 		demoqaLog.info("Clicking on Elements|Links|DynamicHome Link...");
-		DynamicHomeLink.click();
+//		DynamicHomeLink.click();
+		JSclick.scrollAndClick(driver, DynamicHomeLink);
 		demoqaLog.info("Clicked on Elements|Links|DynamicHome Link...");
 	}
 
@@ -932,9 +970,10 @@ public class elementsPage extends demoqaBase {
 		WebElement Createdlink = wait
 				.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@id='created']")));
 
-		JavascriptExecutor js = (JavascriptExecutor) driver;
-		js.executeScript("arguments[0].scrollIntoView(true);", Createdlink);
-		js.executeScript("arguments[0].click();", CreatedAPI);
+//		JavascriptExecutor js = (JavascriptExecutor) driver;
+//		js.executeScript("arguments[0].scrollIntoView(true);", Createdlink);
+//		js.executeScript("arguments[0].click();", CreatedAPI);
+		JSclick.scrollAndClick(driver, CreatedAPI);
 		demoqaLog.info("Clicked on Elements|Links|Created Link...");
 		String linkResponse = FetchLinkResponse.fetchLinkResponseText(driver, CreatedAPI);
 
@@ -947,9 +986,10 @@ public class elementsPage extends demoqaBase {
 		WebElement NoContentlink = wait
 				.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@id=\"no-content\"]")));
 
-		JavascriptExecutor js = (JavascriptExecutor) driver;
-		js.executeScript("arguments[0].scrollIntoView(true);", NoContentlink);
-		js.executeScript("arguments[0].click();", NoContent);
+//		JavascriptExecutor js = (JavascriptExecutor) driver;
+//		js.executeScript("arguments[0].scrollIntoView(true);", NoContentlink);
+//		js.executeScript("arguments[0].click();", NoContent);
+		JSclick.scrollAndClick(driver, NoContent);
 
 		demoqaLog.info("Clicked on Elements|Links|No Content Link...");
 		String linkResponse = FetchLinkResponse.fetchLinkResponseText(driver, NoContent);
@@ -962,9 +1002,10 @@ public class elementsPage extends demoqaBase {
 		demoqaLog.info("Clicking on Elements|Links|Moved Link...");
 		WebElement Movedlink = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@id='moved']")));
 
-		JavascriptExecutor js = (JavascriptExecutor) driver;
-		js.executeScript("arguments[0].scrollIntoView(true);", Movedlink);
-		js.executeScript("arguments[0].click();", MovedLink);
+//		JavascriptExecutor js = (JavascriptExecutor) driver;
+//		js.executeScript("arguments[0].scrollIntoView(true);", Movedlink);
+//		js.executeScript("arguments[0].click();", MovedLink);
+		JSclick.scrollAndClick(driver, MovedLink);
 
 		demoqaLog.info("Clicked on Elements|Links|Moved Link...");
 
@@ -979,9 +1020,10 @@ public class elementsPage extends demoqaBase {
 		WebElement BadRequestlink = wait
 				.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@id='bad-request']")));
 
-		JavascriptExecutor js = (JavascriptExecutor) driver;
-		js.executeScript("arguments[0].scrollIntoView(true);", BadRequestlink);
-		js.executeScript("arguments[0].click();", BadRequestLink);
+//		JavascriptExecutor js = (JavascriptExecutor) driver;
+//		js.executeScript("arguments[0].scrollIntoView(true);", BadRequestlink);
+//		js.executeScript("arguments[0].click();", BadRequestLink);
+		JSclick.scrollAndClick(driver, BadRequestLink);
 
 		demoqaLog.info("Clicked on Elements|Links|Bad Request Link...");
 		String linkResponse = FetchLinkResponse.fetchLinkResponseText(driver, BadRequestlink);
@@ -995,9 +1037,10 @@ public class elementsPage extends demoqaBase {
 		WebElement Unauthorizedlink = wait
 				.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@id=\"unauthorized\"]")));
 
-		JavascriptExecutor js = (JavascriptExecutor) driver;
-		js.executeScript("arguments[0].scrollIntoView(true);", Unauthorizedlink);
-		js.executeScript("arguments[0].click();", UnAuthorizedLink);
+//		JavascriptExecutor js = (JavascriptExecutor) driver;
+//		js.executeScript("arguments[0].scrollIntoView(true);", Unauthorizedlink);
+//		js.executeScript("arguments[0].click();", UnAuthorizedLink);
+		JSclick.scrollAndClick(driver, UnAuthorizedLink);
 
 		demoqaLog.info("Clicked on Elements|Links|Unauthorized Link...");
 		String linkResponse = FetchLinkResponse.fetchLinkResponseText(driver, UnAuthorizedLink);
@@ -1011,9 +1054,10 @@ public class elementsPage extends demoqaBase {
 		WebElement Forbiddenlink = wait
 				.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@id=\"forbidden\"]")));
 
-		JavascriptExecutor js = (JavascriptExecutor) driver;
-		js.executeScript("arguments[0].scrollIntoView(true);", Forbiddenlink);
-		js.executeScript("arguments[0].click();", ForbiddenLink);
+//		JavascriptExecutor js = (JavascriptExecutor) driver;
+//		js.executeScript("arguments[0].scrollIntoView(true);", Forbiddenlink);
+//		js.executeScript("arguments[0].click();", ForbiddenLink);
+		JSclick.scrollAndClick(driver, ForbiddenLink);
 
 		demoqaLog.info("Clicked on Elements|Links|Forbidden Link...");
 		String linkResponse = FetchLinkResponse.fetchLinkResponseText(driver, Forbiddenlink);
@@ -1027,9 +1071,10 @@ public class elementsPage extends demoqaBase {
 		WebElement NotFoundlink = wait
 				.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@id='invalid-url']")));
 
-		JavascriptExecutor js = (JavascriptExecutor) driver;
-		js.executeScript("arguments[0].scrollIntoView(true);", NotFoundlink);
-		js.executeScript("arguments[0].click();", NotFoundLink);
+//		JavascriptExecutor js = (JavascriptExecutor) driver;
+//		js.executeScript("arguments[0].scrollIntoView(true);", NotFoundlink);
+//		js.executeScript("arguments[0].click();", NotFoundLink);
+		JSclick.scrollAndClick(driver, NotFoundLink);
 
 		demoqaLog.info("Clicked on Elements|Links|NotFound Link...");
 		String linkResponse = FetchLinkResponse.fetchLinkResponseText(driver, NotFoundlink);
@@ -1043,9 +1088,11 @@ public class elementsPage extends demoqaBase {
 		WebElement Brokenlink = wait.until(ExpectedConditions
 				.presenceOfElementLocated(By.xpath("//span[normalize-space()='Broken Links - Images']")));
 
-		JavascriptExecutor js = (JavascriptExecutor) driver;
-		js.executeScript("arguments[0].scrollIntoView(true);", Brokenlink);
-		js.executeScript("arguments[0].click();", BrokenLinksImages);
+//		JavascriptExecutor js = (JavascriptExecutor) driver;
+//		js.executeScript("arguments[0].scrollIntoView(true);", Brokenlink);
+//		js.executeScript("arguments[0].click();", BrokenLinksImages);
+		JSclick.scrollAndClick(driver, BrokenLinksImages);
+		
 		demoqaLog.info("Clicked on Elements|Broken Links - Images...");
 		System.out.println("Page Title is: " + BrokenLinksPageTitle.getText());
 		Assert.assertEquals("Broken Links - Images", BrokenLinksPageTitle.getText());
@@ -1075,9 +1122,11 @@ public class elementsPage extends demoqaBase {
 		WebElement brkvalidlink = wait.until(ExpectedConditions
 				.presenceOfElementLocated(By.xpath("//a[normalize-space()='Click Here for Valid Link']")));
 
-		JavascriptExecutor js = (JavascriptExecutor) driver;
-		js.executeScript("arguments[0].scrollIntoView(true);", brkvalidlink);
-		js.executeScript("arguments[0].click();", BrokenLinksValidLink);
+//		JavascriptExecutor js = (JavascriptExecutor) driver;
+//		js.executeScript("arguments[0].scrollIntoView(true);", brkvalidlink);
+//		js.executeScript("arguments[0].click();", BrokenLinksValidLink);
+		JSclick.scrollAndClick(driver, BrokenLinksValidLink);
+		
 		demoqaLog.info("Clicked on Elements|Broken Links - Images|Valid Link...");
 
 		WebElement logo = driver.findElement(By.xpath("//header//img[contains(@src, 'Toolsqa.jpg')]"));
@@ -1091,9 +1140,11 @@ public class elementsPage extends demoqaBase {
 		WebElement brokenlink = wait.until(ExpectedConditions
 				.presenceOfElementLocated(By.xpath("//a[normalize-space()='Click Here for Broken Link']")));
 
-		JavascriptExecutor js = (JavascriptExecutor) driver;
-		js.executeScript("arguments[0].scrollIntoView(true);", brokenlink);
-		js.executeScript("arguments[0].click();", BrokenLinksBrokenLink);
+//		JavascriptExecutor js = (JavascriptExecutor) driver;
+//		js.executeScript("arguments[0].scrollIntoView(true);", brokenlink);
+//		js.executeScript("arguments[0].click();", BrokenLinksBrokenLink);
+		JSclick.scrollAndClick(driver, BrokenLinksBrokenLink);
+		
 		demoqaLog.info("Clicked on Elements|Broken Links - Images|Broken Link...");
 		String URLresponse = BrokenLinksBrokenLinkPage.getText();
 		System.out.println("Broken Link Response is: " + URLresponse);
@@ -1108,11 +1159,12 @@ public class elementsPage extends demoqaBase {
 		WebElement uploaddownloadbtn = wait.until(ExpectedConditions
 				.elementToBeClickable(By.xpath("//div[@class='element-list collapse show']//li[@id='item-7']")));
 
-		JavascriptExecutor js = (JavascriptExecutor) driver;
-		js.executeScript("arguments[0].scrollIntoView(true);", uploaddownloadbtn);
-		js.executeScript("arguments[0].click();", UploadDownloadBtn);
+//		JavascriptExecutor js = (JavascriptExecutor) driver;
+//		js.executeScript("arguments[0].scrollIntoView(true);", uploaddownloadbtn);
+//		js.executeScript("arguments[0].click();", UploadDownloadBtn);
+		JSclick.scrollAndClick(driver, UploadDownloadBtn);
+		
 		demoqaLog.info("Clicked on Elements|Upload and Download...");
-
 	}
 
 	public void DownloadFile() {
@@ -1133,9 +1185,11 @@ public class elementsPage extends demoqaBase {
 		WebElement downloadbtn = wait
 				.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id='downloadButton']")));
 
-		JavascriptExecutor js = (JavascriptExecutor) driver;
-		js.executeScript("arguments[0].scrollIntoView(true);", downloadbtn);
-		js.executeScript("arguments[0].click();", DownloadBtn);
+//		JavascriptExecutor js = (JavascriptExecutor) driver;
+//		js.executeScript("arguments[0].scrollIntoView(true);", downloadbtn);
+//		js.executeScript("arguments[0].click();", DownloadBtn);
+		JSclick.scrollAndClick(driver, DownloadBtn);
+		
 		demoqaLog.info("Clicked on Elements|Upload and Download|Download Button...");
 
 		System.out.println("Downloaded file is: " + downloadDir + expectedFileName);
@@ -1160,8 +1214,6 @@ public class elementsPage extends demoqaBase {
 			WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 			WebElement fileInput = wait.until(ExpectedConditions.presenceOfElementLocated(By.id("uploadFile")));
 
-//			UploadBtn.sendKeys(fullPath);
-//			WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 			wait.until(ExpectedConditions.elementToBeClickable(UploadBtn));
 			String Uploadthis = fullPath+"\\"+uploadFile;
 			System.out.println("Uploading: " +Uploadthis);
@@ -1177,13 +1229,82 @@ public class elementsPage extends demoqaBase {
 
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("arguments[0].scrollIntoView(true);", uploadStatus);
-//		js.executeScript("arguments[0].click();", NotFoundLink);
 
 		demoqaLog.info("Clicked on Elements|Upload and Download|Upload Button...");
 		String uploadedFilePath = FetchLinkResponse.fetchLinkResponseText(driver, UploadedFilePath);
 		Assert.assertEquals("C:\\fakepath\\Ophoto.jpg", uploadedFilePath);
 		demoqaLog.info("Clicked on Elements|Upload and Download|Upload response is: " + uploadedFilePath);
-		
 	}
+	
+	public void ClickDynamicProperties() {
+		demoqaLog.info("Checking for Elements|Dynamic Properties Button...");
+		WebElement dynamicPropertiesbtn = wait.until(ExpectedConditions
+				.elementToBeClickable(By.xpath("//div[@class='element-list collapse show']//li[@id='item-8']")));
+
+//		JavascriptExecutor js = (JavascriptExecutor) driver;
+//		js.executeScript("arguments[0].scrollIntoView(true);", dynamicPropertiesbtn);
+//		js.executeScript("arguments[0].click();", DynamicProp);
+		JSclick.scrollAndClick(driver, DynamicProp);
+		
+		demoqaLog.info("Clicked on Elements|Dynamic Properties...");
+		String DynProp = DynamicPropPage.getText();
+		System.out.println("Dynamic Properties Page Tile is: " + DynProp);
+		Assert.assertEquals("Dynamic Properties", DynProp);
+	}
+	
+	public void ClickWillEnable() {
+		demoqaLog.info("Checking for Elements|Dynamic Properties|Will Enable 5 sec Button...");
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+
+		WebElement willEnablebtn = wait.until(ExpectedConditions
+				.elementToBeClickable(By.xpath("//button[@id='enableAfter']")));
+
+//		JavascriptExecutor js = (JavascriptExecutor) driver;
+//		js.executeScript("arguments[0].scrollIntoView(true);", willEnablebtn);
+//		js.executeScript("arguments[0].click();", EnableAfter);
+		JSclick.scrollAndClick(driver, EnableAfter);
+		
+		demoqaLog.info("Clicked on Elements|Dynamic Properties|Will Enable 5 sec Button...");
+		String buttonTxt = EnableAfter.getText();
+		System.out.println("Clicked on: " + buttonTxt);
+		Assert.assertEquals("Will enable 5 seconds", buttonTxt);
+	}
+	
+	public void ClickColorChange() {
+		demoqaLog.info("Checking for Elements|Dynamic Properties|Color Change Button...");
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+
+		WebElement colorChangebtn = wait.until(ExpectedConditions
+				.elementToBeClickable(By.xpath("//button[@id='colorChange']")));
+
+//		JavascriptExecutor js = (JavascriptExecutor) driver;
+//		js.executeScript("arguments[0].scrollIntoView(true);", colorChangebtn);
+//		js.executeScript("arguments[0].click();", ColorChange);
+		JSclick.scrollAndClick(driver, ColorChange);
+		
+		demoqaLog.info("Clicked on Elements|Dynamic Properties|Color Change Button...");
+		String buttonTxt = ColorChange.getText();
+		System.out.println("Clicked on: " + buttonTxt);
+		Assert.assertEquals("Color Change", buttonTxt);
+	}
+	
+	public void ClickVisbleAfter() {
+		demoqaLog.info("Checking for Elements|Dynamic Properties|Visble After 5 Seconds Button...");
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+
+		WebElement visibleAfterbtn = wait.until(ExpectedConditions
+				.elementToBeClickable(By.xpath("//button[@id='visibleAfter']")));
+
+//		JavascriptExecutor js = (JavascriptExecutor) driver;
+//		js.executeScript("arguments[0].scrollIntoView(true);", visibleAfterbtn);
+//		js.executeScript("arguments[0].click();", VisibleAfter);
+		JSclick.scrollAndClick(driver, VisibleAfter);
+		
+		demoqaLog.info("Clicked on Elements|Dynamic Properties|Visble After 5 Seconds Button...");
+		String buttonTxt = VisibleAfter.getText();
+		System.out.println("Clicked on: " + buttonTxt);
+		Assert.assertEquals("Visible After 5 Seconds", buttonTxt);
+	}
+
 
 }

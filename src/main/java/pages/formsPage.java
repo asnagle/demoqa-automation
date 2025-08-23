@@ -12,6 +12,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
 
 import base.demoqaBase;
 import models.UserFormData;
@@ -19,14 +20,18 @@ import utils.DataSanitizer;
 import utils.DateParts;
 import utils.DatePickerUtils;
 import utils.DateUtils;
-import utils.demoqaLog;
-import utils.retryUrlAccess;
+import utils.JSclick;
+import utils.RetryUrlAccess;
+//import utils.demoqaLog;
 
 //import utils.splitDOB;
 
 public class formsPage extends demoqaBase {
 
 //	======= Using PageFactory of Selenium ======
+	@FindBy(xpath = "//div[contains(@class,'col-12 mt-4 col-md-6')]")
+	WebElement Cardpage;
+	
 	@FindBy(id = "firstName")
 	WebElement firstName;
 
@@ -75,10 +80,12 @@ public class formsPage extends demoqaBase {
 
 		demoqaLog.info("Accessing Form Card...");
 		homePage homePage = new homePage(driver);
-		retryUrlAccess.navigateWithRetry(driver, "https://demoqa.com", 3);
+		RetryUrlAccess.navigateWithRetry(driver, "https://demoqa.com", 3);
 		homePage.clickFormCard();
-//		wait.until(ExpectedConditions.titleContains("Practice Form"));
-		clickPracticeForm();
+		String cardpage = Cardpage.getText();
+		System.out.println("Page Text is: " + Cardpage.getText());
+
+		Assert.assertEquals("Please select an item from left to start practice.", cardpage);
 	}
 
 	public void clickPracticeForm() {
@@ -130,9 +137,10 @@ public class formsPage extends demoqaBase {
 				.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("label[for='" + inputId + "']")));
 
 		// Scroll into view & use JS click to avoid iframe issue
-		JavascriptExecutor js = (JavascriptExecutor) driver;
-		js.executeScript("arguments[0].scrollIntoView(true);", genderLabel);
-		js.executeScript("arguments[0].click();", genderLabel);
+//		JavascriptExecutor js = (JavascriptExecutor) driver;
+//		js.executeScript("arguments[0].scrollIntoView(true);", genderLabel);
+//		js.executeScript("arguments[0].click();", genderLabel);
+		JSclick.scrollAndClick(driver, genderLabel);
 
 		System.out.println("Selected gender: " + genderText);
 	}
