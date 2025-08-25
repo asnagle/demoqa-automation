@@ -930,9 +930,6 @@ public class elementsPage extends demoqaBase {
 	public void ClickMeBtn() {
 		demoqaLog.info("Clicking on Elements|Buttons|Click Me button...");
 
-//		JavascriptExecutor js = (JavascriptExecutor) driver;
-//		js.executeScript("arguments[0].scrollIntoView(true);", ClickMeBtn);
-//		js.executeScript("arguments[0].click();", ClickMeBtn);
 		JSclick.scrollAndClick(driver, ClickMeBtn);
 
 		Assert.assertEquals("You have done a dynamic click",
@@ -969,10 +966,8 @@ public class elementsPage extends demoqaBase {
 		demoqaLog.info("Clicking on Elements|Links|Created Link...");
 		WebElement Createdlink = wait
 				.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@id='created']")));
+		System.out.println("Waiting for the presence of Element: " + Createdlink);
 
-//		JavascriptExecutor js = (JavascriptExecutor) driver;
-//		js.executeScript("arguments[0].scrollIntoView(true);", Createdlink);
-//		js.executeScript("arguments[0].click();", CreatedAPI);
 		JSclick.scrollAndClick(driver, CreatedAPI);
 		demoqaLog.info("Clicked on Elements|Links|Created Link...");
 		String linkResponse = FetchLinkResponse.fetchLinkResponseText(driver, CreatedAPI);
@@ -985,10 +980,8 @@ public class elementsPage extends demoqaBase {
 		demoqaLog.info("Clicking on Elements|Links|No Content Link...");
 		WebElement NoContentlink = wait
 				.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@id=\"no-content\"]")));
+		System.out.println("Waiting for the presence of Element: " + NoContentlink);
 
-//		JavascriptExecutor js = (JavascriptExecutor) driver;
-//		js.executeScript("arguments[0].scrollIntoView(true);", NoContentlink);
-//		js.executeScript("arguments[0].click();", NoContent);
 		JSclick.scrollAndClick(driver, NoContent);
 
 		demoqaLog.info("Clicked on Elements|Links|No Content Link...");
@@ -1002,9 +995,6 @@ public class elementsPage extends demoqaBase {
 		demoqaLog.info("Clicking on Elements|Links|Moved Link...");
 		WebElement Movedlink = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@id='moved']")));
 
-//		JavascriptExecutor js = (JavascriptExecutor) driver;
-//		js.executeScript("arguments[0].scrollIntoView(true);", Movedlink);
-//		js.executeScript("arguments[0].click();", MovedLink);
 		JSclick.scrollAndClick(driver, MovedLink);
 
 		demoqaLog.info("Clicked on Elements|Links|Moved Link...");
@@ -1020,9 +1010,6 @@ public class elementsPage extends demoqaBase {
 		WebElement BadRequestlink = wait
 				.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@id='bad-request']")));
 
-//		JavascriptExecutor js = (JavascriptExecutor) driver;
-//		js.executeScript("arguments[0].scrollIntoView(true);", BadRequestlink);
-//		js.executeScript("arguments[0].click();", BadRequestLink);
 		JSclick.scrollAndClick(driver, BadRequestLink);
 
 		demoqaLog.info("Clicked on Elements|Links|Bad Request Link...");
@@ -1036,10 +1023,8 @@ public class elementsPage extends demoqaBase {
 		demoqaLog.info("Clicking on Elements|Links|Unauthorized Link...");
 		WebElement Unauthorizedlink = wait
 				.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@id=\"unauthorized\"]")));
+		System.out.println("Waiting for the presence of Element: " + Unauthorizedlink);
 
-//		JavascriptExecutor js = (JavascriptExecutor) driver;
-//		js.executeScript("arguments[0].scrollIntoView(true);", Unauthorizedlink);
-//		js.executeScript("arguments[0].click();", UnAuthorizedLink);
 		JSclick.scrollAndClick(driver, UnAuthorizedLink);
 
 		demoqaLog.info("Clicked on Elements|Links|Unauthorized Link...");
@@ -1054,9 +1039,6 @@ public class elementsPage extends demoqaBase {
 		WebElement Forbiddenlink = wait
 				.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@id=\"forbidden\"]")));
 
-//		JavascriptExecutor js = (JavascriptExecutor) driver;
-//		js.executeScript("arguments[0].scrollIntoView(true);", Forbiddenlink);
-//		js.executeScript("arguments[0].click();", ForbiddenLink);
 		JSclick.scrollAndClick(driver, ForbiddenLink);
 
 		demoqaLog.info("Clicked on Elements|Links|Forbidden Link...");
@@ -1071,9 +1053,6 @@ public class elementsPage extends demoqaBase {
 		WebElement NotFoundlink = wait
 				.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@id='invalid-url']")));
 
-//		JavascriptExecutor js = (JavascriptExecutor) driver;
-//		js.executeScript("arguments[0].scrollIntoView(true);", NotFoundlink);
-//		js.executeScript("arguments[0].click();", NotFoundLink);
 		JSclick.scrollAndClick(driver, NotFoundLink);
 
 		demoqaLog.info("Clicked on Elements|Links|NotFound Link...");
@@ -1087,10 +1066,8 @@ public class elementsPage extends demoqaBase {
 //		BrokenLinksImages.click();
 		WebElement Brokenlink = wait.until(ExpectedConditions
 				.presenceOfElementLocated(By.xpath("//span[normalize-space()='Broken Links - Images']")));
+		System.out.println("Waiting for the presence of Element: " + Brokenlink);
 
-//		JavascriptExecutor js = (JavascriptExecutor) driver;
-//		js.executeScript("arguments[0].scrollIntoView(true);", Brokenlink);
-//		js.executeScript("arguments[0].click();", BrokenLinksImages);
 		JSclick.scrollAndClick(driver, BrokenLinksImages);
 		
 		demoqaLog.info("Clicked on Elements|Broken Links - Images...");
@@ -1121,10 +1098,8 @@ public class elementsPage extends demoqaBase {
 		demoqaLog.info("Checking for Elements|Broken Links|Valid Link...");
 		WebElement brkvalidlink = wait.until(ExpectedConditions
 				.presenceOfElementLocated(By.xpath("//a[normalize-space()='Click Here for Valid Link']")));
+		System.out.println("Waiting for the presence of Element: " + brkvalidlink);
 
-//		JavascriptExecutor js = (JavascriptExecutor) driver;
-//		js.executeScript("arguments[0].scrollIntoView(true);", brkvalidlink);
-//		js.executeScript("arguments[0].click();", BrokenLinksValidLink);
 		JSclick.scrollAndClick(driver, BrokenLinksValidLink);
 		
 		demoqaLog.info("Clicked on Elements|Broken Links - Images|Valid Link...");
@@ -1139,10 +1114,8 @@ public class elementsPage extends demoqaBase {
 		demoqaLog.info("Checking for Elements|Broken Links|Broken Link...");
 		WebElement brokenlink = wait.until(ExpectedConditions
 				.presenceOfElementLocated(By.xpath("//a[normalize-space()='Click Here for Broken Link']")));
+		System.out.println("Waiting for the presence of Element: " + brokenlink);
 
-//		JavascriptExecutor js = (JavascriptExecutor) driver;
-//		js.executeScript("arguments[0].scrollIntoView(true);", brokenlink);
-//		js.executeScript("arguments[0].click();", BrokenLinksBrokenLink);
 		JSclick.scrollAndClick(driver, BrokenLinksBrokenLink);
 		
 		demoqaLog.info("Clicked on Elements|Broken Links - Images|Broken Link...");
@@ -1158,10 +1131,8 @@ public class elementsPage extends demoqaBase {
 		demoqaLog.info("Checking for Elements|Upload and Download|Download Button...");
 		WebElement uploaddownloadbtn = wait.until(ExpectedConditions
 				.elementToBeClickable(By.xpath("//div[@class='element-list collapse show']//li[@id='item-7']")));
+		System.out.println("Waiting for the Element to be Clickable: " + uploaddownloadbtn);
 
-//		JavascriptExecutor js = (JavascriptExecutor) driver;
-//		js.executeScript("arguments[0].scrollIntoView(true);", uploaddownloadbtn);
-//		js.executeScript("arguments[0].click();", UploadDownloadBtn);
 		JSclick.scrollAndClick(driver, UploadDownloadBtn);
 		
 		demoqaLog.info("Clicked on Elements|Upload and Download...");
@@ -1184,10 +1155,8 @@ public class elementsPage extends demoqaBase {
 
 		WebElement downloadbtn = wait
 				.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id='downloadButton']")));
+		System.out.println("Waiting for Element to be clickable: " + downloadbtn);
 
-//		JavascriptExecutor js = (JavascriptExecutor) driver;
-//		js.executeScript("arguments[0].scrollIntoView(true);", downloadbtn);
-//		js.executeScript("arguments[0].click();", DownloadBtn);
 		JSclick.scrollAndClick(driver, DownloadBtn);
 		
 		demoqaLog.info("Clicked on Elements|Upload and Download|Download Button...");
@@ -1240,10 +1209,8 @@ public class elementsPage extends demoqaBase {
 		demoqaLog.info("Checking for Elements|Dynamic Properties Button...");
 		WebElement dynamicPropertiesbtn = wait.until(ExpectedConditions
 				.elementToBeClickable(By.xpath("//div[@class='element-list collapse show']//li[@id='item-8']")));
+		System.out.println("Waiting for the Element to be Clickable: " + dynamicPropertiesbtn);
 
-//		JavascriptExecutor js = (JavascriptExecutor) driver;
-//		js.executeScript("arguments[0].scrollIntoView(true);", dynamicPropertiesbtn);
-//		js.executeScript("arguments[0].click();", DynamicProp);
 		JSclick.scrollAndClick(driver, DynamicProp);
 		
 		demoqaLog.info("Clicked on Elements|Dynamic Properties...");
@@ -1258,10 +1225,8 @@ public class elementsPage extends demoqaBase {
 
 		WebElement willEnablebtn = wait.until(ExpectedConditions
 				.elementToBeClickable(By.xpath("//button[@id='enableAfter']")));
+		System.out.println("Waiting for the Element to be Clickable: " + willEnablebtn);
 
-//		JavascriptExecutor js = (JavascriptExecutor) driver;
-//		js.executeScript("arguments[0].scrollIntoView(true);", willEnablebtn);
-//		js.executeScript("arguments[0].click();", EnableAfter);
 		JSclick.scrollAndClick(driver, EnableAfter);
 		
 		demoqaLog.info("Clicked on Elements|Dynamic Properties|Will Enable 5 sec Button...");
@@ -1276,10 +1241,8 @@ public class elementsPage extends demoqaBase {
 
 		WebElement colorChangebtn = wait.until(ExpectedConditions
 				.elementToBeClickable(By.xpath("//button[@id='colorChange']")));
+		System.out.println("Waiting for the Element to be Clickable: " + colorChangebtn);
 
-//		JavascriptExecutor js = (JavascriptExecutor) driver;
-//		js.executeScript("arguments[0].scrollIntoView(true);", colorChangebtn);
-//		js.executeScript("arguments[0].click();", ColorChange);
 		JSclick.scrollAndClick(driver, ColorChange);
 		
 		demoqaLog.info("Clicked on Elements|Dynamic Properties|Color Change Button...");
@@ -1294,10 +1257,9 @@ public class elementsPage extends demoqaBase {
 
 		WebElement visibleAfterbtn = wait.until(ExpectedConditions
 				.elementToBeClickable(By.xpath("//button[@id='visibleAfter']")));
+		System.out.println("Waiting for the Element to be Clickable: " + visibleAfterbtn);
+		
 
-//		JavascriptExecutor js = (JavascriptExecutor) driver;
-//		js.executeScript("arguments[0].scrollIntoView(true);", visibleAfterbtn);
-//		js.executeScript("arguments[0].click();", VisibleAfter);
 		JSclick.scrollAndClick(driver, VisibleAfter);
 		
 		demoqaLog.info("Clicked on Elements|Dynamic Properties|Visble After 5 Seconds Button...");

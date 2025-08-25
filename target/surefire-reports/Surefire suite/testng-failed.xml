@@ -5,11 +5,14 @@
     <classes>
       <class name="tests.ElementsTests">
         <methods>
+          <include name="SelectGeneral"/>
           <include name="TearDown"/>
+          <include name="SelectPrivate"/>
           <include name="setupReport"/>
           <include name="Downloadbtn"/>
           <include name="teardownReport"/>
-          <include name="DoubleClickButtons"/>
+          <include name="SelectPublic"/>
+          <include name="SelectClassified"/>
           <include name="RightClickButton"/>
           <include name="setUP"/>
         </methods>

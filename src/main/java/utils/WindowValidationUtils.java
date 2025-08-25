@@ -1,21 +1,12 @@
 package utils;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
-//import org.openqa.selenium.OutputType;
-//import org.openqa.selenium.TakesScreenshot;
-//import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-//import org.openqa.selenium.devtools.DevTools;
-//import org.openqa.selenium.devtools.HasDevTools;
-//import org.openqa.selenium.devtools.v137.page.Page;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.apache.logging.log4j.Logger;
-//import org.openqa.selenium.devtools.v137.page.model.FrameId;
-//import java.io.File;
 import java.time.Duration;
 import java.util.Set;
 

@@ -1,27 +1,20 @@
 package pages;
 
 import static org.testng.Assert.assertNotNull;
-import org.openqa.selenium.JavascriptExecutor;
-
 import java.time.Duration;
-//import java.util.Set;
-
 import org.openqa.selenium.Alert;
-//import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
-//import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-//import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import base.demoqaBase;
 import utils.JSclick;
 import utils.WindowValidationUtils;
-//import utils.demoqaLog;
+import utils.waitForElement;
 
 public class alertsframewindowsPage extends demoqaBase {
 
@@ -75,7 +68,68 @@ public class alertsframewindowsPage extends demoqaBase {
 	
 	@FindBy(xpath = "//span[@id='promptResult']")
 	WebElement promptResult;
-
+	
+	@FindBy(xpath = "//div[@class='element-list collapse show']//li[@id='item-2']")
+	WebElement Frames;
+	
+	@FindBy(xpath = "//h1[normalize-space()='Frames']")
+	WebElement FramepgTitle;
+	
+	@FindBy(id = "frame1")
+	WebElement frame1;
+	
+	@FindBy(id = "frame2")
+	WebElement frame2;
+	
+	@FindBy(id = "sampleHeading")
+	WebElement frame1Content;
+	
+	@FindBy(id = "sampleHeading")
+	WebElement frame2Content;
+	
+	@FindBy(xpath = "//div[@class='element-list collapse show']//li[@id='item-3']")
+	WebElement nestedFrames;
+	
+	@FindBy(xpath = "//h1[normalize-space()='Nested Frames']")
+	WebElement nestedFramePgTitle;
+	
+	@FindBy(xpath = "//iframe[@id='frame1']")
+	WebElement parentFrame;
+	
+	@FindBy(xpath = "//iframe[@srcdoc='<p>Child Iframe</p>']")
+	WebElement childFrame;
+	
+	@FindBy(xpath = "//div[@class='element-list collapse show']//li[@id='item-4']")
+	WebElement modalDialogs;
+	
+	@FindBy(xpath = "//h1[normalize-space()='Modal Dialogs']")
+	WebElement ModalDiagPgTitle;
+	
+	@FindBy(xpath = "//button[@id='showSmallModal']")
+	WebElement modalSmallBtn;
+	
+	@FindBy(xpath = "//div[@id='example-modal-sizes-title-sm']")
+	WebElement smallModalTitle;
+	
+	@FindBy(xpath = "//div[@class='modal-body']")
+	WebElement smallModalBody;
+	
+	@FindBy(xpath = "//button[@id='closeSmallModal']")
+	WebElement smallModalCloseBtn;
+	
+	@FindBy(xpath = "//button[@id='showLargeModal']")
+	WebElement modalLargeBtn;
+	
+	@FindBy(xpath = "//div[@id='example-modal-sizes-title-lg']")
+	WebElement largeModalTitle;
+	
+	@FindBy(xpath = "//p[contains(text(),'Lorem Ipsum is simply dummy text of the printing a')]")
+	WebElement largeModalBody;
+	
+	@FindBy(xpath = "//button[@id='closeLargeModal']")
+	WebElement largeModalCloseBtn;
+	
+	
 	private WebDriverWait wait;
 
 	public alertsframewindowsPage(WebDriver driver) {
@@ -245,6 +299,126 @@ public class alertsframewindowsPage extends demoqaBase {
         demoqaLog.info("✅ Your Selection was: " + promptRslt);
         
         Assert.assertEquals("You entered Java Selenium", promptRslt);
+	}
+	
+	public void clickFrames() {
+	    demoqaLog.info("🔍 Starting test for Frames click ..");
+
+	    JSclick.scrollAndClick(driver, Frames);
+	    demoqaLog.info("✅ Clicked on Frames...");
+	    String framesPgTitle = FramepgTitle.getText();
+	    demoqaLog.info("Page Title is: " + framesPgTitle);
+	    
+	    Assert.assertEquals("Frames", framesPgTitle);
+	}
+	
+	public void GetFrame1msg() {
+	    demoqaLog.info("🔍 Starting test for Frames|Frame1 Message...");
+
+//	    JSclick.scrollAndClick(driver, Frames);
+	    driver.switchTo().frame(frame1);
+        Assert.assertEquals(true, driver.getPageSource().contains("This is a sample page"));
+	    demoqaLog.info("✅ Switched to Frame1...");
+	    String frame1msg = frame1Content.getText();
+	    demoqaLog.info("Frame1 contains: " + frame1msg);
+	    
+	    Assert.assertEquals("This is a sample page", frame1msg);
+	}
+	
+	public void GetFrame2msg() {
+	    demoqaLog.info("🔍 Starting test for Frames|Frame2 Message...");
+
+	    driver.switchTo().frame(frame2);
+        Assert.assertEquals(true, driver.getPageSource().contains("This is a sample page"));
+	    demoqaLog.info("✅ Switched to Frame1...");
+	    String frame2msg = frame2Content.getText();
+	    demoqaLog.info("Frame1 contains: " + frame2msg);
+	    
+	    Assert.assertEquals("This is a sample page", frame2msg);
+	}
+	
+	public void clickNestedFrames() {
+		demoqaLog.info("🔍 Starting test for Frames|Nested Frames click ..");
+
+	    JSclick.scrollAndClick(driver, nestedFrames);
+	    demoqaLog.info("✅ Clicked on Nested Frames...");
+	    String nestedframesPgTitle = nestedFramePgTitle.getText();
+	    demoqaLog.info("Page Title is: " + nestedframesPgTitle);
+	    
+	    Assert.assertEquals("Nested Frames", nestedframesPgTitle);
+	}
+
+	
+	public void GetParentFramemsg() {
+	    demoqaLog.info("🔍 Starting test for Frames|Parent Frame Message...");
+
+	    driver.switchTo().frame(parentFrame);
+        Assert.assertEquals(true, driver.getPageSource().contains("Parent frame"));
+        String frameText = driver.findElement(By.tagName("body")).getText().trim();
+        demoqaLog.info("After switching, frame body contains: [" + frameText + "]");
+        
+        Assert.assertTrue(frameText.contains("Parent frame"), "Unexpected frame content.");
+	}
+	
+	public void GetChildFramemsg() {
+	    demoqaLog.info("🔍 Starting test for Frames|Child Frame Message...");
+	    driver.switchTo().frame(parentFrame);
+        Assert.assertEquals(true, driver.getPageSource().contains("Parent frame"));
+
+	    driver.switchTo().frame(childFrame);
+        Assert.assertEquals(true, driver.getPageSource().contains("Child Iframe"));
+        String frameText = driver.findElement(By.tagName("body")).getText().trim();
+        demoqaLog.info("After switching, frame body contains: [" + frameText + "]");
+        
+        Assert.assertTrue(frameText.contains("Child Iframe"), "Unexpected frame content.");
+	}
+	
+	public void clickModalDialogs() {
+		demoqaLog.info("🔍 Starting test for Frames|Modal Dialogs click ..");
+
+	    JSclick.scrollAndClick(driver, modalDialogs);
+	    demoqaLog.info("✅ Clicked on Modal Dialogs...");
+	    
+	    String modalDialogsPgTitle = ModalDiagPgTitle.getText();
+	    demoqaLog.info("Page Title is: " + modalDialogsPgTitle);
+	    
+	    Assert.assertEquals("Modal Dialogs", modalDialogsPgTitle);
+	}
+	
+	public void clickSmallModal() {
+		demoqaLog.info("🔍 Starting test for Frames|Modal Dialogs|Small Modal click...");
+
+	    JSclick.scrollAndClick(driver, modalSmallBtn);
+	    demoqaLog.info("✅ Clicked on Modal Dialogs|Small Modal...");
+	    
+	    String smallmodalPgTitle = smallModalTitle.getText();
+	    demoqaLog.info("Page Title is: " + smallmodalPgTitle);
+	    
+	    Assert.assertEquals("Small Modal", smallmodalPgTitle);
+	    
+	    String smallmodalBody = smallModalBody.getText();
+	    demoqaLog.info("Small Modal Body Contains: " + smallmodalBody);
+	    
+	    Assert.assertTrue(smallmodalBody.contains("This is a small modal"), "Unexpected frame content.");
+	    JSclick.scrollAndClick(driver, smallModalCloseBtn);
+	}
+	
+	public void clickLargeModal() {
+		demoqaLog.info("🔍 Starting test for Frames|Modal Dialogs|Large Modal click...");
+
+	    JSclick.scrollAndClick(driver, modalLargeBtn);
+	    demoqaLog.info("✅ Clicked on Modal Dialogs|Large Modal...");
+	    
+	    String largemodalPgTitle = largeModalTitle.getText();
+	    demoqaLog.info("Page Title is: " + largemodalPgTitle);
+	    
+	    Assert.assertEquals("Large Modal", largemodalPgTitle);
+	    
+	    String largemodalBody = largeModalBody.getText();
+	    demoqaLog.info("Large Modal Body Contains: " + largemodalBody);
+	    
+	    Assert.assertTrue(largemodalBody.contains("Lorem Ipsum is simply dummy text"), "Unexpected frame content.");
+	    JSclick.scrollAndClick(driver, largeModalCloseBtn);
 	}
 	
 }

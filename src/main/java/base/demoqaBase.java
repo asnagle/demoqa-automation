@@ -99,7 +99,7 @@ public class demoqaBase {
 
 		
 		demoqaLog.info("Navigating to demoqa.com Website");
-		driver.get("https://demoqa.com/");
+//		driver.get("https://demoqa.com/");
 		RetryUrlAccess.navigateWithRetry(driver, "https://demoqa.com", 3);
 
 //		

@@ -55,11 +55,11 @@ function toggleAllBoxes() {
 <body>
 <h2 align='center'>Surefire test</h2><table border='1' align="center">
 <tr>
-<td>Tests passed/Failed/Skipped:</td><td>78/3/0</td>
+<td>Tests passed/Failed/Skipped:</td><td>84/6/0</td>
 </tr><tr>
-<td>Started on:</td><td>Mon Aug 25 10:30:48 IST 2025</td>
+<td>Started on:</td><td>Mon Aug 25 20:44:03 IST 2025</td>
 </tr>
-<tr><td>Total time:</td><td>1101 seconds (1101630 ms)</td>
+<tr><td>Total time:</td><td>2355 seconds (2355345 ms)</td>
 </tr><tr>
 <td>Included groups:</td><td></td>
 </tr><tr>
@@ -76,16 +76,16 @@ function toggleAllBoxes() {
 <td><b>Instance</b></td>
 </tr>
 <tr>
-<td title='tests.ElementsTests.DoubleClickButtons()'><b>DoubleClickButtons</b><br>Test class: tests.ElementsTests</td>
-<td><div><pre>org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;//p[@id=&apos;doubleClickMessage&apos;]&quot;}
+<td title='tests.ElementsTests.SelectClassified()'><b>SelectClassified</b><br>Test class: tests.ElementsTests</td>
+<td><div><pre>org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;//div[@class=&apos;category-cards&apos;]//div[1]//div[1]//div[2]//*[name()=&apos;svg&apos;]&quot;}
   (Session info: chrome=137.0.7151.120)
 For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
 Build info: version: &apos;4.34.0&apos;, revision: &apos;707dcb4246*&apos;
 System info: os.name: &apos;Windows 11&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;21.0.7&apos;
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [a4bf54401222123940b877a1d58b2ba8, findElement {value=//p[@id=&apos;doubleClickMessage&apos;], using=xpath}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 137.0.7151.120, chrome: {chromedriverVersion: 137.0.7151.119 (e0ac9d12dff..., userDataDir: /tmp/chrome-profile-c5956b7...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:52151}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:52151/devtoo..., se:cdpVersion: 137.0.7151.120, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: a4bf54401222123940b877a1d58b2ba8
+Command: [31f6df1bf276a7e53104fe3afa36d04e, findElement {using=xpath, value=//div[@class=&apos;category-cards&apos;]//div[1]//div[1]//div[2]//*[name()=&apos;svg&apos;]}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 137.0.7151.120, chrome: {chromedriverVersion: 137.0.7151.119 (e0ac9d12dff..., userDataDir: /tmp/chrome-profile-219164c...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:53082}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:53082/devtoo..., se:cdpVersion: 137.0.7151.120, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 31f6df1bf276a7e53104fe3afa36d04e
 	at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:167)
 	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:138)
 	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:50)
@@ -97,19 +97,20 @@ Session ID: a4bf54401222123940b877a1d58b2ba8
 	at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:59)
 	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:367)
 	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:361)
-	at pages.elementsPage.DoubleClickbtn(elementsPage.java:908)
-	at tests.ElementsTests.DoubleClickButtons(ElementsTests.java:770)
+	at pages.homePage.clickElementCard(homePage.java:24)
+	at pages.elementsPage.accessElements(elementsPage.java:295)
+	at tests.ElementsTests.SelectClassified(ElementsTests.java:309)
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
-... Removed 33 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace2131033858", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace2131033858'><pre>org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;//p[@id=&apos;doubleClickMessage&apos;]&quot;}
+... Removed 33 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1719999141", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1719999141'><pre>org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;//div[@class=&apos;category-cards&apos;]//div[1]//div[1]//div[2]//*[name()=&apos;svg&apos;]&quot;}
   (Session info: chrome=137.0.7151.120)
 For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
 Build info: version: &apos;4.34.0&apos;, revision: &apos;707dcb4246*&apos;
 System info: os.name: &apos;Windows 11&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;21.0.7&apos;
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [a4bf54401222123940b877a1d58b2ba8, findElement {value=//p[@id=&apos;doubleClickMessage&apos;], using=xpath}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 137.0.7151.120, chrome: {chromedriverVersion: 137.0.7151.119 (e0ac9d12dff..., userDataDir: /tmp/chrome-profile-c5956b7...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:52151}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:52151/devtoo..., se:cdpVersion: 137.0.7151.120, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: a4bf54401222123940b877a1d58b2ba8
+Command: [31f6df1bf276a7e53104fe3afa36d04e, findElement {using=xpath, value=//div[@class=&apos;category-cards&apos;]//div[1]//div[1]//div[2]//*[name()=&apos;svg&apos;]}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 137.0.7151.120, chrome: {chromedriverVersion: 137.0.7151.119 (e0ac9d12dff..., userDataDir: /tmp/chrome-profile-219164c...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:53082}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:53082/devtoo..., se:cdpVersion: 137.0.7151.120, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 31f6df1bf276a7e53104fe3afa36d04e
 	at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
 	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502)
 	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:486)
@@ -124,8 +125,9 @@ Session ID: a4bf54401222123940b877a1d58b2ba8
 	at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:59)
 	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:367)
 	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:361)
-	at pages.elementsPage.DoubleClickbtn(elementsPage.java:908)
-	at tests.ElementsTests.DoubleClickButtons(ElementsTests.java:770)
+	at pages.homePage.clickElementCard(homePage.java:24)
+	at pages.elementsPage.accessElements(elementsPage.java:295)
+	at tests.ElementsTests.SelectClassified(ElementsTests.java:309)
 	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
 	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
@@ -158,8 +160,95 @@ Session ID: a4bf54401222123940b877a1d58b2ba8
 	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
 </pre></div></td>
-<td>2</td>
-<td>tests.ElementsTests@3bd323e9</td></tr>
+<td>0</td>
+<td>tests.ElementsTests@19c65cdc</td></tr>
+<tr>
+<td title='tests.ElementsTests.SelectGeneral()'><b>SelectGeneral</b><br>Test class: tests.ElementsTests</td>
+<td><div><pre>org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;//div[@class=&apos;category-cards&apos;]//div[1]//div[1]//div[2]//*[name()=&apos;svg&apos;]&quot;}
+  (Session info: chrome=137.0.7151.120)
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Build info: version: &apos;4.34.0&apos;, revision: &apos;707dcb4246*&apos;
+System info: os.name: &apos;Windows 11&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;21.0.7&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [546e0dc8c14297d3ce476280b0b62927, findElement {using=xpath, value=//div[@class=&apos;category-cards&apos;]//div[1]//div[1]//div[2]//*[name()=&apos;svg&apos;]}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 137.0.7151.120, chrome: {chromedriverVersion: 137.0.7151.119 (e0ac9d12dff..., userDataDir: /tmp/chrome-profile-4a575ca...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:53112}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:53112/devtoo..., se:cdpVersion: 137.0.7151.120, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 546e0dc8c14297d3ce476280b0b62927
+	at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:167)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:138)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:50)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:215)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:544)
+	at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:165)
+	at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:59)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:367)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:361)
+	at pages.homePage.clickElementCard(homePage.java:24)
+	at pages.elementsPage.accessElements(elementsPage.java:295)
+	at tests.ElementsTests.SelectGeneral(ElementsTests.java:326)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+... Removed 33 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1070731890", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1070731890'><pre>org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;//div[@class=&apos;category-cards&apos;]//div[1]//div[1]//div[2]//*[name()=&apos;svg&apos;]&quot;}
+  (Session info: chrome=137.0.7151.120)
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Build info: version: &apos;4.34.0&apos;, revision: &apos;707dcb4246*&apos;
+System info: os.name: &apos;Windows 11&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;21.0.7&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [546e0dc8c14297d3ce476280b0b62927, findElement {using=xpath, value=//div[@class=&apos;category-cards&apos;]//div[1]//div[1]//div[2]//*[name()=&apos;svg&apos;]}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 137.0.7151.120, chrome: {chromedriverVersion: 137.0.7151.119 (e0ac9d12dff..., userDataDir: /tmp/chrome-profile-4a575ca...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:53112}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:53112/devtoo..., se:cdpVersion: 137.0.7151.120, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 546e0dc8c14297d3ce476280b0b62927
+	at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:486)
+	at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:167)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:138)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:50)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:215)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:544)
+	at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:165)
+	at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:59)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:367)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:361)
+	at pages.homePage.clickElementCard(homePage.java:24)
+	at pages.elementsPage.accessElements(elementsPage.java:295)
+	at tests.ElementsTests.SelectGeneral(ElementsTests.java:326)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:687)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:995)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at org.testng.TestRunner.privateRun(TestRunner.java:741)
+	at org.testng.TestRunner.run(TestRunner.java:616)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:312)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
+	at org.testng.TestNG.runSuites(TestNG.java:1112)
+	at org.testng.TestNG.run(TestNG.java:1079)
+	at org.apache.maven.surefire.testng.TestNGExecutor.run(TestNGExecutor.java:155)
+	at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.executeMulti(TestNGDirectoryTestSuite.java:169)
+	at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.execute(TestNGDirectoryTestSuite.java:88)
+	at org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:137)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385)
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
+	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
+</pre></div></td>
+<td>0</td>
+<td>tests.ElementsTests@19c65cdc</td></tr>
 <tr>
 <td title='tests.ElementsTests.RightClickButton()'><b>RightClickButton</b><br>Test class: tests.ElementsTests</td>
 <td><div><pre>org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;//p[@id=&apos;rightClickMessage&apos;]&quot;}
@@ -168,9 +257,9 @@ For documentation on this error, please visit: https://www.selenium.dev/document
 Build info: version: &apos;4.34.0&apos;, revision: &apos;707dcb4246*&apos;
 System info: os.name: &apos;Windows 11&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;21.0.7&apos;
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [1766345ce984180c88805fb0b1aecb0e, findElement {value=//p[@id=&apos;rightClickMessage&apos;], using=xpath}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 137.0.7151.120, chrome: {chromedriverVersion: 137.0.7151.119 (e0ac9d12dff..., userDataDir: /tmp/chrome-profile-6ca253a...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:52333}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:52333/devtoo..., se:cdpVersion: 137.0.7151.120, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: 1766345ce984180c88805fb0b1aecb0e
+Command: [1336edc90dce3571d2b11965c2ed4420, findElement {using=xpath, value=//p[@id=&apos;rightClickMessage&apos;]}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 137.0.7151.120, chrome: {chromedriverVersion: 137.0.7151.119 (e0ac9d12dff..., userDataDir: /tmp/chrome-profile-94cff33...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:57439}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:57439/devtoo..., se:cdpVersion: 137.0.7151.120, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 1336edc90dce3571d2b11965c2ed4420
 	at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:167)
 	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:138)
 	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:50)
@@ -185,16 +274,16 @@ Session ID: 1766345ce984180c88805fb0b1aecb0e
 	at pages.elementsPage.RightClickBtn(elementsPage.java:925)
 	at tests.ElementsTests.RightClickButton(ElementsTests.java:784)
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
-... Removed 33 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace886575254", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace886575254'><pre>org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;//p[@id=&apos;rightClickMessage&apos;]&quot;}
+... Removed 33 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace2014860957", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace2014860957'><pre>org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;//p[@id=&apos;rightClickMessage&apos;]&quot;}
   (Session info: chrome=137.0.7151.120)
 For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
 Build info: version: &apos;4.34.0&apos;, revision: &apos;707dcb4246*&apos;
 System info: os.name: &apos;Windows 11&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;21.0.7&apos;
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [1766345ce984180c88805fb0b1aecb0e, findElement {value=//p[@id=&apos;rightClickMessage&apos;], using=xpath}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 137.0.7151.120, chrome: {chromedriverVersion: 137.0.7151.119 (e0ac9d12dff..., userDataDir: /tmp/chrome-profile-6ca253a...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:52333}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:52333/devtoo..., se:cdpVersion: 137.0.7151.120, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: 1766345ce984180c88805fb0b1aecb0e
+Command: [1336edc90dce3571d2b11965c2ed4420, findElement {using=xpath, value=//p[@id=&apos;rightClickMessage&apos;]}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 137.0.7151.120, chrome: {chromedriverVersion: 137.0.7151.119 (e0ac9d12dff..., userDataDir: /tmp/chrome-profile-94cff33...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:57439}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:57439/devtoo..., se:cdpVersion: 137.0.7151.120, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 1336edc90dce3571d2b11965c2ed4420
 	at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
 	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502)
 	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:486)
@@ -244,19 +333,19 @@ Session ID: 1766345ce984180c88805fb0b1aecb0e
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
 </pre></div></td>
 <td>1</td>
-<td>tests.ElementsTests@3bd323e9</td></tr>
+<td>tests.ElementsTests@19c65cdc</td></tr>
 <tr>
 <td title='tests.ElementsTests.Downloadbtn()'><b>Downloadbtn</b><br>Test class: tests.ElementsTests</td>
 <td><div><pre>java.lang.AssertionError: File was not downloaded successfully. expected [true] but found [false]
-	at pages.elementsPage.DownloadFile(elementsPage.java:1198)
+	at pages.elementsPage.DownloadFile(elementsPage.java:1167)
 	at tests.ElementsTests.Downloadbtn(ElementsTests.java:1120)
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
-... Removed 33 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace202065109", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace202065109'><pre>java.lang.AssertionError: File was not downloaded successfully. expected [true] but found [false]
+... Removed 33 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1726608894", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1726608894'><pre>java.lang.AssertionError: File was not downloaded successfully. expected [true] but found [false]
 	at org.testng.Assert.fail(Assert.java:111)
 	at org.testng.Assert.failNotEquals(Assert.java:1590)
 	at org.testng.Assert.assertTrue(Assert.java:57)
-	at pages.elementsPage.DownloadFile(elementsPage.java:1198)
+	at pages.elementsPage.DownloadFile(elementsPage.java:1167)
 	at tests.ElementsTests.Downloadbtn(ElementsTests.java:1120)
 	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
@@ -291,7 +380,181 @@ Session ID: 1766345ce984180c88805fb0b1aecb0e
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
 </pre></div></td>
 <td>1</td>
-<td>tests.ElementsTests@3bd323e9</td></tr>
+<td>tests.ElementsTests@19c65cdc</td></tr>
+<tr>
+<td title='tests.ElementsTests.SelectPrivate()'><b>SelectPrivate</b><br>Test class: tests.ElementsTests</td>
+<td><div><pre>org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;//div[@class=&apos;category-cards&apos;]//div[1]//div[1]//div[2]//*[name()=&apos;svg&apos;]&quot;}
+  (Session info: chrome=137.0.7151.120)
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Build info: version: &apos;4.34.0&apos;, revision: &apos;707dcb4246*&apos;
+System info: os.name: &apos;Windows 11&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;21.0.7&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [9b0cdbdbc2065ddadf296d210445c854, findElement {using=xpath, value=//div[@class=&apos;category-cards&apos;]//div[1]//div[1]//div[2]//*[name()=&apos;svg&apos;]}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 137.0.7151.120, chrome: {chromedriverVersion: 137.0.7151.119 (e0ac9d12dff..., userDataDir: /tmp/chrome-profile-897bd37...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:53051}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:53051/devtoo..., se:cdpVersion: 137.0.7151.120, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 9b0cdbdbc2065ddadf296d210445c854
+	at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:167)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:138)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:50)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:215)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:544)
+	at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:165)
+	at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:59)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:367)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:361)
+	at pages.homePage.clickElementCard(homePage.java:24)
+	at pages.elementsPage.accessElements(elementsPage.java:295)
+	at tests.ElementsTests.SelectPrivate(ElementsTests.java:292)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+... Removed 33 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace795146655", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace795146655'><pre>org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;//div[@class=&apos;category-cards&apos;]//div[1]//div[1]//div[2]//*[name()=&apos;svg&apos;]&quot;}
+  (Session info: chrome=137.0.7151.120)
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Build info: version: &apos;4.34.0&apos;, revision: &apos;707dcb4246*&apos;
+System info: os.name: &apos;Windows 11&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;21.0.7&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [9b0cdbdbc2065ddadf296d210445c854, findElement {using=xpath, value=//div[@class=&apos;category-cards&apos;]//div[1]//div[1]//div[2]//*[name()=&apos;svg&apos;]}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 137.0.7151.120, chrome: {chromedriverVersion: 137.0.7151.119 (e0ac9d12dff..., userDataDir: /tmp/chrome-profile-897bd37...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:53051}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:53051/devtoo..., se:cdpVersion: 137.0.7151.120, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 9b0cdbdbc2065ddadf296d210445c854
+	at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:486)
+	at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:167)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:138)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:50)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:215)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:544)
+	at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:165)
+	at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:59)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:367)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:361)
+	at pages.homePage.clickElementCard(homePage.java:24)
+	at pages.elementsPage.accessElements(elementsPage.java:295)
+	at tests.ElementsTests.SelectPrivate(ElementsTests.java:292)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:687)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:995)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at org.testng.TestRunner.privateRun(TestRunner.java:741)
+	at org.testng.TestRunner.run(TestRunner.java:616)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:312)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
+	at org.testng.TestNG.runSuites(TestNG.java:1112)
+	at org.testng.TestNG.run(TestNG.java:1079)
+	at org.apache.maven.surefire.testng.TestNGExecutor.run(TestNGExecutor.java:155)
+	at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.executeMulti(TestNGDirectoryTestSuite.java:169)
+	at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.execute(TestNGDirectoryTestSuite.java:88)
+	at org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:137)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385)
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
+	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
+</pre></div></td>
+<td>0</td>
+<td>tests.ElementsTests@19c65cdc</td></tr>
+<tr>
+<td title='tests.ElementsTests.SelectPublic()'><b>SelectPublic</b><br>Test class: tests.ElementsTests</td>
+<td><div><pre>org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;//div[@class=&apos;category-cards&apos;]//div[1]//div[1]//div[2]//*[name()=&apos;svg&apos;]&quot;}
+  (Session info: chrome=137.0.7151.120)
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Build info: version: &apos;4.34.0&apos;, revision: &apos;707dcb4246*&apos;
+System info: os.name: &apos;Windows 11&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;21.0.7&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [9c61c706e71ac3127115021648f5da23, findElement {using=xpath, value=//div[@class=&apos;category-cards&apos;]//div[1]//div[1]//div[2]//*[name()=&apos;svg&apos;]}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 137.0.7151.120, chrome: {chromedriverVersion: 137.0.7151.119 (e0ac9d12dff..., userDataDir: /tmp/chrome-profile-7d16662...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:52894}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:52894/devtoo..., se:cdpVersion: 137.0.7151.120, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 9c61c706e71ac3127115021648f5da23
+	at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:167)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:138)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:50)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:215)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:544)
+	at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:165)
+	at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:59)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:367)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:361)
+	at pages.homePage.clickElementCard(homePage.java:24)
+	at pages.elementsPage.accessElements(elementsPage.java:295)
+	at tests.ElementsTests.SelectPublic(ElementsTests.java:275)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+... Removed 33 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace592626207", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace592626207'><pre>org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;//div[@class=&apos;category-cards&apos;]//div[1]//div[1]//div[2]//*[name()=&apos;svg&apos;]&quot;}
+  (Session info: chrome=137.0.7151.120)
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Build info: version: &apos;4.34.0&apos;, revision: &apos;707dcb4246*&apos;
+System info: os.name: &apos;Windows 11&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;21.0.7&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [9c61c706e71ac3127115021648f5da23, findElement {using=xpath, value=//div[@class=&apos;category-cards&apos;]//div[1]//div[1]//div[2]//*[name()=&apos;svg&apos;]}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 137.0.7151.120, chrome: {chromedriverVersion: 137.0.7151.119 (e0ac9d12dff..., userDataDir: /tmp/chrome-profile-7d16662...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:52894}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:52894/devtoo..., se:cdpVersion: 137.0.7151.120, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 9c61c706e71ac3127115021648f5da23
+	at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:486)
+	at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:167)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:138)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:50)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:215)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:544)
+	at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:165)
+	at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:59)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:367)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:361)
+	at pages.homePage.clickElementCard(homePage.java:24)
+	at pages.elementsPage.accessElements(elementsPage.java:295)
+	at tests.ElementsTests.SelectPublic(ElementsTests.java:275)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:687)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:995)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at org.testng.TestRunner.privateRun(TestRunner.java:741)
+	at org.testng.TestRunner.run(TestRunner.java:616)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:312)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
+	at org.testng.TestNG.runSuites(TestNG.java:1112)
+	at org.testng.TestNG.run(TestNG.java:1079)
+	at org.apache.maven.surefire.testng.TestNGExecutor.run(TestNGExecutor.java:155)
+	at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.executeMulti(TestNGDirectoryTestSuite.java:169)
+	at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.execute(TestNGDirectoryTestSuite.java:88)
+	at org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:137)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385)
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
+	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
+</pre></div></td>
+<td>0</td>
+<td>tests.ElementsTests@19c65cdc</td></tr>
 </table><p>
 <table width='100%' border='1' class='invocation-passed'>
 <tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
@@ -302,395 +565,425 @@ Session ID: 1766345ce984180c88805fb0b1aecb0e
 <td><b>Instance</b></td>
 </tr>
 <tr>
-<td title='tests.FormTests.fillForm()'><b>fillForm</b><br>Test class: tests.FormTests<br>Parameters: UserFormData{firstName='Bud', lastName='Wisem', userMail='BWisem@demoqa.com', gender='Other', mobile='8.932465432E9', dob='31-12-1999', subject='Biology', hobbies='Reading', picturePath='/TestData/Ophoto.jpg', address='513 Grant 481, Prattsville\n Arkansas 72129\n United States', state='Haryana', city='Panipat'}</td>
+<td title='tests.ElementsTests.ClickAllLinks()'><b>ClickAllLinks</b><br>Test class: tests.ElementsTests</td>
 <td></td>
-<td>5</td>
-<td>tests.FormTests@39ac0c0a</td></tr>
-<tr>
-<td title='tests.ElementsTests.SelectingDesktopCheckBox()'><b>SelectingDesktopCheckBox</b><br>Test class: tests.ElementsTests</td>
-<td></td>
-<td>2</td>
-<td>tests.ElementsTests@3bd323e9</td></tr>
-<tr>
-<td title='tests.ElementsTests.WillEnablebtn()'><b>WillEnablebtn</b><br>Test class: tests.ElementsTests</td>
-<td></td>
-<td>6</td>
-<td>tests.ElementsTests@3bd323e9</td></tr>
-<tr>
-<td title='tests.ElementsTests.SelectOfficeAll()'><b>SelectOfficeAll</b><br>Test class: tests.ElementsTests</td>
-<td></td>
-<td>2</td>
-<td>tests.ElementsTests@3bd323e9</td></tr>
-<tr>
-<td title='tests.ElementsTests.ColorChangebtn()'><b>ColorChangebtn</b><br>Test class: tests.ElementsTests</td>
-<td></td>
-<td>1</td>
-<td>tests.ElementsTests@3bd323e9</td></tr>
-<tr>
-<td title='tests.ElementsTests.SelectingWordFile()'><b>SelectingWordFile</b><br>Test class: tests.ElementsTests</td>
-<td></td>
-<td>2</td>
-<td>tests.ElementsTests@3bd323e9</td></tr>
-<tr>
-<td title='tests.AlertsFramesWindowsTests.browserWindowsNewWindow()'><b>browserWindowsNewWindow</b><br>Test class: tests.AlertsFramesWindowsTests</td>
-<td></td>
-<td>1</td>
-<td>tests.AlertsFramesWindowsTests@be68757</td></tr>
-<tr>
-<td title='tests.ElementsTests.SelectReactAnuglarVeu()'><b>SelectReactAnuglarVeu</b><br>Test class: tests.ElementsTests</td>
-<td></td>
-<td>2</td>
-<td>tests.ElementsTests@3bd323e9</td></tr>
-<tr>
-<td title='tests.ElementsTests.GetBrokenImage()'><b>GetBrokenImage</b><br>Test class: tests.ElementsTests</td>
-<td></td>
-<td>1</td>
-<td>tests.ElementsTests@3bd323e9</td></tr>
-<tr>
-<td title='tests.ElementsTests.webTableAddEditFirstName()'><b>webTableAddEditFirstName</b><br>Test class: tests.ElementsTests<br>Parameters: WebTableUser{firstName='Tonny', lastName='Bravo', email='Jbravo@demoqa.com', salary=280000, age=340, department='Information Technology'}</td>
-<td></td>
-<td>6</td>
-<td>tests.ElementsTests@3bd323e9</td></tr>
-<tr>
-<td title='tests.AlertsFramesWindowsTests.browserWindows()'><b>browserWindows</b><br>Test class: tests.AlertsFramesWindowsTests</td>
-<td></td>
-<td>0</td>
-<td>tests.AlertsFramesWindowsTests@be68757</td></tr>
-<tr>
-<td title='tests.ElementsTests.testAddAllUsersFromExcel()'><b>testAddAllUsersFromExcel</b><br>Test class: tests.ElementsTests</td>
-<td></td>
-<td>13</td>
-<td>tests.ElementsTests@3bd323e9</td></tr>
-<tr>
-<td title='tests.ElementsTests.SelectAngular()'><b>SelectAngular</b><br>Test class: tests.ElementsTests</td>
-<td></td>
-<td>2</td>
-<td>tests.ElementsTests@3bd323e9</td></tr>
-<tr>
-<td title='tests.ElementsTests.SelectYesRadioButton()'><b>SelectYesRadioButton</b><br>Test class: tests.ElementsTests</td>
-<td></td>
-<td>1</td>
-<td>tests.ElementsTests@3bd323e9</td></tr>
-<tr>
-<td title='tests.AlertsFramesWindowsTests.browserWindowsNewTab()'><b>browserWindowsNewTab</b><br>Test class: tests.AlertsFramesWindowsTests</td>
-<td></td>
-<td>1</td>
-<td>tests.AlertsFramesWindowsTests@be68757</td></tr>
-<tr>
-<td title='tests.ElementsTests.Buttons()'><b>Buttons</b><br>Test class: tests.ElementsTests</td>
-<td></td>
-<td>1</td>
-<td>tests.ElementsTests@3bd323e9</td></tr>
-<tr>
-<td title='tests.ElementsTests.SelectingNotesCommandsClick()'><b>SelectingNotesCommandsClick</b><br>Test class: tests.ElementsTests</td>
-<td></td>
-<td>2</td>
-<td>tests.ElementsTests@3bd323e9</td></tr>
-<tr>
-<td title='tests.FormTests.fillForm()'><b>fillForm</b><br>Test class: tests.FormTests<br>Parameters: UserFormData{firstName='Johny', lastName='Bravo', userMail='Jbravo@demoqa.com', gender='Male', mobile='9.238343488E9', dob='15-08-2000', subject='Computer Science', hobbies='Sports,Music', picturePath='/TestData/Mphoto.jpg', address='511 Grant 481, Prattsville\n Arkansas 72129\n United States', state='NCR', city='Delhi'}</td>
-<td></td>
-<td>9</td>
-<td>tests.FormTests@39ac0c0a</td></tr>
-<tr>
-<td title='tests.AlertsFramesWindowsTests.accessAlertsFrameWindows()'><b>accessAlertsFrameWindows</b><br>Test class: tests.AlertsFramesWindowsTests</td>
-<td></td>
-<td>0</td>
-<td>tests.AlertsFramesWindowsTests@be68757</td></tr>
-<tr>
-<td title='tests.ElementsTests.EditSalaryDepartment()'><b>EditSalaryDepartment</b><br>Test class: tests.ElementsTests</td>
-<td></td>
-<td>21</td>
-<td>tests.ElementsTests@3bd323e9</td></tr>
-<tr>
-<td title='tests.ElementsTests.webTableAddSearch()'><b>webTableAddSearch</b><br>Test class: tests.ElementsTests<br>Parameters: WebTableUser{firstName='Johny', lastName='Bravo', email='Jbravo@demoqa.com', salary=280000, age=340, department='Information Technology'}</td>
-<td></td>
-<td>4</td>
-<td>tests.ElementsTests@3bd323e9</td></tr>
-<tr>
-<td title='tests.ElementsTests.SelectPrivate()'><b>SelectPrivate</b><br>Test class: tests.ElementsTests</td>
-<td></td>
-<td>2</td>
-<td>tests.ElementsTests@3bd323e9</td></tr>
-<tr>
-<td title='tests.ElementsTests.ClickCreatedAPILink()'><b>ClickCreatedAPILink</b><br>Test class: tests.ElementsTests</td>
-<td></td>
-<td>1</td>
-<td>tests.ElementsTests@3bd323e9</td></tr>
-<tr>
-<td title='tests.AlertsFramesWindowsTests.ClickPromptBoxFill()'><b>ClickPromptBoxFill</b><br>Test class: tests.AlertsFramesWindowsTests</td>
-<td></td>
-<td>1</td>
-<td>tests.AlertsFramesWindowsTests@be68757</td></tr>
-<tr>
-<td title='tests.ElementsTests.ClickNotFoundLink()'><b>ClickNotFoundLink</b><br>Test class: tests.ElementsTests</td>
-<td></td>
-<td>1</td>
-<td>tests.ElementsTests@3bd323e9</td></tr>
-<tr>
-<td title='tests.ElementsTests.webTableAddSearchEdit()'><b>webTableAddSearchEdit</b><br>Test class: tests.ElementsTests<br>Parameters: WebTableUser{firstName='Tonny', lastName='Bravo', email='Jbravo@demoqa.com', salary=280000, age=340, department='Information Technology'}</td>
-<td></td>
-<td>6</td>
-<td>tests.ElementsTests@3bd323e9</td></tr>
-<tr>
-<td title='tests.ElementsTests.VisibleAfterbtn()'><b>VisibleAfterbtn</b><br>Test class: tests.ElementsTests</td>
-<td></td>
-<td>6</td>
-<td>tests.ElementsTests@3bd323e9</td></tr>
+<td>27</td>
+<td>tests.ElementsTests@19c65cdc</td></tr>
 <tr>
 <td title='tests.ElementsTests.ClickAllButtons()'><b>ClickAllButtons</b><br>Test class: tests.ElementsTests</td>
 <td></td>
-<td>11</td>
-<td>tests.ElementsTests@3bd323e9</td></tr>
-<tr>
-<td title='tests.ElementsTests.SelectingWorkSpace()'><b>SelectingWorkSpace</b><br>Test class: tests.ElementsTests</td>
-<td></td>
-<td>2</td>
-<td>tests.ElementsTests@3bd323e9</td></tr>
-<tr>
-<td title='tests.ElementsTests.SelectingOffice()'><b>SelectingOffice</b><br>Test class: tests.ElementsTests</td>
-<td></td>
-<td>2</td>
-<td>tests.ElementsTests@3bd323e9</td></tr>
-<tr>
-<td title='tests.ElementsTests.webTableNewRegistration()'><b>webTableNewRegistration</b><br>Test class: tests.ElementsTests<br>Parameters: WebTableUser{firstName='Johny', lastName='Bravo', email='Jbravo@demoqa.com', salary=280000, age=340, department='Information Technology'}</td>
-<td></td>
-<td>4</td>
-<td>tests.ElementsTests@3bd323e9</td></tr>
-<tr>
-<td title='tests.ElementsTests.SelectingExcelFile()'><b>SelectingExcelFile</b><br>Test class: tests.ElementsTests</td>
-<td></td>
-<td>2</td>
-<td>tests.ElementsTests@3bd323e9</td></tr>
+<td>10</td>
+<td>tests.ElementsTests@19c65cdc</td></tr>
 <tr>
 <td title='tests.ElementsTests.ClickUnauthorizedLink()'><b>ClickUnauthorizedLink</b><br>Test class: tests.ElementsTests</td>
 <td></td>
-<td>3</td>
-<td>tests.ElementsTests@3bd323e9</td></tr>
-<tr>
-<td title='tests.ElementsTests.webTableNewRegistration()'><b>webTableNewRegistration</b><br>Test class: tests.ElementsTests<br>Parameters: WebTableUser{firstName='Tom', lastName='Boss', email='TBoss@demoqa.com', salary=190000, age=420, department='Recreation'}</td>
-<td></td>
-<td>3</td>
-<td>tests.ElementsTests@3bd323e9</td></tr>
-<tr>
-<td title='tests.ElementsTests.UploadDownloadlink()'><b>UploadDownloadlink</b><br>Test class: tests.ElementsTests</td>
-<td></td>
 <td>1</td>
-<td>tests.ElementsTests@3bd323e9</td></tr>
-<tr>
-<td title='tests.ElementsTests.ElementsCard()'><b>ElementsCard</b><br>Test class: tests.ElementsTests</td>
-<td></td>
-<td>1</td>
-<td>tests.ElementsTests@3bd323e9</td></tr>
-<tr>
-<td title='tests.ElementsTests.SelectingAllFiles()'><b>SelectingAllFiles</b><br>Test class: tests.ElementsTests</td>
-<td></td>
-<td>2</td>
-<td>tests.ElementsTests@3bd323e9</td></tr>
-<tr>
-<td title='tests.AlertsFramesWindowsTests.ClickDenyConfirmationBox()'><b>ClickDenyConfirmationBox</b><br>Test class: tests.AlertsFramesWindowsTests</td>
-<td></td>
-<td>1</td>
-<td>tests.AlertsFramesWindowsTests@be68757</td></tr>
+<td>tests.ElementsTests@19c65cdc</td></tr>
 <tr>
 <td title='tests.AlertsFramesWindowsTests.ClickAlerts()'><b>ClickAlerts</b><br>Test class: tests.AlertsFramesWindowsTests</td>
 <td></td>
 <td>0</td>
-<td>tests.AlertsFramesWindowsTests@be68757</td></tr>
+<td>tests.AlertsFramesWindowsTests@39ac0c0a</td></tr>
 <tr>
-<td title='tests.ElementsTests.BrokenLinksValidlink()'><b>BrokenLinksValidlink</b><br>Test class: tests.ElementsTests</td>
-<td></td>
-<td>1</td>
-<td>tests.ElementsTests@3bd323e9</td></tr>
-<tr>
-<td title='tests.AlertsFramesWindowsTests.ClickAcceptConfirmationBox()'><b>ClickAcceptConfirmationBox</b><br>Test class: tests.AlertsFramesWindowsTests</td>
+<td title='tests.AlertsFramesWindowsTests.GetFrame2()'><b>GetFrame2</b><br>Test class: tests.AlertsFramesWindowsTests</td>
 <td></td>
 <td>0</td>
-<td>tests.AlertsFramesWindowsTests@be68757</td></tr>
-<tr>
-<td title='tests.ElementsTests.ClickDynamicHomeLink()'><b>ClickDynamicHomeLink</b><br>Test class: tests.ElementsTests</td>
-<td></td>
-<td>2</td>
-<td>tests.ElementsTests@3bd323e9</td></tr>
-<tr>
-<td title='tests.ElementsTests.webTableDeleteUser()'><b>webTableDeleteUser</b><br>Test class: tests.ElementsTests<br>Parameters: WebTableUser{firstName='Johny', lastName='Bravo', email='Jbravo@demoqa.com', salary=280000, age=340, department='Information Technology'}</td>
-<td></td>
-<td>5</td>
-<td>tests.ElementsTests@3bd323e9</td></tr>
-<tr>
-<td title='tests.ElementsTests.ClickMeButton()'><b>ClickMeButton</b><br>Test class: tests.ElementsTests</td>
-<td></td>
-<td>1</td>
-<td>tests.ElementsTests@3bd323e9</td></tr>
-<tr>
-<td title='tests.ElementsTests.ClickHomeLink()'><b>ClickHomeLink</b><br>Test class: tests.ElementsTests</td>
-<td></td>
-<td>1</td>
-<td>tests.ElementsTests@3bd323e9</td></tr>
-<tr>
-<td title='tests.ElementsTests.ClickMovedLink()'><b>ClickMovedLink</b><br>Test class: tests.ElementsTests</td>
-<td></td>
-<td>2</td>
-<td>tests.ElementsTests@3bd323e9</td></tr>
-<tr>
-<td title='tests.ElementsTests.DynamicPropertiesbtn()'><b>DynamicPropertiesbtn</b><br>Test class: tests.ElementsTests</td>
-<td></td>
-<td>1</td>
-<td>tests.ElementsTests@3bd323e9</td></tr>
-<tr>
-<td title='tests.ElementsTests.SelectVeu()'><b>SelectVeu</b><br>Test class: tests.ElementsTests</td>
-<td></td>
-<td>2</td>
-<td>tests.ElementsTests@3bd323e9</td></tr>
-<tr>
-<td title='tests.ElementsTests.ClickBrokenLinksImages()'><b>ClickBrokenLinksImages</b><br>Test class: tests.ElementsTests</td>
-<td></td>
-<td>1</td>
-<td>tests.ElementsTests@3bd323e9</td></tr>
-<tr>
-<td title='tests.ElementsTests.GetValidImage()'><b>GetValidImage</b><br>Test class: tests.ElementsTests</td>
-<td></td>
-<td>1</td>
-<td>tests.ElementsTests@3bd323e9</td></tr>
-<tr>
-<td title='tests.ElementsTests.testAddAllUsersSearchEdit()'><b>testAddAllUsersSearchEdit</b><br>Test class: tests.ElementsTests</td>
-<td></td>
-<td>13</td>
-<td>tests.ElementsTests@3bd323e9</td></tr>
-<tr>
-<td title='tests.ElementsTests.webTableNewRegistration()'><b>webTableNewRegistration</b><br>Test class: tests.ElementsTests<br>Parameters: WebTableUser{firstName='Bud', lastName='Wisem', email='BWisem@demoqa.com', salary=150000, age=400, department='Medicine'}</td>
-<td></td>
-<td>4</td>
-<td>tests.ElementsTests@3bd323e9</td></tr>
-<tr>
-<td title='tests.ElementsTests.webTableNewRegistration()'><b>webTableNewRegistration</b><br>Test class: tests.ElementsTests<br>Parameters: WebTableUser{firstName='Gene', lastName='Femina', email='GFemina@demoqa.com', salary=180000, age=300, department='Finance'}</td>
-<td></td>
-<td>4</td>
-<td>tests.ElementsTests@3bd323e9</td></tr>
-<tr>
-<td title='tests.ElementsTests.clickRadioButton()'><b>clickRadioButton</b><br>Test class: tests.ElementsTests</td>
-<td></td>
-<td>1</td>
-<td>tests.ElementsTests@3bd323e9</td></tr>
-<tr>
-<td title='tests.ElementsTests.SelectPublic()'><b>SelectPublic</b><br>Test class: tests.ElementsTests</td>
-<td></td>
-<td>2</td>
-<td>tests.ElementsTests@3bd323e9</td></tr>
-<tr>
-<td title='tests.ElementsTests.SelectImpressiveRadioButton()'><b>SelectImpressiveRadioButton</b><br>Test class: tests.ElementsTests</td>
-<td></td>
-<td>1</td>
-<td>tests.ElementsTests@3bd323e9</td></tr>
-<tr>
-<td title='tests.ElementsTests.SelectGeneral()'><b>SelectGeneral</b><br>Test class: tests.ElementsTests</td>
-<td></td>
-<td>2</td>
-<td>tests.ElementsTests@3bd323e9</td></tr>
-<tr>
-<td title='tests.ElementsTests.BrokenLinksBrokenlink()'><b>BrokenLinksBrokenlink</b><br>Test class: tests.ElementsTests</td>
-<td></td>
-<td>5</td>
-<td>tests.ElementsTests@3bd323e9</td></tr>
-<tr>
-<td title='tests.AlertsFramesWindowsTests.ClickToSeeAlerts()'><b>ClickToSeeAlerts</b><br>Test class: tests.AlertsFramesWindowsTests</td>
-<td></td>
-<td>5</td>
-<td>tests.AlertsFramesWindowsTests@be68757</td></tr>
+<td>tests.AlertsFramesWindowsTests@39ac0c0a</td></tr>
 <tr>
 <td title='tests.ElementsTests.ClickNoContentLink()'><b>ClickNoContentLink</b><br>Test class: tests.ElementsTests</td>
 <td></td>
 <td>1</td>
-<td>tests.ElementsTests@3bd323e9</td></tr>
+<td>tests.ElementsTests@19c65cdc</td></tr>
 <tr>
-<td title='tests.ElementsTests.SelectingHomeCheckBox()'><b>SelectingHomeCheckBox</b><br>Test class: tests.ElementsTests</td>
+<td title='tests.ElementsTests.ClickMovedLink()'><b>ClickMovedLink</b><br>Test class: tests.ElementsTests</td>
 <td></td>
 <td>2</td>
-<td>tests.ElementsTests@3bd323e9</td></tr>
+<td>tests.ElementsTests@19c65cdc</td></tr>
 <tr>
-<td title='tests.ElementsTests.TextBox()'><b>TextBox</b><br>Test class: tests.ElementsTests</td>
-<td></td>
-<td>3</td>
-<td>tests.ElementsTests@3bd323e9</td></tr>
-<tr>
-<td title='tests.ElementsTests.ClickLinks()'><b>ClickLinks</b><br>Test class: tests.ElementsTests</td>
+<td title='tests.ElementsTests.SelectingDesktopCheckBox()'><b>SelectingDesktopCheckBox</b><br>Test class: tests.ElementsTests</td>
 <td></td>
 <td>1</td>
-<td>tests.ElementsTests@3bd323e9</td></tr>
+<td>tests.ElementsTests@19c65cdc</td></tr>
 <tr>
-<td title='tests.AlertsFramesWindowsTests.browserWindowsNewWindowMsg()'><b>browserWindowsNewWindowMsg</b><br>Test class: tests.AlertsFramesWindowsTests</td>
-<td></td>
-<td>1</td>
-<td>tests.AlertsFramesWindowsTests@be68757</td></tr>
-<tr>
-<td title='tests.FormTests.fillForm()'><b>fillForm</b><br>Test class: tests.FormTests<br>Parameters: UserFormData{firstName='Gene', lastName='Femina', userMail='GFemina@demoqa.com', gender='Female', mobile='1.888343432E9', dob='22-05-2002', subject='Accounting', hobbies='Music,Reading', picturePath='/TestData/Fphoto.png', address='512 Grant 481, Prattsville\n Arkansas 72129\n United States', state='Uttar Pradesh', city='Merrut'}</td>
-<td></td>
-<td>5</td>
-<td>tests.FormTests@39ac0c0a</td></tr>
-<tr>
-<td title='tests.FormTests.FormButton()'><b>FormButton</b><br>Test class: tests.FormTests</td>
+<td title='tests.AlertsFramesWindowsTests.ClickAcceptConfirmationBox()'><b>ClickAcceptConfirmationBox</b><br>Test class: tests.AlertsFramesWindowsTests</td>
 <td></td>
 <td>0</td>
-<td>tests.FormTests@39ac0c0a</td></tr>
+<td>tests.AlertsFramesWindowsTests@39ac0c0a</td></tr>
 <tr>
-<td title='tests.FormTests.fillForm()'><b>fillForm</b><br>Test class: tests.FormTests<br>Parameters: UserFormData{firstName='Tom', lastName='Boss', userMail='TBoss@demoqa.com', gender='Male', mobile='7.839875281E9', dob='26-01-2003', subject='Social Studies', hobbies='Sports,Reading', picturePath='/TestData/M2photo.jpg', address='514 Grant 481, Prattsville\n Arkansas 72129\n United States', state='Rajasthan', city='Jaiselmer'}</td>
+<td title='tests.AlertsFramesWindowsTests.GetChildFrame()'><b>GetChildFrame</b><br>Test class: tests.AlertsFramesWindowsTests</td>
 <td></td>
-<td>5</td>
-<td>tests.FormTests@39ac0c0a</td></tr>
-<tr>
-<td title='tests.ElementsTests.SelectReact()'><b>SelectReact</b><br>Test class: tests.ElementsTests</td>
-<td></td>
-<td>2</td>
-<td>tests.ElementsTests@3bd323e9</td></tr>
-<tr>
-<td title='tests.ElementsTests.ClickAllLinks()'><b>ClickAllLinks</b><br>Test class: tests.ElementsTests</td>
-<td></td>
-<td>26</td>
-<td>tests.ElementsTests@3bd323e9</td></tr>
+<td>0</td>
+<td>tests.AlertsFramesWindowsTests@39ac0c0a</td></tr>
 <tr>
 <td title='tests.ElementsTests.SelectingDocumentsCheckBox()'><b>SelectingDocumentsCheckBox</b><br>Test class: tests.ElementsTests</td>
 <td></td>
-<td>2</td>
-<td>tests.ElementsTests@3bd323e9</td></tr>
-<tr>
-<td title='tests.ElementsTests.ClickBadRequestLink()'><b>ClickBadRequestLink</b><br>Test class: tests.ElementsTests</td>
-<td></td>
-<td>2</td>
-<td>tests.ElementsTests@3bd323e9</td></tr>
-<tr>
-<td title='tests.ElementsTests.ClickForbiddenLink()'><b>ClickForbiddenLink</b><br>Test class: tests.ElementsTests</td>
-<td></td>
-<td>2</td>
-<td>tests.ElementsTests@3bd323e9</td></tr>
-<tr>
-<td title='tests.ElementsTests.SelectClassified()'><b>SelectClassified</b><br>Test class: tests.ElementsTests</td>
-<td></td>
-<td>2</td>
-<td>tests.ElementsTests@3bd323e9</td></tr>
-<tr>
-<td title='tests.ElementsTests.SelectingDownloads()'><b>SelectingDownloads</b><br>Test class: tests.ElementsTests</td>
-<td></td>
-<td>2</td>
-<td>tests.ElementsTests@3bd323e9</td></tr>
-<tr>
-<td title='tests.ElementsTests.Uploadbtn()'><b>Uploadbtn</b><br>Test class: tests.ElementsTests</td>
-<td></td>
 <td>1</td>
-<td>tests.ElementsTests@3bd323e9</td></tr>
+<td>tests.ElementsTests@19c65cdc</td></tr>
+<tr>
+<td title='tests.AlertsFramesWindowsTests.ClickPromptBoxFill()'><b>ClickPromptBoxFill</b><br>Test class: tests.AlertsFramesWindowsTests</td>
+<td></td>
+<td>0</td>
+<td>tests.AlertsFramesWindowsTests@39ac0c0a</td></tr>
+<tr>
+<td title='tests.ElementsTests.TextBox()'><b>TextBox</b><br>Test class: tests.ElementsTests</td>
+<td></td>
+<td>2</td>
+<td>tests.ElementsTests@19c65cdc</td></tr>
+<tr>
+<td title='tests.ElementsTests.EditSalaryDepartment()'><b>EditSalaryDepartment</b><br>Test class: tests.ElementsTests</td>
+<td></td>
+<td>14</td>
+<td>tests.ElementsTests@19c65cdc</td></tr>
+<tr>
+<td title='tests.ElementsTests.UploadDownloadlink()'><b>UploadDownloadlink</b><br>Test class: tests.ElementsTests</td>
+<td></td>
+<td>0</td>
+<td>tests.ElementsTests@19c65cdc</td></tr>
+<tr>
+<td title='tests.AlertsFramesWindowsTests.ClickLargeModal()'><b>ClickLargeModal</b><br>Test class: tests.AlertsFramesWindowsTests</td>
+<td></td>
+<td>0</td>
+<td>tests.AlertsFramesWindowsTests@39ac0c0a</td></tr>
+<tr>
+<td title='tests.FormTests.fillForm()'><b>fillForm</b><br>Test class: tests.FormTests<br>Parameters: UserFormData{firstName='Bud', lastName='Wisem', userMail='BWisem@demoqa.com', gender='Other', mobile='8.932465432E9', dob='31-12-1999', subject='Biology', hobbies='Reading', picturePath='/TestData/Ophoto.jpg', address='513 Grant 481, Prattsville\n Arkansas 72129\n United States', state='Haryana', city='Panipat'}</td>
+<td></td>
+<td>5</td>
+<td>tests.FormTests@74bf1791</td></tr>
+<tr>
+<td title='tests.AlertsFramesWindowsTests.GetFrame1()'><b>GetFrame1</b><br>Test class: tests.AlertsFramesWindowsTests</td>
+<td></td>
+<td>0</td>
+<td>tests.AlertsFramesWindowsTests@39ac0c0a</td></tr>
+<tr>
+<td title='tests.AlertsFramesWindowsTests.accessAlertsFrameWindows()'><b>accessAlertsFrameWindows</b><br>Test class: tests.AlertsFramesWindowsTests</td>
+<td></td>
+<td>0</td>
+<td>tests.AlertsFramesWindowsTests@39ac0c0a</td></tr>
 <tr>
 <td title='tests.ElementsTests.WebTablesClick()'><b>WebTablesClick</b><br>Test class: tests.ElementsTests</td>
 <td></td>
 <td>1</td>
-<td>tests.ElementsTests@3bd323e9</td></tr>
+<td>tests.ElementsTests@19c65cdc</td></tr>
 <tr>
-<td title='tests.FormTests.FormsCard()'><b>FormsCard</b><br>Test class: tests.FormTests</td>
+<td title='tests.ElementsTests.SelectingAllFiles()'><b>SelectingAllFiles</b><br>Test class: tests.ElementsTests</td>
+<td></td>
+<td>1</td>
+<td>tests.ElementsTests@19c65cdc</td></tr>
+<tr>
+<td title='tests.ElementsTests.ClickDynamicHomeLink()'><b>ClickDynamicHomeLink</b><br>Test class: tests.ElementsTests</td>
+<td></td>
+<td>1</td>
+<td>tests.ElementsTests@19c65cdc</td></tr>
+<tr>
+<td title='tests.ElementsTests.webTableDeleteUser()'><b>webTableDeleteUser</b><br>Test class: tests.ElementsTests<br>Parameters: WebTableUser{firstName='Johny', lastName='Bravo', email='Jbravo@demoqa.com', salary=280000, age=340, department='Information Technology'}</td>
+<td></td>
+<td>3</td>
+<td>tests.ElementsTests@19c65cdc</td></tr>
+<tr>
+<td title='tests.ElementsTests.testAddAllUsersSearchEdit()'><b>testAddAllUsersSearchEdit</b><br>Test class: tests.ElementsTests</td>
+<td></td>
+<td>8</td>
+<td>tests.ElementsTests@19c65cdc</td></tr>
+<tr>
+<td title='tests.FormTests.FormButton()'><b>FormButton</b><br>Test class: tests.FormTests</td>
 <td></td>
 <td>0</td>
-<td>tests.FormTests@39ac0c0a</td></tr>
+<td>tests.FormTests@74bf1791</td></tr>
+<tr>
+<td title='tests.ElementsTests.VisibleAfterbtn()'><b>VisibleAfterbtn</b><br>Test class: tests.ElementsTests</td>
+<td></td>
+<td>6</td>
+<td>tests.ElementsTests@19c65cdc</td></tr>
+<tr>
+<td title='tests.ElementsTests.ClickHomeLink()'><b>ClickHomeLink</b><br>Test class: tests.ElementsTests</td>
+<td></td>
+<td>1</td>
+<td>tests.ElementsTests@19c65cdc</td></tr>
+<tr>
+<td title='tests.AlertsFramesWindowsTests.ClickNestedFrames()'><b>ClickNestedFrames</b><br>Test class: tests.AlertsFramesWindowsTests</td>
+<td></td>
+<td>0</td>
+<td>tests.AlertsFramesWindowsTests@39ac0c0a</td></tr>
+<tr>
+<td title='tests.AlertsFramesWindowsTests.GetParentFrame()'><b>GetParentFrame</b><br>Test class: tests.AlertsFramesWindowsTests</td>
+<td></td>
+<td>0</td>
+<td>tests.AlertsFramesWindowsTests@39ac0c0a</td></tr>
 <tr>
 <td title='tests.ElementsTests.CheckBox()'><b>CheckBox</b><br>Test class: tests.ElementsTests</td>
 <td></td>
 <td>1</td>
-<td>tests.ElementsTests@3bd323e9</td></tr>
+<td>tests.ElementsTests@19c65cdc</td></tr>
+<tr>
+<td title='tests.FormTests.fillForm()'><b>fillForm</b><br>Test class: tests.FormTests<br>Parameters: UserFormData{firstName='Gene', lastName='Femina', userMail='GFemina@demoqa.com', gender='Female', mobile='1.888343432E9', dob='22-05-2002', subject='Accounting', hobbies='Music,Reading', picturePath='/TestData/Fphoto.png', address='512 Grant 481, Prattsville\n Arkansas 72129\n United States', state='Uttar Pradesh', city='Merrut'}</td>
+<td></td>
+<td>5</td>
+<td>tests.FormTests@74bf1791</td></tr>
+<tr>
+<td title='tests.ElementsTests.ClickCreatedAPILink()'><b>ClickCreatedAPILink</b><br>Test class: tests.ElementsTests</td>
+<td></td>
+<td>1</td>
+<td>tests.ElementsTests@19c65cdc</td></tr>
+<tr>
+<td title='tests.FormTests.fillForm()'><b>fillForm</b><br>Test class: tests.FormTests<br>Parameters: UserFormData{firstName='Tom', lastName='Boss', userMail='TBoss@demoqa.com', gender='Male', mobile='7.839875281E9', dob='26-01-2003', subject='Social Studies', hobbies='Sports,Reading', picturePath='/TestData/M2photo.jpg', address='514 Grant 481, Prattsville\n Arkansas 72129\n United States', state='Rajasthan', city='Jaiselmer'}</td>
+<td></td>
+<td>6</td>
+<td>tests.FormTests@74bf1791</td></tr>
+<tr>
+<td title='tests.AlertsFramesWindowsTests.browserWindowsNewWindow()'><b>browserWindowsNewWindow</b><br>Test class: tests.AlertsFramesWindowsTests</td>
+<td></td>
+<td>1</td>
+<td>tests.AlertsFramesWindowsTests@39ac0c0a</td></tr>
+<tr>
+<td title='tests.ElementsTests.SelectingWordFile()'><b>SelectingWordFile</b><br>Test class: tests.ElementsTests</td>
+<td></td>
+<td>1</td>
+<td>tests.ElementsTests@19c65cdc</td></tr>
+<tr>
+<td title='tests.ElementsTests.DynamicPropertiesbtn()'><b>DynamicPropertiesbtn</b><br>Test class: tests.ElementsTests</td>
+<td></td>
+<td>1</td>
+<td>tests.ElementsTests@19c65cdc</td></tr>
+<tr>
+<td title='tests.ElementsTests.BrokenLinksValidlink()'><b>BrokenLinksValidlink</b><br>Test class: tests.ElementsTests</td>
+<td></td>
+<td>1</td>
+<td>tests.ElementsTests@19c65cdc</td></tr>
+<tr>
+<td title='tests.AlertsFramesWindowsTests.browserWindowsNewWindowMsg()'><b>browserWindowsNewWindowMsg</b><br>Test class: tests.AlertsFramesWindowsTests</td>
+<td></td>
+<td>0</td>
+<td>tests.AlertsFramesWindowsTests@39ac0c0a</td></tr>
+<tr>
+<td title='tests.ElementsTests.SelectingWorkSpace()'><b>SelectingWorkSpace</b><br>Test class: tests.ElementsTests</td>
+<td></td>
+<td>1</td>
+<td>tests.ElementsTests@19c65cdc</td></tr>
+<tr>
+<td title='tests.ElementsTests.SelectingExcelFile()'><b>SelectingExcelFile</b><br>Test class: tests.ElementsTests</td>
+<td></td>
+<td>1</td>
+<td>tests.ElementsTests@19c65cdc</td></tr>
+<tr>
+<td title='tests.ElementsTests.SelectingNotesCommandsClick()'><b>SelectingNotesCommandsClick</b><br>Test class: tests.ElementsTests</td>
+<td></td>
+<td>1</td>
+<td>tests.ElementsTests@19c65cdc</td></tr>
+<tr>
+<td title='tests.ElementsTests.SelectReactAnuglarVeu()'><b>SelectReactAnuglarVeu</b><br>Test class: tests.ElementsTests</td>
+<td></td>
+<td>8</td>
+<td>tests.ElementsTests@19c65cdc</td></tr>
+<tr>
+<td title='tests.ElementsTests.GetBrokenImage()'><b>GetBrokenImage</b><br>Test class: tests.ElementsTests</td>
+<td></td>
+<td>1</td>
+<td>tests.ElementsTests@19c65cdc</td></tr>
+<tr>
+<td title='tests.ElementsTests.SelectOfficeAll()'><b>SelectOfficeAll</b><br>Test class: tests.ElementsTests</td>
+<td></td>
+<td>1</td>
+<td>tests.ElementsTests@19c65cdc</td></tr>
+<tr>
+<td title='tests.AlertsFramesWindowsTests.browserWindows()'><b>browserWindows</b><br>Test class: tests.AlertsFramesWindowsTests</td>
+<td></td>
+<td>0</td>
+<td>tests.AlertsFramesWindowsTests@39ac0c0a</td></tr>
+<tr>
+<td title='tests.ElementsTests.Buttons()'><b>Buttons</b><br>Test class: tests.ElementsTests</td>
+<td></td>
+<td>1</td>
+<td>tests.ElementsTests@19c65cdc</td></tr>
+<tr>
+<td title='tests.ElementsTests.webTableAddEditFirstName()'><b>webTableAddEditFirstName</b><br>Test class: tests.ElementsTests<br>Parameters: WebTableUser{firstName='Tonny', lastName='Bravo', email='Jbravo@demoqa.com', salary=280000, age=340, department='Information Technology'}</td>
+<td></td>
+<td>4</td>
+<td>tests.ElementsTests@19c65cdc</td></tr>
+<tr>
+<td title='tests.ElementsTests.ClickMeButton()'><b>ClickMeButton</b><br>Test class: tests.ElementsTests</td>
+<td></td>
+<td>1</td>
+<td>tests.ElementsTests@19c65cdc</td></tr>
+<tr>
+<td title='tests.ElementsTests.ClickBrokenLinksImages()'><b>ClickBrokenLinksImages</b><br>Test class: tests.ElementsTests</td>
+<td></td>
+<td>2</td>
+<td>tests.ElementsTests@19c65cdc</td></tr>
+<tr>
+<td title='tests.ElementsTests.BrokenLinksBrokenlink()'><b>BrokenLinksBrokenlink</b><br>Test class: tests.ElementsTests</td>
+<td></td>
+<td>4</td>
+<td>tests.ElementsTests@19c65cdc</td></tr>
+<tr>
+<td title='tests.ElementsTests.SelectReact()'><b>SelectReact</b><br>Test class: tests.ElementsTests</td>
+<td></td>
+<td>1</td>
+<td>tests.ElementsTests@19c65cdc</td></tr>
+<tr>
+<td title='tests.ElementsTests.ElementsCard()'><b>ElementsCard</b><br>Test class: tests.ElementsTests</td>
+<td></td>
+<td>0</td>
+<td>tests.ElementsTests@19c65cdc</td></tr>
+<tr>
+<td title='tests.ElementsTests.ColorChangebtn()'><b>ColorChangebtn</b><br>Test class: tests.ElementsTests</td>
+<td></td>
+<td>1</td>
+<td>tests.ElementsTests@19c65cdc</td></tr>
+<tr>
+<td title='tests.ElementsTests.webTableAddSearchEdit()'><b>webTableAddSearchEdit</b><br>Test class: tests.ElementsTests<br>Parameters: WebTableUser{firstName='Tonny', lastName='Bravo', email='Jbravo@demoqa.com', salary=280000, age=340, department='Information Technology'}</td>
+<td></td>
+<td>5</td>
+<td>tests.ElementsTests@19c65cdc</td></tr>
+<tr>
+<td title='tests.AlertsFramesWindowsTests.ClickToSeeAlerts()'><b>ClickToSeeAlerts</b><br>Test class: tests.AlertsFramesWindowsTests</td>
+<td></td>
+<td>5</td>
+<td>tests.AlertsFramesWindowsTests@39ac0c0a</td></tr>
+<tr>
+<td title='tests.ElementsTests.SelectYesRadioButton()'><b>SelectYesRadioButton</b><br>Test class: tests.ElementsTests</td>
+<td></td>
+<td>1</td>
+<td>tests.ElementsTests@19c65cdc</td></tr>
+<tr>
+<td title='tests.ElementsTests.clickRadioButton()'><b>clickRadioButton</b><br>Test class: tests.ElementsTests</td>
+<td></td>
+<td>1</td>
+<td>tests.ElementsTests@19c65cdc</td></tr>
+<tr>
+<td title='tests.ElementsTests.Uploadbtn()'><b>Uploadbtn</b><br>Test class: tests.ElementsTests</td>
+<td></td>
+<td>1</td>
+<td>tests.ElementsTests@19c65cdc</td></tr>
+<tr>
+<td title='tests.ElementsTests.webTableNewRegistration()'><b>webTableNewRegistration</b><br>Test class: tests.ElementsTests<br>Parameters: WebTableUser{firstName='Johny', lastName='Bravo', email='Jbravo@demoqa.com', salary=280000, age=340, department='Information Technology'}</td>
+<td></td>
+<td>2</td>
+<td>tests.ElementsTests@19c65cdc</td></tr>
+<tr>
+<td title='tests.ElementsTests.webTableNewRegistration()'><b>webTableNewRegistration</b><br>Test class: tests.ElementsTests<br>Parameters: WebTableUser{firstName='Tom', lastName='Boss', email='TBoss@demoqa.com', salary=190000, age=420, department='Recreation'}</td>
+<td></td>
+<td>3</td>
+<td>tests.ElementsTests@19c65cdc</td></tr>
+<tr>
+<td title='tests.ElementsTests.GetValidImage()'><b>GetValidImage</b><br>Test class: tests.ElementsTests</td>
+<td></td>
+<td>1</td>
+<td>tests.ElementsTests@19c65cdc</td></tr>
+<tr>
+<td title='tests.ElementsTests.testAddAllUsersFromExcel()'><b>testAddAllUsersFromExcel</b><br>Test class: tests.ElementsTests</td>
+<td></td>
+<td>8</td>
+<td>tests.ElementsTests@19c65cdc</td></tr>
+<tr>
+<td title='tests.ElementsTests.ClickBadRequestLink()'><b>ClickBadRequestLink</b><br>Test class: tests.ElementsTests</td>
+<td></td>
+<td>1</td>
+<td>tests.ElementsTests@19c65cdc</td></tr>
+<tr>
+<td title='tests.AlertsFramesWindowsTests.ClickModalDialogs()'><b>ClickModalDialogs</b><br>Test class: tests.AlertsFramesWindowsTests</td>
+<td></td>
+<td>0</td>
+<td>tests.AlertsFramesWindowsTests@39ac0c0a</td></tr>
+<tr>
+<td title='tests.ElementsTests.SelectingDownloads()'><b>SelectingDownloads</b><br>Test class: tests.ElementsTests</td>
+<td></td>
+<td>1</td>
+<td>tests.ElementsTests@19c65cdc</td></tr>
+<tr>
+<td title='tests.AlertsFramesWindowsTests.browserWindowsNewTab()'><b>browserWindowsNewTab</b><br>Test class: tests.AlertsFramesWindowsTests</td>
+<td></td>
+<td>1</td>
+<td>tests.AlertsFramesWindowsTests@39ac0c0a</td></tr>
+<tr>
+<td title='tests.ElementsTests.SelectingOffice()'><b>SelectingOffice</b><br>Test class: tests.ElementsTests</td>
+<td></td>
+<td>1</td>
+<td>tests.ElementsTests@19c65cdc</td></tr>
+<tr>
+<td title='tests.ElementsTests.webTableAddSearch()'><b>webTableAddSearch</b><br>Test class: tests.ElementsTests<br>Parameters: WebTableUser{firstName='Johny', lastName='Bravo', email='Jbravo@demoqa.com', salary=280000, age=340, department='Information Technology'}</td>
+<td></td>
+<td>3</td>
+<td>tests.ElementsTests@19c65cdc</td></tr>
+<tr>
+<td title='tests.ElementsTests.ClickNotFoundLink()'><b>ClickNotFoundLink</b><br>Test class: tests.ElementsTests</td>
+<td></td>
+<td>1</td>
+<td>tests.ElementsTests@19c65cdc</td></tr>
+<tr>
+<td title='tests.ElementsTests.webTableNewRegistration()'><b>webTableNewRegistration</b><br>Test class: tests.ElementsTests<br>Parameters: WebTableUser{firstName='Bud', lastName='Wisem', email='BWisem@demoqa.com', salary=150000, age=400, department='Medicine'}</td>
+<td></td>
+<td>3</td>
+<td>tests.ElementsTests@19c65cdc</td></tr>
+<tr>
+<td title='tests.FormTests.fillForm()'><b>fillForm</b><br>Test class: tests.FormTests<br>Parameters: UserFormData{firstName='Johny', lastName='Bravo', userMail='Jbravo@demoqa.com', gender='Male', mobile='9.238343488E9', dob='15-08-2000', subject='Computer Science', hobbies='Sports,Music', picturePath='/TestData/Mphoto.jpg', address='511 Grant 481, Prattsville\n Arkansas 72129\n United States', state='NCR', city='Delhi'}</td>
+<td></td>
+<td>6</td>
+<td>tests.FormTests@74bf1791</td></tr>
+<tr>
+<td title='tests.AlertsFramesWindowsTests.ClickFrames()'><b>ClickFrames</b><br>Test class: tests.AlertsFramesWindowsTests</td>
+<td></td>
+<td>0</td>
+<td>tests.AlertsFramesWindowsTests@39ac0c0a</td></tr>
+<tr>
+<td title='tests.ElementsTests.SelectVeu()'><b>SelectVeu</b><br>Test class: tests.ElementsTests</td>
+<td></td>
+<td>1</td>
+<td>tests.ElementsTests@19c65cdc</td></tr>
+<tr>
+<td title='tests.ElementsTests.ClickForbiddenLink()'><b>ClickForbiddenLink</b><br>Test class: tests.ElementsTests</td>
+<td></td>
+<td>1</td>
+<td>tests.ElementsTests@19c65cdc</td></tr>
+<tr>
+<td title='tests.FormTests.FormsCard()'><b>FormsCard</b><br>Test class: tests.FormTests</td>
+<td></td>
+<td>0</td>
+<td>tests.FormTests@74bf1791</td></tr>
+<tr>
+<td title='tests.ElementsTests.SelectingHomeCheckBox()'><b>SelectingHomeCheckBox</b><br>Test class: tests.ElementsTests</td>
+<td></td>
+<td>1</td>
+<td>tests.ElementsTests@19c65cdc</td></tr>
+<tr>
+<td title='tests.ElementsTests.WillEnablebtn()'><b>WillEnablebtn</b><br>Test class: tests.ElementsTests</td>
+<td></td>
+<td>6</td>
+<td>tests.ElementsTests@19c65cdc</td></tr>
+<tr>
+<td title='tests.ElementsTests.SelectAngular()'><b>SelectAngular</b><br>Test class: tests.ElementsTests</td>
+<td></td>
+<td>1</td>
+<td>tests.ElementsTests@19c65cdc</td></tr>
+<tr>
+<td title='tests.ElementsTests.webTableNewRegistration()'><b>webTableNewRegistration</b><br>Test class: tests.ElementsTests<br>Parameters: WebTableUser{firstName='Gene', lastName='Femina', email='GFemina@demoqa.com', salary=180000, age=300, department='Finance'}</td>
+<td></td>
+<td>3</td>
+<td>tests.ElementsTests@19c65cdc</td></tr>
+<tr>
+<td title='tests.AlertsFramesWindowsTests.ClickDenyConfirmationBox()'><b>ClickDenyConfirmationBox</b><br>Test class: tests.AlertsFramesWindowsTests</td>
+<td></td>
+<td>0</td>
+<td>tests.AlertsFramesWindowsTests@39ac0c0a</td></tr>
+<tr>
+<td title='tests.AlertsFramesWindowsTests.ClickSmallModal()'><b>ClickSmallModal</b><br>Test class: tests.AlertsFramesWindowsTests</td>
+<td></td>
+<td>0</td>
+<td>tests.AlertsFramesWindowsTests@39ac0c0a</td></tr>
+<tr>
+<td title='tests.ElementsTests.DoubleClickButtons()'><b>DoubleClickButtons</b><br>Test class: tests.ElementsTests</td>
+<td></td>
+<td>1</td>
+<td>tests.ElementsTests@19c65cdc</td></tr>
+<tr>
+<td title='tests.ElementsTests.SelectImpressiveRadioButton()'><b>SelectImpressiveRadioButton</b><br>Test class: tests.ElementsTests</td>
+<td></td>
+<td>1</td>
+<td>tests.ElementsTests@19c65cdc</td></tr>
+<tr>
+<td title='tests.ElementsTests.ClickLinks()'><b>ClickLinks</b><br>Test class: tests.ElementsTests</td>
+<td></td>
+<td>2</td>
+<td>tests.ElementsTests@19c65cdc</td></tr>
 </table><p>
 </body>
 </html>

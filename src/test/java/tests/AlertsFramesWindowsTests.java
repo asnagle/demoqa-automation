@@ -135,4 +135,117 @@ public class AlertsFramesWindowsTests extends demoqaBase {
 		demoqaLog.info(" Alerts, Frames & Windows|Alerts|On button click, prompt box will appear, Fill data Test Completed...");
 	}
 	
+	@Test(priority = 10)
+	public void ClickFrames() {
+		testRep = extentReportManager.createTest("Test Alerts, Frames & Windows|Frames...");
+		testRep.info("Starting test for Alerts, Frames & Windows|Frames");
+		demoqaLog.info("Starting Test Alerts, Frames & Windows|Frames...");
+		alertsframewindowsPage alertsframewindowsPage = new alertsframewindowsPage(driver);
+		alertsframewindowsPage.accessAlertFramesWindows();
+		alertsframewindowsPage.clickFrames();
+		testRep.info("Test  Alerts, Frames & Windows|Frames Test Completed...");
+		demoqaLog.info(" Alerts, Frames & Windows|Frames Test Completed...");
+	}
+	
+	@Test(priority = 11)
+	public void GetFrame1() {
+		testRep = extentReportManager.createTest("Test Alerts, Frames & Windows|Frames|Frame1 message...");
+		testRep.info("Starting test for Alerts, Frames & Windows|Frames|Frame1 message");
+		demoqaLog.info("Starting Test Alerts, Frames & Windows|Frames|Frame1 message...");
+		alertsframewindowsPage alertsframewindowsPage = new alertsframewindowsPage(driver);
+		alertsframewindowsPage.accessAlertFramesWindows();
+		alertsframewindowsPage.clickFrames();
+		alertsframewindowsPage.GetFrame1msg();
+		testRep.info("Test  Alerts, Frames & Windows|Frame1 message Test Completed...");
+		demoqaLog.info(" Alerts, Frames & Windows|Frames|Frame1 message Test Completed...");
+	}
+	
+	@Test(priority = 12)
+	public void GetFrame2() {
+		testRep = extentReportManager.createTest("Test Alerts, Frames & Windows|Frames|Frame2 message...");
+		testRep.info("Starting test for Alerts, Frames & Windows|Frames|Frame2 message");
+		demoqaLog.info("Starting Test Alerts, Frames & Windows|Frames|Frame2 message...");
+		alertsframewindowsPage alertsframewindowsPage = new alertsframewindowsPage(driver);
+		alertsframewindowsPage.accessAlertFramesWindows();
+		alertsframewindowsPage.clickFrames();
+		alertsframewindowsPage.GetFrame2msg();
+		testRep.info("Test  Alerts, Frames & Windows|Frame2 message Test Completed...");
+		demoqaLog.info(" Alerts, Frames & Windows|Frames|Frame2 message Test Completed...");
+	}
+	
+	@Test(priority = 13)
+	public void ClickNestedFrames() {
+		testRep = extentReportManager.createTest("Test Alerts, Frames & Windows|Nested Frames...");
+		testRep.info("Starting test for Alerts, Frames & Windows|Nested Frames");
+		demoqaLog.info("Starting Test Alerts, Frames & Windows|Nested Frames...");
+		alertsframewindowsPage alertsframewindowsPage = new alertsframewindowsPage(driver);
+		alertsframewindowsPage.accessAlertFramesWindows();
+		alertsframewindowsPage.clickNestedFrames();
+		testRep.info("Test  Alerts, Frames & Windows|Nested Frames Test Completed...");
+		demoqaLog.info(" Alerts, Frames & Windows|Nested Frames Test Completed...");
+	}
+	
+	@Test(priority = 14)
+	public void GetParentFrame() {
+		testRep = extentReportManager.createTest("Test Alerts, Frames & Windows|Frames|Parent Frame message...");
+		testRep.info("Starting test for Alerts, Frames & Windows|Frames|Parent Frame message");
+		demoqaLog.info("Starting Test Alerts, Frames & Windows|Frames|Parent Frame message...");
+		alertsframewindowsPage alertsframewindowsPage = new alertsframewindowsPage(driver);
+		alertsframewindowsPage.accessAlertFramesWindows();
+		alertsframewindowsPage.clickNestedFrames();
+		alertsframewindowsPage.GetParentFramemsg();
+		testRep.info("Test  Alerts, Frames & Windows|Frames|Parent Frame message Test Completed...");
+		demoqaLog.info(" Alerts, Frames & Windows|Frames|Parent Frame message Test Completed...");
+	}
+	
+	@Test(priority = 15)
+	public void GetChildFrame() {
+		testRep = extentReportManager.createTest("Test Alerts, Frames & Windows|Frames|Child Frame message...");
+		testRep.info("Starting test for Alerts, Frames & Windows|Frames|Child Frame message");
+		demoqaLog.info("Starting Test Alerts, Frames & Windows|Frames|Child Frame message...");
+		alertsframewindowsPage alertsframewindowsPage = new alertsframewindowsPage(driver);
+		alertsframewindowsPage.accessAlertFramesWindows();
+		alertsframewindowsPage.clickNestedFrames();
+		alertsframewindowsPage.GetChildFramemsg();
+		testRep.info("Test  Alerts, Frames & Windows|Frames|Child Frame message Test Completed...");
+		demoqaLog.info(" Alerts, Frames & Windows|Frames|Child Frame message Test Completed...");
+	}
+	
+	@Test(priority = 13)
+	public void ClickModalDialogs() {
+		testRep = extentReportManager.createTest("Test Alerts, Frames & Windows|Modal Dialogs...");
+		testRep.info("Starting test for Alerts, Frames & Windows|Modal Dialogs");
+		demoqaLog.info("Starting Test Alerts, Frames & Windows|Modal Dialogs...");
+		alertsframewindowsPage alertsframewindowsPage = new alertsframewindowsPage(driver);
+		alertsframewindowsPage.accessAlertFramesWindows();
+		alertsframewindowsPage.clickModalDialogs();
+		testRep.info("Test  Alerts, Frames & Windows|Modal Dialogs Test Completed...");
+		demoqaLog.info(" Alerts, Frames & Windows|Modal Dialogs Test Completed...");
+	}
+	
+	@Test(priority = 14)
+	public void ClickSmallModal() {
+		testRep = extentReportManager.createTest("Test Alerts, Frames & Windows|Modal Dialogs|Small Modal click...");
+		testRep.info("Starting test for Alerts, Frames & Windows|Modal Dialogs|Small Modal click");
+		demoqaLog.info("Starting Test Alerts, Frames & Windows|Modal Dialogs|Small Modal...");
+		alertsframewindowsPage alertsframewindowsPage = new alertsframewindowsPage(driver);
+		alertsframewindowsPage.accessAlertFramesWindows();
+		alertsframewindowsPage.clickModalDialogs();
+		alertsframewindowsPage.clickSmallModal();
+		testRep.info("Test  Alerts, Frames & Windows|Modal Dialogs|Small Modal click Test Completed...");
+		demoqaLog.info(" Alerts, Frames & Windows|Modal Dialogs|Small Modal click Test Completed...");
+	}
+	
+	@Test(priority = 14)
+	public void ClickLargeModal() {
+		testRep = extentReportManager.createTest("Test Alerts, Frames & Windows|Modal Dialogs|Large Modal click...");
+		testRep.info("Starting test for Alerts, Frames & Windows|Modal Dialogs|Large Modal click");
+		demoqaLog.info("Starting Test Alerts, Frames & Windows|Modal Dialogs|Large Modal...");
+		alertsframewindowsPage alertsframewindowsPage = new alertsframewindowsPage(driver);
+		alertsframewindowsPage.accessAlertFramesWindows();
+		alertsframewindowsPage.clickModalDialogs();
+		alertsframewindowsPage.clickLargeModal();
+		testRep.info("Test  Alerts, Frames & Windows|Modal Dialogs|Large Modal click Test Completed...");
+		demoqaLog.info(" Alerts, Frames & Windows|Modal Dialogs|Large Modal click Test Completed...");
+	}
 }

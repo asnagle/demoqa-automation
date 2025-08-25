@@ -7,8 +7,8 @@
         <methods>
           <include name="TearDown"/>
           <include name="setupReport"/>
+          <include name="Downloadbtn"/>
           <include name="teardownReport"/>
-          <include name="DoubleClickButtons"/>
           <include name="setUP"/>
         </methods>
       </class> <!-- tests.ElementsTests -->
