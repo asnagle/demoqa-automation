@@ -1169,7 +1169,7 @@ public class elementsPage extends demoqaBase {
 
 	public void DownloadFile() {
 		demoqaLog.info("Clicking on Elements|Upload and Download|Download Button...");
-		String downloadDir = "C:\\Users\\dell\\Downloads";
+		String downloadDir = "C:\\Users\\dell\\Downloads\\";
 		String expectedFileName = "sampleFile.jpeg";
 		String filePath = "C:\\Users\\dell\\Downloads\\sampleFile.jpeg";
 

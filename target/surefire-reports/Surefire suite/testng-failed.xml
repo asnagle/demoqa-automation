@@ -3,26 +3,14 @@
 <suite name="Failed suite [Surefire suite]" verbose="0">
   <test thread-count="5" name="Surefire test(failed)" verbose="0">
     <classes>
-      <class name="tests.AlertsFramesWindowsTests">
-        <methods>
-          <include name="TearDown"/>
-          <include name="setupReport"/>
-          <include name="teardownReport"/>
-          <include name="browserWindowsNewWindowMsg"/>
-          <include name="setUP"/>
-        </methods>
-      </class> <!-- tests.AlertsFramesWindowsTests -->
       <class name="tests.ElementsTests">
         <methods>
           <include name="TearDown"/>
-          <include name="GetBrokenImage"/>
           <include name="setupReport"/>
-          <include name="BrokenLinksValidlink"/>
           <include name="Downloadbtn"/>
           <include name="teardownReport"/>
-          <include name="BrokenLinksBrokenlink"/>
           <include name="DoubleClickButtons"/>
-          <include name="ClickDynamicHomeLink"/>
+          <include name="RightClickButton"/>
           <include name="setUP"/>
         </methods>
       </class> <!-- tests.ElementsTests -->

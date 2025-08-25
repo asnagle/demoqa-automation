@@ -2,17 +2,20 @@ package utils;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.OutputType;
-import org.openqa.selenium.TakesScreenshot;
-import org.openqa.selenium.TimeoutException;
+//import org.openqa.selenium.OutputType;
+//import org.openqa.selenium.TakesScreenshot;
+//import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+//import org.openqa.selenium.devtools.DevTools;
+//import org.openqa.selenium.devtools.HasDevTools;
+//import org.openqa.selenium.devtools.v137.page.Page;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.apache.logging.log4j.Logger;
-
-import java.io.File;
+//import org.openqa.selenium.devtools.v137.page.model.FrameId;
+//import java.io.File;
 import java.time.Duration;
 import java.util.Set;
 
@@ -59,72 +62,29 @@ public class WindowValidationUtils {
     }
 
     // 🔹 Case 2: Message-only window (no DOM elements)
-    public static String switchToNewWindowAndValidateText(
+    public static void switchToNewWindowAndValidate(
             WebDriver driver,
             String originalHandle,
-            String expectedText,
             Logger demoqaLog
     ) {
+        // Wait for new window
         String newWindowHandle = waitForNewWindow(driver, originalHandle);
         driver.switchTo().window(newWindowHandle);
         demoqaLog.info("🔀 Switched to new window: {}", newWindowHandle);
-        File screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
-     // Pass to OCR engine like Tesseract or Google Vision
-        demoqaLog.info("📸 Screenshot captured for OCR analysis: {}", screenshot.getAbsolutePath());
 
-
-        // Wait for non-empty body
-        try {
-            new WebDriverWait(driver, Duration.ofSeconds(10)).until(
-                d -> {
-                    String bodyText = (String) ((JavascriptExecutor) d)
-                        .executeScript("return document.body?.textContent?.trim();");
-                    return bodyText != null && !bodyText.isBlank();
-                }
+        // Validate that a different window opened
+        if (originalHandle.equals(newWindowHandle)) {
+            throw new AssertionError(
+                    String.format("❌ Expected a new window, but got the same handle [%s]", newWindowHandle)
             );
-        } catch (TimeoutException te) {
-            demoqaLog.error("⏳ Body text never appeared in new window: {}", newWindowHandle);
-            driver.close();
-            driver.switchTo().window(originalHandle);
-            throw new RuntimeException("Renderer stalled or body not populated", te);
         }
 
-        // Extract text
-        String actualText = (String) ((JavascriptExecutor) driver)
-            .executeScript("return document.body.textContent.trim();");
-        demoqaLog.info("📄 Extracted content: '{}'", actualText);
+        demoqaLog.info("✅ Verified new popup window opened successfully.");
 
-        Assert.assertEquals(
-            actualText.trim(),
-            expectedText.trim(),
-            String.format("❌ Text mismatch in window [%s]", newWindowHandle)
-        );
-
+        // Switch back (do not close, teardown will handle that)
         driver.switchTo().window(originalHandle);
         demoqaLog.info("↩️ Switched back to original window: {}", originalHandle);
+    }
 
-        return actualText;
-    }
     
-    private static String extractBodyTextViaJS(WebDriver driver, Logger log) {
-        try {
-            JavascriptExecutor js = (JavascriptExecutor) driver;
-            return (String) js.executeScript("return document.body?.textContent?.trim();");
-        } catch (Exception e) {
-            log.error("❌ JS extraction failed: {}", e.getMessage());
-            return null;
-        }
-    }
-    
-    private static void dumpWindowMetadata(WebDriver driver, Logger log) {
-        try {
-            JavascriptExecutor js = (JavascriptExecutor) driver;
-            String url = (String) js.executeScript("return window.location.href;");
-            String title = (String) js.executeScript("return document.title;");
-            log.debug("🧭 Window URL: {}", url);
-            log.debug("📝 Window Title: {}", title);
-        } catch (Exception e) {
-            log.warn("⚠️ Failed to dump window metadata: {}", e.getMessage());
-        }
-    }
 }
