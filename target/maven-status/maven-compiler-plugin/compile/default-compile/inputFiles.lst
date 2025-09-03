@@ -1,3 +1,4 @@
+C:\ASN\eclipse_workspace\demoqa-automation\src\main\java\pages\WidgetsPage.java
 C:\ASN\eclipse_workspace\demoqa-automation\src\main\java\utils\AlertUtils.java
 C:\ASN\eclipse_workspace\demoqa-automation\src\main\java\utils\FileRenamer.java
 C:\ASN\eclipse_workspace\demoqa-automation\src\main\java\utils\splitDOB.java
@@ -12,7 +13,9 @@ C:\ASN\eclipse_workspace\demoqa-automation\src\main\java\utils\DatePickerUtils.j
 C:\ASN\eclipse_workspace\demoqa-automation\src\main\java\models\UserFormData.java
 C:\ASN\eclipse_workspace\demoqa-automation\src\main\java\models\WebTableUser.java
 C:\ASN\eclipse_workspace\demoqa-automation\src\main\java\pages\alertsframewindowsPage.java
+C:\ASN\eclipse_workspace\demoqa-automation\src\main\java\models\ColorSelectionData.java
 C:\ASN\eclipse_workspace\demoqa-automation\src\main\java\converters\DatePickerConverter.java
+C:\ASN\eclipse_workspace\demoqa-automation\src\main\java\models\TextBoxUser.java
 C:\ASN\eclipse_workspace\demoqa-automation\src\main\java\utils\DateUtils.java
 C:\ASN\eclipse_workspace\demoqa-automation\src\main\java\utils\PojoSanitizer.java
 C:\ASN\eclipse_workspace\demoqa-automation\src\main\java\utils\FileDownloadValidator.java
@@ -21,8 +24,10 @@ C:\ASN\eclipse_workspace\demoqa-automation\src\main\java\converters\NoOpConverte
 C:\ASN\eclipse_workspace\demoqa-automation\src\main\java\pages\homePage.java
 C:\ASN\eclipse_workspace\demoqa-automation\src\main\java\utils\AssertFormData.java
 C:\ASN\eclipse_workspace\demoqa-automation\src\main\java\utils\closeAds.java
+C:\ASN\eclipse_workspace\demoqa-automation\src\main\java\utils\RetryTransformer.java
 C:\ASN\eclipse_workspace\demoqa-automation\src\main\java\utils\ExcelUtils.java
 C:\ASN\eclipse_workspace\demoqa-automation\src\main\java\utils\ConfirmationTableParser.java
+C:\ASN\eclipse_workspace\demoqa-automation\src\main\java\utils\RetryAnalyzer.java
 C:\ASN\eclipse_workspace\demoqa-automation\src\main\java\base\demoqaBase.java
 C:\ASN\eclipse_workspace\demoqa-automation\src\main\java\pages\elementsPage.java
 C:\ASN\eclipse_workspace\demoqa-automation\src\main\java\customAnnotations\ValidateResult.java

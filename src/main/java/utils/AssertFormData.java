@@ -7,7 +7,7 @@ import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-
+import models.TextBoxUser;
 import models.UserFormData;
 
 import static utils.LabelAliasRegistry.LABEL_ALIASES;
@@ -15,6 +15,7 @@ import static utils.LabelAliasRegistry.LABEL_ALIASES;
 public class AssertFormData {
 
     private static final Logger demoqaLog = LogManager.getLogger(AssertFormData.class);
+    private static final By DEFAULT_CONFIRMATION_LOCATOR = By.cssSelector(".table-responsive tbody tr");
 
     /**
      * Core assertion logic: compares expected vs actual values with normalization and alias resolution.
@@ -40,10 +41,20 @@ public class AssertFormData {
     }
 
     /**
+     * Overload for TextBoxUser using default locator and internal logger.
+     */
+    public static void assertTextBoxSubmission(TextBoxUser user, WebDriver driver) {
+        Map<String, String> expectedValues = PojoSanitizer.extractSanitizedFields(user);
+        Map<String, String> actualValues = ConfirmationTableParser.extractValues(driver, DEFAULT_CONFIRMATION_LOCATOR);
+
+        demoqaLog.info("🧪 Starting TextBoxUser confirmation for: {}", user.getFirstName());
+        assertConfirmation(expectedValues, actualValues);
+    }
+
+    /**
      * Helper method to normalize and assert individual field values.
      */
     private static void assertFieldMatch(String label, String expectedRaw, String actualRaw) {
-        // 🧼 Flatten both escaped and actual line breaks
         String expectedFlat = expectedRaw.replace("\\n", " ").replaceAll("\\r?\\n", " ");
         String actualFlat = actualRaw.replace("\\n", " ").replaceAll("\\r?\\n", " ");
 

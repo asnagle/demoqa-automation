@@ -6,22 +6,57 @@ import java.time.format.DateTimeParseException;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Locale;
+import java.util.Optional;
 
 import models.WebTableUser;
 
 public class DataSanitizer {
 
-    private static final List<DateTimeFormatter> KNOWN_DOB_FORMATS = Arrays.asList(
-        DateTimeFormatter.ofPattern("dd/MM/yyyy"),
-        DateTimeFormatter.ofPattern("MM/dd/yyyy"),
-        DateTimeFormatter.ofPattern("yyyy-MM-dd"),
-        DateTimeFormatter.ofPattern("dd-MMM-yyyy"),
-        DateTimeFormatter.ofPattern("dd-MM-yyyy"),
-        DateTimeFormatter.ofPattern("d MMMM yyyy", Locale.ENGLISH),
-        DateTimeFormatter.ofPattern("d MMMM,yyyy", Locale.ENGLISH)
-    );
+	private static final List<DateTimeFormatter> KNOWN_DOB_FORMATS = Arrays.asList(
+		    DateTimeFormatter.ofPattern("dd/MM/yyyy"),
+		    DateTimeFormatter.ofPattern("MM/dd/yyyy"),
+		    DateTimeFormatter.ofPattern("M/d/yy"),
+		    DateTimeFormatter.ofPattern("yyyy-MM-dd"),
+		    DateTimeFormatter.ofPattern("dd-MMM-yyyy"),
+		    DateTimeFormatter.ofPattern("dd-MM-yyyy"),
+		    DateTimeFormatter.ofPattern("d MMMM yyyy", Locale.ENGLISH),
+		    DateTimeFormatter.ofPattern("d MMMM,yyyy", Locale.ENGLISH)
+		);
 
     private static final DateTimeFormatter TARGET_DOB_FORMAT = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+    
+    public static Optional<LocalDate> sanitizeDOBToDate(String rawValue, String fieldName, String context) {
+        if (rawValue == null || rawValue.trim().isEmpty()) {
+            return Optional.empty();
+        }
+
+        String trimmed = rawValue.trim()
+                                 .replace(",", " ")
+                                 .replaceAll("\\s+", " ");
+
+        for (DateTimeFormatter formatter : KNOWN_DOB_FORMATS) {
+            try {
+                LocalDate date = LocalDate.parse(trimmed, formatter);
+                return Optional.of(date);
+            } catch (DateTimeParseException ignored) {
+            }
+        }
+
+        try {
+            int excelDate = Integer.parseInt(trimmed);
+            LocalDate date = LocalDate.of(1899, 12, 30).plusDays(excelDate);
+            return Optional.of(date);
+        } catch (NumberFormatException ignored) {
+        }
+
+        System.out.printf("❌ Unrecognized DOB format for %s [%s]: %s%n", fieldName, context, trimmed);
+        return Optional.empty();
+    }
+    
+    public static Optional<LocalDate> sanitizeDOBToDate(String rawValue) {
+        return sanitizeDOBToDate(rawValue, "DOB", "AutoSanitizer");
+    }
+    
 
     // ✅ Core int parsing with fallback
     public static int parseSafeInt(String value, String fieldName, String userName) {

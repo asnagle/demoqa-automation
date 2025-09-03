@@ -1,9 +1,12 @@
 pages\homePage.class
 utils\ExcelUtils.class
+models\ColorSelectionData.class
 utils\extentReportManager.class
 utils\RetryUrlAccess.class
 utils\AssertFormData.class
+models\TextBoxUser.class
 utils\FetchLinkResponse.class
+utils\RetryAnalyzer.class
 base\demoqaBase.class
 pages\formsPage.class
 utils\emailUtils.class
@@ -27,6 +30,8 @@ models\WebTableUser.class
 utils\LabelAliasRegistry.class
 customAnnotations\ColumnMapping.class
 utils\DateUtils.class
+pages\WidgetsPage.class
+utils\RetryTransformer.class
 customAnnotations\CaptureOnSuccess.class
 utils\PojoSanitizer.class
 utils\waitForElement.class

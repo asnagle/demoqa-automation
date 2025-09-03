@@ -1,3 +1,4 @@
 tests\ElementsTests.class
 tests\FormTests.class
 tests\AlertsFramesWindowsTests.class
+tests\WidgetsTests.class

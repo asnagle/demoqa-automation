@@ -5,15 +5,13 @@ import static org.testng.Assert.assertNotNull;
 import java.io.IOException;
 import java.time.Duration;
 import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
-
+import java.util.Optional;
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 //import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
-
 import base.demoqaBase;
 import customAnnotations.CaptureOnSuccess;
 import models.UserFormData;
@@ -68,65 +66,62 @@ public class FormTests extends demoqaBase {
 	}
 
 //		================= Code for Data Driven Testing ===============
-	@CaptureOnSuccess(description = "Form filled by taking data input from a Spreadsheet - Successfully", screenshotMode = "viewport")
 	@Test(priority = 3, dataProvider = "UserFormData")
+	@CaptureOnSuccess(description = "Form filled by taking data input from a Spreadsheet - Successfully", screenshotMode = "viewport")
 	public void fillForm(models.UserFormData data) {
 
-//	public void testFormFilling(UserFormData data) {
-		testRep = extentReportManager.createTest("Test Form Filling");
-		testRep.info("Starting test for Form Filling");
-		demoqaLog.info("Starting Form Filling Test...");
+	    testRep = extentReportManager.createTest("Test Form Filling");
+	    testRep.info("Starting test for Form Filling");
+	    demoqaLog.info("Starting Form Filling Test...");
 
-		formsPage formsPage = new formsPage(driver);
-		testRep.info("Accessing Practice Form");
-		RetryUrlAccess.navigateWithRetry(driver, "https://demoqa.com", 3);
-		formsPage.accessForms();
-		formsPage.clickPracticeForm();
+	    formsPage formsPage = new formsPage(driver);
+	    testRep.info("Accessing Practice Form");
+	    RetryUrlAccess.navigateWithRetry(driver, "https://demoqa.com", 3);
+	    formsPage.accessForms();
+	    formsPage.clickPracticeForm();
 
-		String fullName = data.getFirstName() + " " + data.getLastName();
-		demoqaLog.info("Filling form for: " + fullName);
+	    String fullName = data.getFirstName() + " " + data.getLastName();
+	    demoqaLog.info("Filling form for: " + fullName);
 
-		// Basic Info
-		formsPage.entFirstName(data.getFirstName());
-		formsPage.entLastName(data.getLastName());
-		formsPage.entEmail(data.getUserMail()); // optional utility
-		formsPage.selectGender(data.getGender());
-		formsPage.entMobileNo(data.getMobile());
-//		DateComponents dob = data.getDob(); // Cast if needed
-//		formsPage.selectDay(dob.getDay());
-//		formsPage.selectMonth(dob.getMonth());
-		LocalDate dob = LocalDate.parse(DataSanitizer.sanitizeDOB(data.getDob()),
-				DateTimeFormatter.ofPattern("dd-MM-yyyy"));
+	    // ✅ Basic Info
+	    formsPage.entFirstName(data.getFirstName());
+	    formsPage.entLastName(data.getLastName());
+	    formsPage.entEmail(data.getUserMail());
+	    formsPage.selectGender(data.getGender());
+	    formsPage.entMobileNo(data.getMobile());
 
-		System.out.println("📅 Parsed DOB: " + dob);
+	    // ✅ DOB Handling with Optional<LocalDate>
+	    Optional<LocalDate> dobOpt = DataSanitizer.sanitizeDOBToDate(data.getDob(), "DOB", fullName);
+	    if (dobOpt.isEmpty()) {
+	        demoqaLog.warn("⚠️ DOB parsing failed for: " + fullName + " | Raw: " + data.getDob());
+	        throw new RuntimeException("DOB could not be parsed for user: " + fullName);
+	    }
 
-//		LocalDate dob = DataSanitizer.sanitizeDOB(dob);
-		System.out.println("📅 Parsed DOB: " + dob);
+	    LocalDate dob = dobOpt.get();
+	    demoqaLog.info("📅 Parsed DOB for " + fullName + ": " + dob);
+	    assertNotNull(dob, "DOB should be parsable");
 
-		// Use dob in assertions or form submission logic
-		assertNotNull(dob, "DOB should be parsable");
+	    formsPage.fillDob(dob); // Overloaded method accepting LocalDate
 
-		formsPage.fillDob(data.getDob());
-		formsPage.enterSubject(data.getSubject());
-		formsPage.selectHobbies(data.getHobbies());
-		formsPage.uploadPicture(data.getPicturePath());
+	    // ✅ Academic & Preferences
+	    formsPage.enterSubject(data.getSubject());
+	    formsPage.selectHobbies(data.getHobbies());
+	    formsPage.uploadPicture(data.getPicturePath());
 
-		// Location
-		formsPage.enterAddress(data.getAddress());
-		formsPage.selectState(data.getState());
-		formsPage.selectCity(data.getCity());
+	    // ✅ Location
+	    formsPage.enterAddress(data.getAddress());
+	    formsPage.selectState(data.getState());
+	    formsPage.selectCity(data.getCity());
 
-		// Submit
-		formsPage.submitButton();
-		// ✅ Wait for confirmation table to appear
-		new WebDriverWait(driver, Duration.ofSeconds(5))
-		    .until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("table tbody tr")));
+	    // ✅ Submit & Validate
+	    formsPage.submitButton();
 
-		// ✅ Assert confirmation popup matches POJO
-		AssertFormData.assertConfirmation(data, driver, By.cssSelector("table tbody tr"), demoqaLog);
+	    new WebDriverWait(driver, Duration.ofSeconds(10))
+	        .until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("table tbody tr")));
 
-		testRep.pass("Test Form Filling Completed Successfully");
-		demoqaLog.info("Test Form Filling Completed for: " + fullName);
+	    AssertFormData.assertConfirmation(data, driver, By.cssSelector("table tbody tr"), demoqaLog);
+
+	    testRep.pass("Test Form Filling Completed Successfully");
+	    demoqaLog.info("Test Form Filling Completed for: " + fullName);
 	}
-
 }

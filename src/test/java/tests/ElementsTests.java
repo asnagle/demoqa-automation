@@ -2,15 +2,17 @@ package tests;
 
 import java.io.IOException;
 import java.util.List;
-
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import base.demoqaBase;
 import customAnnotations.CaptureOnSuccess;
+import models.TextBoxUser;
 import models.WebTableUser;
 import pages.elementsPage;
 import utils.ExcelUtils;
+import utils.JSclick;
 import utils.WebTableManager;
 //import utils.demoqaLog;
 import utils.extentReportManager;
@@ -38,16 +40,21 @@ public class ElementsTests extends demoqaBase {
 			data[i][0] = users.get(i);
 		}
 		return data;
-
 	}
+	
+	@DataProvider(name = "TextBoxUserData")
+	public Object[][] provideTextBoxUserData() throws IOException {
+	    String filePath = System.getProperty("user.dir") + "/TestData/Students_Details.xlsx";
+	    String sheetName = "Sheet1";
 
-//	public Object[][] provideWebTableUserData() throws IOException {
-//	    String filePath = System.getProperty("user.dir") + "/TestData/Students_Details.xlsx";
-//	    String sheetName = "Sheet1";
-//
-//	    ExcelUtils excelUtils = new ExcelUtils();
-//	    return excelUtils.getMappedData(filePath, sheetName, WebTableUser.class);
-//	}
+	    List<TextBoxUser> users = ExcelUtils.getMappedList(filePath, sheetName, TextBoxUser.class);
+
+	    Object[][] data = new Object[users.size()][1];
+	    for (int i = 0; i < users.size(); i++) {
+	        data[i][0] = users.get(i);
+	    }
+	    return data;
+	}
 
 	@DataProvider(name = "WTFormDataEdit")
 	public Object[][] getSingleUserData() {
@@ -71,29 +78,28 @@ public class ElementsTests extends demoqaBase {
 
 	}
 
-	@CaptureOnSuccess(description = "Text Box Filled by Static data Input - Successfully", screenshotMode = "viewport")
-	@Test(priority = 2)
-	public void TextBox() {
-		testRep = extentReportManager.createTest("Test Text Box");
-		testRep.info("Starting test for Elements | Text Box");
-		demoqaLog.info("Starting Test Elements | Text Box Test...");
-		elementsPage elementsPage = new elementsPage(driver);
-		elementsPage.accessElements();
-		elementsPage.clickTextBox();
-		testRep.info("Title of this Page is: " + driver.getTitle());
-		demoqaLog.info("Title of this Page is: " + driver.getTitle());
-		elementsPage.enterFullName();
-		elementsPage.enterEmail();
-		elementsPage.enterCurrentAddress();
-		elementsPage.enterPermanentAddress();
-		elementsPage.submitButton();
-		elementsPage.validateTextBox();
-		testRep.info("Submitted Data is captured in screenshot attached...");
-		testRep.info("Text Box Element Test Completed...");
-		demoqaLog.info("Text Box Element Test Completed...");
+	@CaptureOnSuccess(description = "Text Box Filled by Spreadsheet Input - Successfully", screenshotMode = "viewport")
+	@Test(dataProvider = "TextBoxUserData", priority = 2)
+	public void TextBox(TextBoxUser user) {
+	    testRep = extentReportManager.createTest("Test Text Box");
+	    testRep.info("Starting test for Elements | Text Box");
+	    demoqaLog.info("Starting Test Elements | Text Box Test...");
 
+	    elementsPage elementsPage = new elementsPage(driver);
+	    elementsPage.accessElements();
+	    elementsPage.clickTextBox();
+
+	    elementsPage.fillTextBoxForm(user);
+//	    elementsPage.submitButton();
+	    WebElement submitButton = driver.findElement(By.id("submit"));
+	    JSclick.scrollAndClick(driver, submitButton);
+
+	    elementsPage.validateTextBoxForm(user);
+
+	    testRep.info("Text Box Element Test Completed...");
+	    demoqaLog.info("Text Box Element Test Completed...");
 	}
-
+	
 	@Test(priority = 3)
 	public void CheckBox() {
 		testRep = extentReportManager.createTest("Test Check Box");
@@ -445,7 +451,7 @@ public class ElementsTests extends demoqaBase {
 		demoqaLog.info("Test Elements|Yes Radio Button Completed...");
 	}
 
-	@Test(priority = 25, dependsOnMethods = { "clickRadioButton" })
+	@Test(priority = 25)
 	public void SelectImpressiveRadioButton() {
 		testRep = extentReportManager.createTest("Test Impressive Radio Button Selection...");
 		testRep.info("Starting test for Selectng Impressive Radio Button");
@@ -471,7 +477,7 @@ public class ElementsTests extends demoqaBase {
 		demoqaLog.info("Test Elements|Web Tables Completed...");
 	}
 
-	@Test(priority = 27, dataProvider = "WebTableUserData", dependsOnMethods = { "WebTablesClick" })
+	@Test(priority = 27, dataProvider = "WebTableUserData")
 	public void webTableNewRegistration(WebTableUser user) {
 		testRep = extentReportManager.createTest("Test Elements|Web Tables|Registration Form Create User...");
 		testRep.info("Starting test for Web Tables|Registration Form Create User...");
@@ -487,7 +493,7 @@ public class ElementsTests extends demoqaBase {
 		demoqaLog.info("Test Elements|Web Tables|Registration Form Create User Completed...");
 	}
 
-	@Test(priority = 28, dataProvider = "WTFormDataEdit", dependsOnMethods = { "WebTablesClick" })
+	@Test(priority = 28, dataProvider = "WTFormDataEdit")
 	public void webTableAddSearch(WebTableUser user) {
 		testRep = extentReportManager.createTest("Test Registration Form Add & Search...");
 		testRep.info("Starting test for Registration Form Add & Search...");
@@ -508,7 +514,7 @@ public class ElementsTests extends demoqaBase {
 		demoqaLog.info("Test for Registration Form Add & Search Completed...");
 	}
 
-	@Test(priority = 29, dataProvider = "WTFormDataEdit", dependsOnMethods = { "WebTablesClick" })
+	@Test(priority = 29, dataProvider = "WTFormDataEdit")
 	public void webTableAddEditFirstName(WebTableUser user) {
 		testRep = extentReportManager.createTest("Test Registration Form Modify First Name...");
 		testRep.info("Starting Test for Registration Form Modify First Name...");
@@ -537,7 +543,7 @@ public class ElementsTests extends demoqaBase {
 		demoqaLog.info("Test Registration Form Modify First Name Completed Successfully...");
 	}
 
-	@Test(priority = 30, dataProvider = "WTFormDataEdit", dependsOnMethods = { "WebTablesClick" })
+	@Test(priority = 30, dataProvider = "WTFormDataEdit")
 	public void webTableAddSearchEdit(WebTableUser user) {
 		testRep = extentReportManager.createTest("Test Registration Form Search & Modify First Name...");
 		testRep.info("Starting Test for Registration Form Search & Modify First Name...");
@@ -563,7 +569,7 @@ public class ElementsTests extends demoqaBase {
 		demoqaLog.info("Test Registration Form Search & Modify First Name Completed Successfully...");
 	}
 
-	@Test(priority = 31, dataProvider = "WTFormDataEdit", dependsOnMethods = { "WebTablesClick" })
+	@Test(priority = 31, dataProvider = "WTFormDataEdit")
 	public void webTableDeleteUser(WebTableUser user) {
 		testRep = extentReportManager.createTest("Test Deleting User from Web Table...");
 		testRep.info("Starting Test for Deleting User from Web Table...");
@@ -585,7 +591,7 @@ public class ElementsTests extends demoqaBase {
 	}
 
 	@CaptureOnSuccess(description = "Web Table filled by taking data input from a Spreadsheet - Successfully", screenshotMode = "viewport")
-	@Test(priority = 32, dependsOnMethods = { "WebTablesClick" }) // Do not user data provider
+	@Test(priority = 32)
 	public void testAddAllUsersFromExcel() throws IOException {
 		testRep = extentReportManager.createTest("Test Bulk User Creation in Web Table...");
 		testRep.info("Starting Test for Bulk User Creation in Web Table...");
@@ -620,7 +626,7 @@ public class ElementsTests extends demoqaBase {
 		demoqaLog.info("Test for Bulk User Creation in Web Table Completed Successfully...");
 	}
 
-	@Test(priority = 33, dependsOnMethods = { "WebTablesClick" })
+	@Test(priority = 33)
 	public void testAddAllUsersSearchEdit() throws IOException {
 		// Initialize page and table manager
 		elementsPage elementsPage = new elementsPage(driver);
@@ -674,7 +680,7 @@ public class ElementsTests extends demoqaBase {
 
 	}
 
-	@Test(priority = 34, dependsOnMethods = { "WebTablesClick" })
+	@Test(priority = 34)
 	public void EditSalaryDepartment() throws IOException {
 		elementsPage elementsPage = new elementsPage(driver);
 		WebTableManager tableManager = new WebTableManager(driver);

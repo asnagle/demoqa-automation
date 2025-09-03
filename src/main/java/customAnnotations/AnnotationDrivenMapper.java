@@ -10,28 +10,40 @@ public class AnnotationDrivenMapper {
             T instance = clazz.getDeclaredConstructor().newInstance();
 
             for (Field field : clazz.getDeclaredFields()) {
-                if (field.isAnnotationPresent(ColumnMapping.class)) {
-                    ColumnMapping mapping = field.getAnnotation(ColumnMapping.class);
-                    String header = mapping.name();
-                    String value = rowMap.get(header);
+                if (!field.isAnnotationPresent(ColumnMapping.class)) continue;
 
-                    if (value != null) {
-                        field.setAccessible(true);
-                        field.set(instance, convertValue(value, field.getType()));
-                    }
+                ColumnMapping mapping = field.getAnnotation(ColumnMapping.class);
+                String headerKey = mapping.name().trim();
+                String rawValue = rowMap.getOrDefault(headerKey, "").trim();
+
+                System.out.println("🔍 Mapping field: " + field.getName() +
+                                   " | Excel Column: " + headerKey +
+                                   " | Value: " + rawValue);
+
+                if (!rawValue.isEmpty()) {
+                    field.setAccessible(true);
+                    Object converted = convertValue(rawValue, field.getType());
+                    field.set(instance, converted);
                 }
             }
 
             return instance;
         } catch (Exception e) {
-            throw new RuntimeException("Failed to map row to POJO: " + e.getMessage(), e);
+            throw new RuntimeException("❌ Failed to map row to POJO: " + clazz.getSimpleName(), e);
         }
     }
 
     private static Object convertValue(String value, Class<?> type) {
-        if (type == int.class || type == Integer.class) return Integer.parseInt(value.replaceAll("[^\\d]", ""));
-        if (type == double.class || type == Double.class) return Double.parseDouble(value.replaceAll("[^\\d.]", ""));
-        if (type == boolean.class || type == Boolean.class) return Boolean.parseBoolean(value);
+        try {
+            if (type == int.class || type == Integer.class)
+                return Integer.parseInt(value.replaceAll("[^\\d]", ""));
+            if (type == double.class || type == Double.class)
+                return Double.parseDouble(value.replaceAll("[^\\d.]", ""));
+            if (type == boolean.class || type == Boolean.class)
+                return Boolean.parseBoolean(value);
+        } catch (NumberFormatException e) {
+            System.err.println("⚠️ Failed to convert value: '" + value + "' to type: " + type.getSimpleName());
+        }
         return value.trim();
     }
 }

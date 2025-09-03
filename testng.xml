@@ -1,17 +1,29 @@
 <suite name="demoqa-automation TestSuite">
+	<listeners>
+		<listener class-name="utils.RetryTransformer" />
+	</listeners>
+
 	<test name="Elements test">
 		<classes>
 			<class name="tests.ElementsTests" />
 		</classes>
 	</test>
+
 	<test name="Forms test">
 		<classes>
 			<class name="tests.FormTests" />
 		</classes>
 	</test>
+
 	<test name="Alerts-Forms-Windows test">
 		<classes>
 			<class name="tests.AlertsFramesWindowsTests" />
+		</classes>
+	</test>
+
+	<test name="Widgets test">
+		<classes>
+			<class name="tests.WidgetsTests" />
 		</classes>
 	</test>
 </suite>

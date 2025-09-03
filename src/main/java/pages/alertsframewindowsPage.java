@@ -14,7 +14,7 @@ import org.testng.Assert;
 import base.demoqaBase;
 import utils.JSclick;
 import utils.WindowValidationUtils;
-import utils.waitForElement;
+//import utils.waitForElement;
 
 public class alertsframewindowsPage extends demoqaBase {
 
@@ -22,7 +22,7 @@ public class alertsframewindowsPage extends demoqaBase {
 	WebElement Cardpage;
 
 	@FindBy(xpath = "//body/div[@id='app']/div[contains(@class,'body-height')]/div[contains(@class,'container playgound-body')]/div[contains(@class,'row')]/div[contains(@class,'col-md-3')]/div[contains(@class,'left-pannel')]/div[contains(@class,'accordion')]/div[3]/span[1]/div[1]/div[1]")
-	WebElement pageText;
+	WebElement CardPgTitle;
 
 	@FindBy(xpath = "//div[contains(@class,'element-list collapse show')]//li[@id='item-0']")
 	WebElement BrowserWindows;
@@ -145,9 +145,9 @@ public class alertsframewindowsPage extends demoqaBase {
 		System.out.println("Declared Instance WebDriverWait: " + wait);
 		homePage.clickAlertsFrameWindowsCard();
 		System.out.println("Title of this Page is: " + driver.getTitle());
-		System.out.println("You can now access: " + pageText.getText());
-		demoqaLog.info("Page: Alerts, Frame & Windows Card...");
+		System.out.println("You are Accessing: " + CardPgTitle.getText());
 		String cardpage = Cardpage.getText();
+		demoqaLog.info("Alerts, Frame & Windows Card: " + cardpage);
 
 		Assert.assertEquals("Please select an item from left to start practice.", cardpage);
 	}
@@ -331,6 +331,12 @@ public class alertsframewindowsPage extends demoqaBase {
 	    driver.switchTo().frame(frame2);
         Assert.assertEquals(true, driver.getPageSource().contains("This is a sample page"));
 	    demoqaLog.info("✅ Switched to Frame1...");
+	    try {
+			Thread.sleep(3000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	    String frame2msg = frame2Content.getText();
 	    demoqaLog.info("Frame1 contains: " + frame2msg);
 	    
@@ -351,6 +357,12 @@ public class alertsframewindowsPage extends demoqaBase {
 	
 	public void GetParentFramemsg() {
 	    demoqaLog.info("🔍 Starting test for Frames|Parent Frame Message...");
+	    try {
+			Thread.sleep(3000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 
 	    driver.switchTo().frame(parentFrame);
         Assert.assertEquals(true, driver.getPageSource().contains("Parent frame"));

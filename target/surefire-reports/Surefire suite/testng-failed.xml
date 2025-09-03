@@ -5,18 +5,45 @@
     <classes>
       <class name="tests.ElementsTests">
         <methods>
-          <include name="SelectGeneral"/>
-          <include name="TearDown"/>
-          <include name="SelectPrivate"/>
+          <include name="DynamicPropertiesbtn"/>
           <include name="setupReport"/>
+          <include name="VisibleAfterbtn"/>
           <include name="Downloadbtn"/>
           <include name="teardownReport"/>
-          <include name="SelectPublic"/>
-          <include name="SelectClassified"/>
-          <include name="RightClickButton"/>
+          <include name="WillEnablebtn"/>
+          <include name="ColorChangebtn"/>
+          <include name="tearDown"/>
+          <include name="Uploadbtn"/>
           <include name="setUP"/>
         </methods>
       </class> <!-- tests.ElementsTests -->
+      <class name="tests.AlertsFramesWindowsTests">
+        <methods>
+          <include name="setupReport"/>
+          <include name="teardownReport"/>
+          <include name="GetFrame2"/>
+          <include name="tearDown"/>
+          <include name="setUP"/>
+        </methods>
+      </class> <!-- tests.AlertsFramesWindowsTests -->
+      <class name="tests.FormTests">
+        <methods>
+          <include name="setupReport"/>
+          <include name="fillForm"/>
+          <include name="teardownReport"/>
+          <include name="tearDown"/>
+          <include name="setUP"/>
+        </methods>
+      </class> <!-- tests.FormTests -->
+      <class name="tests.WidgetsTests">
+        <methods>
+          <include name="setupReport"/>
+          <include name="AccessWhatis"/>
+          <include name="teardownReport"/>
+          <include name="tearDown"/>
+          <include name="setUP"/>
+        </methods>
+      </class> <!-- tests.WidgetsTests -->
     </classes>
   </test> <!-- Surefire test(failed) -->
 </suite> <!-- Failed suite [Surefire suite] -->

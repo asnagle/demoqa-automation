@@ -16,8 +16,8 @@ public class AlertsFramesWindowsTests extends demoqaBase {
 		demoqaLog.info("Starting Test Alerts, Frames & Windows...");
 		alertsframewindowsPage alertsframewindowsPage = new alertsframewindowsPage(driver);
 		alertsframewindowsPage.accessAlertFramesWindows();
-		testRep.info("Test  Alerts, Frames & Windows Test Completed...");
-		demoqaLog.info(" Alerts, Frames & Windows Test Completed...");
+		testRep.info("Test Alerts, Frames & Windows Test Completed...");
+		demoqaLog.info("Alerts, Frames & Windows Test Completed...");
 	}
 
 	@Test(priority = 2)
@@ -28,8 +28,8 @@ public class AlertsFramesWindowsTests extends demoqaBase {
 		alertsframewindowsPage alertsframewindowsPage = new alertsframewindowsPage(driver);
 		alertsframewindowsPage.accessAlertFramesWindows();
 		alertsframewindowsPage.clickBrowserWindow();
-		testRep.info("Test  Alerts, Frames & Windows|Browser Windows Test Completed...");
-		demoqaLog.info(" Alerts, Frames & Windows|Browser Windows Test Completed...");
+		testRep.info("Test Alerts, Frames & Windows|Browser Windows Test Completed...");
+		demoqaLog.info("Alerts, Frames & Windows|Browser Windows Test Completed...");
 	}
 	
 	@Test(priority = 3)

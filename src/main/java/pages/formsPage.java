@@ -1,6 +1,9 @@
 package pages;
 
 import java.time.Duration;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
 import java.util.List;
 import java.util.NoSuchElementException;
 
@@ -17,9 +20,7 @@ import org.testng.Assert;
 import base.demoqaBase;
 import models.UserFormData;
 import utils.DataSanitizer;
-import utils.DateParts;
 import utils.DatePickerUtils;
-import utils.DateUtils;
 import utils.JSclick;
 import utils.RetryUrlAccess;
 //import utils.demoqaLog;
@@ -136,10 +137,6 @@ public class formsPage extends demoqaBase {
 		WebElement genderLabel = wait
 				.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("label[for='" + inputId + "']")));
 
-		// Scroll into view & use JS click to avoid iframe issue
-//		JavascriptExecutor js = (JavascriptExecutor) driver;
-//		js.executeScript("arguments[0].scrollIntoView(true);", genderLabel);
-//		js.executeScript("arguments[0].click();", genderLabel);
 		JSclick.scrollAndClick(driver, genderLabel);
 
 		System.out.println("Selected gender: " + genderText);
@@ -163,40 +160,54 @@ public class formsPage extends demoqaBase {
 	}
 	
 	
-    public void fillDob(String dobStr) {
-        System.out.println("📥 Received DOB: " + dobStr);
+	public void fillDob(String dobStr) {
+	    System.out.println("📥 Received DOB: " + dobStr);
 
-        if (dobStr == null || dobStr.trim().isEmpty()) {
-            System.out.println("⚠️ DOB is empty or null. Skipping date picker.");
-            return;
-        }
+	    if (dobStr == null || dobStr.trim().isEmpty()) {
+	        System.out.println("⚠️ DOB is empty or null. Skipping date picker.");
+	        return;
+	    }
 
-        try {
-            // Step 1: Extract structured date components
-            DateParts parts = DateUtils.extractDateParts(dobStr);
+	    try {
+	        // Step 1: Normalize input
+	        dobStr = dobStr.trim().replace("/", "-");
 
-            // Step 2: Normalize and store DOB
-            String normalizedDob = String.format("%02d-%02d-%04d", parts.day, parts.month, parts.year);
-            data.setDob(normalizedDob);
-            System.out.println("📅 Normalized DOB: " + normalizedDob);
+	        // Step 2: Validate format
+	        if (!dobStr.matches("\\d{2}-\\d{2}-\\d{4}")) {
+	            throw new IllegalArgumentException("DOB must be in dd-MM-yyyy format");
+	        }
 
-            // Step 3: Select date using utility
-            DatePickerUtils picker = new DatePickerUtils(driver);
-            picker.selectDate(normalizedDob); // Use normalized format for calendar interaction
+	        // Step 3: Parse using LocalDate for safety
+	        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+	        LocalDate dob = LocalDate.parse(dobStr, formatter);
 
-        } catch (NumberFormatException nfe) {
-            System.err.println("❌ Invalid number format in DOB: " + dobStr);
-            throw new RuntimeException("DOB contains non-numeric values", nfe);
-        } catch (IllegalArgumentException iae) {
-            System.err.println("❌ DOB format is incorrect: " + dobStr);
-            throw new RuntimeException("DOB must be in dd-MM-yyyy format", iae);
-        } catch (Exception e) {
-            System.err.println("❌ Unexpected error while processing DOB: " + dobStr);
-            throw new RuntimeException("Failed to process DOB", e);
-        }
-    }    
+	        // Step 4: Normalize and store DOB
+	        String normalizedDob = dob.format(formatter); // Ensures consistent format
+	        data.setDob(normalizedDob);
+	        System.out.println("📅 Normalized DOB: " + normalizedDob);
+
+	        // Step 5: Select date using utility
+	        DatePickerUtils picker = new DatePickerUtils(driver);
+	        picker.selectDate(normalizedDob); // Assuming this accepts dd-MM-yyyy
+
+	    } catch (DateTimeParseException dtpe) {
+	        System.err.println("❌ Failed to parse DOB: " + dobStr);
+	        throw new RuntimeException("DOB must be in dd-MM-yyyy format", dtpe);
+
+	    } catch (Exception e) {
+	        System.err.println("❌ Unexpected error while processing DOB: " + dobStr);
+	        e.printStackTrace();
+	        throw new RuntimeException("Failed to process DOB", e);
+	    }
+	}
+	
 	public String getDobFromForm() {
 		return datePicker.getAttribute("value").trim();
+	}
+	
+	public void fillDob(LocalDate dob) {
+	    String formatted = dob.format(DateTimeFormatter.ofPattern("dd-MM-yyyy"));
+	    fillDob(formatted); // delegate to existing String method
 	}
 
 	public void enterSubject(String subject) {
