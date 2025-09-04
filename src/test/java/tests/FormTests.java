@@ -30,39 +30,34 @@ public class FormTests extends demoqaBase {
 		String filePath = System.getProperty("user.dir") + "/TestData/Students_Details.xlsx";
 		return ExcelUtils.getMappedData(filePath, "Sheet1", UserFormData.class);
 	}
-//	public Object[][] provideUserFormData() throws IOException {
-//	    String filePath = System.getProperty("user.dir") + "/TestData/Students_Details.xlsx";
-//	    return new ExcelUtils().getMappedData(filePath, "Sheet1", UserFormData.class);
-//	}
 
 	@Test(priority = 1)
 	public void FormsCard() {
 		testRep = extentReportManager.createTest("Test Access to Form Card");
-		testRep.info("Starting test for Form Card Access");
-		demoqaLog.info("Starting Form Card Test...");
-//		homePage homePage = new homePage(driver);
+		testRep.info("🧪 Starting test for Form Card Access");
+		demoqaLog.info("🧪 Starting Form Card Test...");
 		formsPage formsPage = new formsPage(driver);
 		formsPage.accessForms();
 		System.out.println("Title of this Page is: " + driver.getTitle());
 		testRep.info("Title of this Page is: " + driver.getTitle());
-		testRep.info("Form Card Test Completed...");
-		demoqaLog.info("Form Card Test Completed...");
+		testRep.pass("✅ Test Form Card Test Completed...");
+		demoqaLog.info("✅ Form Card Test Completed...");
 	}
 
 	@Test(priority = 2)
 	public void FormButton() {
 
 		testRep = extentReportManager.createTest("Test Access to Form Card|Practice Forms...");
-		testRep.info("Starting test for Form Card Access|Practice Forms...");
-		demoqaLog.info("Starting Form Card Test...");
+		testRep.info("🧪 Starting test for Form Card Access|Practice Forms...");
+		demoqaLog.info("🧪 Starting Form Card Test...");
 		homePage homePage = new homePage(driver);
 		homePage.clickFormCard();
 		formsPage formsPage = new formsPage(driver);
 		formsPage.clickPracticeForm();
 		System.out.println("Title of this Page is: " + driver.getTitle());
 		testRep.info("Title of this Page is: " + driver.getTitle());
-		testRep.info("Form Card|Practice Forms Test Completed...");
-		demoqaLog.info("Form Card|Practice Forms Test Completed...");
+		testRep.pass("✅ Test Form Card|Practice Forms Test Completed...");
+		demoqaLog.info("✅ Form Card|Practice Forms Test Completed...");
 	}
 
 //		================= Code for Data Driven Testing ===============
@@ -71,8 +66,8 @@ public class FormTests extends demoqaBase {
 	public void fillForm(models.UserFormData data) {
 
 	    testRep = extentReportManager.createTest("Test Form Filling");
-	    testRep.info("Starting test for Form Filling");
-	    demoqaLog.info("Starting Form Filling Test...");
+	    testRep.info("🧪 Starting test for Form Filling");
+	    demoqaLog.info("🧪 Starting Form Filling Test...");
 
 	    formsPage formsPage = new formsPage(driver);
 	    testRep.info("Accessing Practice Form");
@@ -121,7 +116,7 @@ public class FormTests extends demoqaBase {
 
 	    AssertFormData.assertConfirmation(data, driver, By.cssSelector("table tbody tr"), demoqaLog);
 
-	    testRep.pass("Test Form Filling Completed Successfully");
-	    demoqaLog.info("Test Form Filling Completed for: " + fullName);
+	    testRep.pass("✅ Test Form Filling Completed Successfully");
+	    demoqaLog.info("✅ Form Filling Completed for: " + fullName);
 	}
 }

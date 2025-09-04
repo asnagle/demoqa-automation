@@ -3,15 +3,15 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="tests.ElementsTests">
+      <class name="tests.WidgetsTests">
         <methods>
-          <include name="TextBox" invocation-numbers="2"/>
-          <include name="TearDown"/>
+          <include name="SingleAddRemove" invocation-numbers="0"/>
           <include name="setupReport"/>
           <include name="teardownReport"/>
+          <include name="tearDown"/>
           <include name="setUP"/>
         </methods>
-      </class> <!-- tests.ElementsTests -->
+      </class> <!-- tests.WidgetsTests -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

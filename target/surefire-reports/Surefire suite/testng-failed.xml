@@ -5,16 +5,15 @@
     <classes>
       <class name="tests.ElementsTests">
         <methods>
-          <include name="DynamicPropertiesbtn"/>
           <include name="setupReport"/>
-          <include name="VisibleAfterbtn"/>
+          <include name="SelectingAllFiles"/>
           <include name="Downloadbtn"/>
           <include name="teardownReport"/>
-          <include name="WillEnablebtn"/>
-          <include name="ColorChangebtn"/>
+          <include name="DoubleClickButtons"/>
+          <include name="SelectOfficeAll"/>
           <include name="tearDown"/>
-          <include name="Uploadbtn"/>
           <include name="setUP"/>
+          <include name="SelectAngular"/>
         </methods>
       </class> <!-- tests.ElementsTests -->
       <class name="tests.AlertsFramesWindowsTests">
@@ -26,20 +25,14 @@
           <include name="setUP"/>
         </methods>
       </class> <!-- tests.AlertsFramesWindowsTests -->
-      <class name="tests.FormTests">
-        <methods>
-          <include name="setupReport"/>
-          <include name="fillForm"/>
-          <include name="teardownReport"/>
-          <include name="tearDown"/>
-          <include name="setUP"/>
-        </methods>
-      </class> <!-- tests.FormTests -->
       <class name="tests.WidgetsTests">
         <methods>
+          <include name="SingleAddRemove"/>
           <include name="setupReport"/>
-          <include name="AccessWhatis"/>
           <include name="teardownReport"/>
+          <include name="AutoCompleteSingle"/>
+          <include name="AutoCompleteSearch"/>
+          <include name="AutoCompleteSearchRemove"/>
           <include name="tearDown"/>
           <include name="setUP"/>
         </methods>

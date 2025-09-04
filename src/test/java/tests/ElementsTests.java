@@ -67,14 +67,14 @@ public class ElementsTests extends demoqaBase {
 	@Test(priority = 1)
 	public void ElementsCard() {
 		testRep = extentReportManager.createTest("Test Elements");
-		testRep.info("Starting test for Elements | Text Box");
-		demoqaLog.info("Starting Test Elements | Text Box Test...");
+		testRep.info("🧪 Starting test for Elements | Text Box");
+		demoqaLog.info("🧪 Starting Test Elements | Text Box Test...");
 		elementsPage elementsPage = new elementsPage(driver);
 		elementsPage.accessElements();
 		System.out.println("Title of this Page is: " + driver.getTitle());
 		testRep.info("Title of this Page is: " + driver.getTitle());
-		testRep.info("Element Card Test Completed...");
-		demoqaLog.info("Element Card Test Completed...");
+		testRep.info("✅ Element Card Test Completed...");
+		demoqaLog.info("✅ Element Card Test Completed...");
 
 	}
 
@@ -82,8 +82,8 @@ public class ElementsTests extends demoqaBase {
 	@Test(dataProvider = "TextBoxUserData", priority = 2)
 	public void TextBox(TextBoxUser user) {
 	    testRep = extentReportManager.createTest("Test Text Box");
-	    testRep.info("Starting test for Elements | Text Box");
-	    demoqaLog.info("Starting Test Elements | Text Box Test...");
+	    testRep.info("🧪 Starting test for Elements | Text Box");
+	    demoqaLog.info("🧪 Starting Test Elements | Text Box Test...");
 
 	    elementsPage elementsPage = new elementsPage(driver);
 	    elementsPage.accessElements();
@@ -96,85 +96,85 @@ public class ElementsTests extends demoqaBase {
 
 	    elementsPage.validateTextBoxForm(user);
 
-	    testRep.info("Text Box Element Test Completed...");
-	    demoqaLog.info("Text Box Element Test Completed...");
+	    testRep.info("✅ Text Box Element Test Completed...");
+	    demoqaLog.info("✅ Text Box Element Test Completed...");
 	}
 	
 	@Test(priority = 3)
 	public void CheckBox() {
 		testRep = extentReportManager.createTest("Test Check Box");
-		testRep.info("Starting test for Elements | Check Box");
-		demoqaLog.info("Starting Test Elements | Check Box Test...");
+		testRep.info("🧪 Starting test for Elements | Check Box");
+		demoqaLog.info("🧪 Starting Test Elements | Check Box Test...");
 		elementsPage elementsPage = new elementsPage(driver);
 		elementsPage.accessElements();
 		elementsPage.clickCheckBox();
-		testRep.info("Test Elements | Check Box Test Completed...");
-		demoqaLog.info("Test Elements | Check Box Test Test Completed...");
+		testRep.info("✅ Test Elements | Check Box Test Completed...");
+		demoqaLog.info("✅ Test Elements | Check Box Test Test Completed...");
 	}
 
 	@Test(priority = 4)
 	public void SelectingHomeCheckBox() {
 		testRep = extentReportManager.createTest("Test Selecting Home Check Box");
-		testRep.info("Starting test for Elements | Selecting Home Check Box");
-		demoqaLog.info("Starting Test Elements | Selecting Home Check Box Test...");
+		testRep.info("🧪 Starting test for Elements | Selecting Home Check Box");
+		demoqaLog.info("🧪 Starting Test Elements | Selecting Home Check Box Test...");
 		elementsPage elementsPage = new elementsPage(driver);
 		elementsPage.accessElements();
 		elementsPage.clickCheckBox();
 		elementsPage.clickHomeCheckBox();
 		elementsPage.validateSelectedCheckBox();
-		testRep.info("Test Elements | Selecting Home Test Completed...");
-		demoqaLog.info("Elements | Selecting Home Test Completed...");
+		testRep.info("✅ Test Elements | Selecting Home Test Completed...");
+		demoqaLog.info("✅ Elements | Selecting Home Test Completed...");
 	}
 
 	@Test(priority = 5)
 	public void SelectingDesktopCheckBox() {
 		testRep = extentReportManager.createTest("Test Selecting Desktop Check Box");
-		testRep.info("Starting test for Elements | Selecting Desktop Check Box");
-		demoqaLog.info("Starting Test Elements | Selecting Desktop Check Box Test...");
+		testRep.info("🧪 Starting test for Elements | Selecting Desktop Check Box");
+		demoqaLog.info("🧪 Starting Test Elements | Selecting Desktop Check Box Test...");
 		elementsPage elementsPage = new elementsPage(driver);
 		elementsPage.accessElements();
 		elementsPage.clickCheckBox();
 		elementsPage.ToggleHome();
 		elementsPage.DesktopCheckBox();
 		elementsPage.validateSelectedCheckBox();
-		testRep.info("Test Elements | Home | Desktop Test Completed...");
-		demoqaLog.info("Elements | Home | Desktop Test Completed...");
+		testRep.info("✅ Test Elements | Home | Desktop Test Completed...");
+		demoqaLog.info("✅ Elements | Home | Desktop Test Completed...");
 	}
 
 	@Test(priority = 6)
 	public void SelectingNotesCommandsClick() {
 		testRep = extentReportManager.createTest("Test Selecting Desktop| Notes & Commands Check Box");
-		testRep.info("Starting test for Elements | Selecting Desktop| Notes & Commands Check Box");
-		demoqaLog.info("Starting Test Elements | Selecting Desktop| Notes & Commands Check Box Test...");
+		testRep.info("🧪 Starting test for Elements | Selecting Desktop| Notes & Commands Check Box");
+		demoqaLog.info("🧪 Starting Test Elements | Selecting Desktop| Notes & Commands Check Box Test...");
 		elementsPage elementsPage = new elementsPage(driver);
 		elementsPage.accessElements();
 		elementsPage.clickCheckBox();
 		elementsPage.selectNotesCommands();
 		elementsPage.validateSelectedCheckBox();
-		testRep.info("Test Elements | Home | Desktop | Notes & Commands Test Completed...");
-		demoqaLog.info("Elements | Home | Desktop | Notes & Commands Completed...");
+		testRep.info("✅ Test Elements | Home | Desktop | Notes & Commands Test Completed...");
+		demoqaLog.info("✅ Elements | Home | Desktop | Notes & Commands Completed...");
 	}
 
 	@Test(priority = 7)
 	public void SelectingDocumentsCheckBox() {
 		testRep = extentReportManager.createTest("Test Selecting Documents Check Box");
-		testRep.info("Starting test for Elements | Selecting Documents Check Box");
-		demoqaLog.info("Starting Test Elements | Selecting Documents Check Box Test...");
+		testRep.info("🧪 Starting test for Elements | Selecting Documents Check Box");
+		demoqaLog.info("🧪 Starting Test Elements | Selecting Documents Check Box Test...");
 		elementsPage elementsPage = new elementsPage(driver);
 		elementsPage.accessElements();
 		elementsPage.clickCheckBox();
 		elementsPage.ToggleHome();
 		elementsPage.DocumentsCheckbox();
 		elementsPage.validateSelectedCheckBox();
-		testRep.info("Test Elements | Selecting Documents Check Box Test Completed...");
-		demoqaLog.info("Test Elements | Selecting Documents Check Box Test Completed...");
+		testRep.info("✅ Test Elements | Selecting Documents Check Box Test Completed...");
+		demoqaLog.info("✅ Test Elements | Selecting Documents Check Box Test Completed...");
 	}
 
 	@Test(priority = 8)
 	public void SelectingWorkSpace() {
 		testRep = extentReportManager.createTest("Test Selecting Documents| WorkSpace Check Box");
-		testRep.info("Starting test for Elements | Home | Selecting Documents | WorkSpace Check Box");
-		demoqaLog.info("Starting Test Elements | Home | Selecting Documents | WorkSpace Check Box Test...");
+		testRep.info("🧪 Starting test for Elements | Home | Selecting Documents | WorkSpace Check Box");
+		demoqaLog.info("🧪 Starting Test Elements | Home | Selecting Documents | WorkSpace Check Box Test...");
 		elementsPage elementsPage = new elementsPage(driver);
 		elementsPage.accessElements();
 		elementsPage.clickCheckBox();
@@ -182,15 +182,15 @@ public class ElementsTests extends demoqaBase {
 		elementsPage.ToggleDocuments();
 		elementsPage.selectWorkSpace();
 		elementsPage.validateSelectedCheckBox();
-		testRep.info("Test Elements | Home | Selecting Documents | WorkSpace Check Box Test Completed...");
-		demoqaLog.info("Test Elements | Home | Selecting Documents | WorkSpace Check Box Completed...");
+		testRep.info("✅ Test Elements | Home | Selecting Documents | WorkSpace Check Box Test Completed...");
+		demoqaLog.info("✅ Test Elements | Home | Selecting Documents | WorkSpace Check Box Completed...");
 	}
 
 	@Test(priority = 9)
 	public void SelectReact() {
 		testRep = extentReportManager.createTest("Test Selecting Documents|WorkSpace|React Check Box");
-		testRep.info("Starting test for Elements|Home|Documents| Selecting WorkSpace|React Check Box");
-		demoqaLog.info("Starting Test Elements|Home|Selecting Documents|WorkSpace|React Check Box Test...");
+		testRep.info("🧪 Starting test for Elements|Home|Documents| Selecting WorkSpace|React Check Box");
+		demoqaLog.info("🧪 Starting Test Elements|Home|Selecting Documents|WorkSpace|React Check Box Test...");
 		elementsPage elementsPage = new elementsPage(driver);
 		elementsPage.accessElements();
 		elementsPage.clickCheckBox();
@@ -199,15 +199,15 @@ public class ElementsTests extends demoqaBase {
 		elementsPage.ToggleWorkSpace();
 		elementsPage.selectReact();
 		elementsPage.validateSelectedCheckBox();
-		testRep.info("Test Elements|Home|Documents| Selecting WorkSpace|React Check Box Test Completed...");
-		demoqaLog.info("Test Elements|Home|Documents| Selecting WorkSpace|React Check Box Completed...");
+		testRep.info("✅ Test Elements|Home|Documents| Selecting WorkSpace|React Check Box Test Completed...");
+		demoqaLog.info("✅ Test Elements|Home|Documents| Selecting WorkSpace|React Check Box Completed...");
 	}
 
 	@Test(priority = 10)
 	public void SelectAngular() {
 		testRep = extentReportManager.createTest("Test Selecting Documents|WorkSpace|Angular Check Box");
-		testRep.info("Starting test for Elements|Home|Documents| Selecting WorkSpace|Angular Check Box");
-		demoqaLog.info("Starting Test Elements|Home|Selecting Documents|WorkSpace|Angular Check Box Test...");
+		testRep.info("🧪 Starting test for Elements|Home|Documents| Selecting WorkSpace|Angular Check Box");
+		demoqaLog.info("🧪 Starting Test Elements|Home|Selecting Documents|WorkSpace|Angular Check Box Test...");
 		elementsPage elementsPage = new elementsPage(driver);
 		elementsPage.accessElements();
 		elementsPage.clickCheckBox();
@@ -216,15 +216,15 @@ public class ElementsTests extends demoqaBase {
 		elementsPage.ToggleWorkSpace();
 		elementsPage.selectAngular();
 		elementsPage.validateSelectedCheckBox();
-		testRep.info("Test Elements|Home|Documents| Selecting WorkSpace|Angular Check Box Test Completed...");
-		demoqaLog.info("Test Elements|Home|Documents| Selecting WorkSpace|Angular Check Box Completed...");
+		testRep.info("✅ Test Elements|Home|Documents| Selecting WorkSpace|Angular Check Box Test Completed...");
+		demoqaLog.info("✅ Test Elements|Home|Documents| Selecting WorkSpace|Angular Check Box Completed...");
 	}
 
 	@Test(priority = 11)
 	public void SelectVeu() {
 		testRep = extentReportManager.createTest("Test Selecting Documents|WorkSpace|Veu Check Box");
-		testRep.info("Starting test for Elements|Home|Documents| Selecting WorkSpace|Veu Check Box");
-		demoqaLog.info("Starting Test Elements|Home|Selecting Documents|WorkSpace|Veu Check Box Test...");
+		testRep.info("🧪 Starting test for Elements|Home|Documents| Selecting WorkSpace|Veu Check Box");
+		demoqaLog.info("🧪 Starting Test Elements|Home|Selecting Documents|WorkSpace|Veu Check Box Test...");
 		elementsPage elementsPage = new elementsPage(driver);
 		elementsPage.accessElements();
 		elementsPage.clickCheckBox();
@@ -233,15 +233,15 @@ public class ElementsTests extends demoqaBase {
 		elementsPage.ToggleWorkSpace();
 		elementsPage.selectVeu();
 		elementsPage.validateSelectedCheckBox();
-		testRep.info("Test Elements|Home|Documents| Selecting WorkSpace|Veu Check Box Test Completed...");
-		demoqaLog.info("Test Elements|Home|Documents| Selecting WorkSpace|Veu Check Box Completed...");
+		testRep.info("✅ Test Elements|Home|Documents| Selecting WorkSpace|Veu Check Box Test Completed...");
+		demoqaLog.info("✅ Test Elements|Home|Documents| Selecting WorkSpace|Veu Check Box Completed...");
 	}
 
 	@Test(priority = 12)
 	public void SelectReactAnuglarVeu() {
 		testRep = extentReportManager.createTest("Test Selecting Documents|WorkSpace|React-Anuglar-Veu Check Box");
-		testRep.info("Starting test for Elements|Home|Documents| Selecting WorkSpace|React-Anuglar-Veu Check Box");
-		demoqaLog.info("Starting Test Elements|Home|Selecting Documents|WorkSpace|React-Anuglar-Veu Check Box Test...");
+		testRep.info("🧪 Starting test for Elements|Home|Documents| Selecting WorkSpace|React-Anuglar-Veu Check Box");
+		demoqaLog.info("🧪 Starting Test Elements|Home|Selecting Documents|WorkSpace|React-Anuglar-Veu Check Box Test...");
 		elementsPage elementsPage = new elementsPage(driver);
 		elementsPage.accessElements();
 		elementsPage.clickCheckBox();
@@ -252,15 +252,15 @@ public class ElementsTests extends demoqaBase {
 		elementsPage.selectAngular();
 		elementsPage.selectVeu();
 		elementsPage.validateSelectedCheckBox();
-		testRep.info("Test Elements|Home|Documents| Selecting WorkSpace|React-Anuglar-Veu Check Box Test Completed...");
-		demoqaLog.info("Test Elements|Home|Documents| Selecting WorkSpace|React-Anuglar-Veu Check Box Completed...");
+		testRep.info("✅ Test Elements|Home|Documents| Selecting WorkSpace|React-Anuglar-Veu Check Box Test Completed...");
+		demoqaLog.info("✅ Test Elements|Home|Documents| Selecting WorkSpace|React-Anuglar-Veu Check Box Completed...");
 	}
 
 	@Test(priority = 13)
 	public void SelectingOffice() {
 		testRep = extentReportManager.createTest("Test Selecting Documents|Office Check Box");
-		testRep.info("Starting test for Elements|Home|Selecting Documents|Office Check Box");
-		demoqaLog.info("Starting Test Elements|Home|Selecting Documents|Office Check Box Test...");
+		testRep.info("🧪 Starting test for Elements|Home|Selecting Documents|Office Check Box");
+		demoqaLog.info("🧪 Starting Test Elements|Home|Selecting Documents|Office Check Box Test...");
 		elementsPage elementsPage = new elementsPage(driver);
 		elementsPage.accessElements();
 		elementsPage.clickCheckBox();
@@ -268,15 +268,15 @@ public class ElementsTests extends demoqaBase {
 		elementsPage.ToggleDocuments();
 		elementsPage.selectOffice();
 		elementsPage.validateSelectedCheckBox();
-		testRep.info("Test Elements|Home|Selecting Documents|Office Check Box Test Completed...");
-		demoqaLog.info("Test Elements|Home|Selecting Documents|Office Check Box Completed...");
+		testRep.info("✅ Test Elements|Home|Selecting Documents|Office Check Box Test Completed...");
+		demoqaLog.info("✅ Test Elements|Home|Selecting Documents|Office Check Box Completed...");
 	}
 
 	@Test(priority = 14)
 	public void SelectPublic() {
 		testRep = extentReportManager.createTest("Test Documents|Office|Selecting Public Check Box");
-		testRep.info("Starting test for Elements|Home|Documents|Office|Selecting Public Check Box");
-		demoqaLog.info("Starting Test Elements|Home|Selecting Documents|Office|Public Check Box Test...");
+		testRep.info("🧪 Starting test for Elements|Home|Documents|Office|Selecting Public Check Box");
+		demoqaLog.info("🧪 Starting Test Elements|Home|Selecting Documents|Office|Public Check Box Test...");
 		elementsPage elementsPage = new elementsPage(driver);
 		elementsPage.accessElements();
 		elementsPage.clickCheckBox();
@@ -285,15 +285,15 @@ public class ElementsTests extends demoqaBase {
 		elementsPage.ToggleOffice();
 		elementsPage.selectPublic();
 		elementsPage.validateSelectedCheckBox();
-		testRep.info("Test Elements|Home|Documents|Office|Selecting Public Check Box Test Completed...");
-		demoqaLog.info("Test Elements|Home|Documents|Office|Selecting Public Check Box Completed...");
+		testRep.info("✅ Test Elements|Home|Documents|Office|Selecting Public Check Box Test Completed...");
+		demoqaLog.info("✅ Test Elements|Home|Documents|Office|Selecting Public Check Box Completed...");
 	}
 
 	@Test(priority = 15)
 	public void SelectPrivate() {
 		testRep = extentReportManager.createTest("Test Selecting Documents|Office|Selecting Private Check Box");
-		testRep.info("Starting test for Elements|Home|Documents|Office|Selecting Private Check Box");
-		demoqaLog.info("Starting Test Elements|Home|Selecting Documents|Office|Private Check Box Test...");
+		testRep.info("🧪 Starting test for Elements|Home|Documents|Office|Selecting Private Check Box");
+		demoqaLog.info("🧪 Starting Test Elements|Home|Selecting Documents|Office|Private Check Box Test...");
 		elementsPage elementsPage = new elementsPage(driver);
 		elementsPage.accessElements();
 		elementsPage.clickCheckBox();
@@ -302,15 +302,15 @@ public class ElementsTests extends demoqaBase {
 		elementsPage.ToggleOffice();
 		elementsPage.selectPrivate();
 		elementsPage.validateSelectedCheckBox();
-		testRep.info("Test Elements|Home|Documents|Office|Selecting Private Check Box Test Completed...");
-		demoqaLog.info("Test Elements|Home|Documents|Office|Selecting Private Check Box Completed...");
+		testRep.info("✅ Test Elements|Home|Documents|Office|Selecting Private Check Box Test Completed...");
+		demoqaLog.info("✅ Test Elements|Home|Documents|Office|Selecting Private Check Box Completed...");
 	}
 
 	@Test(priority = 16)
 	public void SelectClassified() {
 		testRep = extentReportManager.createTest("Test Selecting Documents|Office|Selecting Classified Check Box");
-		testRep.info("Starting test for Elements|Home|Documents|Office|Selecting Classified Check Box");
-		demoqaLog.info("Starting Test Elements|Home|Selecting Documents|Office|Classified Check Box Test...");
+		testRep.info("🧪 Starting test for Elements|Home|Documents|Office|Selecting Classified Check Box");
+		demoqaLog.info("🧪 Starting Test Elements|Home|Selecting Documents|Office|Classified Check Box Test...");
 		elementsPage elementsPage = new elementsPage(driver);
 		elementsPage.accessElements();
 		elementsPage.clickCheckBox();
@@ -319,15 +319,15 @@ public class ElementsTests extends demoqaBase {
 		elementsPage.ToggleOffice();
 		elementsPage.selectClassified();
 		elementsPage.validateSelectedCheckBox();
-		testRep.info("Test Elements|Home|Documents|Office|Selecting Classified Check Box Test Completed...");
-		demoqaLog.info("Test Elements|Home|Documents|Office|Selecting Classified Check Box Completed...");
+		testRep.info("✅ Test Elements|Home|Documents|Office|Selecting Classified Check Box Test Completed...");
+		demoqaLog.info("✅ Test Elements|Home|Documents|Office|Selecting Classified Check Box Completed...");
 	}
 
 	@Test(priority = 17)
 	public void SelectGeneral() {
 		testRep = extentReportManager.createTest("Test Selecting Documents|Office|Selecting General Check Box");
-		testRep.info("Starting test for Elements|Home|Documents|Office|Selecting General Check Box");
-		demoqaLog.info("Starting Test Elements|Home|Selecting Documents|Office|General Check Box Test...");
+		testRep.info("🧪 Starting test for Elements|Home|Documents|Office|Selecting General Check Box");
+		demoqaLog.info("🧪 Starting Test Elements|Home|Selecting Documents|Office|General Check Box Test...");
 		elementsPage elementsPage = new elementsPage(driver);
 		elementsPage.accessElements();
 		elementsPage.clickCheckBox();
@@ -336,15 +336,15 @@ public class ElementsTests extends demoqaBase {
 		elementsPage.ToggleOffice();
 		elementsPage.selectGeneral();
 		elementsPage.validateSelectedCheckBox();
-		testRep.info("Test Elements|Home|Documents|Office|Selecting General Check Box Test Completed...");
-		demoqaLog.info("Test Elements|Home|Documents|Office|Selecting General Check Box Completed...");
+		testRep.info("✅ Test Elements|Home|Documents|Office|Selecting General Check Box Test Completed...");
+		demoqaLog.info("✅ Test Elements|Home|Documents|Office|Selecting General Check Box Completed...");
 	}
 
 	@Test(priority = 18)
 	public void SelectOfficeAll() {
 		testRep = extentReportManager.createTest("Test Selecting Documents|Office|Selecting All Check Boxes");
-		testRep.info("Starting test for Elements|Home|Documents|Office|Selecting All Check Boxes");
-		demoqaLog.info("Starting Test Elements|Home|Selecting Documents|Office|All Check Boxes Test...");
+		testRep.info("🧪 Starting test for Elements|Home|Documents|Office|Selecting All Check Boxes");
+		demoqaLog.info("🧪 Starting Test Elements|Home|Selecting Documents|Office|All Check Boxes Test...");
 		elementsPage elementsPage = new elementsPage(driver);
 		elementsPage.accessElements();
 		elementsPage.clickCheckBox();
@@ -356,30 +356,30 @@ public class ElementsTests extends demoqaBase {
 		elementsPage.selectClassified();
 		elementsPage.selectGeneral();
 		elementsPage.validateSelectedCheckBox();
-		testRep.info("Test Elements|Home|Documents|Office|Selecting All Check Boxes Test Completed...");
-		demoqaLog.info("Test Elements|Home|Documents|Office|Selecting All Check Boxes Completed...");
+		testRep.info("✅ Test Elements|Home|Documents|Office|Selecting All Check Boxes Test Completed...");
+		demoqaLog.info("✅ Test Elements|Home|Documents|Office|Selecting All Check Boxes Completed...");
 	}
 
 	@Test(priority = 19)
 	public void SelectingDownloads() {
 		testRep = extentReportManager.createTest("Test Selecting Downloads Check Box");
-		testRep.info("Starting test for Elements|Home|Selecting Downloads Check Box");
-		demoqaLog.info("Starting Test Elements|Home|Selecting Downloads Check Box Test...");
+		testRep.info("🧪 Starting test for Elements|Home|Selecting Downloads Check Box");
+		demoqaLog.info("🧪 Starting Test Elements|Home|Selecting Downloads Check Box Test...");
 		elementsPage elementsPage = new elementsPage(driver);
 		elementsPage.accessElements();
 		elementsPage.clickCheckBox();
 		elementsPage.ToggleHome();
 		elementsPage.selectDownloads();
 		elementsPage.validateSelectedCheckBox();
-		testRep.info("Test Elements|Home|Selecting Downloads Check Box Test Completed...");
-		demoqaLog.info("Test Elements|Home|Selecting Downloads Check Box Completed...");
+		testRep.info("✅ Test Elements|Home|Selecting Downloads Check Box Test Completed...");
+		demoqaLog.info("✅ Test Elements|Home|Selecting Downloads Check Box Completed...");
 	}
 
 	@Test(priority = 20)
 	public void SelectingWordFile() {
 		testRep = extentReportManager.createTest("Test Selecting Downloads|Word File Check Box");
-		testRep.info("Starting test for Elements|Home|Selecting Downloads|Word File Check Box");
-		demoqaLog.info("Starting Test Elements|Home|Selecting Downloads|Word File Check Box Test...");
+		testRep.info("🧪 Starting test for Elements|Home|Selecting Downloads|Word File Check Box");
+		demoqaLog.info("🧪 Starting Test Elements|Home|Selecting Downloads|Word File Check Box Test...");
 		elementsPage elementsPage = new elementsPage(driver);
 		elementsPage.accessElements();
 		elementsPage.clickCheckBox();
@@ -387,15 +387,15 @@ public class ElementsTests extends demoqaBase {
 		elementsPage.ToggleDownloads();
 		elementsPage.selectWordFile();
 		elementsPage.validateSelectedCheckBox();
-		testRep.info("Test Elements|Home|Selecting Downloads|Word File Check Box Test Completed...");
-		demoqaLog.info("Test Elements|Home|Selecting Downloads|Word File Check Box Completed...");
+		testRep.info("✅ Test Elements|Home|Selecting Downloads|Word File Check Box Test Completed...");
+		demoqaLog.info("✅ Test Elements|Home|Selecting Downloads|Word File Check Box Completed...");
 	}
 
 	@Test(priority = 21)
 	public void SelectingExcelFile() {
 		testRep = extentReportManager.createTest("Test Selecting Downloads|Excel File Check Box");
-		testRep.info("Starting test for Elements|Home|Selecting Downloads|Excel File Check Box");
-		demoqaLog.info("Starting Test Elements|Home|Selecting Downloads|Excel File Check Box Test...");
+		testRep.info("🧪 Starting test for Elements|Home|Selecting Downloads|Excel File Check Box");
+		demoqaLog.info("🧪 Starting Test Elements|Home|Selecting Downloads|Excel File Check Box Test...");
 		elementsPage elementsPage = new elementsPage(driver);
 		elementsPage.accessElements();
 		elementsPage.clickCheckBox();
@@ -403,15 +403,15 @@ public class ElementsTests extends demoqaBase {
 		elementsPage.ToggleDownloads();
 		elementsPage.selectExcelFile();
 		elementsPage.validateSelectedCheckBox();
-		testRep.info("Test Elements|Home|Selecting Downloads|Excel File Check Box Test Completed...");
-		demoqaLog.info("Test Elements|Home|Selecting Downloads|Excel File Check Box Completed...");
+		testRep.info("✅ Test Elements|Home|Selecting Downloads|Excel File Check Box Test Completed...");
+		demoqaLog.info("✅ Test Elements|Home|Selecting Downloads|Excel File Check Box Completed...");
 	}
 
 	@Test(priority = 22)
 	public void SelectingAllFiles() {
 		testRep = extentReportManager.createTest("Test Selecting Downloads|Word & Excel File Check Boxes");
-		testRep.info("Starting test for Elements|Home|Selecting Downloads|Word & Excel File Check Boxes");
-		demoqaLog.info("Starting Test Elements|Home|Selecting Downloads|Word & Excel File Check Boxes Test...");
+		testRep.info("🧪 Starting test for Elements|Home|Selecting Downloads|Word & Excel File Check Boxes");
+		demoqaLog.info("🧪 Starting Test Elements|Home|Selecting Downloads|Word & Excel File Check Boxes Test...");
 		elementsPage elementsPage = new elementsPage(driver);
 		elementsPage.accessElements();
 		elementsPage.clickCheckBox();
@@ -420,68 +420,68 @@ public class ElementsTests extends demoqaBase {
 		elementsPage.selectWordFile();
 		elementsPage.selectExcelFile();
 		elementsPage.validateSelectedCheckBox();
-		testRep.info("Test Elements|Home|Selecting Downloads|Word & Excel File Check Boxes Test Completed...");
-		demoqaLog.info("Test Elements|Home|Selecting Downloads|Word & Excel File Check Boxes Completed...");
+		testRep.info("✅ Test Elements|Home|Selecting Downloads|Word & Excel File Check Boxes Test Completed...");
+		demoqaLog.info("✅ Test Elements|Home|Selecting Downloads|Word & Excel File Check Boxes Completed...");
 	}
 
 	@Test(priority = 23)
 	public void clickRadioButton() {
 		testRep = extentReportManager.createTest("Accessing Radio Button Page...");
-		testRep.info("Starting test for Accessing Radio Button Page");
-		demoqaLog.info("Starting Test Elements|Radio Button Test...");
+		testRep.info("🧪 Starting test for Accessing Radio Button Page");
+		demoqaLog.info("🧪 Starting Test Elements|Radio Button Test...");
 		elementsPage elementsPage = new elementsPage(driver);
 		elementsPage.accessElements();
 		elementsPage.radioButtonClick();
 		elementsPage.validateRadioButtonClick();
-		testRep.info("Test Elements|Radio Button Completed...");
-		demoqaLog.info("Test Elements|Radio Button Completed...");
+		testRep.info("✅ Test Elements|Radio Button Completed...");
+		demoqaLog.info("✅ Test Elements|Radio Button Completed...");
 	}
 
 	@Test(priority = 24)
 	public void SelectYesRadioButton() {
 		testRep = extentReportManager.createTest("Test Yes Radio Button Selection...");
-		testRep.info("Starting test for Selectng Yes Radio Button");
-		demoqaLog.info("Starting Test Elements|Yes Radio Button Test...");
+		testRep.info("🧪 Starting test for Selectng Yes Radio Button");
+		demoqaLog.info("🧪 Starting Test Elements|Yes Radio Button Test...");
 		elementsPage elementsPage = new elementsPage(driver);
 		elementsPage.accessElements();
 		elementsPage.radioButtonClick();
 		elementsPage.yesRadioSelect();
 		elementsPage.validateRadioSelection();
-		testRep.info("Test Elements|Yes Radio Button Completed...");
-		demoqaLog.info("Test Elements|Yes Radio Button Completed...");
+		testRep.info("✅ Test Elements|Yes Radio Button Completed...");
+		demoqaLog.info("✅ Test Elements|Yes Radio Button Completed...");
 	}
 
 	@Test(priority = 25)
 	public void SelectImpressiveRadioButton() {
 		testRep = extentReportManager.createTest("Test Impressive Radio Button Selection...");
-		testRep.info("Starting test for Selectng Impressive Radio Button");
-		demoqaLog.info("Starting Test Elements|Yes Radio Button Test...");
+		testRep.info("🧪 Starting test for Selectng Impressive Radio Button");
+		demoqaLog.info("🧪 Starting Test Elements|Yes Radio Button Test...");
 		elementsPage elementsPage = new elementsPage(driver);
 		elementsPage.accessElements();
 		elementsPage.radioButtonClick();
 		elementsPage.impressiveRadioSelect();
 		elementsPage.validateRadioSelection();
-		testRep.info("Test Elements|Radio Button|Impressive Radio Button Completed...");
-		demoqaLog.info("Test Elements|Radio Button|Impressive Completed...");
+		testRep.info("✅ Test Elements|Radio Button|Impressive Radio Button Completed...");
+		demoqaLog.info("✅ Test Elements|Radio Button|Impressive Completed...");
 	}
 
 	@Test(priority = 26)
 	public void WebTablesClick() {
 		testRep = extentReportManager.createTest("Test Elements|Web Tables ...");
-		testRep.info("Starting test for Web Tables...");
-		demoqaLog.info("Starting Test Elements|Web Tables Test...");
+		testRep.info("🧪 Starting test for Web Tables...");
+		demoqaLog.info("🧪 Starting Test Elements|Web Tables Test...");
 		elementsPage elementsPage = new elementsPage(driver);
 		elementsPage.accessElements();
 		elementsPage.webTablesClick();
-		testRep.info("Test Elements|Web Tables Completed...");
-		demoqaLog.info("Test Elements|Web Tables Completed...");
+		testRep.info("✅ Test Elements|Web Tables Completed...");
+		demoqaLog.info("✅ Test Elements|Web Tables Completed...");
 	}
 
 	@Test(priority = 27, dataProvider = "WebTableUserData")
 	public void webTableNewRegistration(WebTableUser user) {
 		testRep = extentReportManager.createTest("Test Elements|Web Tables|Registration Form Create User...");
-		testRep.info("Starting test for Web Tables|Registration Form Create User...");
-		demoqaLog.info("Starting Test Elements|Web Tables|Registration Form Create User...");
+		testRep.info("🧪 Starting test for Web Tables|Registration Form Create User...");
+		demoqaLog.info("🧪 Starting Test Elements|Web Tables|Registration Form Create User...");
 		elementsPage elementsPage = new elementsPage(driver);
 		elementsPage.accessElements();
 		elementsPage.webTablesClick();
@@ -489,15 +489,15 @@ public class ElementsTests extends demoqaBase {
 		// ✅ Use the user directly — no need to re-fetch from Excel
 		elementsPage.fillWebTableForm(user);
 		elementsPage.assertUserPresentInTable(user, testRep);
-		testRep.info("Test Elements|Web Tables|Registration Form Create User Completed...");
-		demoqaLog.info("Test Elements|Web Tables|Registration Form Create User Completed...");
+		testRep.info("✅ Test Elements|Web Tables|Registration Form Create User Completed...");
+		demoqaLog.info("✅ Test Elements|Web Tables|Registration Form Create User Completed...");
 	}
 
 	@Test(priority = 28, dataProvider = "WTFormDataEdit")
 	public void webTableAddSearch(WebTableUser user) {
 		testRep = extentReportManager.createTest("Test Registration Form Add & Search...");
-		testRep.info("Starting test for Registration Form Add & Search...");
-		demoqaLog.info("Starting Test Registration Form Add & Search...");
+		testRep.info("🧪 Starting test for Registration Form Add & Search...");
+		demoqaLog.info("🧪 Starting Test Registration Form Add & Search...");
 
 		elementsPage elementsPage = new elementsPage(driver);
 		elementsPage.accessElements();
@@ -510,15 +510,15 @@ public class ElementsTests extends demoqaBase {
 		elementsPage.wTSearchBox(user.getFirstName());
 		elementsPage.assertUserPresentInTable(user, testRep);
 
-		testRep.info("Test for Registration Form Add & Search Completed...");
-		demoqaLog.info("Test for Registration Form Add & Search Completed...");
+		testRep.info("✅ Test for Registration Form Add & Search Completed...");
+		demoqaLog.info("✅ Test for Registration Form Add & Search Completed...");
 	}
 
 	@Test(priority = 29, dataProvider = "WTFormDataEdit")
 	public void webTableAddEditFirstName(WebTableUser user) {
 		testRep = extentReportManager.createTest("Test Registration Form Modify First Name...");
-		testRep.info("Starting Test for Registration Form Modify First Name...");
-		demoqaLog.info("Starting Test Registration Form Modify First Name...");
+		testRep.info("🧪 Starting Test for Registration Form Modify First Name...");
+		demoqaLog.info("🧪 Starting Test Registration Form Modify First Name...");
 
 		elementsPage elementsPage = new elementsPage(driver);
 		elementsPage.accessElements();
@@ -539,15 +539,15 @@ public class ElementsTests extends demoqaBase {
 		elementsPage.assertUserPresentInTable(user, testRep);
 		testRep.info("Updated First Name of the User is: " + user.getFirstName());
 
-		testRep.pass("Test Registration Form Modify First Name Completed...");
-		demoqaLog.info("Test Registration Form Modify First Name Completed Successfully...");
+		testRep.pass("✅ Test Registration Form Modify First Name Completed...");
+		demoqaLog.info("✅ Test Registration Form Modify First Name Completed Successfully...");
 	}
 
 	@Test(priority = 30, dataProvider = "WTFormDataEdit")
 	public void webTableAddSearchEdit(WebTableUser user) {
 		testRep = extentReportManager.createTest("Test Registration Form Search & Modify First Name...");
-		testRep.info("Starting Test for Registration Form Search & Modify First Name...");
-		demoqaLog.info("Starting Test Registration Form Search & Modify First Name...");
+		testRep.info("🧪 Starting Test for Registration Form Search & Modify First Name...");
+		demoqaLog.info("🧪 Starting Test Registration Form Search & Modify First Name...");
 
 		elementsPage elementsPage = new elementsPage(driver);
 		elementsPage.accessElements();
@@ -565,15 +565,15 @@ public class ElementsTests extends demoqaBase {
 		user.setFirstName("Tonny");
 		elementsPage.assertUserPresentInTable(user, testRep);
 		testRep.info("Updated First Name of the User is: " + user.getFirstName());
-		testRep.pass("Test Registration Form Search & Modify First Name Completed...");
-		demoqaLog.info("Test Registration Form Search & Modify First Name Completed Successfully...");
+		testRep.pass("✅ Test Registration Form Search & Modify First Name Completed...");
+		demoqaLog.info("✅ Test Registration Form Search & Modify First Name Completed Successfully...");
 	}
 
 	@Test(priority = 31, dataProvider = "WTFormDataEdit")
 	public void webTableDeleteUser(WebTableUser user) {
 		testRep = extentReportManager.createTest("Test Deleting User from Web Table...");
-		testRep.info("Starting Test for Deleting User from Web Table...");
-		demoqaLog.info("Starting Test for Deleting User from Web Table...");
+		testRep.info("🧪 Starting Test for Deleting User from Web Table...");
+		demoqaLog.info("🧪 Starting Test for Deleting User from Web Table...");
 		elementsPage elementsPage = new elementsPage(driver);
 		elementsPage.accessElements();
 		elementsPage.webTablesClick();
@@ -586,15 +586,15 @@ public class ElementsTests extends demoqaBase {
 		demoqaLog.info("Deleting User from Webtable: " + user.getFirstName());
 		elementsPage.DeleteUser(wTFirstname);
 		elementsPage.assertUserNotPresentInTable(user, testRep);
-		testRep.pass("Test for Deleting User from Web Table Completed...");
-		demoqaLog.info("Test for Deleting User from Web Table Completed Successfully...");
+		testRep.pass("✅ Test for Deleting User from Web Table Completed...");
+		demoqaLog.info("✅ Test for Deleting User from Web Table Completed Successfully...");
 	}
 
 	@CaptureOnSuccess(description = "Web Table filled by taking data input from a Spreadsheet - Successfully", screenshotMode = "viewport")
 	@Test(priority = 32)
 	public void testAddAllUsersFromExcel() throws IOException {
 		testRep = extentReportManager.createTest("Test Bulk User Creation in Web Table...");
-		testRep.info("Starting Test for Bulk User Creation in Web Table...");
+		testRep.info("🧪 Starting Test for Bulk User Creation in Web Table...");
 		// Initialize page and table manager
 		elementsPage elementsPage = new elementsPage(driver);
 		WebTableManager tableManager = new WebTableManager(driver);
@@ -622,8 +622,8 @@ public class ElementsTests extends demoqaBase {
 		System.out.println("Final user count: " + finalUserCount);
 
 //		Assert.assertEquals(finalUserCount, expectedTotalCount, "Mismatch in user count after form submission");
-		testRep.pass("Finished Test for Bulk User Creation in Web Table...");
-		demoqaLog.info("Test for Bulk User Creation in Web Table Completed Successfully...");
+		testRep.pass("✅ Finished Test for Bulk User Creation in Web Table...");
+		demoqaLog.info("✅ Test for Bulk User Creation in Web Table Completed Successfully...");
 	}
 
 	@Test(priority = 33)
@@ -635,7 +635,7 @@ public class ElementsTests extends demoqaBase {
 		elementsPage.accessElements();
 		elementsPage.webTablesClick();
 		testRep = extentReportManager.createTest("Test Bulk User Creation in Web Table...");
-		testRep.info("Starting Test for Bulk User Creation in Web Table...");
+		testRep.info("🧪 Starting Test for Bulk User Creation in Web Table...");
 
 		// Step 1: Capture initial user count
 		int initialUserCount = tableManager.getUserCount();
@@ -675,8 +675,8 @@ public class ElementsTests extends demoqaBase {
 		System.out.println("Initial user count: " + initialUserCount);
 		System.out.println("Final user count: " + finalUserCount);
 
-		testRep.pass("Finished Test for Bulk User Creation and Edit in Web Table...");
-		demoqaLog.info("Test for Bulk User Creation and Edit Completed Successfully...");
+		testRep.pass("✅ Finished Test for Bulk User Creation and Edit in Web Table...");
+		demoqaLog.info("✅ Test for Bulk User Creation and Edit Completed Successfully...");
 
 	}
 
@@ -688,7 +688,7 @@ public class ElementsTests extends demoqaBase {
 		elementsPage.accessElements();
 		elementsPage.webTablesClick();
 		testRep = extentReportManager.createTest("Test Modidfy Users Department & Salary in Web Table...");
-		testRep.info("Starting Test Modidfy Users Department & Salary in Web Table...");
+		testRep.info("🧪 Starting Test Modidfy Users Department & Salary in Web Table...");
 
 		// Step 1: Capture initial user count
 		int initialUserCount = tableManager.getUserCount();
@@ -743,13 +743,8 @@ public class ElementsTests extends demoqaBase {
 			testRep.warning("User with first name '" + originalDepartment + "' not found in Excel data.");
 		}
 
-		// Step 5: Validate final user count
-//		int finalUserCount = tableManager.getUserCount();
-//		System.out.println("Initial user count: " + initialUserCount);
-//		System.out.println("Final user count: " + finalUserCount);
-
-		testRep.pass("Finished Test for Bulk User Creation and Edit in Web Table...");
-		demoqaLog.info("Test for Bulk User Creation and Edit Completed Successfully...");
+		testRep.pass("✅ Finished Test for Bulk User Creation and Edit in Web Table...");
+		demoqaLog.info("✅ Test for Bulk User Creation and Edit Completed Successfully...");
 	}
 
 	@Test(priority = 35)
@@ -758,11 +753,11 @@ public class ElementsTests extends demoqaBase {
 
 		elementsPage.accessElements();
 		testRep = extentReportManager.createTest("Test Elements|Buttons Click...");
-		testRep.info("Starting Test for Elements|Buttons Click...");
+		testRep.info("🧪 Starting Test for Elements|Buttons Click...");
 		elementsPage.ClickButtons();
 
-		testRep.pass("Finished Test for Elements|Buttons Click...");
-		demoqaLog.info("Test for Elements|Buttons Click Completed Successfully...");
+		testRep.pass("✅ Finished Test for Elements|Buttons Click...");
+		demoqaLog.info("✅ Test for Elements|Buttons Click Completed Successfully...");
 	}
 
 	@Test(priority = 36)
@@ -771,12 +766,12 @@ public class ElementsTests extends demoqaBase {
 
 		elementsPage.accessElements();
 		testRep = extentReportManager.createTest("Test Elements|Buttons Click...");
-		testRep.info("Starting Test for Elements|Buttons|Double Click...");
+		testRep.info("🧪 Starting Test for Elements|Buttons|Double Click...");
 		elementsPage.ClickButtons();
 		elementsPage.DoubleClickbtn();
 
-		testRep.pass("Finished Test for Elements|Buttons|Double Click...");
-		demoqaLog.info("Test for Elements|Buttons|Double Click Completed Successfully...");
+		testRep.pass("✅ Finished Test for Elements|Buttons|Double Click...");
+		demoqaLog.info("✅ Test for Elements|Buttons|Double Click Completed Successfully...");
 	}
 
 	@Test(priority = 37)
@@ -785,12 +780,12 @@ public class ElementsTests extends demoqaBase {
 
 		elementsPage.accessElements();
 		testRep = extentReportManager.createTest("Test Elements|Buttons|Right Click...");
-		testRep.info("Starting Test for Elements|Buttons|Right Click...");
+		testRep.info("🧪 Starting Test for Elements|Buttons|Right Click...");
 		elementsPage.ClickButtons();
 		elementsPage.RightClickBtn();
 
-		testRep.pass("Finished Test for Elements|Buttons|Right Click...");
-		demoqaLog.info("Test for Elements|Buttons|Right Click Completed Successfully...");
+		testRep.pass("✅ Finished Test for Elements|Buttons|Right Click...");
+		demoqaLog.info("✅ Test for Elements|Buttons|Right Click Completed Successfully...");
 	}
 
 	@Test(priority = 38)
@@ -798,12 +793,12 @@ public class ElementsTests extends demoqaBase {
 		elementsPage elementsPage = new elementsPage(driver);
 		elementsPage.accessElements();
 		testRep = extentReportManager.createTest("Test Elements|Click Me Button...");
-		testRep.info("Starting Test for Elements|Buttons|Click Me Button...");
+		testRep.info("🧪 Starting Test for Elements|Buttons|Click Me Button...");
 		elementsPage.ClickButtons();
 		elementsPage.ClickMeBtn();
 
-		testRep.pass("Finished Test for Elements|Buttons|Click Me Button Completed Successfully...");
-		demoqaLog.info("Test for Elements|Buttons|Click Me Button Completed Successfully...");
+		testRep.pass("✅ Finished Test for Elements|Buttons|Click Me Button Completed Successfully...");
+		demoqaLog.info("✅ Test for Elements|Buttons|Click Me Button Completed Successfully...");
 	}
 
 	@CaptureOnSuccess(description = "Clicked on All Buttons of Elements|Buttons page - Successfully", screenshotMode = "viewport")
@@ -813,7 +808,7 @@ public class ElementsTests extends demoqaBase {
 
 		elementsPage.accessElements();
 		testRep = extentReportManager.createTest("Test Elements|Buttons|Click All...");
-		testRep.info("Starting Test for Elements|Buttons|Click All...");
+		testRep.info("🧪 Starting Test for Elements|Buttons|Click All...");
 		elementsPage.ClickButtons();
 		try {
 			Thread.sleep(3000);
@@ -837,8 +832,8 @@ public class ElementsTests extends demoqaBase {
 		}
 		elementsPage.ClickMeBtn();
 
-		testRep.pass("Finished Test for Elements|Buttons|Click All Buttons Completed Successfully...");
-		demoqaLog.info("Test for Elements|Buttons|Click All Buttons Completed Successfully...");
+		testRep.pass("✅ Finished Test for Elements|Buttons|Click All Buttons Completed Successfully...");
+		demoqaLog.info("✅ Test for Elements|Buttons|Click All Buttons Completed Successfully...");
 	}
 
 	@Test(priority = 40)
@@ -847,10 +842,10 @@ public class ElementsTests extends demoqaBase {
 
 		elementsPage.accessElements();
 		testRep = extentReportManager.createTest("Test Elements|Links...");
-		testRep.info("Starting Test for Elements|Links...");
+		testRep.info("🧪 Starting Test for Elements|Links...");
 		elementsPage.ClickLinks();
-		testRep.pass("Finished Test for Elements|Links Completed Successfully...");
-		demoqaLog.info("Test for Elements|Links Completed Successfully...");
+		testRep.pass("✅ Finished Test for Elements|Links Completed Successfully...");
+		demoqaLog.info("✅ Test for Elements|Links Completed Successfully...");
 	}
 
 	@Test(priority = 41)
@@ -859,11 +854,11 @@ public class ElementsTests extends demoqaBase {
 
 		elementsPage.accessElements();
 		testRep = extentReportManager.createTest("Test Elements|Links|Home...");
-		testRep.info("Starting Test for Elements|Links|Home...");
+		testRep.info("🧪 Starting Test for Elements|Links|Home...");
 		elementsPage.ClickLinks();
 		elementsPage.ClickHomeLink();
-		testRep.pass("Finished Test for Elements|Links|Home Completed Successfully...");
-		demoqaLog.info("Test for Elements|Links|Home Completed Successfully...");
+		testRep.pass("✅ Finished Test for Elements|Links|Home Completed Successfully...");
+		demoqaLog.info("✅ Test for Elements|Links|Home Completed Successfully...");
 	}
 	
 	@Test(priority = 42)
@@ -872,11 +867,11 @@ public class ElementsTests extends demoqaBase {
 
 		elementsPage.accessElements();
 		testRep = extentReportManager.createTest("Test Elements|Links|Dynamic Home...");
-		testRep.info("Starting Test for Elements|Links|Dynamic Home...");
+		testRep.info("🧪 Starting Test for Elements|Links|Dynamic Home...");
 		elementsPage.ClickLinks();
 		elementsPage.ClickDynamicHomeLink();
-		testRep.pass("Finished Test for Elements|Links|Dynamic Home Completed Successfully...");
-		demoqaLog.info("Test for Elements|Links|Dynamic Home Completed Successfully...");
+		testRep.pass("✅ Finished Test for Elements|Links|Dynamic Home Completed Successfully...");
+		demoqaLog.info("✅ Test for Elements|Links|Dynamic Home Completed Successfully...");
 	}
 	
 	@Test(priority = 43)
@@ -885,11 +880,11 @@ public class ElementsTests extends demoqaBase {
 
 		elementsPage.accessElements();
 		testRep = extentReportManager.createTest("Test Elements|Links|Created Link...");
-		testRep.info("Starting Test for Elements|Links|Created Link...");
+		testRep.info("🧪 Starting Test for Elements|Links|Created Link...");
 		elementsPage.ClickLinks();
 		elementsPage.ClickCreatedAPILink();
-		testRep.pass("Finished Test for Elements|Links|Created Link Completed Successfully...");
-		demoqaLog.info("Test for Elements|Links|Created Link Completed Successfully...");
+		testRep.pass("✅ Finished Test for Elements|Links|Created Link Completed Successfully...");
+		demoqaLog.info("✅ Test for Elements|Links|Created Link Completed Successfully...");
 	}
 	
 	@Test(priority = 44)
@@ -898,11 +893,11 @@ public class ElementsTests extends demoqaBase {
 
 		elementsPage.accessElements();
 		testRep = extentReportManager.createTest("Test Elements|Links|No Content Link...");
-		testRep.info("Starting Test for Elements|Links|No Content Link...");
+		testRep.info("🧪 Starting Test for Elements|Links|No Content Link...");
 		elementsPage.ClickLinks();
 		elementsPage.ClickNoContentLink();
-		testRep.pass("Finished Test for Elements|Links|No Content Link Completed Successfully...");
-		demoqaLog.info("Test for Elements|Links|No Content Link Completed Successfully...");
+		testRep.pass("✅ Finished Test for Elements|Links|No Content Link Completed Successfully...");
+		demoqaLog.info("✅ Test for Elements|Links|No Content Link Completed Successfully...");
 	}
 	
 	@Test(priority = 45)
@@ -911,11 +906,11 @@ public class ElementsTests extends demoqaBase {
 
 		elementsPage.accessElements();
 		testRep = extentReportManager.createTest("Test Elements|Links|Moved Link...");
-		testRep.info("Starting Test for Elements|Links|Moved Link...");
+		testRep.info("🧪 Starting Test for Elements|Links|Moved Link...");
 		elementsPage.ClickLinks();
 		elementsPage.ClickMovedLink();
-		testRep.pass("Finished Test for Elements|Links|Moved Link Completed Successfully...");
-		demoqaLog.info("Test for Elements|Links|Moved Link Completed Successfully...");
+		testRep.pass("✅ Finished Test for Elements|Links|Moved Link Completed Successfully...");
+		demoqaLog.info("✅ Test for Elements|Links|Moved Link Completed Successfully...");
 	}
 	
 	@Test(priority = 46)
@@ -924,11 +919,11 @@ public class ElementsTests extends demoqaBase {
 
 		elementsPage.accessElements();
 		testRep = extentReportManager.createTest("Test Elements|Links|Bad Request Link...");
-		testRep.info("Starting Test for Elements|Links|Bad Request Link...");
+		testRep.info("🧪 Starting Test for Elements|Links|Bad Request Link...");
 		elementsPage.ClickLinks();
 		elementsPage.ClickBadRequestLink();
-		testRep.pass("Finished Test for Elements|Links|Bad Request Link Completed Successfully...");
-		demoqaLog.info("Test for Elements|Links|Bad Request Link Completed Successfully...");
+		testRep.pass("✅ Finished Test for Elements|Links|Bad Request Link Completed Successfully...");
+		demoqaLog.info("✅ Test for Elements|Links|Bad Request Link Completed Successfully...");
 	}
 	
 	@Test(priority = 47)
@@ -937,11 +932,11 @@ public class ElementsTests extends demoqaBase {
 
 		elementsPage.accessElements();
 		testRep = extentReportManager.createTest("Test Elements|Links|Unathorized Link...");
-		testRep.info("Starting Test for Elements|Links|Unauthorized Link...");
+		testRep.info("🧪 Starting Test for Elements|Links|Unauthorized Link...");
 		elementsPage.ClickLinks();
 		elementsPage.ClickUnauthorizedLink();
-		testRep.pass("Finished Test for Elements|Links|Unauthorized Link Completed Successfully...");
-		demoqaLog.info("Test for Elements|Links|Unauthorized Link Completed Successfully...");
+		testRep.pass("✅ Finished Test for Elements|Links|Unauthorized Link Completed Successfully...");
+		demoqaLog.info("✅ Test for Elements|Links|Unauthorized Link Completed Successfully...");
 	}
 	
 	@Test(priority = 48)
@@ -950,11 +945,11 @@ public class ElementsTests extends demoqaBase {
 
 		elementsPage.accessElements();
 		testRep = extentReportManager.createTest("Test Elements|Links|Forbidden Link...");
-		testRep.info("Starting Test for Elements|Links|Forbidden Link...");
+		testRep.info("🧪 Starting Test for Elements|Links|Forbidden Link...");
 		elementsPage.ClickLinks();
 		elementsPage.ClickForbiddenLink();
-		testRep.pass("Finished Test for Elements|Links|Forbidden Link Completed Successfully...");
-		demoqaLog.info("Test for Elements|Links|Forbidden Link Completed Successfully...");
+		testRep.pass("✅ Finished Test for Elements|Links|Forbidden Link Completed Successfully...");
+		demoqaLog.info("✅ Test for Elements|Links|Forbidden Link Completed Successfully...");
 	}
 	
 	@Test(priority = 49)
@@ -963,11 +958,11 @@ public class ElementsTests extends demoqaBase {
 
 		elementsPage.accessElements();
 		testRep = extentReportManager.createTest("Test Elements|Links|NotFound Link...");
-		testRep.info("Starting Test for Elements|Links|NotFound Link...");
+		testRep.info("🧪 Starting Test for Elements|Links|NotFound Link...");
 		elementsPage.ClickLinks();
 		elementsPage.ClickNotFoundLink();
-		testRep.pass("Finished Test for Elements|Links|NotFound Link Completed Successfully...");
-		demoqaLog.info("Test for Elements|Links|NotFound Link Completed Successfully...");
+		testRep.pass("✅ Finished Test for Elements|Links|NotFound Link Completed Successfully...");
+		demoqaLog.info("✅ Test for Elements|Links|NotFound Link Completed Successfully...");
 	}
 	
 	@Test(priority = 50)
@@ -976,7 +971,7 @@ public class ElementsTests extends demoqaBase {
 
 		elementsPage.accessElements();
 		testRep = extentReportManager.createTest("Test Elements|Links|All Links in One GO...");
-		testRep.info("Starting Test for Elements|Links|All Links in One GO...");
+		testRep.info("🧪 Starting Test for Elements|Links|All Links in One GO...");
 		elementsPage.ClickLinks();
 		elementsPage.ClickHomeLink();
 		try {
@@ -1035,8 +1030,8 @@ public class ElementsTests extends demoqaBase {
 			e.printStackTrace();
 		}
 		elementsPage.ClickNotFoundLink();
-		testRep.pass("Finished Test for Elements|Links|All Links in One GO Completed Successfully...");
-		demoqaLog.info("Test for Elements|Links|All Links in One GO Completed Successfully...");
+		testRep.pass("✅ Finished Test for Elements|Links|All Links in One GO Completed Successfully...");
+		demoqaLog.info("✅ Test for Elements|Links|All Links in One GO Completed Successfully...");
 	}
 	
 	@Test(priority = 51)
@@ -1045,10 +1040,10 @@ public class ElementsTests extends demoqaBase {
 
 		elementsPage.accessElements();
 		testRep = extentReportManager.createTest("Test Elements|Broken Links - Images...");
-		testRep.info("Starting Test for Elements|Broken Links - Images...");
+		testRep.info("🧪 Starting Test for Elements|Broken Links - Images...");
 		elementsPage.ClickBrokenLinks();
-		testRep.pass("Finished Test for Elements|Broken Links - Images Completed Successfully...");
-		demoqaLog.info("Test for Elements|Broken Links - Images Completed Successfully...");
+		testRep.pass("✅ Finished Test for Elements|Broken Links - Images Completed Successfully...");
+		demoqaLog.info("✅ Test for Elements|Broken Links - Images Completed Successfully...");
 	}
 	
 	@Test(priority = 52)
@@ -1057,11 +1052,11 @@ public class ElementsTests extends demoqaBase {
 
 		elementsPage.accessElements();
 		testRep = extentReportManager.createTest("Test Elements|Broken Links - Images|Valid Image...");
-		testRep.info("Starting Test for Elements|Broken Links - Images|Valid Image...");
+		testRep.info("🧪 Starting Test for Elements|Broken Links - Images|Valid Image...");
 		elementsPage.ClickBrokenLinks();
 		elementsPage.CheckValidImage();
-		testRep.pass("Finished Test for Elements|Broken Links - Images|Valid Image Completed Successfully...");
-		demoqaLog.info("Test for Elements|Broken Links - Images|Valid Image Completed Successfully...");
+		testRep.pass("✅ Finished Test for Elements|Broken Links - Images|Valid Image Completed Successfully...");
+		demoqaLog.info("✅ Test for Elements|Broken Links - Images|Valid Image Completed Successfully...");
 	}
 	
 	@Test(priority = 53)
@@ -1070,11 +1065,11 @@ public class ElementsTests extends demoqaBase {
 
 		elementsPage.accessElements();
 		testRep = extentReportManager.createTest("Test Elements|Broken Links - Images|Broken Image...");
-		testRep.info("Starting Test for Elements|Broken Links - Images|Broken Image...");
+		testRep.info("🧪 Starting Test for Elements|Broken Links - Images|Broken Image...");
 		elementsPage.ClickBrokenLinks();
 		elementsPage.CheckBrokenImage();
-		testRep.pass("Finished Test for Elements|Broken Links - Images|Broken Image Completed Successfully...");
-		demoqaLog.info("Test for Elements|Broken Links - Images|Broken Image Completed Successfully...");
+		testRep.pass("✅ Finished Test for Elements|Broken Links - Images|Broken Image Completed Successfully...");
+		demoqaLog.info("✅ Test for Elements|Broken Links - Images|Broken Image Completed Successfully...");
 	}
 	
 	@Test(priority = 54)
@@ -1083,11 +1078,11 @@ public class ElementsTests extends demoqaBase {
 
 		elementsPage.accessElements();
 		testRep = extentReportManager.createTest("Test Elements|Broken Links - Images|Valid Link...");
-		testRep.info("Starting Test for Elements|Broken Links - Images|Valid Link...");
+		testRep.info("🧪 Starting Test for Elements|Broken Links - Images|Valid Link...");
 		elementsPage.ClickBrokenLinks();
 		elementsPage.ClickValidLink();
-		testRep.pass("Finished Test for Elements|Broken Links - Images|Valid Link Completed Successfully...");
-		demoqaLog.info("Test for Elements|Broken Links - Images|Valid Link Completed Successfully...");
+		testRep.pass("✅ Finished Test for Elements|Broken Links - Images|Valid Link Completed Successfully...");
+		demoqaLog.info("✅ Test for Elements|Broken Links - Images|Valid Link Completed Successfully...");
 	}
 	
 	@Test(priority = 54)
@@ -1096,11 +1091,11 @@ public class ElementsTests extends demoqaBase {
 
 		elementsPage.accessElements();
 		testRep = extentReportManager.createTest("Test Elements|Broken Links - Images|Broken Link...");
-		testRep.info("Starting Test for Elements|Broken Links - Images|Broken Link...");
+		testRep.info("🧪 Starting Test for Elements|Broken Links - Images|Broken Link...");
 		elementsPage.ClickBrokenLinks();
 		elementsPage.ClickBrokenLink();
-		testRep.pass("Finished Test for Elements|Broken Links - Images|Broken Link Completed Successfully...");
-		demoqaLog.info("Test for Elements|Broken Links - Images|Broken Link Completed Successfully...");
+		testRep.pass("✅ Finished Test for Elements|Broken Links - Images|Broken Link Completed Successfully...");
+		demoqaLog.info("✅ Test for Elements|Broken Links - Images|Broken Link Completed Successfully...");
 	}
 	
 	@Test(priority = 55)
@@ -1109,10 +1104,10 @@ public class ElementsTests extends demoqaBase {
 
 		elementsPage.accessElements();
 		testRep = extentReportManager.createTest("Test Elements|Upload and Download Link...");
-		testRep.info("Starting Test for Elements|Upload and Download Link...");
+		testRep.info("🧪 Starting Test for Elements|Upload and Download Link...");
 		elementsPage.ClickUploadDownload();
-		testRep.pass("Finished Test for Elements|Upload and Download Link Completed Successfully...");
-		demoqaLog.info("Test for Elements|Upload and Download Link Completed Successfully...");
+		testRep.pass("✅ Finished Test for Elements|Upload and Download Link Completed Successfully...");
+		demoqaLog.info("✅ Test for Elements|Upload and Download Link Completed Successfully...");
 	}
 	
 	@Test(priority = 56)
@@ -1121,11 +1116,11 @@ public class ElementsTests extends demoqaBase {
 
 		elementsPage.accessElements();
 		testRep = extentReportManager.createTest("Test Elements|Upload and Download|Download Button...");
-		testRep.info("Starting Test for Elements|Upload and Download|Download Button...");
+		testRep.info("🧪 Starting Test for Elements|Upload and Download|Download Button...");
 		elementsPage.ClickUploadDownload();
 		elementsPage.DownloadFile();
-		testRep.pass("Finished Test for Elements|Upload and Download|Download Button Completed Successfully...");
-		demoqaLog.info("Test for Elements|Upload and Download|Download Button Completed Successfully...");
+		testRep.pass("✅ Finished Test for Elements|Upload and Download|Download Button Completed Successfully...");
+		demoqaLog.info("✅ Test for Elements|Upload and Download|Download Button Completed Successfully...");
 	}
 	
 	@Test(priority = 57)
@@ -1134,11 +1129,11 @@ public class ElementsTests extends demoqaBase {
 
 		elementsPage.accessElements();
 		testRep = extentReportManager.createTest("Test Elements|Upload and Download|Upload Button...");
-		testRep.info("Starting Test for Elements|Upload and Download|Upload Button...");
+		testRep.info("🧪 Starting Test for Elements|Upload and Download|Upload Button...");
 		elementsPage.ClickUploadDownload();
 		elementsPage.UploadFile();
-		testRep.pass("Finished Test for Elements|Upload and Download|Upload Button Completed Successfully...");
-		demoqaLog.info("Test for Elements|Upload and Download|Upload Button Completed Successfully...");
+		testRep.pass("✅ Finished Test for Elements|Upload and Download|Upload Button Completed Successfully...");
+		demoqaLog.info("✅ Test for Elements|Upload and Download|Upload Button Completed Successfully...");
 	}
 	
 	@Test(priority = 58)
@@ -1147,10 +1142,10 @@ public class ElementsTests extends demoqaBase {
 
 		elementsPage.accessElements();
 		testRep = extentReportManager.createTest("Test Elements|Dynamic Properties Button...");
-		testRep.info("Starting Test for Elements|Dynamic Properties Button...");
+		testRep.info("🧪 Starting Test for Elements|Dynamic Properties Button...");
 		elementsPage.ClickDynamicProperties();
-		testRep.pass("Finished Test for Elements|Dynamic Properties Button Completed Successfully...");
-		demoqaLog.info("Test for Elements|Dynamic Properties Button Completed Successfully...");
+		testRep.pass("✅ Finished Test for Elements|Dynamic Properties Button Completed Successfully...");
+		demoqaLog.info("✅ Test for Elements|Dynamic Properties Button Completed Successfully...");
 	}
 	
 	@Test(priority = 59)
@@ -1159,11 +1154,11 @@ public class ElementsTests extends demoqaBase {
 
 		elementsPage.accessElements();
 		testRep = extentReportManager.createTest("Test Elements|Dynamic Properties|Will enable 5 sec Button...");
-		testRep.info("Starting Test for Elements|Dynamic Properties|Will enable 5 sec Button...");
+		testRep.info("🧪 Starting Test for Elements|Dynamic Properties|Will enable 5 sec Button...");
 		elementsPage.ClickDynamicProperties();
 		elementsPage.ClickWillEnable();
-		testRep.pass("Finished Test for Elements|Dynamic Properties|Will enable 5 sec Button Completed Successfully...");
-		demoqaLog.info("Test for Elements|Dynamic Properties|Will enable 5 sec Button Completed Successfully...");
+		testRep.pass("✅ Finished Test for Elements|Dynamic Properties|Will enable 5 sec Button Completed Successfully...");
+		demoqaLog.info("✅ Test for Elements|Dynamic Properties|Will enable 5 sec Button Completed Successfully...");
 	}
 	
 	@Test(priority = 59)
@@ -1172,11 +1167,11 @@ public class ElementsTests extends demoqaBase {
 
 		elementsPage.accessElements();
 		testRep = extentReportManager.createTest("Test Elements|Dynamic Properties|Color Change Button...");
-		testRep.info("Starting Test for Elements|Dynamic Properties|Color Change Button...");
+		testRep.info("🧪 Starting Test for Elements|Dynamic Properties|Color Change Button...");
 		elementsPage.ClickDynamicProperties();
 		elementsPage.ClickColorChange();
-		testRep.pass("Finished Test for Elements|Dynamic Properties|Color Change Button Completed Successfully...");
-		demoqaLog.info("Test for Elements|Dynamic Properties|Color Change Button Completed Successfully...");
+		testRep.pass("✅ Finished Test for Elements|Dynamic Properties|Color Change Button Completed Successfully...");
+		demoqaLog.info("✅ Test for Elements|Dynamic Properties|Color Change Button Completed Successfully...");
 	}
 	
 	@Test(priority = 60)
@@ -1185,11 +1180,11 @@ public class ElementsTests extends demoqaBase {
 
 		elementsPage.accessElements();
 		testRep = extentReportManager.createTest("Test Elements|Dynamic Properties|Visible After 5 Seconds Button...");
-		testRep.info("Starting Test for Elements|Dynamic Properties|Color Change Button...");
+		testRep.info("🧪 Starting Test for Elements|Dynamic Properties|Color Change Button...");
 		elementsPage.ClickDynamicProperties();
 		elementsPage.ClickVisbleAfter();;
-		testRep.pass("Finished Test for Elements|Dynamic Properties|Visible After 5 Seconds Button Completed Successfully...");
-		demoqaLog.info("Test for Elements|Dynamic Properties|Visible After 5 Seconds Button Completed Successfully...");
+		testRep.pass("✅ Finished Test for Elements|Dynamic Properties|Visible After 5 Seconds Button Completed Successfully...");
+		demoqaLog.info("✅ Test for Elements|Dynamic Properties|Visible After 5 Seconds Button Completed Successfully...");
 	}
 
 

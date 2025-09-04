@@ -49,5 +49,15 @@ public class waitForElement {
 	public static boolean waitUntilInvisible(WebDriver driver, By locator) {
 		return waitUntilInvisible(driver, locator, 5);
 	}
+	
+	public static WebElement getVisibleElement(WebDriver driver, By locator) {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        return wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
+    }
+	
+	public static WebElement waitUntilInteractable(WebDriver driver, WebElement element) {
+	    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+	    return wait.until(ExpectedConditions.elementToBeClickable(element));
+	}
 
 }

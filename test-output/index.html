@@ -50,7 +50,7 @@
               <ul>
                 <li>
                   <a href="#" panel-name="test-xml-Default_suite" class="navigator-link ">
-                    <span>C:\Users\dell\AppData\Local\Temp\testng-eclipse-1650599915\testng-customsuite.xml</span>
+                    <span>C:\Users\dell\AppData\Local\Temp\testng-eclipse--595031540\testng-customsuite.xml</span>
                   </a> <!-- navigator-link  -->
                 </li>
                 <li>
@@ -103,7 +103,7 @@
                     <div class="method-list-content passed suite-Default_suite">
                       <span>
                         <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Default_suite" title="tests.WidgetsTests" class="method navigator-link" hash-for-method="AccessWhyDoWe">AccessWhyDoWe</a> <!-- method navigator-link -->
+                        <a href="#" panel-name="suite-Default_suite" title="tests.FormTests" class="method navigator-link" hash-for-method="FormsCard">FormsCard</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                     </div> <!-- method-list-content passed suite-Default_suite -->
@@ -121,14 +121,14 @@
           <div class="suite-Default_suite-class-passed">
             <div class="main-panel-header rounded-window-top">
               <img src="passed.png"/>
-              <span class="class-name">tests.WidgetsTests</span>
+              <span class="class-name">tests.FormTests</span>
             </div> <!-- main-panel-header rounded-window-top -->
             <div class="main-panel-content rounded-window-bottom">
               <div class="method">
                 <div class="method-content">
-                  <a name="AccessWhyDoWe">
-                  </a> <!-- AccessWhyDoWe -->
-                  <span class="method-name">AccessWhyDoWe</span>
+                  <a name="FormsCard">
+                  </a> <!-- FormsCard -->
+                  <span class="method-name">FormsCard</span>
                 </div> <!-- method-content -->
               </div> <!-- method -->
             </div> <!-- main-panel-content rounded-window-bottom -->
@@ -136,7 +136,7 @@
         </div> <!-- panel Default_suite -->
         <div panel-name="test-xml-Default_suite" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">C:\Users\dell\AppData\Local\Temp\testng-eclipse-1650599915\testng-customsuite.xml</span>
+            <span class="header-content">C:\Users\dell\AppData\Local\Temp\testng-eclipse--595031540\testng-customsuite.xml</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <pre>
@@ -145,11 +145,11 @@
 &lt;suite name=&quot;Default suite&quot; guice-stage=&quot;DEVELOPMENT&quot;&gt;
   &lt;test thread-count=&quot;5&quot; name=&quot;Default test&quot; verbose=&quot;2&quot;&gt;
     &lt;classes&gt;
-      &lt;class name=&quot;tests.WidgetsTests&quot;&gt;
+      &lt;class name=&quot;tests.FormTests&quot;&gt;
         &lt;methods&gt;
-          &lt;include name=&quot;AccessWhyDoWe&quot;/&gt;
+          &lt;include name=&quot;FormsCard&quot;/&gt;
         &lt;/methods&gt;
-      &lt;/class&gt; &lt;!-- tests.WidgetsTests --&gt;
+      &lt;/class&gt; &lt;!-- tests.FormTests --&gt;
     &lt;/classes&gt;
   &lt;/test&gt; &lt;!-- Default test --&gt;
 &lt;/suite&gt; &lt;!-- Default suite --&gt;
@@ -191,14 +191,14 @@ data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
 data.addRows(1);
 data.setCell(0, 0, 0)
-data.setCell(0, 1, 'AccessWhyDoWe')
-data.setCell(0, 2, 'tests.WidgetsTests')
-data.setCell(0, 3, 1262);
+data.setCell(0, 1, 'FormsCard')
+data.setCell(0, 2, 'tests.FormTests')
+data.setCell(0, 3, 5043);
 window.suiteTableData['Default_suite']= { tableData: data, tableDiv: 'times-div-Default_suite'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 1 seconds</span>
+              <span class="suite-total-time">Total running time: 5 seconds</span>
               <div id="times-div-Default_suite">
               </div> <!-- times-div-Default_suite -->
             </div> <!-- times-div -->
@@ -213,25 +213,15 @@ return data;
         </div> <!-- panel -->
         <div panel-name="ignored-methods-Default_suite" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">7 ignored methods</span>
+            <span class="header-content">2 ignored methods</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <div class="ignored-class-div">
-              <span class="ignored-class-name">tests.WidgetsTests</span>
+              <span class="ignored-class-name">tests.FormTests</span>
               <div class="ignored-methods-div">
-                <span class="ignored-method-name">AccessWhereDoes</span>
+                <span class="ignored-method-name">fillForm</span>
                 <br/>
-                <span class="ignored-method-name">AutoComplete</span>
-                <br/>
-                <span class="ignored-method-name">AutoCompleteSearchRemove</span>
-                <br/>
-                <span class="ignored-method-name">accessWidgets</span>
-                <br/>
-                <span class="ignored-method-name">AutoCompleteSearch</span>
-                <br/>
-                <span class="ignored-method-name">AccessWhatis</span>
-                <br/>
-                <span class="ignored-method-name">Accordian</span>
+                <span class="ignored-method-name">FormButton</span>
                 <br/>
               </div> <!-- ignored-methods-div -->
             </div> <!-- ignored-class-div -->
@@ -243,26 +233,26 @@ return data;
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <div class="chronological-class">
-              <div class="chronological-class-name">tests.WidgetsTests</div> <!-- chronological-class-name -->
+              <div class="chronological-class-name">tests.FormTests</div> <!-- chronological-class-name -->
               <div class="configuration-suite before">
                 <span class="method-name">setupReport</span>
                 <span class="method-start">0 ms</span>
               </div> <!-- configuration-suite before -->
               <div class="configuration-method before">
                 <span class="method-name">setUP</span>
-                <span class="method-start">244 ms</span>
+                <span class="method-start">285 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
-                <span class="method-name">AccessWhyDoWe</span>
-                <span class="method-start">30768 ms</span>
+                <span class="method-name">FormsCard</span>
+                <span class="method-start">14843 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
-                <span class="method-name">tearDown([TestResult name=AccessWhyDoWe status=SUCCESS method=WidgetsTests.AccessWhyDoWe()[pri:5, instance:te...)</span>
-                <span class="method-start">32042 ms</span>
+                <span class="method-name">tearDown([TestResult name=FormsCard status=SUCCESS method=FormTests.FormsCard()[pri:1, instance:tests.FormTes...)</span>
+                <span class="method-start">19892 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-suite after">
                 <span class="method-name">teardownReport</span>
-                <span class="method-start">32710 ms</span>
+                <span class="method-start">19962 ms</span>
               </div> <!-- configuration-suite after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->

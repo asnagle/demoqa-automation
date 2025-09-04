@@ -62,15 +62,19 @@ public class WidgetsPage extends demoqaBase {
 //	@FindBy(xpath = "//div[@class='auto-complete__value-container auto-complete__value-container--is-multi css-1hwfws3']")
 	@FindBy(xpath = "//div[@id='autoCompleteMultipleContainer']//input")
 	WebElement AutoCompleteMulti;
+	
+	@FindBy(xpath = "//span[normalize-space()='Type multiple color names']")
+	WebElement MultiSearchBoxTitle;
 
-	@FindBy(xpath = "//div[@id='react-select-2-option-0']")
-	WebElement BlackA;
+	@FindBy(id = "autoCompleteSingleInput")
+	WebElement AutoCompleteSingle;
 	
-	@FindBy(xpath = "//div[@class='css-12jo7m5 auto-complete__multi-value__label']")
-	WebElement BlackAselected;
+	@FindBy(xpath = "//span[normalize-space()='Type single color name']")
+	WebElement SingleSearchBoxTitle;
 	
-	@FindBy(xpath = "//div[@class='css-xb97g8 auto-complete__multi-value__remove']")
-	WebElement BlackAremove;
+	@FindBy(xpath = "//div[@class='auto-complete__single-value css-1uccc91-singleValue']\r\n"
+			+ "")
+	WebElement AutoCompSingleResults;
 
 	private WebDriverWait wait;
 
@@ -149,7 +153,7 @@ public class WidgetsPage extends demoqaBase {
 		Assert.assertEquals("Auto Complete", autocompletePage);
 	}
 
-	public void searchAutoComplete(String searchChar, List<String> expectedColors) {
+	public void searchAutoCompleteMulti(String searchChar, List<String> expectedColors) {
 	    demoqaLog.info("Clicking on Widgets | Auto Complete | Type multiple color names...");
 	    System.out.println("Searching Colors using: " + searchChar);
 	    System.out.println("Expected Color to be selected is/are: " + expectedColors);
@@ -196,6 +200,7 @@ public class WidgetsPage extends demoqaBase {
 	            demoqaLog.error("❌ Error selecting color '{}': {}", expectedColor, e.getMessage());
 	        }
 	    }
+	    
 
 	    validateSelectedColors(expectedColors, searchChar);
 	}
@@ -253,7 +258,7 @@ public class WidgetsPage extends demoqaBase {
 	            testRep.info("Selecting colors for '" + searchChar + "': " + expectedColors);
 
 	            for (String color : expectedColors) {
-	                if (selectColor(searchChar, color)) {
+	                if (selectColorMulti(searchChar, color)) {
 	                    successfullySelected.add(color);
 	                    testRep.pass("Selected color: " + color);
 	                } else {
@@ -309,7 +314,7 @@ public class WidgetsPage extends demoqaBase {
 	    demoqaLog.warn("⚠️ No removal data found for '{}' in Sheet2", searchChar);
 	    testRep.warning("No removal data found for '" + searchChar + "' in Sheet2");
 	}
-	public boolean selectColor(String searchChar, String color) {
+	public boolean selectColorMulti(String searchChar, String color) {
 	    try {
 	        waitForElement.waitAndClick(driver, AutoCompleteMulti);
 	        AutoCompleteMulti.clear();
@@ -377,4 +382,66 @@ public class WidgetsPage extends demoqaBase {
 	        demoqaLog.info("✅ Assertion passed: Color '{}' successfully removed.", color);
 	    }
 	}
+	
+	public void singleSearchAdd(String searchChar, String SelectColor) {
+		demoqaLog.info("Clicking on Widgets | Auto Complete | Type single color name...");
+	    System.out.println("Searching Colors using: " + searchChar);
+	    System.out.println("Expected Color to be selected is/are: " + SelectColor);
+
+	    String autocompletePage = AutoCompletePgTitle.getText();
+	    demoqaLog.info("You are now Accessing: {}", autocompletePage);
+	    selectColorSingle(searchChar, SelectColor);
+	    
+	}
+	
+	public void selectColorSingle(String searchChar, String SelectColor) {
+	    try {
+	    	JSclick.scrollAndClick(driver, AutoCompleteSingle);
+	    	demoqaLog.info("Clicked on Search Box with Title: " + SingleSearchBoxTitle.getText());
+	    	AutoCompleteSingle.clear();
+	    	AutoCompleteSingle.sendKeys(searchChar);
+
+	        Thread.sleep(500); // Allow dropdown to populate
+
+	        List<WebElement> options = driver.findElements(By.cssSelector(".auto-complete__option"));
+	        boolean found = false;
+
+	        for (WebElement option : options) {
+	            String text = option.getText().trim();
+	            if (text.equalsIgnoreCase(SelectColor.trim())) {
+	                option.click();
+	                demoqaLog.info("✅ Selected color '{}'", text);
+	                found = true;
+	                break;
+	            }
+	        }
+
+	        Assert.assertTrue(found, "❌ Color '" + SelectColor + "' not found in dropdown");
+	        demoqaLog.info("Asserted Selected Color is: " + AutoCompSingleResults.getText());
+
+	    } catch (Exception e) {
+	        demoqaLog.error("❌ Failed to select color '{}': {}", SelectColor, e.getMessage(), e);
+	        throw new RuntimeException("Color selection failed", e);
+	    }
+	}
+	
+	public void removeColorSingle(String expectedColor) {
+	    String currentColor = AutoCompSingleResults.getText();
+	    demoqaLog.info("🔍 Checking selected color. Current value: '{}'", currentColor);
+
+	    if (!currentColor.equalsIgnoreCase(expectedColor)) {
+	        demoqaLog.warn("⚠️ Expected color '{}' not found. Skipping clear operation.", expectedColor);
+	        return;
+	    }
+
+	    boolean clicked = JSclick.safeClick(driver, AutoCompleteSingle, demoqaLog, "AutoCompleteSingle");
+
+	    if (clicked) {
+	        AutoCompleteSingle.sendKeys("  ");
+	        demoqaLog.info("✅ Cleared color input for '{}'", expectedColor);
+	    } else {
+	        demoqaLog.error("🚫 Unable to click 'AutoCompleteSingle'. Color clear skipped.");
+	    }
+	}
+	
 }
