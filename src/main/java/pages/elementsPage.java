@@ -488,19 +488,22 @@ public class elementsPage extends demoqaBase {
 
 	public void selectReact() {
 		demoqaLog.info("Selecting WorkSpace | React Check Box...");
-		SelectReact.click();
+//		SelectReact.click();
+		JSclick.scrollAndClick(driver, SelectReact);
 		demoqaLog.info("Selected WorkSpace | React Check Box...");
 	}
 
 	public void selectAngular() {
 		demoqaLog.info("Selecting WorkSpace | Angular Check Box...");
-		SelectAngular.click();
+//		SelectAngular.click();
+		JSclick.scrollAndClick(driver, SelectAngular);
 		demoqaLog.info("Selected WorkSpace | Angular Check Box...");
 	}
 
 	public void selectVeu() {
 		demoqaLog.info("Selecting WorkSpace | Veu Check Box...");
-		SelectVeu.click();
+//		SelectVeu.click();
+		JSclick.scrollAndClick(driver, SelectVeu);
 		demoqaLog.info("Selected WorkSpace | Veu Check Box...");
 	}
 
@@ -518,13 +521,15 @@ public class elementsPage extends demoqaBase {
 
 	public void selectPublic() {
 		demoqaLog.info("Selecting Office | Public Check Box...");
-		SelectPublic.click();
+//		SelectPublic.click();
+		JSclick.scrollAndClick(driver, SelectPublic);
 		demoqaLog.info("Selected Office | Public Check Box...");
 	}
 
 	public void selectPrivate() {
 		demoqaLog.info("Selecting Office | Private Check Box...");
-		SelectPrivate.click();
+//		SelectPrivate.click();
+		JSclick.scrollAndClick(driver, SelectPrivate);
 		demoqaLog.info("Selected Office | Private Check Box...");
 	}
 
@@ -536,7 +541,8 @@ public class elementsPage extends demoqaBase {
 
 	public void selectGeneral() {
 		demoqaLog.info("Selecting Office | General Check Box...");
-		SelectGeneral.click();
+//		SelectGeneral.click();
+		JSclick.scrollAndClick(driver, SelectGeneral);
 		demoqaLog.info("Selected Office | General Check Box...");
 	}
 
@@ -554,7 +560,8 @@ public class elementsPage extends demoqaBase {
 
 	public void selectWordFile() {
 		demoqaLog.info("Selecting Downloads | Word File Check Box...");
-		SelectWordFile.click();
+//		SelectWordFile.click();
+		JSclick.scrollAndClick(driver, SelectWordFile);
 		demoqaLog.info("Selected Downloads | Word File Check Box...");
 	}
 
@@ -1169,6 +1176,7 @@ public class elementsPage extends demoqaBase {
 			file.delete();
 		}
 //		Cleanup completed
+		waitForElement.waitUntilVisible(driver, By.xpath("//*[@id='downloadButton']"));
 
 		WebElement downloadbtn = wait
 				.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id='downloadButton']")));

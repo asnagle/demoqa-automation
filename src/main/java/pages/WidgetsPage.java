@@ -122,25 +122,43 @@ public class WidgetsPage extends demoqaBase {
 	}
 
 	public void AccessWhereDoesIt() {
-		demoqaLog.info("Clicking on Widgets|Accordian|Where does it come from?...");
-		JSclick.scrollAndClick(driver, WhereDoesIt);
-		demoqaLog.info("Clicked on Where does it come from?...");
-		String wheredoescontent = WhereDoesContent.getText();
-		System.out.println("Where does it come from?: " + wheredoescontent);
-		demoqaLog.info("You are now Accessing: " + wheredoescontent);
+	    demoqaLog.info("Clicking on Widgets|Accordian|Where does it come from?...");
+	    JSclick.scrollAndClick(driver, WhereDoesIt);
+	    demoqaLog.info("Clicked on Where does it come from?...");
 
-		Assert.assertEquals(true, wheredoescontent.contains("Contrary to popular belief, Lorem Ipsum is not sim"));
+	    // Wait for visibility before accessing content
+	    if (waitForElement.isElementVisible(driver, WhereDoesContent)) {
+	        String wheredoescontent = WhereDoesContent.getText();
+	        demoqaLog.info("You are now Accessing: {}", wheredoescontent);
+	        System.out.println("Where does it come from?: " + wheredoescontent);
+
+	        Assert.assertTrue(
+	            wheredoescontent.contains("Contrary to popular belief, Lorem Ipsum is not sim"),
+	            "Expected accordion content not found or incomplete"
+	        );
+	    } else {
+	        Assert.fail("❌ 'WhereDoesContent' was not visible within timeout");
+	    }
 	}
 
 	public void AccessWhyDoWe() {
-		demoqaLog.info("Clicking on Widgets|Accordian|Why do we use it?...");
-		JSclick.scrollAndClick(driver, WhyDoWe);
-		demoqaLog.info("Clicked on Why do we use it?...");
-		String whydowecontent = WhyDoWeContent.getText();
-		System.out.println("Why do we use it?: " + whydowecontent);
-		demoqaLog.info("You are now Accessing: " + whydowecontent);
+	    demoqaLog.info("Clicking on Widgets|Accordian|Why do we use it?...");
+	    JSclick.scrollAndClick(driver, WhyDoWe);
+	    demoqaLog.info("Clicked on Why do we use it?...");
 
-		Assert.assertEquals(true, whydowecontent.contains("It is a long established fact that a reader will"));
+	    // Wait for visibility before accessing text
+	    if (waitForElement.isElementVisible(driver, WhyDoWeContent)) {
+	        String whydowecontent = WhyDoWeContent.getText();
+	        System.out.println("Why do we use it?: " + whydowecontent);
+	        demoqaLog.info("You are now Accessing: " + whydowecontent);
+
+	        Assert.assertTrue(
+	            whydowecontent.contains("It is a long established fact that a reader will"),
+	            "Expected content not found in accordion section"
+	        );
+	    } else {
+	        Assert.fail("WhyDoWeContent was not visible within timeout");
+	    }
 	}
 
 	public void ClickAutoComplete() {

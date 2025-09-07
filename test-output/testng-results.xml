@@ -1,40 +1,567 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="2" total="3" passed="1" failed="0" skipped="0">
+<testng-results ignored="9" total="30" passed="21" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2025-09-04T17:07:43 IST" name="Default suite" finished-at="2025-09-04T17:08:02 IST" duration-ms="19650">
+  <suite started-at="2025-09-07T15:16:08 IST" name="Failed suite [Failed suite [Default suite]]" finished-at="2025-09-07T15:31:19 IST" duration-ms="910881">
     <groups>
     </groups>
-    <test started-at="2025-09-04T17:07:43 IST" name="Default test" finished-at="2025-09-04T17:08:02 IST" duration-ms="19650">
-      <class name="tests.FormTests">
-        <test-method is-config="true" signature="setupReport()[pri:0, instance:tests.FormTests@3ad2e17]" started-at="2025-09-04T17:07:43 IST" name="setupReport" finished-at="2025-09-04T17:07:43 IST" duration-ms="252" status="PASS">
+    <test started-at="2025-09-07T15:16:08 IST" name="Default test(failed)(failed)" finished-at="2025-09-07T15:31:19 IST" duration-ms="910881">
+      <class name="tests.WidgetsTests">
+        <test-method is-config="true" signature="setupReport()[pri:0, instance:tests.WidgetsTests@5bf8fa12]" started-at="2025-09-07T15:16:08 IST" name="setupReport" finished-at="2025-09-07T15:16:08 IST" duration-ms="227" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setupReport -->
-        <test-method is-config="true" signature="setUP()[pri:0, instance:tests.FormTests@3ad2e17]" started-at="2025-09-04T17:07:43 IST" name="setUP" finished-at="2025-09-04T17:07:57 IST" duration-ms="14558" status="PASS">
+        <test-method is-config="true" signature="setUP()[pri:0, instance:tests.WidgetsTests@5bf8fa12]" started-at="2025-09-07T15:16:09 IST" name="setUP" finished-at="2025-09-07T15:16:44 IST" duration-ms="35650" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUP -->
-        <test-method signature="FormsCard()[pri:1, instance:tests.FormTests@3ad2e17]" started-at="2025-09-04T17:07:57 IST" name="FormsCard" finished-at="2025-09-04T17:08:02 IST" duration-ms="5043" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- FormsCard -->
-        <test-method is-config="true" signature="tearDown(org.testng.ITestResult)[pri:0, instance:tests.FormTests@3ad2e17]" started-at="2025-09-04T17:08:02 IST" name="tearDown" finished-at="2025-09-04T17:08:02 IST" duration-ms="4" status="PASS">
+        <test-method signature="AutoCompleteSearch(models.ColorSelectionData)[pri:7, instance:tests.WidgetsTests@5bf8fa12]" started-at="2025-09-07T15:16:44 IST" name="AutoCompleteSearch" data-provider="ColorSelectionData" finished-at="2025-09-07T15:16:47 IST" duration-ms="2978" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=FormsCard status=SUCCESS method=FormTests.FormsCard()[pri:1, instance:tests.FormTests@3ad2e17] output={null}]]]>
+                <![CDATA[ColorSelectionData{searchFor='A', expectedColors=[Black, Magenta, Aqua]}]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- AutoCompleteSearch -->
+        <test-method is-config="true" signature="tearDown(org.testng.ITestResult)[pri:0, instance:tests.WidgetsTests@5bf8fa12]" started-at="2025-09-07T15:16:47 IST" name="tearDown" finished-at="2025-09-07T15:16:48 IST" duration-ms="409" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=AutoCompleteSearch status=SUCCESS method=WidgetsTests.AutoCompleteSearch(models.ColorSelectionData)[pri:7, instance:tests.WidgetsTests@5bf8fa12] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-        <test-method is-config="true" signature="teardownReport()[pri:0, instance:tests.FormTests@3ad2e17]" started-at="2025-09-04T17:08:02 IST" name="teardownReport" finished-at="2025-09-04T17:08:03 IST" duration-ms="691" status="PASS">
+        <test-method is-config="true" signature="setUP()[pri:0, instance:tests.WidgetsTests@5bf8fa12]" started-at="2025-09-07T15:16:48 IST" name="setUP" finished-at="2025-09-07T15:17:23 IST" duration-ms="34791" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUP -->
+        <test-method signature="AutoCompleteSearch(models.ColorSelectionData)[pri:7, instance:tests.WidgetsTests@5bf8fa12]" started-at="2025-09-07T15:17:23 IST" name="AutoCompleteSearch" data-provider="ColorSelectionData" finished-at="2025-09-07T15:17:26 IST" duration-ms="3099" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[ColorSelectionData{searchFor='B', expectedColors=[Blue, Black]}]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- AutoCompleteSearch -->
+        <test-method is-config="true" signature="tearDown(org.testng.ITestResult)[pri:0, instance:tests.WidgetsTests@5bf8fa12]" started-at="2025-09-07T15:17:26 IST" name="tearDown" finished-at="2025-09-07T15:17:26 IST" duration-ms="410" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=AutoCompleteSearch status=SUCCESS method=WidgetsTests.AutoCompleteSearch(models.ColorSelectionData)[pri:7, instance:tests.WidgetsTests@5bf8fa12] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method is-config="true" signature="setUP()[pri:0, instance:tests.WidgetsTests@5bf8fa12]" started-at="2025-09-07T15:17:26 IST" name="setUP" finished-at="2025-09-07T15:18:34 IST" duration-ms="68009" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUP -->
+        <test-method signature="AutoCompleteSearch(models.ColorSelectionData)[pri:7, instance:tests.WidgetsTests@5bf8fa12]" started-at="2025-09-07T15:18:34 IST" name="AutoCompleteSearch" data-provider="ColorSelectionData" finished-at="2025-09-07T15:18:36 IST" duration-ms="1459" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[ColorSelectionData{searchFor='C', expectedColors=[Black]}]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- AutoCompleteSearch -->
+        <test-method is-config="true" signature="tearDown(org.testng.ITestResult)[pri:0, instance:tests.WidgetsTests@5bf8fa12]" started-at="2025-09-07T15:18:36 IST" name="tearDown" finished-at="2025-09-07T15:18:36 IST" duration-ms="403" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=AutoCompleteSearch status=SUCCESS method=WidgetsTests.AutoCompleteSearch(models.ColorSelectionData)[pri:7, instance:tests.WidgetsTests@5bf8fa12] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method is-config="true" signature="setUP()[pri:0, instance:tests.WidgetsTests@5bf8fa12]" started-at="2025-09-07T15:18:36 IST" name="setUP" finished-at="2025-09-07T15:19:11 IST" duration-ms="35012" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUP -->
+        <test-method signature="AutoCompleteSearch(models.ColorSelectionData)[pri:7, instance:tests.WidgetsTests@5bf8fa12]" started-at="2025-09-07T15:19:11 IST" name="AutoCompleteSearch" data-provider="ColorSelectionData" finished-at="2025-09-07T15:19:13 IST" duration-ms="2031" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[ColorSelectionData{searchFor='D', expectedColors=[Red, Indigo]}]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- AutoCompleteSearch -->
+        <test-method is-config="true" signature="tearDown(org.testng.ITestResult)[pri:0, instance:tests.WidgetsTests@5bf8fa12]" started-at="2025-09-07T15:19:13 IST" name="tearDown" finished-at="2025-09-07T15:19:13 IST" duration-ms="393" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=AutoCompleteSearch status=SUCCESS method=WidgetsTests.AutoCompleteSearch(models.ColorSelectionData)[pri:7, instance:tests.WidgetsTests@5bf8fa12] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method is-config="true" signature="setUP()[pri:0, instance:tests.WidgetsTests@5bf8fa12]" started-at="2025-09-07T15:19:13 IST" name="setUP" finished-at="2025-09-07T15:19:48 IST" duration-ms="34887" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUP -->
+        <test-method signature="AutoCompleteSearch(models.ColorSelectionData)[pri:7, instance:tests.WidgetsTests@5bf8fa12]" started-at="2025-09-07T15:19:48 IST" name="AutoCompleteSearch" data-provider="ColorSelectionData" finished-at="2025-09-07T15:19:53 IST" duration-ms="4196" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[ColorSelectionData{searchFor='E', expectedColors=[Red, Blue, Green, Yellow, Purple, White, Voilet, Magenta]}]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- AutoCompleteSearch -->
+        <test-method is-config="true" signature="tearDown(org.testng.ITestResult)[pri:0, instance:tests.WidgetsTests@5bf8fa12]" started-at="2025-09-07T15:19:53 IST" name="tearDown" finished-at="2025-09-07T15:19:53 IST" duration-ms="461" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=AutoCompleteSearch status=SUCCESS method=WidgetsTests.AutoCompleteSearch(models.ColorSelectionData)[pri:7, instance:tests.WidgetsTests@5bf8fa12] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method is-config="true" signature="setUP()[pri:0, instance:tests.WidgetsTests@5bf8fa12]" started-at="2025-09-07T15:19:53 IST" name="setUP" finished-at="2025-09-07T15:20:28 IST" duration-ms="35194" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUP -->
+        <test-method signature="AutoCompleteSearch(models.ColorSelectionData)[pri:7, instance:tests.WidgetsTests@5bf8fa12]" started-at="2025-09-07T15:20:28 IST" name="AutoCompleteSearch" data-provider="ColorSelectionData" finished-at="2025-09-07T15:20:31 IST" duration-ms="2618" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[ColorSelectionData{searchFor='G', expectedColors=[Green, Indigo, Magenta]}]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- AutoCompleteSearch -->
+        <test-method is-config="true" signature="tearDown(org.testng.ITestResult)[pri:0, instance:tests.WidgetsTests@5bf8fa12]" started-at="2025-09-07T15:20:31 IST" name="tearDown" finished-at="2025-09-07T15:20:31 IST" duration-ms="370" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=AutoCompleteSearch status=SUCCESS method=WidgetsTests.AutoCompleteSearch(models.ColorSelectionData)[pri:7, instance:tests.WidgetsTests@5bf8fa12] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method is-config="true" signature="setUP()[pri:0, instance:tests.WidgetsTests@5bf8fa12]" started-at="2025-09-07T15:20:31 IST" name="setUP" finished-at="2025-09-07T15:21:18 IST" duration-ms="46925" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUP -->
+        <test-method signature="AutoCompleteSearch(models.ColorSelectionData)[pri:7, instance:tests.WidgetsTests@5bf8fa12]" started-at="2025-09-07T15:21:18 IST" name="AutoCompleteSearch" data-provider="ColorSelectionData" finished-at="2025-09-07T15:21:19 IST" duration-ms="1085" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[ColorSelectionData{searchFor='H', expectedColors=[White]}]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- AutoCompleteSearch -->
+        <test-method is-config="true" signature="tearDown(org.testng.ITestResult)[pri:0, instance:tests.WidgetsTests@5bf8fa12]" started-at="2025-09-07T15:21:19 IST" name="tearDown" finished-at="2025-09-07T15:21:20 IST" duration-ms="461" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=AutoCompleteSearch status=SUCCESS method=WidgetsTests.AutoCompleteSearch(models.ColorSelectionData)[pri:7, instance:tests.WidgetsTests@5bf8fa12] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method is-config="true" signature="setUP()[pri:0, instance:tests.WidgetsTests@5bf8fa12]" started-at="2025-09-07T15:21:20 IST" name="setUP" finished-at="2025-09-07T15:21:55 IST" duration-ms="35090" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUP -->
+        <test-method signature="AutoCompleteSearch(models.ColorSelectionData)[pri:7, instance:tests.WidgetsTests@5bf8fa12]" started-at="2025-09-07T15:21:55 IST" name="AutoCompleteSearch" data-provider="ColorSelectionData" finished-at="2025-09-07T15:21:58 IST" duration-ms="3352" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[ColorSelectionData{searchFor='I', expectedColors=[White, Voilet, Indigo]}]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- AutoCompleteSearch -->
+        <test-method is-config="true" signature="tearDown(org.testng.ITestResult)[pri:0, instance:tests.WidgetsTests@5bf8fa12]" started-at="2025-09-07T15:21:58 IST" name="tearDown" finished-at="2025-09-07T15:21:59 IST" duration-ms="456" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=AutoCompleteSearch status=SUCCESS method=WidgetsTests.AutoCompleteSearch(models.ColorSelectionData)[pri:7, instance:tests.WidgetsTests@5bf8fa12] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method is-config="true" signature="setUP()[pri:0, instance:tests.WidgetsTests@5bf8fa12]" started-at="2025-09-07T15:21:59 IST" name="setUP" finished-at="2025-09-07T15:22:34 IST" duration-ms="35011" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUP -->
+        <test-method signature="AutoCompleteSearch(models.ColorSelectionData)[pri:7, instance:tests.WidgetsTests@5bf8fa12]" started-at="2025-09-07T15:22:34 IST" name="AutoCompleteSearch" data-provider="ColorSelectionData" finished-at="2025-09-07T15:22:35 IST" duration-ms="1279" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[ColorSelectionData{searchFor='K', expectedColors=[Black]}]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- AutoCompleteSearch -->
+        <test-method is-config="true" signature="tearDown(org.testng.ITestResult)[pri:0, instance:tests.WidgetsTests@5bf8fa12]" started-at="2025-09-07T15:22:35 IST" name="tearDown" finished-at="2025-09-07T15:22:35 IST" duration-ms="389" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=AutoCompleteSearch status=SUCCESS method=WidgetsTests.AutoCompleteSearch(models.ColorSelectionData)[pri:7, instance:tests.WidgetsTests@5bf8fa12] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method is-config="true" signature="setUP()[pri:0, instance:tests.WidgetsTests@5bf8fa12]" started-at="2025-09-07T15:22:35 IST" name="setUP" finished-at="2025-09-07T15:23:01 IST" duration-ms="26111" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUP -->
+        <test-method signature="AutoCompleteSearch(models.ColorSelectionData)[pri:7, instance:tests.WidgetsTests@5bf8fa12]" started-at="2025-09-07T15:23:01 IST" name="AutoCompleteSearch" data-provider="ColorSelectionData" finished-at="2025-09-07T15:23:04 IST" duration-ms="2951" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[ColorSelectionData{searchFor='L', expectedColors=[Blue, Yellow, Purple, Black, Voilet]}]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- AutoCompleteSearch -->
+        <test-method is-config="true" signature="tearDown(org.testng.ITestResult)[pri:0, instance:tests.WidgetsTests@5bf8fa12]" started-at="2025-09-07T15:23:04 IST" name="tearDown" finished-at="2025-09-07T15:23:05 IST" duration-ms="435" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=AutoCompleteSearch status=SUCCESS method=WidgetsTests.AutoCompleteSearch(models.ColorSelectionData)[pri:7, instance:tests.WidgetsTests@5bf8fa12] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method is-config="true" signature="setUP()[pri:0, instance:tests.WidgetsTests@5bf8fa12]" started-at="2025-09-07T15:23:05 IST" name="setUP" finished-at="2025-09-07T15:24:13 IST" duration-ms="67909" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUP -->
+        <test-method signature="AutoCompleteSearch(models.ColorSelectionData)[pri:7, instance:tests.WidgetsTests@5bf8fa12]" started-at="2025-09-07T15:24:13 IST" name="AutoCompleteSearch" data-provider="ColorSelectionData" finished-at="2025-09-07T15:24:14 IST" duration-ms="1360" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[ColorSelectionData{searchFor='M', expectedColors=[Magenta]}]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- AutoCompleteSearch -->
+        <test-method is-config="true" signature="tearDown(org.testng.ITestResult)[pri:0, instance:tests.WidgetsTests@5bf8fa12]" started-at="2025-09-07T15:24:14 IST" name="tearDown" finished-at="2025-09-07T15:24:14 IST" duration-ms="390" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=AutoCompleteSearch status=SUCCESS method=WidgetsTests.AutoCompleteSearch(models.ColorSelectionData)[pri:7, instance:tests.WidgetsTests@5bf8fa12] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method is-config="true" signature="setUP()[pri:0, instance:tests.WidgetsTests@5bf8fa12]" started-at="2025-09-07T15:24:14 IST" name="setUP" finished-at="2025-09-07T15:24:49 IST" duration-ms="34718" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUP -->
+        <test-method signature="AutoCompleteSearch(models.ColorSelectionData)[pri:7, instance:tests.WidgetsTests@5bf8fa12]" started-at="2025-09-07T15:24:49 IST" name="AutoCompleteSearch" data-provider="ColorSelectionData" finished-at="2025-09-07T15:24:51 IST" duration-ms="2118" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[ColorSelectionData{searchFor='N', expectedColors=[Green, Indigo, Magenta]}]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- AutoCompleteSearch -->
+        <test-method is-config="true" signature="tearDown(org.testng.ITestResult)[pri:0, instance:tests.WidgetsTests@5bf8fa12]" started-at="2025-09-07T15:24:51 IST" name="tearDown" finished-at="2025-09-07T15:24:52 IST" duration-ms="407" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=AutoCompleteSearch status=SUCCESS method=WidgetsTests.AutoCompleteSearch(models.ColorSelectionData)[pri:7, instance:tests.WidgetsTests@5bf8fa12] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method is-config="true" signature="setUP()[pri:0, instance:tests.WidgetsTests@5bf8fa12]" started-at="2025-09-07T15:24:52 IST" name="setUP" finished-at="2025-09-07T15:25:39 IST" duration-ms="46890" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUP -->
+        <test-method signature="AutoCompleteSearch(models.ColorSelectionData)[pri:7, instance:tests.WidgetsTests@5bf8fa12]" started-at="2025-09-07T15:25:39 IST" name="AutoCompleteSearch" data-provider="ColorSelectionData" finished-at="2025-09-07T15:25:41 IST" duration-ms="1983" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[ColorSelectionData{searchFor='O', expectedColors=[Yellow, Voilet, Indigo]}]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- AutoCompleteSearch -->
+        <test-method is-config="true" signature="tearDown(org.testng.ITestResult)[pri:0, instance:tests.WidgetsTests@5bf8fa12]" started-at="2025-09-07T15:25:41 IST" name="tearDown" finished-at="2025-09-07T15:25:41 IST" duration-ms="390" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=AutoCompleteSearch status=SUCCESS method=WidgetsTests.AutoCompleteSearch(models.ColorSelectionData)[pri:7, instance:tests.WidgetsTests@5bf8fa12] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method is-config="true" signature="setUP()[pri:0, instance:tests.WidgetsTests@5bf8fa12]" started-at="2025-09-07T15:25:41 IST" name="setUP" finished-at="2025-09-07T15:25:59 IST" duration-ms="18270" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUP -->
+        <test-method signature="AutoCompleteSearch(models.ColorSelectionData)[pri:7, instance:tests.WidgetsTests@5bf8fa12]" started-at="2025-09-07T15:25:59 IST" name="AutoCompleteSearch" data-provider="ColorSelectionData" finished-at="2025-09-07T15:26:00 IST" duration-ms="984" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[ColorSelectionData{searchFor='P', expectedColors=[Purple]}]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- AutoCompleteSearch -->
+        <test-method is-config="true" signature="tearDown(org.testng.ITestResult)[pri:0, instance:tests.WidgetsTests@5bf8fa12]" started-at="2025-09-07T15:26:00 IST" name="tearDown" finished-at="2025-09-07T15:26:01 IST" duration-ms="339" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=AutoCompleteSearch status=SUCCESS method=WidgetsTests.AutoCompleteSearch(models.ColorSelectionData)[pri:7, instance:tests.WidgetsTests@5bf8fa12] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method is-config="true" signature="setUP()[pri:0, instance:tests.WidgetsTests@5bf8fa12]" started-at="2025-09-07T15:26:01 IST" name="setUP" finished-at="2025-09-07T15:27:08 IST" duration-ms="67909" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUP -->
+        <test-method signature="AutoCompleteSearch(models.ColorSelectionData)[pri:7, instance:tests.WidgetsTests@5bf8fa12]" started-at="2025-09-07T15:27:08 IST" name="AutoCompleteSearch" data-provider="ColorSelectionData" finished-at="2025-09-07T15:27:10 IST" duration-ms="1509" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[ColorSelectionData{searchFor='Q', expectedColors=[Aqua]}]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- AutoCompleteSearch -->
+        <test-method is-config="true" signature="tearDown(org.testng.ITestResult)[pri:0, instance:tests.WidgetsTests@5bf8fa12]" started-at="2025-09-07T15:27:10 IST" name="tearDown" finished-at="2025-09-07T15:27:10 IST" duration-ms="397" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=AutoCompleteSearch status=SUCCESS method=WidgetsTests.AutoCompleteSearch(models.ColorSelectionData)[pri:7, instance:tests.WidgetsTests@5bf8fa12] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method is-config="true" signature="setUP()[pri:0, instance:tests.WidgetsTests@5bf8fa12]" started-at="2025-09-07T15:27:10 IST" name="setUP" finished-at="2025-09-07T15:27:45 IST" duration-ms="34835" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUP -->
+        <test-method signature="AutoCompleteSearch(models.ColorSelectionData)[pri:7, instance:tests.WidgetsTests@5bf8fa12]" started-at="2025-09-07T15:27:45 IST" name="AutoCompleteSearch" data-provider="ColorSelectionData" finished-at="2025-09-07T15:27:48 IST" duration-ms="2959" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[ColorSelectionData{searchFor='R', expectedColors=[Red, Green, Purple]}]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- AutoCompleteSearch -->
+        <test-method is-config="true" signature="tearDown(org.testng.ITestResult)[pri:0, instance:tests.WidgetsTests@5bf8fa12]" started-at="2025-09-07T15:27:48 IST" name="tearDown" finished-at="2025-09-07T15:27:49 IST" duration-ms="525" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=AutoCompleteSearch status=SUCCESS method=WidgetsTests.AutoCompleteSearch(models.ColorSelectionData)[pri:7, instance:tests.WidgetsTests@5bf8fa12] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method is-config="true" signature="setUP()[pri:0, instance:tests.WidgetsTests@5bf8fa12]" started-at="2025-09-07T15:27:49 IST" name="setUP" finished-at="2025-09-07T15:28:13 IST" duration-ms="24656" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUP -->
+        <test-method signature="AutoCompleteSearch(models.ColorSelectionData)[pri:7, instance:tests.WidgetsTests@5bf8fa12]" started-at="2025-09-07T15:28:13 IST" name="AutoCompleteSearch" data-provider="ColorSelectionData" finished-at="2025-09-07T15:28:15 IST" duration-ms="1895" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[ColorSelectionData{searchFor='T', expectedColors=[White, Voilet, Magenta]}]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- AutoCompleteSearch -->
+        <test-method is-config="true" signature="tearDown(org.testng.ITestResult)[pri:0, instance:tests.WidgetsTests@5bf8fa12]" started-at="2025-09-07T15:28:15 IST" name="tearDown" finished-at="2025-09-07T15:28:16 IST" duration-ms="427" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=AutoCompleteSearch status=SUCCESS method=WidgetsTests.AutoCompleteSearch(models.ColorSelectionData)[pri:7, instance:tests.WidgetsTests@5bf8fa12] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method is-config="true" signature="setUP()[pri:0, instance:tests.WidgetsTests@5bf8fa12]" started-at="2025-09-07T15:28:16 IST" name="setUP" finished-at="2025-09-07T15:28:51 IST" duration-ms="34859" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUP -->
+        <test-method signature="AutoCompleteSearch(models.ColorSelectionData)[pri:7, instance:tests.WidgetsTests@5bf8fa12]" started-at="2025-09-07T15:28:51 IST" name="AutoCompleteSearch" data-provider="ColorSelectionData" finished-at="2025-09-07T15:28:52 IST" duration-ms="1883" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[ColorSelectionData{searchFor='U', expectedColors=[Blue, Purple, Aqua]}]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- AutoCompleteSearch -->
+        <test-method is-config="true" signature="tearDown(org.testng.ITestResult)[pri:0, instance:tests.WidgetsTests@5bf8fa12]" started-at="2025-09-07T15:28:52 IST" name="tearDown" finished-at="2025-09-07T15:28:53 IST" duration-ms="380" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=AutoCompleteSearch status=SUCCESS method=WidgetsTests.AutoCompleteSearch(models.ColorSelectionData)[pri:7, instance:tests.WidgetsTests@5bf8fa12] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method is-config="true" signature="setUP()[pri:0, instance:tests.WidgetsTests@5bf8fa12]" started-at="2025-09-07T15:28:53 IST" name="setUP" finished-at="2025-09-07T15:29:28 IST" duration-ms="34849" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUP -->
+        <test-method signature="AutoCompleteSearch(models.ColorSelectionData)[pri:7, instance:tests.WidgetsTests@5bf8fa12]" started-at="2025-09-07T15:29:28 IST" name="AutoCompleteSearch" data-provider="ColorSelectionData" finished-at="2025-09-07T15:29:29 IST" duration-ms="1152" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[ColorSelectionData{searchFor='V', expectedColors=[Voilet]}]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- AutoCompleteSearch -->
+        <test-method is-config="true" signature="tearDown(org.testng.ITestResult)[pri:0, instance:tests.WidgetsTests@5bf8fa12]" started-at="2025-09-07T15:29:29 IST" name="tearDown" finished-at="2025-09-07T15:29:29 IST" duration-ms="405" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=AutoCompleteSearch status=SUCCESS method=WidgetsTests.AutoCompleteSearch(models.ColorSelectionData)[pri:7, instance:tests.WidgetsTests@5bf8fa12] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method is-config="true" signature="setUP()[pri:0, instance:tests.WidgetsTests@5bf8fa12]" started-at="2025-09-07T15:29:29 IST" name="setUP" finished-at="2025-09-07T15:30:37 IST" duration-ms="67985" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUP -->
+        <test-method signature="AutoCompleteSearch(models.ColorSelectionData)[pri:7, instance:tests.WidgetsTests@5bf8fa12]" started-at="2025-09-07T15:30:37 IST" name="AutoCompleteSearch" data-provider="ColorSelectionData" finished-at="2025-09-07T15:30:41 IST" duration-ms="3323" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[ColorSelectionData{searchFor='W', expectedColors=[Yellow, White]}]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- AutoCompleteSearch -->
+        <test-method is-config="true" signature="tearDown(org.testng.ITestResult)[pri:0, instance:tests.WidgetsTests@5bf8fa12]" started-at="2025-09-07T15:30:41 IST" name="tearDown" finished-at="2025-09-07T15:30:41 IST" duration-ms="492" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=AutoCompleteSearch status=SUCCESS method=WidgetsTests.AutoCompleteSearch(models.ColorSelectionData)[pri:7, instance:tests.WidgetsTests@5bf8fa12] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method is-config="true" signature="setUP()[pri:0, instance:tests.WidgetsTests@5bf8fa12]" started-at="2025-09-07T15:30:41 IST" name="setUP" finished-at="2025-09-07T15:31:17 IST" duration-ms="35875" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUP -->
+        <test-method signature="AutoCompleteSearch(models.ColorSelectionData)[pri:7, instance:tests.WidgetsTests@5bf8fa12]" started-at="2025-09-07T15:31:17 IST" name="AutoCompleteSearch" data-provider="ColorSelectionData" finished-at="2025-09-07T15:31:18 IST" duration-ms="1565" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[ColorSelectionData{searchFor='Y', expectedColors=[Yellow]}]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- AutoCompleteSearch -->
+        <test-method is-config="true" signature="tearDown(org.testng.ITestResult)[pri:0, instance:tests.WidgetsTests@5bf8fa12]" started-at="2025-09-07T15:31:18 IST" name="tearDown" finished-at="2025-09-07T15:31:19 IST" duration-ms="387" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=AutoCompleteSearch status=SUCCESS method=WidgetsTests.AutoCompleteSearch(models.ColorSelectionData)[pri:7, instance:tests.WidgetsTests@5bf8fa12] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method is-config="true" signature="teardownReport()[pri:0, instance:tests.WidgetsTests@5bf8fa12]" started-at="2025-09-07T15:31:19 IST" name="teardownReport" finished-at="2025-09-07T15:31:19 IST" duration-ms="455" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- teardownReport -->
-      </class> <!-- tests.FormTests -->
-    </test> <!-- Default test -->
-  </suite> <!-- Default suite -->
+      </class> <!-- tests.WidgetsTests -->
+    </test> <!-- Default test(failed)(failed) -->
+  </suite> <!-- Failed suite [Failed suite [Default suite]] -->
 </testng-results>

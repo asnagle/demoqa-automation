@@ -31,12 +31,12 @@ utils\LabelAliasRegistry.class
 customAnnotations\ColumnMapping.class
 utils\DateUtils.class
 pages\WidgetsPage.class
-utils\RetryTransformer.class
 customAnnotations\CaptureOnSuccess.class
 utils\PojoSanitizer.class
 utils\waitForElement.class
 converters\NoOpConverter.class
 converters\DobConverter.class
+listeners\RetryTransformer.class
 models\UserFormData.class
 pages\alertsframewindowsPage.class
 pages\elementsPage.class

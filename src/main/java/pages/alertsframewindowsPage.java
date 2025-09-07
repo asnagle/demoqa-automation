@@ -4,6 +4,7 @@ import static org.testng.Assert.assertNotNull;
 import java.time.Duration;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -15,6 +16,7 @@ import base.demoqaBase;
 import utils.JSclick;
 import utils.WindowValidationUtils;
 //import utils.waitForElement;
+import utils.waitForElement;
 
 public class alertsframewindowsPage extends demoqaBase {
 
@@ -303,7 +305,7 @@ public class alertsframewindowsPage extends demoqaBase {
 	
 	public void clickFrames() {
 	    demoqaLog.info("🔍 Starting test for Frames click ..");
-
+	    waitForElement.waitUntilInteractable(driver, Frames);
 	    JSclick.scrollAndClick(driver, Frames);
 	    demoqaLog.info("✅ Clicked on Frames...");
 	    String framesPgTitle = FramepgTitle.getText();
@@ -315,32 +317,65 @@ public class alertsframewindowsPage extends demoqaBase {
 	public void GetFrame1msg() {
 	    demoqaLog.info("🔍 Starting test for Frames|Frame1 Message...");
 
-//	    JSclick.scrollAndClick(driver, Frames);
-	    driver.switchTo().frame(frame1);
-        Assert.assertEquals(true, driver.getPageSource().contains("This is a sample page"));
+	    By frame1Locator = By.id("frame1"); // Confirmed from demoqa.com/frames
+	    boolean frameReady = waitForElement.waitForFrameAndSwitch(driver, frame1Locator, 10);
+
+	    if (!frameReady) {
+	        demoqaLog.error("❌ Frame1 not available or not loaded in time.");
+	        Assert.fail("Frame1 not found or not ready.");
+	    }
+
 	    demoqaLog.info("✅ Switched to Frame1...");
+
+	    // Locate the content inside the frame AFTER switching
+	    By contentLocator = By.id("sampleHeading");
+	    WebElement frame1Content;
+	    try {
+	        frame1Content = new WebDriverWait(driver, Duration.ofSeconds(5))
+	                .until(ExpectedConditions.visibilityOfElementLocated(contentLocator));
+	    } catch (TimeoutException e) {
+	        demoqaLog.error("❌ Frame1 content not visible in time.");
+	        Assert.fail("Frame1 content not loaded: " + e.getMessage());
+	        return;
+	    }
+
 	    String frame1msg = frame1Content.getText();
 	    demoqaLog.info("Frame1 contains: " + frame1msg);
-	    
+
 	    Assert.assertEquals("This is a sample page", frame1msg);
+	    driver.switchTo().defaultContent();
 	}
 	
 	public void GetFrame2msg() {
 	    demoqaLog.info("🔍 Starting test for Frames|Frame2 Message...");
 
-	    driver.switchTo().frame(frame2);
-        Assert.assertEquals(true, driver.getPageSource().contains("This is a sample page"));
-	    demoqaLog.info("✅ Switched to Frame1...");
+	    By frame2Locator = By.id("frame2"); // Confirmed from demoqa.com/frames
+	    boolean frameReady = waitForElement.waitForFrameAndSwitch(driver, frame2Locator, 10);
+
+	    if (!frameReady) {
+	        demoqaLog.error("❌ Frame2 not available or not loaded in time.");
+	        Assert.fail("Frame2 not found or not ready.");
+	    }
+
+	    demoqaLog.info("✅ Switched to Frame2...");
+
+	    // Locate the content inside the frame AFTER switching
+	    By contentLocator = By.id("sampleHeading");
+	    WebElement frame2Content;
 	    try {
-			Thread.sleep(3000);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+	        frame2Content = new WebDriverWait(driver, Duration.ofSeconds(5))
+	                .until(ExpectedConditions.visibilityOfElementLocated(contentLocator));
+	    } catch (TimeoutException e) {
+	        demoqaLog.error("❌ Frame2 content not visible in time.");
+	        Assert.fail("Frame2 content not loaded: " + e.getMessage());
+	        return;
+	    }
+
 	    String frame2msg = frame2Content.getText();
-	    demoqaLog.info("Frame1 contains: " + frame2msg);
-	    
+	    demoqaLog.info("Frame2 contains: " + frame2msg);
+
 	    Assert.assertEquals("This is a sample page", frame2msg);
+	    driver.switchTo().defaultContent();
 	}
 	
 	public void clickNestedFrames() {

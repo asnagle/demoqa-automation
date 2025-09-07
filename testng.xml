@@ -1,6 +1,7 @@
 <suite name="demoqa-automation TestSuite">
+
 	<listeners>
-		<listener class-name="utils.RetryTransformer" />
+		<listener class-name="listeners.RetryTransformer" />
 	</listeners>
 
 	<test name="Elements test">

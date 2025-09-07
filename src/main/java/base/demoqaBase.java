@@ -1,3 +1,4 @@
+
 package base;
 
 import java.io.File;
@@ -51,7 +52,7 @@ public class demoqaBase {
             extentRep.flush();
             File fullPath = new File(extentReportManager.reportPath);
             String reportFolder = fullPath.getParent();
-            emailUtils.sendTestReport(reportFolder);
+//            emailUtils.sendTestReport(reportFolder);
         } catch (Exception e) {
             System.err.println("Flush failed: " + e.getMessage());
         }

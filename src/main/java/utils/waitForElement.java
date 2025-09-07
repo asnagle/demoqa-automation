@@ -30,6 +30,16 @@ public class waitForElement {
 			return false;
 		}
 	}
+	
+	public static boolean isElementVisible(WebDriver driver, WebElement element) {
+	    try {
+	        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+	        wait.until(ExpectedConditions.visibilityOf(element));
+	        return true;
+	    } catch (TimeoutException e) {
+	        return false;
+	    }
+	}
 
 	public static void waitAndClick(WebDriver driver, WebElement element) {
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
@@ -58,6 +68,29 @@ public class waitForElement {
 	public static WebElement waitUntilInteractable(WebDriver driver, WebElement element) {
 	    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 	    return wait.until(ExpectedConditions.elementToBeClickable(element));
+	}
+	
+	public static boolean waitForFrameText(WebDriver driver, WebElement frameElement, WebElement contentElement, String expectedText, int timeoutSeconds) {
+	    try {
+	        driver.switchTo().frame(frameElement);
+	        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(timeoutSeconds));
+	        boolean textPresent = wait.until(ExpectedConditions.textToBePresentInElement(contentElement, expectedText));
+	        driver.switchTo().defaultContent(); // Optional: switch back after check
+	        return textPresent;
+	    } catch (TimeoutException e) {
+	        driver.switchTo().defaultContent(); // Ensure we exit the frame even on failure
+	        return false;
+	    }
+	}
+	
+	public static boolean waitForFrameAndSwitch(WebDriver driver, By frameLocator, int timeoutSeconds) {
+	    try {
+	        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(timeoutSeconds));
+	        wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt(frameLocator));
+	        return true;
+	    } catch (TimeoutException e) {
+	        return false;
+	    }
 	}
 
 }

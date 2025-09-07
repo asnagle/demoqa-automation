@@ -1,4 +1,4 @@
-package utils;
+package listeners;
 
 import org.testng.IAnnotationTransformer;
 import org.testng.annotations.ITestAnnotation;
@@ -13,7 +13,7 @@ public final class RetryTransformer implements IAnnotationTransformer {
                           Class testClass,
                           Constructor testConstructor,
                           Method testMethod) {
-        annotation.setRetryAnalyzer(RetryAnalyzer.class);
+        annotation.setRetryAnalyzer(utils.RetryAnalyzer.class);
         System.out.println("🔁 RetryTransformer applied to: " + testMethod.getName());
     }
 }
