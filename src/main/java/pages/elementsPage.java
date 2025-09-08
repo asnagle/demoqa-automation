@@ -204,6 +204,9 @@ public class elementsPage extends demoqaBase {
 
 	@FindBy(xpath = "//button[@id='rightClickBtn']")
 	WebElement rightClickBtn;
+	
+	@FindBy(xpath = "//p[@id='rightClickMessage']")
+	WebElement rightClickMessage;
 
 	@FindBy(xpath = "//button[text()='Click Me' and contains(@class, 'btn-primary')]")
 	WebElement ClickMeBtn;
@@ -268,7 +271,8 @@ public class elementsPage extends demoqaBase {
 	@FindBy(xpath = "//div[@class='element-list collapse show']//li[@id='item-7']")
 	WebElement UploadDownloadBtn;
 
-	@FindBy(xpath = "//*[@id='downloadButton']")
+//	@FindBy(xpath = "//*[@id='downloadButton']")
+	@FindBy(id = "downloadButton")
 	WebElement DownloadBtn;
 
 	@FindBy(xpath = "//input[@id='uploadFile']")
@@ -925,6 +929,8 @@ public class elementsPage extends demoqaBase {
 
 	public void DoubleClickbtn() {
 		demoqaLog.info("Clicking on Elements|Buttons|Double Click button...");
+		waitForElement.isElementVisible(driver, doubleClickBtn);
+		waitForElement.waitUntilInteractable(driver, doubleClickBtn);
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 		System.out.println("Declared WebDriverWait: " + wait);
 		new Actions(driver).doubleClick(doubleClickBtn).perform();
@@ -939,13 +945,17 @@ public class elementsPage extends demoqaBase {
 
 	public void RightClickBtn() {
 	    demoqaLog.info("Clicking on Elements|Buttons|Right Click button...");
+	    
+	    waitForElement.isElementVisible(driver, rightClickBtn);
+	    waitForElement.waitUntilInteractable(driver, rightClickBtn);
 
-	    WebElement rightClickBtn = waitForElement.waitUntilVisible(driver, By.id("rightClickBtn"));
 	    System.out.println("Waiting for Element: " + rightClickBtn);
 
 	    new Actions(driver).contextClick(rightClickBtn).perform();
 
-	    String actualMessage = driver.findElement(By.id("rightClickMessage")).getText();
+//	    String actualMessage = driver.findElement(By.id("rightClickMessage")).getText();
+	    String actualMessage = rightClickMessage.getText();
+	    System.out.println("Action: " + actualMessage);
 	    Assert.assertEquals(actualMessage, "You have done a right click");
 
 	    demoqaLog.info("Clicked on Elements|Buttons|Right Click button... " + actualMessage);
@@ -1153,6 +1163,8 @@ public class elementsPage extends demoqaBase {
 
 	public void ClickUploadDownload() {
 		demoqaLog.info("Checking for Elements|Upload and Download|Download Button...");
+		waitForElement.isElementVisible(driver, UploadDownloadBtn);
+		waitForElement.waitUntilInteractable(driver, UploadDownloadBtn);
 		WebElement uploaddownloadbtn = wait.until(ExpectedConditions
 				.elementToBeClickable(By.xpath("//div[@class='element-list collapse show']//li[@id='item-7']")));
 		System.out.println("Waiting for the Element to be Clickable: " + uploaddownloadbtn);
@@ -1175,8 +1187,17 @@ public class elementsPage extends demoqaBase {
 			System.out.println("Deleting Existing file before download...");
 			file.delete();
 		}
+		
 //		Cleanup completed
+		try {
+			Thread.sleep(3000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		waitForElement.waitUntilVisible(driver, By.xpath("//*[@id='downloadButton']"));
+//		waitForElement.waitUntilInteractable(driver, DownloadBtn);
+		
 
 		WebElement downloadbtn = wait
 				.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id='downloadButton']")));

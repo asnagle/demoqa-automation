@@ -5,75 +5,25 @@
     <classes>
       <class name="tests.ElementsTests">
         <methods>
-          <include name="webTableAddSearch"/>
-          <include name="GetValidImage"/>
           <include name="setupReport"/>
-          <include name="BrokenLinksValidlink"/>
-          <include name="ClickBrokenLinksImages"/>
-          <include name="ClickMovedLink"/>
-          <include name="ClickHomeLink"/>
-          <include name="BrokenLinksBrokenlink"/>
-          <include name="ClickAllLinks"/>
-          <include name="DynamicPropertiesbtn"/>
-          <include name="VisibleAfterbtn"/>
-          <include name="Buttons"/>
-          <include name="EditSalaryDepartment"/>
-          <include name="DoubleClickButtons"/>
-          <include name="ColorChangebtn"/>
-          <include name="SelectReactAnuglarVeu"/>
-          <include name="ClickBadRequestLink"/>
-          <include name="SelectingWorkSpace"/>
-          <include name="clickRadioButton"/>
-          <include name="SelectingWordFile"/>
+          <include name="teardownSuite"/>
           <include name="Downloadbtn"/>
-          <include name="ClickAllButtons"/>
-          <include name="teardownReport"/>
-          <include name="ClickForbiddenLink"/>
-          <include name="WillEnablebtn"/>
-          <include name="SelectingExcelFile"/>
+          <include name="SelectingNotesCommandsClick"/>
+          <include name="DoubleClickButtons"/>
           <include name="tearDown"/>
-          <include name="ClickLinks"/>
-          <include name="webTableAddEditFirstName"/>
-          <include name="ClickCreatedAPILink"/>
-          <include name="testAddAllUsersSearchEdit"/>
-          <include name="WebTablesClick"/>
-          <include name="GetBrokenImage"/>
-          <include name="webTableDeleteUser"/>
-          <include name="SelectingAllFiles"/>
-          <include name="webTableAddSearchEdit"/>
-          <include name="ClickUnauthorizedLink"/>
-          <include name="ClickMeButton"/>
-          <include name="testAddAllUsersFromExcel"/>
-          <include name="SelectImpressiveRadioButton"/>
-          <include name="UploadDownloadlink"/>
-          <include name="ClickDynamicHomeLink"/>
-          <include name="ClickNoContentLink"/>
           <include name="RightClickButton"/>
-          <include name="webTableNewRegistration"/>
-          <include name="SelectYesRadioButton"/>
-          <include name="Uploadbtn"/>
-          <include name="ClickNotFoundLink"/>
-          <include name="setUP"/>
+          <include name="setup"/>
         </methods>
       </class> <!-- tests.ElementsTests -->
-      <class name="tests.AlertsFramesWindowsTests">
+      <class name="tests.WidgetsTests">
         <methods>
           <include name="setupReport"/>
-          <include name="teardownReport"/>
-          <include name="ClickLargeModal"/>
+          <include name="teardownSuite"/>
+          <include name="AutoCompleteSingle" invocation-numbers="0"/>
           <include name="tearDown"/>
-          <include name="setUP"/>
+          <include name="setup"/>
         </methods>
-      </class> <!-- tests.AlertsFramesWindowsTests -->
-      <class name="tests.FormTests">
-        <methods>
-          <include name="setupReport"/>
-          <include name="fillForm"/>
-          <include name="teardownReport"/>
-          <include name="tearDown"/>
-          <include name="setUP"/>
-        </methods>
-      </class> <!-- tests.FormTests -->
+      </class> <!-- tests.WidgetsTests -->
     </classes>
   </test> <!-- Surefire test(failed) -->
 </suite> <!-- Failed suite [Surefire suite] -->

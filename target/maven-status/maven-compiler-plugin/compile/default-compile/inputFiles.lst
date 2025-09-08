@@ -44,3 +44,5 @@ C:\ASN\eclipse_workspace\demoqa-automation\src\main\java\utils\LabelAliasRegistr
 C:\ASN\eclipse_workspace\demoqa-automation\src\main\java\listeners\RetryTransformer.java
 C:\ASN\eclipse_workspace\demoqa-automation\src\main\java\utils\JSclick.java
 C:\ASN\eclipse_workspace\demoqa-automation\src\main\java\utils\DataSanitizer.java
+C:\ASN\eclipse_workspace\demoqa-automation\src\main\java\utils\DriverFactory.java
+C:\ASN\eclipse_workspace\demoqa-automation\src\main\java\utils\ChromeProfileCleaner.java

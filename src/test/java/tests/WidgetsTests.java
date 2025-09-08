@@ -2,8 +2,6 @@ package tests;
 
 import java.io.IOException;
 import java.util.List;
-
-import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import base.demoqaBase;

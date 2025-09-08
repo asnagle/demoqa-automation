@@ -414,6 +414,7 @@ public class WidgetsPage extends demoqaBase {
 	
 	public void selectColorSingle(String searchChar, String SelectColor) {
 	    try {
+	    	waitForElement.waitUntilInteractable(driver, AutoCompleteSingle);
 	    	JSclick.scrollAndClick(driver, AutoCompleteSingle);
 	    	demoqaLog.info("Clicked on Search Box with Title: " + SingleSearchBoxTitle.getText());
 	    	AutoCompleteSingle.clear();

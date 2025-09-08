@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [Failed suite [Surefire suite]]" guice-stage="DEVELOPMENT" verbose="0">
+  <test thread-count="5" name="Surefire test(failed)(failed)" verbose="0">
+    <classes>
+      <class name="tests.ElementsTests">
+        <methods>
+          <include name="setupReport"/>
+          <include name="teardownSuite"/>
+          <include name="Downloadbtn"/>
+          <include name="SelectingNotesCommandsClick"/>
+          <include name="DoubleClickButtons"/>
+          <include name="RightClickButton"/>
+          <include name="tearDown"/>
+          <include name="setup"/>
+        </methods>
+      </class> <!-- tests.ElementsTests -->
+    </classes>
+  </test> <!-- Surefire test(failed)(failed) -->
+</suite> <!-- Failed suite [Failed suite [Surefire suite]] -->
