@@ -6,24 +6,12 @@
       <class name="tests.ElementsTests">
         <methods>
           <include name="setupReport"/>
-          <include name="teardownSuite"/>
           <include name="Downloadbtn"/>
-          <include name="SelectingNotesCommandsClick"/>
-          <include name="DoubleClickButtons"/>
+          <include name="teardownSuite"/>
           <include name="tearDown"/>
-          <include name="RightClickButton"/>
           <include name="setup"/>
         </methods>
       </class> <!-- tests.ElementsTests -->
-      <class name="tests.WidgetsTests">
-        <methods>
-          <include name="setupReport"/>
-          <include name="teardownSuite"/>
-          <include name="AutoCompleteSingle" invocation-numbers="0"/>
-          <include name="tearDown"/>
-          <include name="setup"/>
-        </methods>
-      </class> <!-- tests.WidgetsTests -->
     </classes>
   </test> <!-- Surefire test(failed) -->
 </suite> <!-- Failed suite [Surefire suite] -->

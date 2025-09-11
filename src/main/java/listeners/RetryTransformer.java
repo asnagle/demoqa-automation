@@ -5,8 +5,13 @@ import org.testng.annotations.ITestAnnotation;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Method;
 
-@SuppressWarnings("rawtypes") // Only suppress raw type warnings
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
+@SuppressWarnings("rawtypes")
 public final class RetryTransformer implements IAnnotationTransformer {
+
+    private static final Logger demoqaLog = LogManager.getLogger(RetryTransformer.class);
 
     @Override
     public void transform(ITestAnnotation annotation,
@@ -14,6 +19,6 @@ public final class RetryTransformer implements IAnnotationTransformer {
                           Constructor testConstructor,
                           Method testMethod) {
         annotation.setRetryAnalyzer(utils.RetryAnalyzer.class);
-        System.out.println("🔁 RetryTransformer applied to: " + testMethod.getName());
+        demoqaLog.info("🔁 RetryTransformer applied to: {}", testMethod.getName());
     }
 }

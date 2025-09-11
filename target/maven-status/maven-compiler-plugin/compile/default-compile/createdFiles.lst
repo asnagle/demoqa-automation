@@ -29,6 +29,7 @@ utils\mappers\ExcelToPOJOMapper.class
 utils\extentReportManager.class
 utils\AssertFormData.class
 models\TextBoxUser.class
+utils\PauseManager.class
 utils\RetryAnalyzer.class
 utils\emailUtils.class
 converters\ExcelValueConverter.class
@@ -47,3 +48,4 @@ customAnnotations\CaptureOnSuccess.class
 pages\elementsPage.class
 utils\FileDownloadValidator.class
 utils\DataSanitizer.class
+utils\ConfigLoader.class
