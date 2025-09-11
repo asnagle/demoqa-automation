@@ -13,9 +13,8 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import base.demoqaBase;
-import utils.JSclick;
+import utils.ClickHandler;
 import utils.WindowValidationUtils;
-//import utils.waitForElement;
 import utils.waitForElement;
 
 public class alertsframewindowsPage extends demoqaBase {
@@ -202,7 +201,7 @@ public class alertsframewindowsPage extends demoqaBase {
 	    assertNotNull("Original window handle is null", originalHandle);
 
 	    // Click on the button
-	    JSclick.scrollAndClick(driver, MessageWindowBtn);
+	    ClickHandler.smartClick(driver, MessageWindowBtn);
 
 	    // Validate new window opened and return to original
 	    WindowValidationUtils.switchToNewWindowAndValidate(
@@ -217,7 +216,7 @@ public class alertsframewindowsPage extends demoqaBase {
 	public void clickAlerts() {
 	    demoqaLog.info("🔍 Starting test for Alerts click ..");
 
-	    JSclick.scrollAndClick(driver, Alerts);
+	    ClickHandler.smartClick(driver, Alerts);
 	    demoqaLog.info("✅ Clicked on Alerts...");
 	    String alertsPgTitle = AlertsPageTitle.getText();
 	    demoqaLog.info("Page Title is: " + alertsPgTitle);
@@ -228,7 +227,7 @@ public class alertsframewindowsPage extends demoqaBase {
 	public void clickToSeeAlert() {
 		demoqaLog.info("🔍 Starting test for Click Button to see Alert...");
 
-	    JSclick.scrollAndClick(driver, seeAlertBtn);
+	    ClickHandler.smartClick(driver, seeAlertBtn);
 	    demoqaLog.info("✅ Clicked on Click Button to see Alert...");
 	    wait.until(ExpectedConditions.alertIsPresent());
         Alert alert = driver.switchTo().alert();
@@ -241,7 +240,7 @@ public class alertsframewindowsPage extends demoqaBase {
 	public void clickSeeAlert5sec() {
 		demoqaLog.info("🔍 Starting test for On button click, alert will appear after 5 seconds...");
 
-	    JSclick.scrollAndClick(driver, timerAlertButton);
+	    ClickHandler.smartClick(driver, timerAlertButton);
 	    demoqaLog.info("✅ Clicked on Click Button to see Alert after 5 seconds...");
 	    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 	    wait.until(ExpectedConditions.alertIsPresent());
@@ -255,7 +254,7 @@ public class alertsframewindowsPage extends demoqaBase {
 	public void clickConfirmBoxAlertAccept() {
 		demoqaLog.info("🔍 Starting test for On button click, confirm box will appear, Accept...");
 
-	    JSclick.scrollAndClick(driver, confirmboxButton);
+	    ClickHandler.smartClick(driver, confirmboxButton);
 	    demoqaLog.info("✅ Clicked On button click, confirm box will appear, Accept...");
 	    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 	    wait.until(ExpectedConditions.alertIsPresent());
@@ -271,7 +270,7 @@ public class alertsframewindowsPage extends demoqaBase {
 	public void clickConfirmBoxAlertDeny() {
 		demoqaLog.info("🔍 Starting test for On button click, confirm box will appear, Deny...");
 
-	    JSclick.scrollAndClick(driver, confirmboxButton);
+	    ClickHandler.smartClick(driver, confirmboxButton);
 	    demoqaLog.info("✅ Clicked On button click, confirm box will appear, Deny...");
 	    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 	    wait.until(ExpectedConditions.alertIsPresent());
@@ -286,7 +285,7 @@ public class alertsframewindowsPage extends demoqaBase {
 	
 	public void clickPromptFill() {
 		demoqaLog.info("🔍 Starting test for On button click, prompt box will appear, Fill data...");
-	    JSclick.scrollAndClick(driver, promptBox);
+	    ClickHandler.smartClick(driver, promptBox);
 	    
 	    demoqaLog.info("✅ Clicked On button click, prompt box will appear, Fill data...");
 	    Alert alert = driver.switchTo().alert();
@@ -306,7 +305,7 @@ public class alertsframewindowsPage extends demoqaBase {
 	public void clickFrames() {
 	    demoqaLog.info("🔍 Starting test for Frames click ..");
 	    waitForElement.waitUntilInteractable(driver, Frames);
-	    JSclick.scrollAndClick(driver, Frames);
+	    ClickHandler.smartClick(driver, Frames);
 	    demoqaLog.info("✅ Clicked on Frames...");
 	    String framesPgTitle = FramepgTitle.getText();
 	    demoqaLog.info("Page Title is: " + framesPgTitle);
@@ -381,7 +380,7 @@ public class alertsframewindowsPage extends demoqaBase {
 	public void clickNestedFrames() {
 		demoqaLog.info("🔍 Starting test for Frames|Nested Frames click ..");
 
-	    JSclick.scrollAndClick(driver, nestedFrames);
+	    ClickHandler.smartClick(driver, nestedFrames);
 	    demoqaLog.info("✅ Clicked on Nested Frames...");
 	    String nestedframesPgTitle = nestedFramePgTitle.getText();
 	    demoqaLog.info("Page Title is: " + nestedframesPgTitle);
@@ -423,7 +422,7 @@ public class alertsframewindowsPage extends demoqaBase {
 	public void clickModalDialogs() {
 		demoqaLog.info("🔍 Starting test for Frames|Modal Dialogs click ..");
 
-	    JSclick.scrollAndClick(driver, modalDialogs);
+	    ClickHandler.smartClick(driver, modalDialogs);
 	    demoqaLog.info("✅ Clicked on Modal Dialogs...");
 	    
 	    String modalDialogsPgTitle = ModalDiagPgTitle.getText();
@@ -435,7 +434,7 @@ public class alertsframewindowsPage extends demoqaBase {
 	public void clickSmallModal() {
 		demoqaLog.info("🔍 Starting test for Frames|Modal Dialogs|Small Modal click...");
 
-	    JSclick.scrollAndClick(driver, modalSmallBtn);
+	    ClickHandler.smartClick(driver, modalSmallBtn);
 	    demoqaLog.info("✅ Clicked on Modal Dialogs|Small Modal...");
 	    
 	    String smallmodalPgTitle = smallModalTitle.getText();
@@ -447,13 +446,13 @@ public class alertsframewindowsPage extends demoqaBase {
 	    demoqaLog.info("Small Modal Body Contains: " + smallmodalBody);
 	    
 	    Assert.assertTrue(smallmodalBody.contains("This is a small modal"), "Unexpected frame content.");
-	    JSclick.scrollAndClick(driver, smallModalCloseBtn);
+	    ClickHandler.smartClick(driver, smallModalCloseBtn);
 	}
 	
 	public void clickLargeModal() {
 		demoqaLog.info("🔍 Starting test for Frames|Modal Dialogs|Large Modal click...");
 
-	    JSclick.scrollAndClick(driver, modalLargeBtn);
+	    ClickHandler.smartClick(driver, modalLargeBtn);
 	    demoqaLog.info("✅ Clicked on Modal Dialogs|Large Modal...");
 	    
 	    String largemodalPgTitle = largeModalTitle.getText();
@@ -465,7 +464,7 @@ public class alertsframewindowsPage extends demoqaBase {
 	    demoqaLog.info("Large Modal Body Contains: " + largemodalBody);
 	    
 	    Assert.assertTrue(largemodalBody.contains("Lorem Ipsum is simply dummy text"), "Unexpected frame content.");
-	    JSclick.scrollAndClick(driver, largeModalCloseBtn);
+	    ClickHandler.smartClick(driver, largeModalCloseBtn);
 	}
 	
 }

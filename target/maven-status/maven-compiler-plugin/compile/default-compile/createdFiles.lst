@@ -41,6 +41,7 @@ utils\DatePickerUtils.class
 customAnnotations\AnnotationDrivenMapper.class
 utils\ConfirmationTableParser.class
 utils\demoqaLog.class
+utils\ClickHandler.class
 utils\JSclick.class
 utils\AlertUtils.class
 utils\LabelAliasRegistry.class

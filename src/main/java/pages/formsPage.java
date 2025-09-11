@@ -19,13 +19,11 @@ import org.testng.Assert;
 
 import base.demoqaBase;
 import models.UserFormData;
+import utils.ClickHandler;
 import utils.DataSanitizer;
 import utils.DatePickerUtils;
-import utils.JSclick;
 import utils.RetryUrlAccess;
-//import utils.demoqaLog;
 
-//import utils.splitDOB;
 
 public class formsPage extends demoqaBase {
 
@@ -91,7 +89,8 @@ public class formsPage extends demoqaBase {
 
 	public void clickPracticeForm() {
 		demoqaLog.info("Clicking on Practice Form...");
-		driver.findElement(PracticeForm).click();
+//		driver.findElement(PracticeForm).click();
+		ClickHandler.smartClick(driver, PracticeForm);
 		demoqaLog.info("Clicked on Practice Form...");
 
 	}
@@ -137,18 +136,12 @@ public class formsPage extends demoqaBase {
 		WebElement genderLabel = wait
 				.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("label[for='" + inputId + "']")));
 
-		JSclick.scrollAndClick(driver, genderLabel);
+		ClickHandler.smartClick(driver, genderLabel);
 
 		System.out.println("Selected gender: " + genderText);
 	}
 
 	public void entMobileNo(String mobileNumber) {
-//		mobile.clear();
-//		if (mobileNumber.length() != 10) {
-//			System.out.println("Invalid mobile number: " + mobileNumber);
-//			return;
-//		}
-//		mobile.sendKeys(mobileNumber);
 		String sanitized = DataSanitizer.sanitizeMobile(mobileNumber, "Mobile", null);
 		if (sanitized.length() != 10) {
 			System.out.println("Invalid mobile number after sanitization: " + sanitized);

@@ -1118,6 +1118,12 @@ public class ElementsTests extends demoqaBase {
 		testRep = extentReportManager.createTest("Test Elements|Upload and Download|Download Button...");
 		testRep.info("🧪 Starting Test for Elements|Upload and Download|Download Button...");
 		elementsPage.ClickUploadDownload();
+		try {
+			Thread.sleep(3000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		elementsPage.DownloadFile();
 		testRep.pass("✅ Finished Test for Elements|Upload and Download|Download Button Completed Successfully...");
 		demoqaLog.info("✅ Test for Elements|Upload and Download|Download Button Completed Successfully...");

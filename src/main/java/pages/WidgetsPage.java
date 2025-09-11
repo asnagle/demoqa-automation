@@ -17,6 +17,7 @@ import org.testng.Assert;
 import com.aventstack.extentreports.ExtentTest;
 import base.demoqaBase;
 import models.ColorSelectionData;
+import utils.ClickHandler;
 import utils.ExcelUtils;
 import utils.JSclick;
 import utils.waitForElement;
@@ -112,7 +113,7 @@ public class WidgetsPage extends demoqaBase {
 		demoqaLog.info("Clicking on Widgets|Accordian|What is Lorem Ipsum?...");
 		WebElement whatis = driver.findElement(By.xpath("//div[@id='section1Heading']"));
 		waitForElement.waitAndClick(driver, whatis);
-		JSclick.scrollAndClick(driver, Whatis);
+		ClickHandler.smartClick(driver, Whatis);
 		demoqaLog.info("Clicked on What is Lorem Ipsum...");
 		String whatiscontent = WhatisContent.getText();
 		System.out.println("What is Lorem Ipsum?: " + whatiscontent);
@@ -123,7 +124,7 @@ public class WidgetsPage extends demoqaBase {
 
 	public void AccessWhereDoesIt() {
 	    demoqaLog.info("Clicking on Widgets|Accordian|Where does it come from?...");
-	    JSclick.scrollAndClick(driver, WhereDoesIt);
+	    ClickHandler.smartClick(driver, WhereDoesIt);
 	    demoqaLog.info("Clicked on Where does it come from?...");
 
 	    // Wait for visibility before accessing content
@@ -143,7 +144,7 @@ public class WidgetsPage extends demoqaBase {
 
 	public void AccessWhyDoWe() {
 	    demoqaLog.info("Clicking on Widgets|Accordian|Why do we use it?...");
-	    JSclick.scrollAndClick(driver, WhyDoWe);
+	    ClickHandler.smartClick(driver, WhyDoWe);
 	    demoqaLog.info("Clicked on Why do we use it?...");
 
 	    // Wait for visibility before accessing text
@@ -200,7 +201,7 @@ public class WidgetsPage extends demoqaBase {
 	                demoqaLog.info("Available Color: {}", optionText);
 
 	                if (optionText.equalsIgnoreCase(expectedColor)) {
-	                    JSclick.scrollAndClick(driver, option);
+	                    ClickHandler.smartClick(driver, option);
 	                    demoqaLog.info("✅ Selected Color: {}", expectedColor);
 	                    matched = true;
 	                    break;
@@ -237,7 +238,7 @@ public class WidgetsPage extends demoqaBase {
 
 	        for (WebElement option : colorOptions) {
 	            if (option.getText().trim().equalsIgnoreCase(expectedColor)) {
-	                JSclick.scrollAndClick(driver, option);
+	                ClickHandler.smartClick(driver, option);
 	                demoqaLog.info("🔁 Retried and selected color: {}", expectedColor);
 	                return;
 	            }
@@ -347,7 +348,7 @@ public class WidgetsPage extends demoqaBase {
 	        for (WebElement option : dropdownOptions) {
 	            String optionText = option.getText().trim();
 	            if (optionText.equalsIgnoreCase(color.trim())) {
-	                JSclick.scrollAndClick(driver, option);
+	                ClickHandler.smartClick(driver, option);
 	                demoqaLog.info("✅ Selected color '{}' for '{}'", color, searchChar);
 	                return true;
 	            }
@@ -415,7 +416,7 @@ public class WidgetsPage extends demoqaBase {
 	public void selectColorSingle(String searchChar, String SelectColor) {
 	    try {
 	    	waitForElement.waitUntilInteractable(driver, AutoCompleteSingle);
-	    	JSclick.scrollAndClick(driver, AutoCompleteSingle);
+	    	ClickHandler.smartClick(driver, AutoCompleteSingle);
 	    	demoqaLog.info("Clicked on Search Box with Title: " + SingleSearchBoxTitle.getText());
 	    	AutoCompleteSingle.clear();
 	    	AutoCompleteSingle.sendKeys(searchChar);
