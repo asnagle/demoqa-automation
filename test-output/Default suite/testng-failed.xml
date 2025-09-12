@@ -3,18 +3,15 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="tests.ElementsTests">
+      <class name="tests.AlertsFramesWindowsTests">
         <methods>
           <include name="setupReport"/>
-          <include name="SelectingHomeCheckBox"/>
           <include name="teardownSuite"/>
-          <include name="Downloadbtn"/>
-          <include name="DoubleClickButtons"/>
-          <include name="RightClickButton"/>
+          <include name="ClickSmallModal"/>
           <include name="tearDown"/>
           <include name="setup"/>
         </methods>
-      </class> <!-- tests.ElementsTests -->
+      </class> <!-- tests.AlertsFramesWindowsTests -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

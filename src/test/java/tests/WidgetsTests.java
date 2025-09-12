@@ -62,6 +62,12 @@ public class WidgetsTests extends demoqaBase {
 		WidgetsPage widgetsPage = new WidgetsPage(driver);
 		widgetsPage.accessWidgets();
 		widgetsPage.ClickAccordian();
+		try {
+			Thread.sleep(3000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		widgetsPage.AccessWhatis();
 		testRep.info("✅ Test Widgets|Accordian|What is Lorem Ipsum? Test Completed...");
 		demoqaLog.info("✅ Widgets|Accordian|What is Lorem Ipsum? Test Completed...");
@@ -75,6 +81,12 @@ public class WidgetsTests extends demoqaBase {
 		WidgetsPage widgetsPage = new WidgetsPage(driver);
 		widgetsPage.accessWidgets();
 		widgetsPage.ClickAccordian();
+		try {
+			Thread.sleep(3000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		widgetsPage.AccessWhereDoesIt();
 		testRep.info("✅ Test Widgets|Accordian|Where does it come from? Test Completed...");
 		demoqaLog.info("✅ Widgets|Accordian|Where does it come from? Test Completed...");
@@ -88,6 +100,12 @@ public class WidgetsTests extends demoqaBase {
 		WidgetsPage widgetsPage = new WidgetsPage(driver);
 		widgetsPage.accessWidgets();
 		widgetsPage.ClickAccordian();
+		try {
+			Thread.sleep(3000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		widgetsPage.AccessWhyDoWe();
 		testRep.info("✅ Test Widgets|Accordian|Why do we use it? Test Completed...");
 		demoqaLog.info("✅ Widgets|Accordian|Why do we use it? Test Completed...");
@@ -128,6 +146,12 @@ public class WidgetsTests extends demoqaBase {
 
 	    testRep.info("🔍 Running test for search character: " + searchChar);
 	    demoqaLog.info("🔍 Running test for search character: {}", searchChar);
+	    try {
+			Thread.sleep(3000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 
 	    widgetsPage.searchAutoCompleteMulti(searchChar, expectedColors);
 
@@ -151,6 +175,12 @@ public class WidgetsTests extends demoqaBase {
 	    }
 
 	    String searchChar = removalData.getSearchFor();
+	    try {
+			Thread.sleep(3000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	    widgetsPage.selectAndRemoveColors(searchChar, testRep);
 
 	    testRep.pass("✅ Widgets|Auto Complete Select & Remove Flow Completed");
@@ -165,6 +195,12 @@ public class WidgetsTests extends demoqaBase {
 	    WidgetsPage widgetsPage = new WidgetsPage(driver);
 	    widgetsPage.accessWidgets();
 	    widgetsPage.ClickAutoComplete();
+	    try {
+			Thread.sleep(3000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	    widgetsPage.singleSearchAdd(searchChar, SelectColor);
 	    
 	    testRep.pass("✅ Widgets|Auto Complete - Select & Remove Flow|Type single color name - Search & Select Completed");
@@ -179,6 +215,12 @@ public class WidgetsTests extends demoqaBase {
 	    WidgetsPage widgetsPage = new WidgetsPage(driver);
 	    widgetsPage.accessWidgets();
 	    widgetsPage.ClickAutoComplete();
+	    try {
+			Thread.sleep(3000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	    widgetsPage.singleSearchAdd(searchChar, SelectColor);
 	    widgetsPage.removeColorSingle(SelectColor);
 	    

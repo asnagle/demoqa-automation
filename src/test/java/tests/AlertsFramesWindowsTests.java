@@ -96,6 +96,12 @@ public class AlertsFramesWindowsTests extends demoqaBase {
 		alertsframewindowsPage alertsframewindowsPage = new alertsframewindowsPage(driver);
 		alertsframewindowsPage.accessAlertFramesWindows();
 		alertsframewindowsPage.clickAlerts();
+		try {
+			Thread.sleep(3000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		alertsframewindowsPage.clickSeeAlert5sec();
 		
 		testRep.pass("✅ Test Alerts, Frames & Windows|Alerts|Click button to see Alert Test Completed...");
@@ -110,6 +116,12 @@ public class AlertsFramesWindowsTests extends demoqaBase {
 		alertsframewindowsPage alertsframewindowsPage = new alertsframewindowsPage(driver);
 		alertsframewindowsPage.accessAlertFramesWindows();
 		alertsframewindowsPage.clickAlerts();
+		try {
+			Thread.sleep(3000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		alertsframewindowsPage.clickConfirmBoxAlertAccept();
 		
 		testRep.pass("✅ Test Alerts, Frames & Windows|Alerts|On button click, confirm box will appear, Accept Test Completed...");
@@ -124,6 +136,12 @@ public class AlertsFramesWindowsTests extends demoqaBase {
 		alertsframewindowsPage alertsframewindowsPage = new alertsframewindowsPage(driver);
 		alertsframewindowsPage.accessAlertFramesWindows();
 		alertsframewindowsPage.clickAlerts();
+		try {
+			Thread.sleep(3000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		alertsframewindowsPage.clickConfirmBoxAlertDeny();
 		
 		testRep.pass("✅ Test Alerts, Frames & Windows|Alerts|On button click, confirm box will appear, Deny Test Completed...");
@@ -138,6 +156,12 @@ public class AlertsFramesWindowsTests extends demoqaBase {
 		alertsframewindowsPage alertsframewindowsPage = new alertsframewindowsPage(driver);
 		alertsframewindowsPage.accessAlertFramesWindows();
 		alertsframewindowsPage.clickAlerts();
+		try {
+			Thread.sleep(3000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		alertsframewindowsPage.clickPromptFill();
 		
 		testRep.pass("✅ Test Alerts, Frames & Windows|Alerts|On button click, prompt box will appear, Fill data Test Completed...");
@@ -165,6 +189,12 @@ public class AlertsFramesWindowsTests extends demoqaBase {
 		alertsframewindowsPage alertsframewindowsPage = new alertsframewindowsPage(driver);
 		alertsframewindowsPage.accessAlertFramesWindows();
 		alertsframewindowsPage.clickFrames();
+		try {
+			Thread.sleep(3000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		alertsframewindowsPage.GetFrame1msg();
 		
 		testRep.pass("✅ Test Alerts, Frames & Windows|Frame1 message Test Completed...");
@@ -179,6 +209,12 @@ public class AlertsFramesWindowsTests extends demoqaBase {
 		alertsframewindowsPage alertsframewindowsPage = new alertsframewindowsPage(driver);
 		alertsframewindowsPage.accessAlertFramesWindows();
 		alertsframewindowsPage.clickFrames();
+		try {
+			Thread.sleep(3000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		alertsframewindowsPage.GetFrame2msg();
 		
 		testRep.pass("✅ Test Alerts, Frames & Windows|Frame2 message Test Completed...");
@@ -192,6 +228,12 @@ public class AlertsFramesWindowsTests extends demoqaBase {
 		demoqaLog.info("🧪 Starting Test Alerts, Frames & Windows|Nested Frames...");
 		alertsframewindowsPage alertsframewindowsPage = new alertsframewindowsPage(driver);
 		alertsframewindowsPage.accessAlertFramesWindows();
+		try {
+			Thread.sleep(3000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		alertsframewindowsPage.clickNestedFrames();
 		
 		testRep.pass("✅ Test Alerts, Frames & Windows|Nested Frames Test Completed...");
@@ -206,6 +248,12 @@ public class AlertsFramesWindowsTests extends demoqaBase {
 		alertsframewindowsPage alertsframewindowsPage = new alertsframewindowsPage(driver);
 		alertsframewindowsPage.accessAlertFramesWindows();
 		alertsframewindowsPage.clickNestedFrames();
+		try {
+			Thread.sleep(3000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		alertsframewindowsPage.GetParentFramemsg();
 		
 		testRep.pass("✅ Test Alerts, Frames & Windows|Frames|Parent Frame message Test Completed...");
@@ -220,6 +268,12 @@ public class AlertsFramesWindowsTests extends demoqaBase {
 		alertsframewindowsPage alertsframewindowsPage = new alertsframewindowsPage(driver);
 		alertsframewindowsPage.accessAlertFramesWindows();
 		alertsframewindowsPage.clickNestedFrames();
+		try {
+			Thread.sleep(3000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		alertsframewindowsPage.GetChildFramemsg();
 		
 		testRep.pass("✅ Test Alerts, Frames & Windows|Frames|Child Frame message Test Completed...");
@@ -247,6 +301,12 @@ public class AlertsFramesWindowsTests extends demoqaBase {
 		alertsframewindowsPage alertsframewindowsPage = new alertsframewindowsPage(driver);
 		alertsframewindowsPage.accessAlertFramesWindows();
 		alertsframewindowsPage.clickModalDialogs();
+		try {
+			Thread.sleep(3000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		alertsframewindowsPage.clickSmallModal();
 		
 		testRep.pass("✅ Test Alerts, Frames & Windows|Modal Dialogs|Small Modal click Test Completed...");
@@ -261,6 +321,12 @@ public class AlertsFramesWindowsTests extends demoqaBase {
 		alertsframewindowsPage alertsframewindowsPage = new alertsframewindowsPage(driver);
 		alertsframewindowsPage.accessAlertFramesWindows();
 		alertsframewindowsPage.clickModalDialogs();
+		try {
+			Thread.sleep(3000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		alertsframewindowsPage.clickLargeModal();
 		
 		testRep.pass("✅ Test Alerts, Frames & Windows|Modal Dialogs|Large Modal click Test Completed...");

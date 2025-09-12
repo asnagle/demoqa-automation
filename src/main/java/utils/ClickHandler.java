@@ -7,7 +7,8 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 /**
- * Centralized click handler:
+ * Centralized click handler with logging:
+ * - Logs via demoqaLog + console
  * - JS-first click
  * - Retries (3 attempts) with 3s pause
  * - Prefers re-finding by By locator when provided (avoids stale element)
@@ -18,8 +19,15 @@ public class ClickHandler {
     private static final int RETRY_WAIT_MS = 3000;   // 3 seconds between retries
     private static final int MAX_ATTEMPTS = 3;
 
+    // Unified log helper (both console + demoqaLog)
+    private static void log(String msg) {
+        System.out.println(msg);      // console
+        demoqaLog.info(msg);          // your logger
+    }
+
     // ---------- JS click ----------
     private static void jSClick(WebDriver driver, WebElement element) {
+        log("🔹 Attempting JS click...");
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(DEFAULT_TIMEOUT));
         wait.until(ExpectedConditions.visibilityOf(element));
         wait.until(ExpectedConditions.elementToBeClickable(element));
@@ -37,12 +45,14 @@ public class ClickHandler {
         while (attempts < MAX_ATTEMPTS) {
             try {
                 WebElement element = waitUntilClickable(driver, locator);
+                log("🔹 Trying JS click by locator (attempt " + (attempts + 1) + ")");
                 jSClick(driver, element);
                 return;
             } catch (Exception jsEx) {
                 lastException = jsEx;
 
                 try {
+                    log("⚡ Falling back to native click by locator (attempt " + (attempts + 1) + ")");
                     WebElement element = waitUntilClickable(driver, locator);
                     element.click();
                     return;
@@ -51,6 +61,7 @@ public class ClickHandler {
                 }
 
                 try {
+                    log("🔄 Retrying via element ID (attempt " + (attempts + 1) + ")");
                     WebElement element = driver.findElement(locator);
                     String id = element.getAttribute("id");
                     if (id != null && !id.isEmpty()) {
@@ -63,6 +74,7 @@ public class ClickHandler {
                 }
 
                 try {
+                    log("🔄 Retrying via first CSS class (attempt " + (attempts + 1) + ")");
                     WebElement element = driver.findElement(locator);
                     String cssClass = element.getAttribute("class");
                     if (cssClass != null && !cssClass.isEmpty()) {
@@ -78,6 +90,7 @@ public class ClickHandler {
 
             attempts++;
             try {
+                log("⏳ Waiting " + (RETRY_WAIT_MS / 1000) + "s before retry...");
                 Thread.sleep(RETRY_WAIT_MS);
             } catch (InterruptedException ie) {
                 Thread.currentThread().interrupt();
@@ -94,12 +107,14 @@ public class ClickHandler {
 
         while (attempts < MAX_ATTEMPTS) {
             try {
+                log("🔹 Trying JS click on WebElement (attempt " + (attempts + 1) + ")");
                 jSClick(driver, element);
                 return;
             } catch (Exception jsEx) {
                 lastException = jsEx;
 
                 try {
+                    log("⚡ Falling back to native click on WebElement (attempt " + (attempts + 1) + ")");
                     WebElement clickable = waitUntilClickable(driver, element);
                     clickable.click();
                     return;
@@ -108,6 +123,7 @@ public class ClickHandler {
                 }
 
                 try {
+                    log("🔄 Retrying via element ID (attempt " + (attempts + 1) + ")");
                     String id = element.getAttribute("id");
                     if (id != null && !id.isEmpty()) {
                         WebElement byId = waitUntilClickable(driver, By.id(id));
@@ -119,6 +135,7 @@ public class ClickHandler {
                 }
 
                 try {
+                    log("🔄 Retrying via first CSS class (attempt " + (attempts + 1) + ")");
                     String cssClass = element.getAttribute("class");
                     if (cssClass != null && !cssClass.isEmpty()) {
                         String firstClass = cssClass.split("\\s+")[0];
@@ -133,6 +150,7 @@ public class ClickHandler {
 
             attempts++;
             try {
+                log("⏳ Waiting " + (RETRY_WAIT_MS / 1000) + "s before retry...");
                 Thread.sleep(RETRY_WAIT_MS);
             } catch (InterruptedException ie) {
                 Thread.currentThread().interrupt();

@@ -74,6 +74,12 @@ public class FormTests extends demoqaBase {
 	    RetryUrlAccess.navigateWithRetry(driver, "https://demoqa.com", 3);
 	    formsPage.accessForms();
 	    formsPage.clickPracticeForm();
+	    try {
+			Thread.sleep(3000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 
 	    String fullName = data.getFirstName() + " " + data.getLastName();
 	    demoqaLog.info("Filling form for: " + fullName);

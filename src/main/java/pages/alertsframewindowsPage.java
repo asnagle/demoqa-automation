@@ -253,7 +253,8 @@ public class alertsframewindowsPage extends demoqaBase {
 	
 	public void clickConfirmBoxAlertAccept() {
 		demoqaLog.info("🔍 Starting test for On button click, confirm box will appear, Accept...");
-
+		waitForElement.waitUntilInteractable(driver, confirmboxButton);
+	
 	    ClickHandler.smartClick(driver, confirmboxButton);
 	    demoqaLog.info("✅ Clicked On button click, confirm box will appear, Accept...");
 	    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));

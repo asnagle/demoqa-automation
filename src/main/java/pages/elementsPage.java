@@ -1155,17 +1155,18 @@ public class elementsPage extends demoqaBase {
 
 	public void ClickUploadDownload() {
 		demoqaLog.info("Checking for Elements|Upload and Download|Download Button...");
+		
+		waitForElement.isElementVisible(driver, UploadDownloadBtn);
+		waitForElement.waitUntilInteractable(driver, UploadDownloadBtn);
+		WebElement uploaddownloadbtn = wait.until(ExpectedConditions
+				.elementToBeClickable(By.xpath("//div[@class='element-list collapse show']//li[@id='item-7']")));
+		System.out.println("Waiting for the Element to be Clickable: " + uploaddownloadbtn);
 		try {
 			Thread.sleep(1000);
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		waitForElement.isElementVisible(driver, UploadDownloadBtn);
-		waitForElement.waitUntilInteractable(driver, UploadDownloadBtn);
-		WebElement uploaddownloadbtn = wait.until(ExpectedConditions
-				.elementToBeClickable(By.xpath("//div[@class='element-list collapse show']//li[@id='item-7']")));
-		System.out.println("Waiting for the Element to be Clickable: " + uploaddownloadbtn);
 
 		ClickHandler.smartClick(driver, UploadDownloadBtn);
 
@@ -1188,7 +1189,7 @@ public class elementsPage extends demoqaBase {
 		
 //		Cleanup completed
 		try {
-			Thread.sleep(3000);
+			Thread.sleep(5000);
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
