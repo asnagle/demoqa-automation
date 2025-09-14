@@ -20,6 +20,7 @@ import pages.homePage;
 import utils.AssertFormData;
 import utils.DataSanitizer;
 import utils.ExcelUtils;
+import utils.PageLoadHandler;
 import utils.RetryUrlAccess;
 //import utils.demoqaLog;
 import utils.extentReportManager;
@@ -74,12 +75,7 @@ public class FormTests extends demoqaBase {
 	    RetryUrlAccess.navigateWithRetry(driver, "https://demoqa.com", 3);
 	    formsPage.accessForms();
 	    formsPage.clickPracticeForm();
-	    try {
-			Thread.sleep(3000);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+	    PageLoadHandler.waitUntilLoaded(driver, 30);
 
 	    String fullName = data.getFirstName() + " " + data.getLastName();
 	    demoqaLog.info("Filling form for: " + fullName);

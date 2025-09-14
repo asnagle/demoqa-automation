@@ -20,6 +20,7 @@ import models.ColorSelectionData;
 import utils.ClickHandler;
 import utils.ExcelUtils;
 import utils.JSclick;
+import utils.PageLoadHandler;
 import utils.waitForElement;
 
 public class WidgetsPage extends demoqaBase {
@@ -76,6 +77,12 @@ public class WidgetsPage extends demoqaBase {
 	@FindBy(xpath = "//div[@class='auto-complete__single-value css-1uccc91-singleValue']\r\n"
 			+ "")
 	WebElement AutoCompSingleResults;
+	
+	@FindBy(xpath = "//div[@class='element-list collapse show']//li[@id='item-2']")
+	WebElement DatePicker;
+	
+	@FindBy(xpath = "//h1[normalize-space()='Date Picker']")
+	WebElement DatePickerTitle;
 
 	private WebDriverWait wait;
 
@@ -409,6 +416,7 @@ public class WidgetsPage extends demoqaBase {
 
 	    String autocompletePage = AutoCompletePgTitle.getText();
 	    demoqaLog.info("You are now Accessing: {}", autocompletePage);
+	    PageLoadHandler.waitUntilLoaded(driver, 30);
 	    selectColorSingle(searchChar, SelectColor);
 	    
 	}
@@ -462,6 +470,17 @@ public class WidgetsPage extends demoqaBase {
 	    } else {
 	        demoqaLog.error("🚫 Unable to click 'AutoCompleteSingle'. Color clear skipped.");
 	    }
+	}
+	
+	public void ClickDatePicker() {
+		demoqaLog.info("Clicking on Widgets|Date Picker...");
+		ClickHandler.smartClick(driver, DatePicker);
+//		DatePicker.click();
+		String datePickerPage = DatePickerTitle.getText();
+		System.out.println("You are now Accessing: " + datePickerPage);
+		demoqaLog.info("You are now Accessing: " + datePickerPage);
+
+		Assert.assertEquals("Date Picker", datePickerPage);
 	}
 	
 }

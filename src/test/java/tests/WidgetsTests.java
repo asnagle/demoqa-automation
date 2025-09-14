@@ -6,8 +6,10 @@ import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import base.demoqaBase;
 import models.ColorSelectionData;
+import models.UserFormData;
 import pages.WidgetsPage;
 import utils.ExcelUtils;
+import utils.PageLoadHandler;
 import utils.extentReportManager;
 
 public class WidgetsTests extends demoqaBase {
@@ -29,6 +31,12 @@ public class WidgetsTests extends demoqaBase {
 
 		return new Object[][] { { "E", "Green" } };
 	}
+	
+	@DataProvider(name = "DateSource")
+	public Object[][] provideUserFormData() throws IOException {
+		String filePath = System.getProperty("user.dir") + "/TestData/Students_Details.xlsx";
+		return ExcelUtils.getMappedData(filePath, "Sheet1", UserFormData.class);
+	}
 
 	
 	@Test(priority = 1)
@@ -49,6 +57,8 @@ public class WidgetsTests extends demoqaBase {
 		demoqaLog.info("🧪 Starting Test Widgets|Accordian...");
 		WidgetsPage widgetsPage = new WidgetsPage(driver);
 		widgetsPage.accessWidgets();
+		PageLoadHandler.waitUntilLoaded(driver, 15);
+
 		widgetsPage.ClickAccordian();
 		testRep.info("✅ Test Widgets|Accordian Test Completed...");
 		demoqaLog.info("✅ Widgets|Accordian Test Completed...");
@@ -62,12 +72,8 @@ public class WidgetsTests extends demoqaBase {
 		WidgetsPage widgetsPage = new WidgetsPage(driver);
 		widgetsPage.accessWidgets();
 		widgetsPage.ClickAccordian();
-		try {
-			Thread.sleep(3000);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		PageLoadHandler.waitUntilLoaded(driver, 15);
+
 		widgetsPage.AccessWhatis();
 		testRep.info("✅ Test Widgets|Accordian|What is Lorem Ipsum? Test Completed...");
 		demoqaLog.info("✅ Widgets|Accordian|What is Lorem Ipsum? Test Completed...");
@@ -81,12 +87,8 @@ public class WidgetsTests extends demoqaBase {
 		WidgetsPage widgetsPage = new WidgetsPage(driver);
 		widgetsPage.accessWidgets();
 		widgetsPage.ClickAccordian();
-		try {
-			Thread.sleep(3000);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		PageLoadHandler.waitUntilLoaded(driver, 15);
+
 		widgetsPage.AccessWhereDoesIt();
 		testRep.info("✅ Test Widgets|Accordian|Where does it come from? Test Completed...");
 		demoqaLog.info("✅ Widgets|Accordian|Where does it come from? Test Completed...");
@@ -100,12 +102,8 @@ public class WidgetsTests extends demoqaBase {
 		WidgetsPage widgetsPage = new WidgetsPage(driver);
 		widgetsPage.accessWidgets();
 		widgetsPage.ClickAccordian();
-		try {
-			Thread.sleep(3000);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		PageLoadHandler.waitUntilLoaded(driver, 15);
+
 		widgetsPage.AccessWhyDoWe();
 		testRep.info("✅ Test Widgets|Accordian|Why do we use it? Test Completed...");
 		demoqaLog.info("✅ Widgets|Accordian|Why do we use it? Test Completed...");
@@ -146,12 +144,8 @@ public class WidgetsTests extends demoqaBase {
 
 	    testRep.info("🔍 Running test for search character: " + searchChar);
 	    demoqaLog.info("🔍 Running test for search character: {}", searchChar);
-	    try {
-			Thread.sleep(3000);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+	    PageLoadHandler.waitUntilLoaded(driver, 30);
+
 
 	    widgetsPage.searchAutoCompleteMulti(searchChar, expectedColors);
 
@@ -175,12 +169,8 @@ public class WidgetsTests extends demoqaBase {
 	    }
 
 	    String searchChar = removalData.getSearchFor();
-	    try {
-			Thread.sleep(3000);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+	    PageLoadHandler.waitUntilLoaded(driver, 30);
+
 	    widgetsPage.selectAndRemoveColors(searchChar, testRep);
 
 	    testRep.pass("✅ Widgets|Auto Complete Select & Remove Flow Completed");
@@ -195,12 +185,8 @@ public class WidgetsTests extends demoqaBase {
 	    WidgetsPage widgetsPage = new WidgetsPage(driver);
 	    widgetsPage.accessWidgets();
 	    widgetsPage.ClickAutoComplete();
-	    try {
-			Thread.sleep(3000);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+	    PageLoadHandler.waitUntilLoaded(driver, 30);
+
 	    widgetsPage.singleSearchAdd(searchChar, SelectColor);
 	    
 	    testRep.pass("✅ Widgets|Auto Complete - Select & Remove Flow|Type single color name - Search & Select Completed");
@@ -215,17 +201,25 @@ public class WidgetsTests extends demoqaBase {
 	    WidgetsPage widgetsPage = new WidgetsPage(driver);
 	    widgetsPage.accessWidgets();
 	    widgetsPage.ClickAutoComplete();
-	    try {
-			Thread.sleep(3000);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+	    PageLoadHandler.waitUntilLoaded(driver, 30);
+
 	    widgetsPage.singleSearchAdd(searchChar, SelectColor);
 	    widgetsPage.removeColorSingle(SelectColor);
 	    
 	    testRep.pass("✅ Widgets|Auto Complete - Select & Remove Flow|Type single color name - Remove Selection Completed");
 	    demoqaLog.info("✅ Test Widgets|Auto Complete - Select & Remove Flow|Type single color name - Remove Selection Completed");
+	}
+	
+	@Test(priority = 11)
+	public void ClickDatePicker() {
+		testRep = extentReportManager.createTest("Test Widgets|Date Picker...");
+		testRep.info("🧪 Starting test for Widgets|Date Picker");
+		demoqaLog.info("🧪 Starting Test Widgets|Date Picker...");
+		WidgetsPage widgetsPage = new WidgetsPage(driver);
+		widgetsPage.accessWidgets();
+		widgetsPage.ClickDatePicker();
+		testRep.pass("✅ Test Widgets|Date Picker Test Completed...");
+		demoqaLog.info("✅ Widgets|Date Picker Test Completed...");
 	}
 	
 }

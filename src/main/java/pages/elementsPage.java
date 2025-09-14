@@ -1047,6 +1047,7 @@ public class elementsPage extends demoqaBase {
 
 	public void ClickUnauthorizedLink() {
 		demoqaLog.info("Clicking on Elements|Links|Unauthorized Link...");
+		waitForElement.isElementVisible(driver, UnAuthorizedLink);
 		WebElement Unauthorizedlink = wait
 				.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@id=\"unauthorized\"]")));
 		System.out.println("Waiting for the presence of Element: " + Unauthorizedlink);
@@ -1174,42 +1175,62 @@ public class elementsPage extends demoqaBase {
 	}
 
 	public void DownloadFile() {
-		demoqaLog.info("Clicking on Elements|Upload and Download|Download Button...");
-		String downloadDir = "C:\\Users\\dell\\Downloads\\";
-		String expectedFileName = "sampleFile.jpeg";
-		String filePath = "C:\\Users\\dell\\Downloads\\sampleFile.jpeg";
+	    demoqaLog.info("Clicking on Elements | Upload and Download | Download Button...");
 
-//		Cleanup existing file for successful download
+	    String downloadDir = "C:\\Users\\dell\\Downloads\\";
+	    String expectedFileName = "sampleFile.jpeg";
+	    String filePath = downloadDir + expectedFileName;
 
-		File file = new File(filePath);
-		if (file.exists()) {
-			System.out.println("Deleting Existing file before download...");
-			file.delete();
-		}
-		
-//		Cleanup completed
-		try {
-			Thread.sleep(5000);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		waitForElement.waitUntilVisible(driver, By.xpath("//*[@id='downloadButton']"));
-//		waitForElement.waitUntilInteractable(driver, DownloadBtn);
-		
+	    // Cleanup existing file
+	    File dir = new File(downloadDir);
+	    File[] existingFiles = dir.listFiles((d, name) -> name.startsWith("sampleFile"));
+	    if (existingFiles != null) {
+	        for (File f : existingFiles) {
+	            if (f.delete()) {
+	                demoqaLog.info("🧹 Deleted leftover: " + f.getName());
+	            }
+	        }
+	    }
 
-		WebElement downloadbtn = wait
-				.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id='downloadButton']")));
-		System.out.println("Waiting for Element to be clickable: " + downloadbtn);
+	    // Wait for button to be clickable
+	    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+	    wait.until(ExpectedConditions.elementToBeClickable(DownloadBtn));
 
-		ClickHandler.smartClick(driver, DownloadBtn);
+	    // Try native click first, fallback to smartClick
+	    try {
+	        DownloadBtn.click();
+	        demoqaLog.info("✅ Native click succeeded.");
+	    } catch (Exception e) {
+	        demoqaLog.warn("⚠️ Native click failed: " + e.getClass().getSimpleName() + " → Falling back to smartClick.");
+	        ClickHandler.smartClick(driver, DownloadBtn);
+	    }
 
-		demoqaLog.info("Clicked on Elements|Upload and Download|Download Button...");
+	    demoqaLog.info("✅ Clicked Download button, waiting for file...");
 
-		System.out.println("Downloaded file is: " + downloadDir + expectedFileName);
+	    // Retry logic for file download
+	    int maxRetries = 5;
+	    int waitSeconds = 3;
+	    boolean isDownloaded = false;
 
-		boolean isDownloaded = FileDownloadValidator.isFileDownloaded(downloadDir, expectedFileName);
-		Assert.assertTrue(isDownloaded, "File was not downloaded successfully.");
+	    for (int attempt = 1; attempt <= maxRetries; attempt++) {
+	        demoqaLog.info("🔄 Attempt " + attempt + ": Checking for downloaded file...");
+	        isDownloaded = FileDownloadValidator.isFileDownloaded(downloadDir, expectedFileName);
+
+	        if (isDownloaded) {
+	            demoqaLog.info("✅ File downloaded successfully: " + filePath);
+	            break;
+	        }
+
+	        try {
+	            Thread.sleep(waitSeconds * 1000L);
+	        } catch (InterruptedException e) {
+	            Thread.currentThread().interrupt();
+	            demoqaLog.warn("⚠️ Interrupted while waiting for file download.");
+	            break;
+	        }
+	    }
+
+	    Assert.assertTrue(isDownloaded, "❌ File was not downloaded successfully.");
 	}
 
 	public void UploadFile() {

@@ -13,6 +13,7 @@ import models.WebTableUser;
 import pages.elementsPage;
 import utils.ExcelUtils;
 import utils.JSclick;
+import utils.PageLoadHandler;
 import utils.WebTableManager;
 //import utils.demoqaLog;
 import utils.extentReportManager;
@@ -88,12 +89,8 @@ public class ElementsTests extends demoqaBase {
 	    elementsPage elementsPage = new elementsPage(driver);
 	    elementsPage.accessElements();
 	    elementsPage.clickTextBox();
-	    try {
-			Thread.sleep(3000);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+	    PageLoadHandler.waitUntilLoaded(driver, 30);
+
 
 	    elementsPage.fillTextBoxForm(user);
 	    WebElement submitButton = driver.findElement(By.id("submit"));
@@ -125,12 +122,8 @@ public class ElementsTests extends demoqaBase {
 		elementsPage elementsPage = new elementsPage(driver);
 		elementsPage.accessElements();
 		elementsPage.clickCheckBox();
-		try {
-			Thread.sleep(3000);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		PageLoadHandler.waitUntilLoaded(driver, 30);
+		
 		elementsPage.clickHomeCheckBox();
 		elementsPage.validateSelectedCheckBox();
 		testRep.info("✅ Test Elements | Selecting Home Test Completed...");
@@ -145,12 +138,8 @@ public class ElementsTests extends demoqaBase {
 		elementsPage elementsPage = new elementsPage(driver);
 		elementsPage.accessElements();
 		elementsPage.clickCheckBox();
-		try {
-			Thread.sleep(3000);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		PageLoadHandler.waitUntilLoaded(driver, 30);
+		
 		elementsPage.ToggleHome();
 		elementsPage.DesktopCheckBox();
 		elementsPage.validateSelectedCheckBox();
@@ -166,12 +155,8 @@ public class ElementsTests extends demoqaBase {
 		elementsPage elementsPage = new elementsPage(driver);
 		elementsPage.accessElements();
 		elementsPage.clickCheckBox();
-		try {
-			Thread.sleep(3000);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		PageLoadHandler.waitUntilLoaded(driver, 30);
+		
 		elementsPage.selectNotesCommands();
 		elementsPage.validateSelectedCheckBox();
 		testRep.info("✅ Test Elements | Home | Desktop | Notes & Commands Test Completed...");
@@ -186,12 +171,8 @@ public class ElementsTests extends demoqaBase {
 		elementsPage elementsPage = new elementsPage(driver);
 		elementsPage.accessElements();
 		elementsPage.clickCheckBox();
-		try {
-			Thread.sleep(3000);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		PageLoadHandler.waitUntilLoaded(driver, 30);
+		
 		elementsPage.ToggleHome();
 		elementsPage.DocumentsCheckbox();
 		elementsPage.validateSelectedCheckBox();
@@ -207,12 +188,8 @@ public class ElementsTests extends demoqaBase {
 		elementsPage elementsPage = new elementsPage(driver);
 		elementsPage.accessElements();
 		elementsPage.clickCheckBox();
-		try {
-			Thread.sleep(3000);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		PageLoadHandler.waitUntilLoaded(driver, 30);
+		
 		elementsPage.ToggleHome();
 		elementsPage.ToggleDocuments();
 		elementsPage.selectWorkSpace();
@@ -229,12 +206,8 @@ public class ElementsTests extends demoqaBase {
 		elementsPage elementsPage = new elementsPage(driver);
 		elementsPage.accessElements();
 		elementsPage.clickCheckBox();
-		try {
-			Thread.sleep(3000);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		PageLoadHandler.waitUntilLoaded(driver, 30);
+		
 		elementsPage.ToggleHome();
 		elementsPage.ToggleDocuments();
 		elementsPage.ToggleWorkSpace();
@@ -252,12 +225,8 @@ public class ElementsTests extends demoqaBase {
 		elementsPage elementsPage = new elementsPage(driver);
 		elementsPage.accessElements();
 		elementsPage.clickCheckBox();
-		try {
-			Thread.sleep(3000);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		PageLoadHandler.waitUntilLoaded(driver, 30);
+		
 		elementsPage.ToggleHome();
 		elementsPage.ToggleDocuments();
 		elementsPage.ToggleWorkSpace();
@@ -275,12 +244,8 @@ public class ElementsTests extends demoqaBase {
 		elementsPage elementsPage = new elementsPage(driver);
 		elementsPage.accessElements();
 		elementsPage.clickCheckBox();
-		try {
-			Thread.sleep(3000);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		PageLoadHandler.waitUntilLoaded(driver, 30);
+		
 		elementsPage.ToggleHome();
 		elementsPage.ToggleDocuments();
 		elementsPage.ToggleWorkSpace();
@@ -298,12 +263,8 @@ public class ElementsTests extends demoqaBase {
 		elementsPage elementsPage = new elementsPage(driver);
 		elementsPage.accessElements();
 		elementsPage.clickCheckBox();
-		try {
-			Thread.sleep(3000);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		PageLoadHandler.waitUntilLoaded(driver, 30);
+		
 		elementsPage.ToggleHome();
 		elementsPage.ToggleDocuments();
 		elementsPage.ToggleWorkSpace();
@@ -323,12 +284,8 @@ public class ElementsTests extends demoqaBase {
 		elementsPage elementsPage = new elementsPage(driver);
 		elementsPage.accessElements();
 		elementsPage.clickCheckBox();
-		try {
-			Thread.sleep(3000);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		PageLoadHandler.waitUntilLoaded(driver, 30);
+		
 		elementsPage.ToggleHome();
 		elementsPage.ToggleDocuments();
 		elementsPage.selectOffice();
@@ -345,12 +302,8 @@ public class ElementsTests extends demoqaBase {
 		elementsPage elementsPage = new elementsPage(driver);
 		elementsPage.accessElements();
 		elementsPage.clickCheckBox();
-		try {
-			Thread.sleep(3000);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		PageLoadHandler.waitUntilLoaded(driver, 30);
+		
 		elementsPage.ToggleHome();
 		elementsPage.ToggleDocuments();
 		elementsPage.ToggleOffice();
@@ -368,12 +321,8 @@ public class ElementsTests extends demoqaBase {
 		elementsPage elementsPage = new elementsPage(driver);
 		elementsPage.accessElements();
 		elementsPage.clickCheckBox();
-		try {
-			Thread.sleep(3000);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		PageLoadHandler.waitUntilLoaded(driver, 30);
+		
 		elementsPage.ToggleHome();
 		elementsPage.ToggleDocuments();
 		elementsPage.ToggleOffice();
@@ -391,6 +340,7 @@ public class ElementsTests extends demoqaBase {
 		elementsPage elementsPage = new elementsPage(driver);
 		elementsPage.accessElements();
 		elementsPage.clickCheckBox();
+		PageLoadHandler.waitUntilLoaded(driver, 30);
 		elementsPage.ToggleHome();
 		elementsPage.ToggleDocuments();
 		elementsPage.ToggleOffice();
@@ -408,12 +358,8 @@ public class ElementsTests extends demoqaBase {
 		elementsPage elementsPage = new elementsPage(driver);
 		elementsPage.accessElements();
 		elementsPage.clickCheckBox();
-		try {
-			Thread.sleep(3000);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		PageLoadHandler.waitUntilLoaded(driver, 30);
+		
 		elementsPage.ToggleHome();
 		elementsPage.ToggleDocuments();
 		elementsPage.ToggleOffice();
@@ -431,12 +377,8 @@ public class ElementsTests extends demoqaBase {
 		elementsPage elementsPage = new elementsPage(driver);
 		elementsPage.accessElements();
 		elementsPage.clickCheckBox();
-		try {
-			Thread.sleep(3000);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		PageLoadHandler.waitUntilLoaded(driver, 30);
+		
 		elementsPage.ToggleHome();
 		elementsPage.ToggleDocuments();
 		elementsPage.ToggleOffice();
@@ -457,12 +399,8 @@ public class ElementsTests extends demoqaBase {
 		elementsPage elementsPage = new elementsPage(driver);
 		elementsPage.accessElements();
 		elementsPage.clickCheckBox();
-		try {
-			Thread.sleep(3000);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		PageLoadHandler.waitUntilLoaded(driver, 30);
+		
 		elementsPage.ToggleHome();
 		elementsPage.selectDownloads();
 		elementsPage.validateSelectedCheckBox();
@@ -478,12 +416,8 @@ public class ElementsTests extends demoqaBase {
 		elementsPage elementsPage = new elementsPage(driver);
 		elementsPage.accessElements();
 		elementsPage.clickCheckBox();
-		try {
-			Thread.sleep(3000);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		PageLoadHandler.waitUntilLoaded(driver, 30);
+		
 		elementsPage.ToggleHome();
 		elementsPage.ToggleDownloads();
 		elementsPage.selectWordFile();
@@ -500,12 +434,8 @@ public class ElementsTests extends demoqaBase {
 		elementsPage elementsPage = new elementsPage(driver);
 		elementsPage.accessElements();
 		elementsPage.clickCheckBox();
-		try {
-			Thread.sleep(3000);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		PageLoadHandler.waitUntilLoaded(driver, 30);
+		
 		elementsPage.ToggleHome();
 		elementsPage.ToggleDownloads();
 		elementsPage.selectExcelFile();
@@ -522,12 +452,8 @@ public class ElementsTests extends demoqaBase {
 		elementsPage elementsPage = new elementsPage(driver);
 		elementsPage.accessElements();
 		elementsPage.clickCheckBox();
-		try {
-			Thread.sleep(3000);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		PageLoadHandler.waitUntilLoaded(driver, 30);
+		
 		elementsPage.ToggleHome();
 		elementsPage.ToggleDownloads();
 		elementsPage.selectWordFile();
@@ -598,12 +524,8 @@ public class ElementsTests extends demoqaBase {
 		elementsPage elementsPage = new elementsPage(driver);
 		elementsPage.accessElements();
 		elementsPage.webTablesClick();
-		try {
-			Thread.sleep(3000);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		PageLoadHandler.waitUntilLoaded(driver, 30);
+		
 		elementsPage.webTablesNewRegistration();
 		// ✅ Use the user directly — no need to re-fetch from Excel
 		elementsPage.fillWebTableForm(user);
@@ -621,12 +543,8 @@ public class ElementsTests extends demoqaBase {
 		elementsPage elementsPage = new elementsPage(driver);
 		elementsPage.accessElements();
 		elementsPage.webTablesClick();
-		try {
-			Thread.sleep(3000);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		PageLoadHandler.waitUntilLoaded(driver, 30);
+		
 		elementsPage.webTablesNewRegistration();
 
 		// ✅ Use the user directly — no need to re-fetch from Excel
@@ -648,12 +566,8 @@ public class ElementsTests extends demoqaBase {
 		elementsPage elementsPage = new elementsPage(driver);
 		elementsPage.accessElements();
 		elementsPage.webTablesClick();
-		try {
-			Thread.sleep(3000);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		PageLoadHandler.waitUntilLoaded(driver, 30);
+		
 		elementsPage.webTablesNewRegistration();
 
 		// ✅ Use the user directly — no need to re-fetch from Excel
@@ -683,12 +597,8 @@ public class ElementsTests extends demoqaBase {
 		elementsPage elementsPage = new elementsPage(driver);
 		elementsPage.accessElements();
 		elementsPage.webTablesClick();
-		try {
-			Thread.sleep(3000);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		PageLoadHandler.waitUntilLoaded(driver, 30);
+		
 		elementsPage.webTablesNewRegistration();
 
 		// ✅ Use the user directly — no need to re-fetch from Excel
@@ -714,12 +624,8 @@ public class ElementsTests extends demoqaBase {
 		elementsPage elementsPage = new elementsPage(driver);
 		elementsPage.accessElements();
 		elementsPage.webTablesClick();
-		try {
-			Thread.sleep(3000);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		PageLoadHandler.waitUntilLoaded(driver, 30);
+		
 		elementsPage.webTablesNewRegistration();
 
 		// ✅ Use the user directly — no need to re-fetch from Excel
@@ -743,12 +649,8 @@ public class ElementsTests extends demoqaBase {
 		WebTableManager tableManager = new WebTableManager(driver);
 		elementsPage.accessElements();
 		elementsPage.webTablesClick();
-		try {
-			Thread.sleep(3000);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		PageLoadHandler.waitUntilLoaded(driver, 30);
+		
 		// Step 1: Capture initial user count
 		int initialUserCount = tableManager.getUserCount();
 
@@ -783,12 +685,8 @@ public class ElementsTests extends demoqaBase {
 
 		elementsPage.accessElements();
 		elementsPage.webTablesClick();
-		try {
-			Thread.sleep(3000);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		PageLoadHandler.waitUntilLoaded(driver, 30);
+		
 		testRep = extentReportManager.createTest("Test Bulk User Creation in Web Table...");
 		testRep.info("🧪 Starting Test for Bulk User Creation in Web Table...");
 
@@ -842,12 +740,8 @@ public class ElementsTests extends demoqaBase {
 
 		elementsPage.accessElements();
 		elementsPage.webTablesClick();
-		try {
-			Thread.sleep(3000);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		PageLoadHandler.waitUntilLoaded(driver, 30);
+		
 		testRep = extentReportManager.createTest("Test Modidfy Users Department & Salary in Web Table...");
 		testRep.info("🧪 Starting Test Modidfy Users Department & Salary in Web Table...");
 
@@ -929,12 +823,8 @@ public class ElementsTests extends demoqaBase {
 		testRep = extentReportManager.createTest("Test Elements|Buttons Click...");
 		testRep.info("🧪 Starting Test for Elements|Buttons|Double Click...");
 		elementsPage.ClickButtons();
-		try {
-			Thread.sleep(3000);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		PageLoadHandler.waitUntilLoaded(driver, 30);
+		
 		elementsPage.DoubleClickbtn();
 
 		testRep.pass("✅ Finished Test for Elements|Buttons|Double Click...");
@@ -949,12 +839,8 @@ public class ElementsTests extends demoqaBase {
 		testRep = extentReportManager.createTest("Test Elements|Buttons|Right Click...");
 		testRep.info("🧪 Starting Test for Elements|Buttons|Right Click...");
 		elementsPage.ClickButtons();
-		try {
-			Thread.sleep(3000);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		PageLoadHandler.waitUntilLoaded(driver, 30);
+		
 		elementsPage.RightClickBtn();
 
 		testRep.pass("✅ Finished Test for Elements|Buttons|Right Click...");
@@ -968,12 +854,8 @@ public class ElementsTests extends demoqaBase {
 		testRep = extentReportManager.createTest("Test Elements|Click Me Button...");
 		testRep.info("🧪 Starting Test for Elements|Buttons|Click Me Button...");
 		elementsPage.ClickButtons();
-		try {
-			Thread.sleep(3000);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		PageLoadHandler.waitUntilLoaded(driver, 30);
+		
 		elementsPage.ClickMeBtn();
 
 		testRep.pass("✅ Finished Test for Elements|Buttons|Click Me Button Completed Successfully...");
@@ -989,26 +871,14 @@ public class ElementsTests extends demoqaBase {
 		testRep = extentReportManager.createTest("Test Elements|Buttons|Click All...");
 		testRep.info("🧪 Starting Test for Elements|Buttons|Click All...");
 		elementsPage.ClickButtons();
-		try {
-			Thread.sleep(3000);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		PageLoadHandler.waitUntilLoaded(driver, 30);
+		
 		elementsPage.DoubleClickbtn();
-		try {
-			Thread.sleep(3000);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		PageLoadHandler.waitUntilLoaded(driver, 30);
+		
 		elementsPage.RightClickBtn();
-		try {
-			Thread.sleep(3000);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		PageLoadHandler.waitUntilLoaded(driver, 30);
+		
 		elementsPage.ClickMeBtn();
 
 		testRep.pass("✅ Finished Test for Elements|Buttons|Click All Buttons Completed Successfully...");
@@ -1035,12 +905,8 @@ public class ElementsTests extends demoqaBase {
 		testRep = extentReportManager.createTest("Test Elements|Links|Home...");
 		testRep.info("🧪 Starting Test for Elements|Links|Home...");
 		elementsPage.ClickLinks();
-		try {
-			Thread.sleep(3000);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		PageLoadHandler.waitUntilLoaded(driver, 30);
+		
 		elementsPage.ClickHomeLink();
 		testRep.pass("✅ Finished Test for Elements|Links|Home Completed Successfully...");
 		demoqaLog.info("✅ Test for Elements|Links|Home Completed Successfully...");
@@ -1054,12 +920,8 @@ public class ElementsTests extends demoqaBase {
 		testRep = extentReportManager.createTest("Test Elements|Links|Dynamic Home...");
 		testRep.info("🧪 Starting Test for Elements|Links|Dynamic Home...");
 		elementsPage.ClickLinks();
-		try {
-			Thread.sleep(3000);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		PageLoadHandler.waitUntilLoaded(driver, 30);
+		
 		elementsPage.ClickDynamicHomeLink();
 		testRep.pass("✅ Finished Test for Elements|Links|Dynamic Home Completed Successfully...");
 		demoqaLog.info("✅ Test for Elements|Links|Dynamic Home Completed Successfully...");
@@ -1073,12 +935,8 @@ public class ElementsTests extends demoqaBase {
 		testRep = extentReportManager.createTest("Test Elements|Links|Created Link...");
 		testRep.info("🧪 Starting Test for Elements|Links|Created Link...");
 		elementsPage.ClickLinks();
-		try {
-			Thread.sleep(3000);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		PageLoadHandler.waitUntilLoaded(driver, 30);
+		
 		elementsPage.ClickCreatedAPILink();
 		testRep.pass("✅ Finished Test for Elements|Links|Created Link Completed Successfully...");
 		demoqaLog.info("✅ Test for Elements|Links|Created Link Completed Successfully...");
@@ -1092,12 +950,8 @@ public class ElementsTests extends demoqaBase {
 		testRep = extentReportManager.createTest("Test Elements|Links|No Content Link...");
 		testRep.info("🧪 Starting Test for Elements|Links|No Content Link...");
 		elementsPage.ClickLinks();
-		try {
-			Thread.sleep(3000);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		PageLoadHandler.waitUntilLoaded(driver, 30);
+		
 		elementsPage.ClickNoContentLink();
 		testRep.pass("✅ Finished Test for Elements|Links|No Content Link Completed Successfully...");
 		demoqaLog.info("✅ Test for Elements|Links|No Content Link Completed Successfully...");
@@ -1111,12 +965,8 @@ public class ElementsTests extends demoqaBase {
 		testRep = extentReportManager.createTest("Test Elements|Links|Moved Link...");
 		testRep.info("🧪 Starting Test for Elements|Links|Moved Link...");
 		elementsPage.ClickLinks();
-		try {
-			Thread.sleep(3000);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		PageLoadHandler.waitUntilLoaded(driver, 30);
+		
 		elementsPage.ClickMovedLink();
 		testRep.pass("✅ Finished Test for Elements|Links|Moved Link Completed Successfully...");
 		demoqaLog.info("✅ Test for Elements|Links|Moved Link Completed Successfully...");
@@ -1130,12 +980,8 @@ public class ElementsTests extends demoqaBase {
 		testRep = extentReportManager.createTest("Test Elements|Links|Bad Request Link...");
 		testRep.info("🧪 Starting Test for Elements|Links|Bad Request Link...");
 		elementsPage.ClickLinks();
-		try {
-			Thread.sleep(3000);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		PageLoadHandler.waitUntilLoaded(driver, 30);
+		
 		elementsPage.ClickBadRequestLink();
 		testRep.pass("✅ Finished Test for Elements|Links|Bad Request Link Completed Successfully...");
 		demoqaLog.info("✅ Test for Elements|Links|Bad Request Link Completed Successfully...");
@@ -1149,12 +995,8 @@ public class ElementsTests extends demoqaBase {
 		testRep = extentReportManager.createTest("Test Elements|Links|Unathorized Link...");
 		testRep.info("🧪 Starting Test for Elements|Links|Unauthorized Link...");
 		elementsPage.ClickLinks();
-		try {
-			Thread.sleep(3000);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		PageLoadHandler.waitUntilLoaded(driver, 30);
+		
 		elementsPage.ClickUnauthorizedLink();
 		testRep.pass("✅ Finished Test for Elements|Links|Unauthorized Link Completed Successfully...");
 		demoqaLog.info("✅ Test for Elements|Links|Unauthorized Link Completed Successfully...");
@@ -1168,12 +1010,8 @@ public class ElementsTests extends demoqaBase {
 		testRep = extentReportManager.createTest("Test Elements|Links|Forbidden Link...");
 		testRep.info("🧪 Starting Test for Elements|Links|Forbidden Link...");
 		elementsPage.ClickLinks();
-		try {
-			Thread.sleep(3000);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		PageLoadHandler.waitUntilLoaded(driver, 30);
+		
 		elementsPage.ClickForbiddenLink();
 		testRep.pass("✅ Finished Test for Elements|Links|Forbidden Link Completed Successfully...");
 		demoqaLog.info("✅ Test for Elements|Links|Forbidden Link Completed Successfully...");
@@ -1187,12 +1025,8 @@ public class ElementsTests extends demoqaBase {
 		testRep = extentReportManager.createTest("Test Elements|Links|NotFound Link...");
 		testRep.info("🧪 Starting Test for Elements|Links|NotFound Link...");
 		elementsPage.ClickLinks();
-		try {
-			Thread.sleep(3000);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		PageLoadHandler.waitUntilLoaded(driver, 30);
+		
 		elementsPage.ClickNotFoundLink();
 		testRep.pass("✅ Finished Test for Elements|Links|NotFound Link Completed Successfully...");
 		demoqaLog.info("✅ Test for Elements|Links|NotFound Link Completed Successfully...");
@@ -1207,61 +1041,29 @@ public class ElementsTests extends demoqaBase {
 		testRep.info("🧪 Starting Test for Elements|Links|All Links in One GO...");
 		elementsPage.ClickLinks();
 		elementsPage.ClickHomeLink();
-		try {
-			Thread.sleep(3000);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		PageLoadHandler.waitUntilLoaded(driver, 30);
+		
 		elementsPage.ClickDynamicHomeLink();
-		try {
-			Thread.sleep(3000);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		PageLoadHandler.waitUntilLoaded(driver, 30);
+		
 		elementsPage.ClickCreatedAPILink();
-		try {
-			Thread.sleep(3000);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		PageLoadHandler.waitUntilLoaded(driver, 30);
+		
 		elementsPage.ClickNoContentLink();
-		try {
-			Thread.sleep(3000);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		PageLoadHandler.waitUntilLoaded(driver, 30);
+		
 		elementsPage.ClickMovedLink();
-		try {
-			Thread.sleep(3000);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		PageLoadHandler.waitUntilLoaded(driver, 30);
+		
 		elementsPage.ClickBadRequestLink();
-		try {
-			Thread.sleep(3000);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		PageLoadHandler.waitUntilLoaded(driver, 30);
+		
 		elementsPage.ClickUnauthorizedLink();
-		try {
-			Thread.sleep(3000);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		PageLoadHandler.waitUntilLoaded(driver, 30);
+		
 		elementsPage.ClickForbiddenLink();
-		try {
-			Thread.sleep(3000);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		PageLoadHandler.waitUntilLoaded(driver, 30);
+		
 		elementsPage.ClickNotFoundLink();
 		testRep.pass("✅ Finished Test for Elements|Links|All Links in One GO Completed Successfully...");
 		demoqaLog.info("✅ Test for Elements|Links|All Links in One GO Completed Successfully...");
@@ -1287,12 +1089,8 @@ public class ElementsTests extends demoqaBase {
 		testRep = extentReportManager.createTest("Test Elements|Broken Links - Images|Valid Image...");
 		testRep.info("🧪 Starting Test for Elements|Broken Links - Images|Valid Image...");
 		elementsPage.ClickBrokenLinks();
-		try {
-			Thread.sleep(3000);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		PageLoadHandler.waitUntilLoaded(driver, 30);
+		
 		elementsPage.CheckValidImage();
 		testRep.pass("✅ Finished Test for Elements|Broken Links - Images|Valid Image Completed Successfully...");
 		demoqaLog.info("✅ Test for Elements|Broken Links - Images|Valid Image Completed Successfully...");
@@ -1306,12 +1104,8 @@ public class ElementsTests extends demoqaBase {
 		testRep = extentReportManager.createTest("Test Elements|Broken Links - Images|Broken Image...");
 		testRep.info("🧪 Starting Test for Elements|Broken Links - Images|Broken Image...");
 		elementsPage.ClickBrokenLinks();
-		try {
-			Thread.sleep(3000);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		PageLoadHandler.waitUntilLoaded(driver, 30);
+		
 		elementsPage.CheckBrokenImage();
 		testRep.pass("✅ Finished Test for Elements|Broken Links - Images|Broken Image Completed Successfully...");
 		demoqaLog.info("✅ Test for Elements|Broken Links - Images|Broken Image Completed Successfully...");
@@ -1325,12 +1119,8 @@ public class ElementsTests extends demoqaBase {
 		testRep = extentReportManager.createTest("Test Elements|Broken Links - Images|Valid Link...");
 		testRep.info("🧪 Starting Test for Elements|Broken Links - Images|Valid Link...");
 		elementsPage.ClickBrokenLinks();
-		try {
-			Thread.sleep(3000);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		PageLoadHandler.waitUntilLoaded(driver, 30);
+		
 		elementsPage.ClickValidLink();
 		testRep.pass("✅ Finished Test for Elements|Broken Links - Images|Valid Link Completed Successfully...");
 		demoqaLog.info("✅ Test for Elements|Broken Links - Images|Valid Link Completed Successfully...");
@@ -1344,12 +1134,8 @@ public class ElementsTests extends demoqaBase {
 		testRep = extentReportManager.createTest("Test Elements|Broken Links - Images|Broken Link...");
 		testRep.info("🧪 Starting Test for Elements|Broken Links - Images|Broken Link...");
 		elementsPage.ClickBrokenLinks();
-		try {
-			Thread.sleep(3000);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		PageLoadHandler.waitUntilLoaded(driver, 30);
+		
 		elementsPage.ClickBrokenLink();
 		testRep.pass("✅ Finished Test for Elements|Broken Links - Images|Broken Link Completed Successfully...");
 		demoqaLog.info("✅ Test for Elements|Broken Links - Images|Broken Link Completed Successfully...");
@@ -1375,12 +1161,8 @@ public class ElementsTests extends demoqaBase {
 		testRep = extentReportManager.createTest("Test Elements|Upload and Download|Download Button...");
 		testRep.info("🧪 Starting Test for Elements|Upload and Download|Download Button...");
 		elementsPage.ClickUploadDownload();
-		try {
-			Thread.sleep(10000);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		PageLoadHandler.waitUntilLoaded(driver, 30);
+		
 		elementsPage.DownloadFile();
 		testRep.pass("✅ Finished Test for Elements|Upload and Download|Download Button Completed Successfully...");
 		demoqaLog.info("✅ Test for Elements|Upload and Download|Download Button Completed Successfully...");
@@ -1394,12 +1176,8 @@ public class ElementsTests extends demoqaBase {
 		testRep = extentReportManager.createTest("Test Elements|Upload and Download|Upload Button...");
 		testRep.info("🧪 Starting Test for Elements|Upload and Download|Upload Button...");
 		elementsPage.ClickUploadDownload();
-		try {
-			Thread.sleep(3000);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		PageLoadHandler.waitUntilLoaded(driver, 30);
+		
 		elementsPage.UploadFile();
 		testRep.pass("✅ Finished Test for Elements|Upload and Download|Upload Button Completed Successfully...");
 		demoqaLog.info("✅ Test for Elements|Upload and Download|Upload Button Completed Successfully...");
@@ -1425,12 +1203,8 @@ public class ElementsTests extends demoqaBase {
 		testRep = extentReportManager.createTest("Test Elements|Dynamic Properties|Will enable 5 sec Button...");
 		testRep.info("🧪 Starting Test for Elements|Dynamic Properties|Will enable 5 sec Button...");
 		elementsPage.ClickDynamicProperties();
-		try {
-			Thread.sleep(3000);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		PageLoadHandler.waitUntilLoaded(driver, 30);
+		
 		elementsPage.ClickWillEnable();
 		testRep.pass("✅ Finished Test for Elements|Dynamic Properties|Will enable 5 sec Button Completed Successfully...");
 		demoqaLog.info("✅ Test for Elements|Dynamic Properties|Will enable 5 sec Button Completed Successfully...");
@@ -1444,12 +1218,8 @@ public class ElementsTests extends demoqaBase {
 		testRep = extentReportManager.createTest("Test Elements|Dynamic Properties|Color Change Button...");
 		testRep.info("🧪 Starting Test for Elements|Dynamic Properties|Color Change Button...");
 		elementsPage.ClickDynamicProperties();
-		try {
-			Thread.sleep(3000);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		PageLoadHandler.waitUntilLoaded(driver, 30);
+		
 		elementsPage.ClickColorChange();
 		testRep.pass("✅ Finished Test for Elements|Dynamic Properties|Color Change Button Completed Successfully...");
 		demoqaLog.info("✅ Test for Elements|Dynamic Properties|Color Change Button Completed Successfully...");
@@ -1463,12 +1233,8 @@ public class ElementsTests extends demoqaBase {
 		testRep = extentReportManager.createTest("Test Elements|Dynamic Properties|Visible After 5 Seconds Button...");
 		testRep.info("🧪 Starting Test for Elements|Dynamic Properties|Color Change Button...");
 		elementsPage.ClickDynamicProperties();
-		try {
-			Thread.sleep(3000);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		PageLoadHandler.waitUntilLoaded(driver, 30);
+		
 		elementsPage.ClickVisbleAfter();;
 		testRep.pass("✅ Finished Test for Elements|Dynamic Properties|Visible After 5 Seconds Button Completed Successfully...");
 		demoqaLog.info("✅ Test for Elements|Dynamic Properties|Visible After 5 Seconds Button Completed Successfully...");
