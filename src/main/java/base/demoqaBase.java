@@ -106,7 +106,7 @@ public class demoqaBase {
                 demoqaLog.info("📊 Extent report generated at: {}", reportFolder);
 
                 try {
-                    emailUtils.sendTestReport(reportFolder);
+//                    emailUtils.sendTestReport(reportFolder);
                 } catch (Exception e) {
                     demoqaLog.warn("⚠️ Email sending failed: {}", e.getMessage());
                 }

@@ -2,10 +2,9 @@ package pages;
 
 import java.time.Duration;
 import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
-import java.time.format.DateTimeParseException;
 import java.util.List;
 import java.util.NoSuchElementException;
+import java.util.Optional;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -18,7 +17,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
 import base.demoqaBase;
-import models.UserFormData;
+//import models.UserFormData;
 import utils.ClickHandler;
 import utils.DataSanitizer;
 import utils.DatePickerUtils;
@@ -65,7 +64,7 @@ public class formsPage extends demoqaBase {
 	WebElement city;
 
 	private WebDriver driver;
-	private UserFormData data = new UserFormData();
+//	private UserFormData data = new UserFormData();
 //	private DateUtils dateUtils;
 	private By PracticeForm = By.cssSelector("div.element-list.collapse.show > ul.menu-list > #item-0 > span.text");
 	WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(3));
@@ -152,56 +151,33 @@ public class formsPage extends demoqaBase {
 
 	}
 	
-	
-	public void fillDob(String dobStr) {
-	    System.out.println("📥 Received DOB: " + dobStr);
-
-	    if (dobStr == null || dobStr.trim().isEmpty()) {
-	        System.out.println("⚠️ DOB is empty or null. Skipping date picker.");
+	// ✅ Overloaded method accepting LocalDate
+	public void fillDob(LocalDate dob) {
+	    if (dob == null) {
+	        System.out.println("⚠️ DOB is null. Skipping date picker.");
 	        return;
 	    }
 
-	    try {
-	        // Step 1: Normalize input
-	        dobStr = dobStr.trim().replace("/", "-");
-
-	        // Step 2: Validate format
-	        if (!dobStr.matches("\\d{2}-\\d{2}-\\d{4}")) {
-	            throw new IllegalArgumentException("DOB must be in dd-MM-yyyy format");
-	        }
-
-	        // Step 3: Parse using LocalDate for safety
-	        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
-	        LocalDate dob = LocalDate.parse(dobStr, formatter);
-
-	        // Step 4: Normalize and store DOB
-	        String normalizedDob = dob.format(formatter); // Ensures consistent format
-	        data.setDob(normalizedDob);
-	        System.out.println("📅 Normalized DOB: " + normalizedDob);
-
-	        // Step 5: Select date using utility
-	        DatePickerUtils picker = new DatePickerUtils(driver);
-	        picker.selectDate(normalizedDob); // Assuming this accepts dd-MM-yyyy
-
-	    } catch (DateTimeParseException dtpe) {
-	        System.err.println("❌ Failed to parse DOB: " + dobStr);
-	        throw new RuntimeException("DOB must be in dd-MM-yyyy format", dtpe);
-
-	    } catch (Exception e) {
-	        System.err.println("❌ Unexpected error while processing DOB: " + dobStr);
-	        e.printStackTrace();
-	        throw new RuntimeException("Failed to process DOB", e);
-	    }
+	    DatePickerUtils.selectDate(driver, By.id("dateOfBirthInput"), dob);
 	}
-	
+
+	// ✅ Deprecated method accepting String — now simplified
+	@Deprecated
+	public void fillDob(String dobStr) {
+	    System.out.println("📥 Received DOB (String): " + dobStr);
+
+	    Optional<LocalDate> dobOpt = DataSanitizer.sanitizeDOBToDate(dobStr, "DOB", "FormPage");
+	    if (dobOpt.isEmpty()) {
+	        System.out.println("❌ Failed to sanitize DOB: " + dobStr);
+	        return;
+	    }
+
+	    fillDob(dobOpt.get()); // Delegate to LocalDate version
+	}	
 	public String getDobFromForm() {
 		return datePicker.getAttribute("value").trim();
 	}
 	
-	public void fillDob(LocalDate dob) {
-	    String formatted = dob.format(DateTimeFormatter.ofPattern("dd-MM-yyyy"));
-	    fillDob(formatted); // delegate to existing String method
-	}
 
 	public void enterSubject(String subject) {
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));

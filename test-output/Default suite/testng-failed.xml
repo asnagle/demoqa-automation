@@ -3,15 +3,15 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="tests.AlertsFramesWindowsTests">
+      <class name="tests.WidgetsTests">
         <methods>
           <include name="setupReport"/>
           <include name="teardownSuite"/>
-          <include name="ClickSmallModal"/>
+          <include name="AutoCompleteSingle" invocation-numbers="0"/>
           <include name="tearDown"/>
           <include name="setup"/>
         </methods>
-      </class> <!-- tests.AlertsFramesWindowsTests -->
+      </class> <!-- tests.WidgetsTests -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

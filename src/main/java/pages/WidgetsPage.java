@@ -2,16 +2,22 @@ package pages;
 
 import java.io.IOException;
 import java.time.Duration;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.time.format.TextStyle;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 import java.util.stream.Collectors;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import com.aventstack.extentreports.ExtentTest;
@@ -83,6 +89,9 @@ public class WidgetsPage extends demoqaBase {
 	
 	@FindBy(xpath = "//h1[normalize-space()='Date Picker']")
 	WebElement DatePickerTitle;
+	
+	@FindBy(id = "datePickerMonthYearInput")
+	WebElement datePickerInput;
 
 	private WebDriverWait wait;
 
@@ -429,7 +438,7 @@ public class WidgetsPage extends demoqaBase {
 	    	AutoCompleteSingle.clear();
 	    	AutoCompleteSingle.sendKeys(searchChar);
 
-	        Thread.sleep(500); // Allow dropdown to populate
+	        Thread.sleep(3000); // Allow dropdown to populate
 
 	        List<WebElement> options = driver.findElements(By.cssSelector(".auto-complete__option"));
 	        boolean found = false;
@@ -482,5 +491,40 @@ public class WidgetsPage extends demoqaBase {
 
 		Assert.assertEquals("Date Picker", datePickerPage);
 	}
+	
+//	public static void selectDate(WebDriver driver, By inputLocator, LocalDate date) {
+//	    try {
+//	        String day = String.valueOf(date.getDayOfMonth());
+//	        String month = date.getMonth().getDisplayName(TextStyle.FULL, Locale.ENGLISH);
+//	        String year = String.valueOf(date.getYear());
+//
+//	        driver.findElement(inputLocator).click();
+//
+//	        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+//	        WebElement monthDropdown = wait.until(ExpectedConditions.visibilityOfElementLocated(By.className("react-datepicker__month-select")));
+//	        new Select(monthDropdown).selectByVisibleText(month);
+//
+//	        WebElement yearDropdown = driver.findElement(By.className("react-datepicker__year-select"));
+//	        new Select(yearDropdown).selectByVisibleText(year);
+//
+//	        String paddedDay = String.format("%02d", Integer.parseInt(day));
+//	        String daySelector = String.format("div.react-datepicker__day--0%s:not(.react-datepicker__day--outside-month)", paddedDay);
+//	        WebElement dayElement = driver.findElement(By.cssSelector(daySelector));
+//
+//	        if (dayElement.isDisplayed() && dayElement.isEnabled()) {
+//	            ((JavascriptExecutor) driver).executeScript("arguments[0].click();", dayElement);
+//	            System.out.println("✅ Date selected: " + date.format(DateTimeFormatter.ofPattern("dd-MM-yyyy")));
+//	        } else {
+//	            System.out.println("⚠️ Day element not interactable: " + paddedDay);
+//	        }
+//
+//	    } catch (Exception e) {
+//	        System.out.println("❌ Failed to select date: " + date);
+//	        e.printStackTrace();
+//	    }
+//	    WebElement dateSelected = driver.findElement(By.id("datePickerMonthYearInput"));
+//	    System.out.println("Selected Date is: " + dateSelected);
+//	    
+//	}
 	
 }
