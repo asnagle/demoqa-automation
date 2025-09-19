@@ -5,6 +5,9 @@ import java.util.Objects;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
+
+import enums.TestContext;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import models.TextBoxUser;
@@ -38,6 +41,20 @@ public class AssertFormData {
 
         externalLog.info("🧪 Starting confirmation assertion for user: {}", pojo.getFirstName());
         assertConfirmation(expectedValues, actualValues);
+    }
+    
+    public static void assertConfirmation(Map<String, String> expectedValues, Map<String, String> actualValues, TestContext context) {
+        expectedValues.forEach((expectedLabel, expectedValue) -> {
+            String normalizedLabel = LABEL_ALIASES.getOrDefault(expectedLabel, expectedLabel);
+            String actualValue = actualValues.getOrDefault(normalizedLabel, "");
+
+            if (FieldAssertionConfig.isOptional(normalizedLabel, context) && actualValue.isEmpty()) {
+                demoqaLog.info("⏩ Skipping optional field '{}' for context '{}'", normalizedLabel, context);
+                return;
+            }
+
+            assertFieldMatch(normalizedLabel, expectedValue, actualValue);
+        });
     }
 
     /**

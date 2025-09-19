@@ -1,6 +1,8 @@
 package utils;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 import java.util.Arrays;
@@ -141,7 +143,71 @@ public class DataSanitizer {
     public static String sanitizeDOB(String rawValue) {
         return sanitizeDOB(rawValue, "DOB", "FormTests");
     }
+    
+    public static Optional<LocalTime> sanitizeTime(String raw, String label, String context) {
+        if (raw == null || raw.trim().isEmpty()) {
+            System.out.printf("⚠️ [%s] Empty time string for %s%n", context, label);
+            return Optional.empty();
+        }
 
+        String cleaned = raw.trim()
+                            .replace(".", ":")
+                            .replaceAll("\\s+", " ")
+                            .toUpperCase(Locale.ENGLISH);
+
+        List<String> patterns = Arrays.asList(
+            "h:mm a", "hh:mm a",         // 6:45 AM, 06:45 AM
+            "h:mm:ss a", "hh:mm:ss a",   // 6:45:00 AM
+            "H:mm", "HH:mm",             // 6:45 (24h)
+            "H:mm:ss", "HH:mm:ss",       // 18:45:00
+            "HHmm", "Hmm"                // 0645 or 645
+        );
+
+        for (String pattern : patterns) {
+            try {
+                DateTimeFormatter formatter = DateTimeFormatter.ofPattern(pattern, Locale.ENGLISH);
+                String toParse = cleaned;
+
+                if (pattern.equals("HHmm") || pattern.equals("Hmm")) {
+                    String digits = cleaned.replaceAll("\\D+", "");
+                    if (digits.length() == 3) digits = "0" + digits; // 645 → 0645
+                    toParse = digits;
+                }
+
+                LocalTime parsedTime = LocalTime.parse(toParse, formatter);
+                System.out.printf("🧼 [%s] Parsed %s as %s using pattern '%s'%n", context, label, parsedTime, pattern);
+                return Optional.of(parsedTime);
+            } catch (DateTimeParseException ignored) {
+                // Try next pattern
+            }
+        }
+
+        System.err.printf("❌ [%s] Unrecognized time format for %s: %s%n", context, label, raw);
+        return Optional.empty();
+    }
+
+    public static Optional<LocalDateTime> combineDateAndTime(String dateStr, String timeStr, String context) {
+        Optional<LocalDate> dateOpt = sanitizeDOBToDate(dateStr, "DOB", context);
+        Optional<LocalTime> timeOpt = sanitizeTime(timeStr, "DOBTime", context);
+
+        if (dateOpt.isEmpty()) {
+            System.err.printf("❌ [%s] Invalid or missing DOB: %s%n", context, dateStr);
+            return Optional.empty();
+        }
+
+        if (timeOpt.isEmpty()) {
+            if ("DATE_PICKER".equalsIgnoreCase(context)) {
+                System.err.printf("❌ [%s] DOBTime is required but missing or invalid: %s%n", context, timeStr);
+                return Optional.empty(); // enforce time presence for DATE_PICKER
+            } else {
+                System.out.printf("ℹ️ [%s] DOBTime missing, defaulting to midnight%n", context);
+            }
+        }
+
+        LocalTime time = timeOpt.orElse(LocalTime.MIDNIGHT);
+        return Optional.of(LocalDateTime.of(dateOpt.get(), time));
+    }
+    
     public static String normalizeText(String input) {
         return input
             .replaceAll("\\r?\\n", " ")

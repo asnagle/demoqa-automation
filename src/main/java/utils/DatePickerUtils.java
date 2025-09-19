@@ -26,7 +26,8 @@ public class DatePickerUtils {
 
             // Step 1: Open the calendar
             WebElement inputField = driver.findElement(inputLocator);
-            inputField.click();
+//            inputField.click();
+            JSclick.scrollAndClick(driver, inputField);
 
             // Step 2: Wait for dropdowns to appear
             WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
@@ -55,15 +56,16 @@ public class DatePickerUtils {
         }
 //	    Assert Selection is Correct
 	    
-	    WebElement input = driver.findElement(By.id("datePickerMonthYearInput"));
-	    String selectedValue = input.getAttribute("value");
-	    String expectedValue = date.format(DateTimeFormatter.ofPattern("MM/dd/yyyy"));
-	    demoqaLog.info("Selected Date is: " + selectedValue);
-	    System.out.println("Selected Date is: " + selectedValue);
-	    demoqaLog.info("Expected Date is: " + expectedValue);
-	    System.out.println("Expected Date is: " + expectedValue);
-	    
-	    Assert.assertEquals(selectedValue, expectedValue, "❌ Selected date mismatch");
+        WebElement input = driver.findElement(By.id("dateOfBirthInput"));
+        String selectedValue = input.getAttribute("value").trim();
+
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd MMM yyyy", Locale.ENGLISH);
+        String expectedValue = date.format(formatter).trim();
+
+        System.out.println("Selected Date is: '" + selectedValue + "'");
+        System.out.println("Expected Date is: '" + expectedValue + "'");
+
+        Assert.assertEquals(selectedValue, expectedValue, "❌ Selected date mismatch");
     }
 
     /**
