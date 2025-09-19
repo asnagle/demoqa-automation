@@ -1,14 +1,19 @@
 pages\homePage.class
 utils\ExcelUtils.class
 models\ColorSelectionData.class
+pages\BasePage.class
 utils\RetryUrlAccess.class
+utils\ClickUtils.class
 utils\FetchLinkResponse.class
 base\demoqaBase.class
 pages\formsPage.class
 utils\WindowValidationUtils.class
 utils\DateComponents.class
+utils\CalendarUtils.class
 customAnnotations\ValidateResult.class
+enums\TestContext.class
 utils\closeAds.class
+utils\DateUtils$1.class
 utils\DateParts.class
 utils\splitDOB.class
 models\WebTableUser.class
@@ -23,6 +28,8 @@ converters\DobConverter.class
 listeners\RetryTransformer.class
 models\UserFormData.class
 pages\alertsframewindowsPage.class
+utils\FieldAssertionConfig.class
+utils\PageLoadHandler.class
 utils\FileRenamer.class
 converters\DatePickerConverter.class
 utils\mappers\ExcelToPOJOMapper.class
@@ -38,6 +45,7 @@ utils\UndoFileRename.class
 utils\WebTableManager.class
 utils\ChromeProfileCleaner.class
 utils\DatePickerUtils.class
+utils\DatePickerLocatorMapper.class
 customAnnotations\AnnotationDrivenMapper.class
 utils\ConfirmationTableParser.class
 utils\demoqaLog.class
@@ -45,6 +53,7 @@ utils\ClickHandler.class
 utils\JSclick.class
 utils\AlertUtils.class
 utils\LabelAliasRegistry.class
+utils\DatePickerLocatorMapper$1.class
 customAnnotations\CaptureOnSuccess.class
 pages\elementsPage.class
 utils\FileDownloadValidator.class

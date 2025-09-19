@@ -7,10 +7,14 @@ C:\ASN\eclipse_workspace\demoqa-automation\src\main\java\pages\alertsframewindow
 C:\ASN\eclipse_workspace\demoqa-automation\src\main\java\models\TextBoxUser.java
 C:\ASN\eclipse_workspace\demoqa-automation\src\main\java\utils\FileDownloadValidator.java
 C:\ASN\eclipse_workspace\demoqa-automation\src\main\java\customAnnotations\AnnotationDrivenMapper.java
+C:\ASN\eclipse_workspace\demoqa-automation\src\main\java\enums\TestContext.java
 C:\ASN\eclipse_workspace\demoqa-automation\src\main\java\pages\homePage.java
+C:\ASN\eclipse_workspace\demoqa-automation\src\main\java\utils\ClickUtils.java
 C:\ASN\eclipse_workspace\demoqa-automation\src\main\java\utils\RetryAnalyzer.java
+C:\ASN\eclipse_workspace\demoqa-automation\src\main\java\utils\DatePickerLocatorMapper.java
 C:\ASN\eclipse_workspace\demoqa-automation\src\main\java\pages\elementsPage.java
 C:\ASN\eclipse_workspace\demoqa-automation\src\main\java\utils\RetryUrlAccess.java
+C:\ASN\eclipse_workspace\demoqa-automation\src\main\java\utils\CalendarUtils.java
 C:\ASN\eclipse_workspace\demoqa-automation\src\main\java\utils\FetchLinkResponse.java
 C:\ASN\eclipse_workspace\demoqa-automation\src\main\java\utils\DateParts.java
 C:\ASN\eclipse_workspace\demoqa-automation\src\main\java\customAnnotations\ColumnMapping.java
@@ -19,7 +23,10 @@ C:\ASN\eclipse_workspace\demoqa-automation\src\main\java\utils\LabelAliasRegistr
 C:\ASN\eclipse_workspace\demoqa-automation\src\main\java\listeners\RetryTransformer.java
 C:\ASN\eclipse_workspace\demoqa-automation\src\main\java\utils\DataSanitizer.java
 C:\ASN\eclipse_workspace\demoqa-automation\src\main\java\utils\ConfigLoader.java
+C:\ASN\eclipse_workspace\demoqa-automation\src\main\java\pages\BasePage.java
+C:\ASN\eclipse_workspace\demoqa-automation\src\main\java\utils\FieldAssertionConfig.java
 C:\ASN\eclipse_workspace\demoqa-automation\src\main\java\pages\WidgetsPage.java
+C:\ASN\eclipse_workspace\demoqa-automation\src\main\java\utils\PageLoadHandler.java
 C:\ASN\eclipse_workspace\demoqa-automation\src\main\java\utils\AlertUtils.java
 C:\ASN\eclipse_workspace\demoqa-automation\src\main\java\utils\FileRenamer.java
 C:\ASN\eclipse_workspace\demoqa-automation\src\main\java\utils\splitDOB.java

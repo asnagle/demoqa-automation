@@ -4,6 +4,9 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Map;
 import org.apache.poi.ss.usermodel.*;
+import enums.TestContext;
+import java.time.format.DateTimeFormatter;
+import java.util.Locale;
 
 public final class DateUtils {
 
@@ -43,5 +46,10 @@ public final class DateUtils {
         }
     }
     
-
+    public static DateTimeFormatter getFormatterForContext(TestContext context) {
+        return switch (context) {
+            case FORMS -> DateTimeFormatter.ofPattern("dd MMM yyyy", Locale.ENGLISH);
+            case DATE_PICKER -> DateTimeFormatter.ofPattern("MM/dd/yyyy", Locale.ENGLISH);
+        };
+    }
 }

@@ -4,7 +4,7 @@ import java.time.Duration;
 import java.time.LocalDate;
 import java.util.List;
 import java.util.NoSuchElementException;
-import java.util.Optional;
+//import java.util.Optional;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -17,6 +17,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
 import base.demoqaBase;
+import enums.TestContext;
 //import models.UserFormData;
 import utils.ClickHandler;
 import utils.DataSanitizer;
@@ -157,23 +158,13 @@ public class formsPage extends demoqaBase {
 	        System.out.println("⚠️ DOB is null. Skipping date picker.");
 	        return;
 	    }
+	    
+	    DatePickerUtils.selectDate(driver, TestContext.FORMS, dob);
 
-	    DatePickerUtils.selectDate(driver, By.id("dateOfBirthInput"), dob);
+//	    DatePickerUtils.selectDate(driver, By.id("dateOfBirthInput"), dob);
+//	    DatePickerUtils.selectDate(driver, By.id("dateOfBirthInput"), dob, demoqaBase.demoqaLog);
 	}
 
-	// ✅ Deprecated method accepting String — now simplified
-	@Deprecated
-	public void fillDob(String dobStr) {
-	    System.out.println("📥 Received DOB (String): " + dobStr);
-
-	    Optional<LocalDate> dobOpt = DataSanitizer.sanitizeDOBToDate(dobStr, "DOB", "FormPage");
-	    if (dobOpt.isEmpty()) {
-	        System.out.println("❌ Failed to sanitize DOB: " + dobStr);
-	        return;
-	    }
-
-	    fillDob(dobOpt.get()); // Delegate to LocalDate version
-	}	
 	public String getDobFromForm() {
 		return datePicker.getAttribute("value").trim();
 	}

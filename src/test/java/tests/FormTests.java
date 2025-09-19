@@ -5,6 +5,7 @@ import static org.testng.Assert.assertNotNull;
 import java.io.IOException;
 import java.time.Duration;
 import java.time.LocalDate;
+import java.util.Map;
 import java.util.Optional;
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -14,13 +15,17 @@ import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import base.demoqaBase;
 import customAnnotations.CaptureOnSuccess;
+import enums.TestContext;
 import models.UserFormData;
 import pages.formsPage;
 import pages.homePage;
 import utils.AssertFormData;
+import utils.ConfirmationTableParser;
 import utils.DataSanitizer;
+import utils.DatePickerUtils;
 import utils.ExcelUtils;
 import utils.PageLoadHandler;
+import utils.PojoSanitizer;
 import utils.RetryUrlAccess;
 //import utils.demoqaLog;
 import utils.extentReportManager;
@@ -98,7 +103,8 @@ public class FormTests extends demoqaBase {
 	    demoqaLog.info("📅 Parsed DOB for " + fullName + ": " + dob);
 	    assertNotNull(dob, "DOB should be parsable");
 
-	    formsPage.fillDob(dob); // Overloaded method accepting LocalDate
+	    // ✅ Use context-driven locator for Forms page
+	    DatePickerUtils.selectDate(driver, TestContext.FORMS, dob);
 
 	    // ✅ Academic & Preferences
 	    formsPage.enterSubject(data.getSubject());
@@ -116,7 +122,10 @@ public class FormTests extends demoqaBase {
 	    new WebDriverWait(driver, Duration.ofSeconds(10))
 	        .until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("table tbody tr")));
 
-	    AssertFormData.assertConfirmation(data, driver, By.cssSelector("table tbody tr"), demoqaLog);
+	    Map<String, String> expectedValues = PojoSanitizer.extractSanitizedFields(data);
+	    Map<String, String> actualValues = ConfirmationTableParser.extractValues(driver, By.cssSelector("table tbody tr"));
+
+	    AssertFormData.assertConfirmation(expectedValues, actualValues, TestContext.FORMS);
 
 	    testRep.pass("✅ Test Form Filling Completed Successfully");
 	    demoqaLog.info("✅ Form Filling Completed for: " + fullName);

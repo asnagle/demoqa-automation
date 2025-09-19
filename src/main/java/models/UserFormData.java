@@ -1,15 +1,15 @@
 package models;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 import java.util.List;
+import java.util.Optional;
 
 import customAnnotations.ColumnMapping;
+import utils.DataSanitizer;
 
-/**
- * Represents a user's form data mapped from Excel using @ColumnMapping annotations.
- */
 public class UserFormData {
 
     // 🧍 Personal Info
@@ -30,6 +30,9 @@ public class UserFormData {
 
     @ColumnMapping(name = "DOB")
     private String dob;
+
+    @ColumnMapping(name = "DOBTime") // 🕒 New column
+    private String dobTime;
 
     // 📚 Academic & Interests
     @ColumnMapping(name = "Subject")
@@ -58,6 +61,7 @@ public class UserFormData {
     public String getGender() { return gender; }
     public String getMobile() { return mobile; }
     public String getDob() { return dob; }
+    public String getDobTime() { return dobTime; }
     public String getSubject() { return subject; }
     public String getHobbies() { return hobbies; }
     public String getPicturePath() { return picturePath; }
@@ -72,12 +76,18 @@ public class UserFormData {
     public void setGender(String gender) { this.gender = gender; }
     public void setMobile(String mobile) { this.mobile = mobile; }
     public void setDob(String dob) { this.dob = dob; }
+    public void setDobTime(String dobTime) { this.dobTime = dobTime; }
     public void setSubject(String subject) { this.subject = subject; }
     public void setHobbies(String hobbies) { this.hobbies = hobbies; }
     public void setPicturePath(String picturePath) { this.picturePath = picturePath; }
     public void setAddress(String address) { this.address = address; }
     public void setState(String state) { this.state = state; }
     public void setCity(String city) { this.city = city; }
+
+    // 🧠 Helper Method
+    public Optional<LocalDateTime> getDobAsDateTime(String context) {
+        return DataSanitizer.combineDateAndTime(this.dob, this.dobTime, context);
+    }
 
     @Override
     public String toString() {
@@ -88,6 +98,7 @@ public class UserFormData {
             .append(", gender='").append(gender).append('\'')
             .append(", mobile='").append(mobile).append('\'')
             .append(", dob='").append(dob != null ? dob : "null").append('\'')
+            .append(", dobTime='").append(dobTime != null ? dobTime : "null").append('\'')
             .append(", subject='").append(subject).append('\'')
             .append(", hobbies='").append(hobbies).append('\'')
             .append(", picturePath='").append(picturePath).append('\'')

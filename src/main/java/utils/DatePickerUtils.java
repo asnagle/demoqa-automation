@@ -10,15 +10,19 @@ import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.*;
 import org.testng.Assert;
 
+import enums.TestContext;
+
 public class DatePickerUtils {
 
     /**
      * Selects a date in a React-based date picker widget.
      * @param driver WebDriver instance
      * @param inputLocator Locator for the date input field
+     * @param assertLocator Locator for the field to assert selected value
      * @param date LocalDate to select
+     * @param context TestContext to determine expected format
      */
-    public static void selectDate(WebDriver driver, By inputLocator, LocalDate date) {
+    public static void selectDate(WebDriver driver, By inputLocator, By assertLocator, LocalDate date, TestContext context) {
         try {
             String day = String.valueOf(date.getDayOfMonth());
             String month = date.getMonth().getDisplayName(TextStyle.FULL, Locale.ENGLISH);
@@ -26,7 +30,6 @@ public class DatePickerUtils {
 
             // Step 1: Open the calendar
             WebElement inputField = driver.findElement(inputLocator);
-//            inputField.click();
             JSclick.scrollAndClick(driver, inputField);
 
             // Step 2: Wait for dropdowns to appear
@@ -54,26 +57,45 @@ public class DatePickerUtils {
             System.out.println("❌ Failed to select date: " + date);
             e.printStackTrace();
         }
-//	    Assert Selection is Correct
-	    
-        WebElement input = driver.findElement(By.id("dateOfBirthInput"));
-        String selectedValue = input.getAttribute("value").trim();
 
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd MMM yyyy", Locale.ENGLISH);
-        String expectedValue = date.format(formatter).trim();
+        // ✅ Assertion block
+        try {
+            WebElement input = driver.findElement(assertLocator);
+            String selectedValue = input.getAttribute("value").trim();
 
-        System.out.println("Selected Date is: '" + selectedValue + "'");
-        System.out.println("Expected Date is: '" + expectedValue + "'");
+            DateTimeFormatter formatter = DateUtils.getFormatterForContext(context);
+            String expectedValue = date.format(formatter).trim();
 
-        Assert.assertEquals(selectedValue, expectedValue, "❌ Selected date mismatch");
+            System.out.println("Selected Date is: '" + selectedValue + "'");
+            System.out.println("Expected Date is: '" + expectedValue + "'");
+
+            Assert.assertEquals(selectedValue, expectedValue, "❌ Selected date mismatch");
+        } catch (Exception e) {
+            System.out.println("❌ Assertion failed: Unable to locate or validate date input");
+            e.printStackTrace();
+            Assert.fail("Assertion failed due to missing or incorrect input field");
+        }
     }
 
     /**
-     * Convenience method for Forms page (uses default locator).
-     * @param driver WebDriver instance
-     * @param date LocalDate to select
+     * Selects a date using context-driven locator and format.
+     */
+    public static void selectDate(WebDriver driver, TestContext context, LocalDate date) {
+        By locator = DatePickerLocatorMapper.getDatePickerLocator(context);
+        selectDate(driver, locator, locator, date, context);
+    }
+
+    /**
+     * Convenience method for Forms page.
      */
     public static void selectDateForForms(WebDriver driver, LocalDate date) {
-        selectDate(driver, By.id("dateOfBirthInput"), date);
+        selectDate(driver, TestContext.FORMS, date);
+    }
+
+    /**
+     * Convenience method for Widgets > Date Picker page.
+     */
+    public static void selectDateForWidgets(WebDriver driver, LocalDate date) {
+        selectDate(driver, TestContext.DATE_PICKER, date);
     }
 }

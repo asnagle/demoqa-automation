@@ -6,12 +6,12 @@ import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 
-import org.openqa.selenium.By;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import base.demoqaBase;
+import enums.TestContext;
 import models.ColorSelectionData;
 import models.UserFormData;
 import pages.WidgetsPage;
@@ -248,7 +248,7 @@ public class WidgetsTests extends demoqaBase {
 	    widgetsPage.accessWidgets();
 
 	    Optional<LocalDate> dateOpt = DataSanitizer.sanitizeDOBToDate(data.getDob(), "DOB", "SelectDateTest");
-	    if (!dateOpt.isPresent()) {
+	    if (dateOpt.isEmpty()) {
 	        demoqaLog.warn("⚠️ DOB parsing failed | Raw value: " + data.getDob());
 	        throw new RuntimeException("❌ Unable to parse DOB: " + data.getDob());
 	    }
@@ -256,12 +256,12 @@ public class WidgetsTests extends demoqaBase {
 	    LocalDate dob = dateOpt.get();
 	    demoqaLog.info("📅 Parsed DOB: " + dob);
 	    Assert.assertNotNull(dob, "DOB should be parsable");
+
 	    widgetsPage.ClickDatePicker();
 	    PageLoadHandler.waitUntilLoaded(driver, 30);
 
-	    // ✅ Use correct locator for Widgets > Date Picker
-//	    DatePickerUtils.selectDate(driver, By.id("datePickerMonthYearInput"), dob);
-	    DatePickerUtils.selectDate(driver, By.xpath("//input[@id='datePickerMonthYearInput']"), dob);
+	    // ✅ Use context-driven locator mapping
+	    DatePickerUtils.selectDate(driver, TestContext.DATE_PICKER, dob);
 
 	    testRep.pass("✅ Date selection completed successfully");
 	}
