@@ -1,515 +1,153 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="19" passed="19" failed="0" skipped="0">
+<testng-results ignored="12" total="16" passed="4" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2025-09-19T13:06:41 IST" name="Default suite" finished-at="2025-09-19T13:12:53 IST" duration-ms="371092">
+  <suite started-at="2025-09-20T19:41:28 IST" name="Default suite" finished-at="2025-09-20T19:47:01 IST" duration-ms="333309">
     <groups>
     </groups>
-    <test started-at="2025-09-19T13:06:41 IST" name="Default test" finished-at="2025-09-19T13:12:53 IST" duration-ms="371092">
-      <class name="tests.AlertsFramesWindowsTests">
-        <test-method is-config="true" signature="setupReport()[pri:0, instance:tests.AlertsFramesWindowsTests@42b02722]" started-at="2025-09-19T13:06:41 IST" name="setupReport" finished-at="2025-09-19T13:06:41 IST" duration-ms="247" status="PASS">
+    <test started-at="2025-09-20T19:41:28 IST" name="Default test" finished-at="2025-09-20T19:47:01 IST" duration-ms="333309">
+      <class name="tests.WidgetsTests">
+        <test-method is-config="true" signature="setupReport()[pri:0, instance:tests.WidgetsTests@5bf8fa12]" started-at="2025-09-20T19:41:28 IST" name="setupReport" finished-at="2025-09-20T19:41:28 IST" duration-ms="225" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setupReport -->
-        <test-method is-config="true" signature="setup(java.lang.reflect.Method)[pri:0, instance:tests.AlertsFramesWindowsTests@42b02722]" started-at="2025-09-19T13:06:42 IST" name="setup" finished-at="2025-09-19T13:07:14 IST" duration-ms="32862" status="PASS">
+        <test-method is-config="true" signature="setup(java.lang.reflect.Method)[pri:0, instance:tests.WidgetsTests@5bf8fa12]" started-at="2025-09-20T19:41:29 IST" name="setup" finished-at="2025-09-20T19:43:08 IST" duration-ms="99220" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[public void tests.AlertsFramesWindowsTests.accessAlertsFrameWindows()]]>
+                <![CDATA[public void tests.WidgetsTests.SelectDateAndTime(models.UserFormData)]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setup -->
-        <test-method signature="accessAlertsFrameWindows()[pri:1, instance:tests.AlertsFramesWindowsTests@42b02722]" started-at="2025-09-19T13:07:14 IST" name="accessAlertsFrameWindows" finished-at="2025-09-19T13:07:15 IST" duration-ms="439" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- accessAlertsFrameWindows -->
-        <test-method is-config="true" signature="tearDown(org.testng.ITestResult)[pri:0, instance:tests.AlertsFramesWindowsTests@42b02722]" started-at="2025-09-19T13:07:15 IST" name="tearDown" finished-at="2025-09-19T13:07:15 IST" duration-ms="301" status="PASS">
+        <test-method signature="SelectDateAndTime(models.UserFormData)[pri:13, instance:tests.WidgetsTests@5bf8fa12]" started-at="2025-09-20T19:43:08 IST" name="SelectDateAndTime" data-provider="DateSource" finished-at="2025-09-20T19:43:24 IST" duration-ms="16584" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=accessAlertsFrameWindows status=SUCCESS method=AlertsFramesWindowsTests.accessAlertsFrameWindows()[pri:1, instance:tests.AlertsFramesWindowsTests@42b02722] output={null}]]]>
+                <![CDATA[UserFormData{firstName='Johny', lastName='Bravo', userMail='Jbravo@demoqa.com', gender='Male', mobile='9.238343488E9', dob='15/08/2000', dobTime='6:45:00 am', subject='Computer Science', hobbies='Sports,Music', picturePath='/TestData/Mphoto.jpg', address='511 Grant 481, Prattsville\n Arkansas 72129\n United States', state='NCR', city='Delhi'}]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- SelectDateAndTime -->
+        <test-method is-config="true" signature="tearDown(org.testng.ITestResult)[pri:0, instance:tests.WidgetsTests@5bf8fa12]" started-at="2025-09-20T19:43:24 IST" name="tearDown" finished-at="2025-09-20T19:43:25 IST" duration-ms="342" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=SelectDateAndTime status=SUCCESS method=WidgetsTests.SelectDateAndTime(models.UserFormData)[pri:13, instance:tests.WidgetsTests@5bf8fa12] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-        <test-method is-config="true" signature="setup(java.lang.reflect.Method)[pri:0, instance:tests.AlertsFramesWindowsTests@42b02722]" started-at="2025-09-19T13:07:15 IST" name="setup" finished-at="2025-09-19T13:07:29 IST" duration-ms="13931" status="PASS">
+        <test-method is-config="true" signature="setup(java.lang.reflect.Method)[pri:0, instance:tests.WidgetsTests@5bf8fa12]" started-at="2025-09-20T19:43:25 IST" name="setup" finished-at="2025-09-20T19:43:42 IST" duration-ms="17204" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[public void tests.AlertsFramesWindowsTests.browserWindows()]]>
+                <![CDATA[public void tests.WidgetsTests.SelectDateAndTime(models.UserFormData)]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setup -->
-        <test-method signature="browserWindows()[pri:2, instance:tests.AlertsFramesWindowsTests@42b02722]" started-at="2025-09-19T13:07:29 IST" name="browserWindows" finished-at="2025-09-19T13:07:30 IST" duration-ms="465" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- browserWindows -->
-        <test-method is-config="true" signature="tearDown(org.testng.ITestResult)[pri:0, instance:tests.AlertsFramesWindowsTests@42b02722]" started-at="2025-09-19T13:07:30 IST" name="tearDown" finished-at="2025-09-19T13:07:30 IST" duration-ms="305" status="PASS">
+        <test-method signature="SelectDateAndTime(models.UserFormData)[pri:13, instance:tests.WidgetsTests@5bf8fa12]" started-at="2025-09-20T19:43:42 IST" name="SelectDateAndTime" data-provider="DateSource" finished-at="2025-09-20T19:43:55 IST" duration-ms="13261" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=browserWindows status=SUCCESS method=AlertsFramesWindowsTests.browserWindows()[pri:2, instance:tests.AlertsFramesWindowsTests@42b02722] output={null}]]]>
+                <![CDATA[UserFormData{firstName='Gene', lastName='Femina', userMail='GFemina@demoqa.com', gender='Female', mobile='1.888343432E9', dob='22/05/2002', dobTime='4:30:00 pm', subject='Accounting', hobbies='Music,Reading', picturePath='/TestData/Fphoto.png', address='512 Grant 481, Prattsville\n Arkansas 72129\n United States', state='Uttar Pradesh', city='Merrut'}]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- SelectDateAndTime -->
+        <test-method is-config="true" signature="tearDown(org.testng.ITestResult)[pri:0, instance:tests.WidgetsTests@5bf8fa12]" started-at="2025-09-20T19:43:55 IST" name="tearDown" finished-at="2025-09-20T19:43:55 IST" duration-ms="339" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=SelectDateAndTime status=SUCCESS method=WidgetsTests.SelectDateAndTime(models.UserFormData)[pri:13, instance:tests.WidgetsTests@5bf8fa12] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-        <test-method is-config="true" signature="setup(java.lang.reflect.Method)[pri:0, instance:tests.AlertsFramesWindowsTests@42b02722]" started-at="2025-09-19T13:07:30 IST" name="setup" finished-at="2025-09-19T13:07:45 IST" duration-ms="14737" status="PASS">
+        <test-method is-config="true" signature="setup(java.lang.reflect.Method)[pri:0, instance:tests.WidgetsTests@5bf8fa12]" started-at="2025-09-20T19:43:55 IST" name="setup" finished-at="2025-09-20T19:45:44 IST" duration-ms="108064" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[public void tests.AlertsFramesWindowsTests.browserWindowsNewTab()]]>
+                <![CDATA[public void tests.WidgetsTests.SelectDateAndTime(models.UserFormData)]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setup -->
-        <test-method signature="browserWindowsNewTab()[pri:3, instance:tests.AlertsFramesWindowsTests@42b02722]" started-at="2025-09-19T13:07:45 IST" name="browserWindowsNewTab" finished-at="2025-09-19T13:07:46 IST" duration-ms="1171" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- browserWindowsNewTab -->
-        <test-method is-config="true" signature="tearDown(org.testng.ITestResult)[pri:0, instance:tests.AlertsFramesWindowsTests@42b02722]" started-at="2025-09-19T13:07:46 IST" name="tearDown" finished-at="2025-09-19T13:07:46 IST" duration-ms="355" status="PASS">
+        <test-method signature="SelectDateAndTime(models.UserFormData)[pri:13, instance:tests.WidgetsTests@5bf8fa12]" started-at="2025-09-20T19:45:44 IST" name="SelectDateAndTime" data-provider="DateSource" finished-at="2025-09-20T19:46:02 IST" duration-ms="17950" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=browserWindowsNewTab status=SUCCESS method=AlertsFramesWindowsTests.browserWindowsNewTab()[pri:3, instance:tests.AlertsFramesWindowsTests@42b02722] output={null}]]]>
+                <![CDATA[UserFormData{firstName='Bud', lastName='Wisem', userMail='BWisem@demoqa.com', gender='Other', mobile='8.932465432E9', dob='31/12/1999', dobTime='8:45:00 pm', subject='Biology', hobbies='Reading', picturePath='/TestData/Ophoto.jpg', address='513 Grant 481, Prattsville\n Arkansas 72129\n United States', state='Haryana', city='Panipat'}]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- SelectDateAndTime -->
+        <test-method is-config="true" signature="tearDown(org.testng.ITestResult)[pri:0, instance:tests.WidgetsTests@5bf8fa12]" started-at="2025-09-20T19:46:02 IST" name="tearDown" finished-at="2025-09-20T19:46:02 IST" duration-ms="279" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=SelectDateAndTime status=SUCCESS method=WidgetsTests.SelectDateAndTime(models.UserFormData)[pri:13, instance:tests.WidgetsTests@5bf8fa12] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-        <test-method is-config="true" signature="setup(java.lang.reflect.Method)[pri:0, instance:tests.AlertsFramesWindowsTests@42b02722]" started-at="2025-09-19T13:07:46 IST" name="setup" finished-at="2025-09-19T13:07:52 IST" duration-ms="5951" status="PASS">
+        <test-method is-config="true" signature="setup(java.lang.reflect.Method)[pri:0, instance:tests.WidgetsTests@5bf8fa12]" started-at="2025-09-20T19:46:02 IST" name="setup" finished-at="2025-09-20T19:46:47 IST" duration-ms="45551" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[public void tests.AlertsFramesWindowsTests.browserWindowsNewWindow()]]>
+                <![CDATA[public void tests.WidgetsTests.SelectDateAndTime(models.UserFormData)]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setup -->
-        <test-method signature="browserWindowsNewWindow()[pri:4, instance:tests.AlertsFramesWindowsTests@42b02722]" started-at="2025-09-19T13:07:52 IST" name="browserWindowsNewWindow" finished-at="2025-09-19T13:07:54 IST" duration-ms="1578" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- browserWindowsNewWindow -->
-        <test-method is-config="true" signature="tearDown(org.testng.ITestResult)[pri:0, instance:tests.AlertsFramesWindowsTests@42b02722]" started-at="2025-09-19T13:07:54 IST" name="tearDown" finished-at="2025-09-19T13:07:54 IST" duration-ms="349" status="PASS">
+        <test-method signature="SelectDateAndTime(models.UserFormData)[pri:13, instance:tests.WidgetsTests@5bf8fa12]" started-at="2025-09-20T19:46:47 IST" name="SelectDateAndTime" data-provider="DateSource" finished-at="2025-09-20T19:47:01 IST" duration-ms="13494" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=browserWindowsNewWindow status=SUCCESS method=AlertsFramesWindowsTests.browserWindowsNewWindow()[pri:4, instance:tests.AlertsFramesWindowsTests@42b02722] output={null}]]]>
+                <![CDATA[UserFormData{firstName='Tom', lastName='Boss', userMail='TBoss@demoqa.com', gender='Male', mobile='7.839875281E9', dob='1/26/03', dobTime='5:45:00 am', subject='Social Studies', hobbies='Sports,Reading', picturePath='/TestData/M2photo.jpg', address='514 Grant 481, Prattsville\n Arkansas 72129\n United States', state='Rajasthan', city='Jaiselmer'}]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- SelectDateAndTime -->
+        <test-method is-config="true" signature="tearDown(org.testng.ITestResult)[pri:0, instance:tests.WidgetsTests@5bf8fa12]" started-at="2025-09-20T19:47:01 IST" name="tearDown" finished-at="2025-09-20T19:47:01 IST" duration-ms="329" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=SelectDateAndTime status=SUCCESS method=WidgetsTests.SelectDateAndTime(models.UserFormData)[pri:13, instance:tests.WidgetsTests@5bf8fa12] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-        <test-method is-config="true" signature="setup(java.lang.reflect.Method)[pri:0, instance:tests.AlertsFramesWindowsTests@42b02722]" started-at="2025-09-19T13:07:54 IST" name="setup" finished-at="2025-09-19T13:08:07 IST" duration-ms="12922" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void tests.AlertsFramesWindowsTests.browserWindowsNewWindowMsg()]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setup -->
-        <test-method signature="browserWindowsNewWindowMsg()[pri:5, instance:tests.AlertsFramesWindowsTests@42b02722]" started-at="2025-09-19T13:08:07 IST" name="browserWindowsNewWindowMsg" finished-at="2025-09-19T13:08:08 IST" duration-ms="744" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- browserWindowsNewWindowMsg -->
-        <test-method is-config="true" signature="tearDown(org.testng.ITestResult)[pri:0, instance:tests.AlertsFramesWindowsTests@42b02722]" started-at="2025-09-19T13:08:08 IST" name="tearDown" finished-at="2025-09-19T13:08:08 IST" duration-ms="314" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[[TestResult name=browserWindowsNewWindowMsg status=SUCCESS method=AlertsFramesWindowsTests.browserWindowsNewWindowMsg()[pri:5, instance:tests.AlertsFramesWindowsTests@42b02722] output={null}]]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- tearDown -->
-        <test-method is-config="true" signature="setup(java.lang.reflect.Method)[pri:0, instance:tests.AlertsFramesWindowsTests@42b02722]" started-at="2025-09-19T13:08:08 IST" name="setup" finished-at="2025-09-19T13:08:37 IST" duration-ms="28522" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void tests.AlertsFramesWindowsTests.ClickAlerts()]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setup -->
-        <test-method signature="ClickAlerts()[pri:6, instance:tests.AlertsFramesWindowsTests@42b02722]" started-at="2025-09-19T13:08:37 IST" name="ClickAlerts" finished-at="2025-09-19T13:08:37 IST" duration-ms="906" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- ClickAlerts -->
-        <test-method is-config="true" signature="tearDown(org.testng.ITestResult)[pri:0, instance:tests.AlertsFramesWindowsTests@42b02722]" started-at="2025-09-19T13:08:37 IST" name="tearDown" finished-at="2025-09-19T13:08:38 IST" duration-ms="424" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[[TestResult name=ClickAlerts status=SUCCESS method=AlertsFramesWindowsTests.ClickAlerts()[pri:6, instance:tests.AlertsFramesWindowsTests@42b02722] output={null}]]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- tearDown -->
-        <test-method is-config="true" signature="setup(java.lang.reflect.Method)[pri:0, instance:tests.AlertsFramesWindowsTests@42b02722]" started-at="2025-09-19T13:08:38 IST" name="setup" finished-at="2025-09-19T13:08:47 IST" duration-ms="9599" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void tests.AlertsFramesWindowsTests.ClickToSeeAlerts()]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setup -->
-        <test-method signature="ClickToSeeAlerts()[pri:7, instance:tests.AlertsFramesWindowsTests@42b02722]" started-at="2025-09-19T13:08:47 IST" name="ClickToSeeAlerts" finished-at="2025-09-19T13:08:53 IST" duration-ms="5902" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- ClickToSeeAlerts -->
-        <test-method is-config="true" signature="tearDown(org.testng.ITestResult)[pri:0, instance:tests.AlertsFramesWindowsTests@42b02722]" started-at="2025-09-19T13:08:53 IST" name="tearDown" finished-at="2025-09-19T13:08:54 IST" duration-ms="340" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[[TestResult name=ClickToSeeAlerts status=SUCCESS method=AlertsFramesWindowsTests.ClickToSeeAlerts()[pri:7, instance:tests.AlertsFramesWindowsTests@42b02722] output={null}]]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- tearDown -->
-        <test-method is-config="true" signature="setup(java.lang.reflect.Method)[pri:0, instance:tests.AlertsFramesWindowsTests@42b02722]" started-at="2025-09-19T13:08:54 IST" name="setup" finished-at="2025-09-19T13:09:30 IST" duration-ms="36742" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void tests.AlertsFramesWindowsTests.ClickAcceptConfirmationBox()]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setup -->
-        <test-method signature="ClickAcceptConfirmationBox()[pri:8, instance:tests.AlertsFramesWindowsTests@42b02722]" started-at="2025-09-19T13:09:30 IST" name="ClickAcceptConfirmationBox" finished-at="2025-09-19T13:09:32 IST" duration-ms="1053" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- ClickAcceptConfirmationBox -->
-        <test-method is-config="true" signature="tearDown(org.testng.ITestResult)[pri:0, instance:tests.AlertsFramesWindowsTests@42b02722]" started-at="2025-09-19T13:09:32 IST" name="tearDown" finished-at="2025-09-19T13:09:32 IST" duration-ms="455" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[[TestResult name=ClickAcceptConfirmationBox status=SUCCESS method=AlertsFramesWindowsTests.ClickAcceptConfirmationBox()[pri:8, instance:tests.AlertsFramesWindowsTests@42b02722] output={null}]]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- tearDown -->
-        <test-method is-config="true" signature="setup(java.lang.reflect.Method)[pri:0, instance:tests.AlertsFramesWindowsTests@42b02722]" started-at="2025-09-19T13:09:32 IST" name="setup" finished-at="2025-09-19T13:09:44 IST" duration-ms="12342" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void tests.AlertsFramesWindowsTests.ClickDenyConfirmationBox()]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setup -->
-        <test-method signature="ClickDenyConfirmationBox()[pri:8, instance:tests.AlertsFramesWindowsTests@42b02722]" started-at="2025-09-19T13:09:44 IST" name="ClickDenyConfirmationBox" finished-at="2025-09-19T13:09:45 IST" duration-ms="876" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- ClickDenyConfirmationBox -->
-        <test-method is-config="true" signature="tearDown(org.testng.ITestResult)[pri:0, instance:tests.AlertsFramesWindowsTests@42b02722]" started-at="2025-09-19T13:09:45 IST" name="tearDown" finished-at="2025-09-19T13:09:46 IST" duration-ms="316" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[[TestResult name=ClickDenyConfirmationBox status=SUCCESS method=AlertsFramesWindowsTests.ClickDenyConfirmationBox()[pri:8, instance:tests.AlertsFramesWindowsTests@42b02722] output={null}]]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- tearDown -->
-        <test-method is-config="true" signature="setup(java.lang.reflect.Method)[pri:0, instance:tests.AlertsFramesWindowsTests@42b02722]" started-at="2025-09-19T13:09:46 IST" name="setup" finished-at="2025-09-19T13:09:58 IST" duration-ms="12404" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void tests.AlertsFramesWindowsTests.ClickPromptBoxFill()]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setup -->
-        <test-method signature="ClickPromptBoxFill()[pri:9, instance:tests.AlertsFramesWindowsTests@42b02722]" started-at="2025-09-19T13:09:58 IST" name="ClickPromptBoxFill" finished-at="2025-09-19T13:09:59 IST" duration-ms="1139" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- ClickPromptBoxFill -->
-        <test-method is-config="true" signature="tearDown(org.testng.ITestResult)[pri:0, instance:tests.AlertsFramesWindowsTests@42b02722]" started-at="2025-09-19T13:09:59 IST" name="tearDown" finished-at="2025-09-19T13:09:59 IST" duration-ms="303" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[[TestResult name=ClickPromptBoxFill status=SUCCESS method=AlertsFramesWindowsTests.ClickPromptBoxFill()[pri:9, instance:tests.AlertsFramesWindowsTests@42b02722] output={null}]]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- tearDown -->
-        <test-method is-config="true" signature="setup(java.lang.reflect.Method)[pri:0, instance:tests.AlertsFramesWindowsTests@42b02722]" started-at="2025-09-19T13:09:59 IST" name="setup" finished-at="2025-09-19T13:10:13 IST" duration-ms="13286" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void tests.AlertsFramesWindowsTests.ClickFrames()]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setup -->
-        <test-method signature="ClickFrames()[pri:10, instance:tests.AlertsFramesWindowsTests@42b02722]" started-at="2025-09-19T13:10:13 IST" name="ClickFrames" finished-at="2025-09-19T13:10:13 IST" duration-ms="503" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- ClickFrames -->
-        <test-method is-config="true" signature="tearDown(org.testng.ITestResult)[pri:0, instance:tests.AlertsFramesWindowsTests@42b02722]" started-at="2025-09-19T13:10:13 IST" name="tearDown" finished-at="2025-09-19T13:10:13 IST" duration-ms="286" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[[TestResult name=ClickFrames status=SUCCESS method=AlertsFramesWindowsTests.ClickFrames()[pri:10, instance:tests.AlertsFramesWindowsTests@42b02722] output={null}]]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- tearDown -->
-        <test-method is-config="true" signature="setup(java.lang.reflect.Method)[pri:0, instance:tests.AlertsFramesWindowsTests@42b02722]" started-at="2025-09-19T13:10:13 IST" name="setup" finished-at="2025-09-19T13:10:33 IST" duration-ms="19544" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void tests.AlertsFramesWindowsTests.GetFrame1()]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setup -->
-        <test-method signature="GetFrame1()[pri:11, instance:tests.AlertsFramesWindowsTests@42b02722]" started-at="2025-09-19T13:10:33 IST" name="GetFrame1" finished-at="2025-09-19T13:10:34 IST" duration-ms="1014" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- GetFrame1 -->
-        <test-method is-config="true" signature="tearDown(org.testng.ITestResult)[pri:0, instance:tests.AlertsFramesWindowsTests@42b02722]" started-at="2025-09-19T13:10:34 IST" name="tearDown" finished-at="2025-09-19T13:10:35 IST" duration-ms="672" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[[TestResult name=GetFrame1 status=SUCCESS method=AlertsFramesWindowsTests.GetFrame1()[pri:11, instance:tests.AlertsFramesWindowsTests@42b02722] output={null}]]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- tearDown -->
-        <test-method is-config="true" signature="setup(java.lang.reflect.Method)[pri:0, instance:tests.AlertsFramesWindowsTests@42b02722]" started-at="2025-09-19T13:10:35 IST" name="setup" finished-at="2025-09-19T13:11:07 IST" duration-ms="32366" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void tests.AlertsFramesWindowsTests.GetFrame2()]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setup -->
-        <test-method signature="GetFrame2()[pri:12, instance:tests.AlertsFramesWindowsTests@42b02722]" started-at="2025-09-19T13:11:07 IST" name="GetFrame2" finished-at="2025-09-19T13:11:08 IST" duration-ms="1255" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- GetFrame2 -->
-        <test-method is-config="true" signature="tearDown(org.testng.ITestResult)[pri:0, instance:tests.AlertsFramesWindowsTests@42b02722]" started-at="2025-09-19T13:11:08 IST" name="tearDown" finished-at="2025-09-19T13:11:09 IST" duration-ms="252" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[[TestResult name=GetFrame2 status=SUCCESS method=AlertsFramesWindowsTests.GetFrame2()[pri:12, instance:tests.AlertsFramesWindowsTests@42b02722] output={null}]]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- tearDown -->
-        <test-method is-config="true" signature="setup(java.lang.reflect.Method)[pri:0, instance:tests.AlertsFramesWindowsTests@42b02722]" started-at="2025-09-19T13:11:09 IST" name="setup" finished-at="2025-09-19T13:11:21 IST" duration-ms="12547" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void tests.AlertsFramesWindowsTests.ClickModalDialogs()]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setup -->
-        <test-method signature="ClickModalDialogs()[pri:13, instance:tests.AlertsFramesWindowsTests@42b02722]" started-at="2025-09-19T13:11:21 IST" name="ClickModalDialogs" finished-at="2025-09-19T13:11:22 IST" duration-ms="403" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- ClickModalDialogs -->
-        <test-method is-config="true" signature="tearDown(org.testng.ITestResult)[pri:0, instance:tests.AlertsFramesWindowsTests@42b02722]" started-at="2025-09-19T13:11:22 IST" name="tearDown" finished-at="2025-09-19T13:11:22 IST" duration-ms="304" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[[TestResult name=ClickModalDialogs status=SUCCESS method=AlertsFramesWindowsTests.ClickModalDialogs()[pri:13, instance:tests.AlertsFramesWindowsTests@42b02722] output={null}]]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- tearDown -->
-        <test-method is-config="true" signature="setup(java.lang.reflect.Method)[pri:0, instance:tests.AlertsFramesWindowsTests@42b02722]" started-at="2025-09-19T13:11:22 IST" name="setup" finished-at="2025-09-19T13:11:49 IST" duration-ms="27341" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void tests.AlertsFramesWindowsTests.ClickNestedFrames()]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setup -->
-        <test-method signature="ClickNestedFrames()[pri:13, instance:tests.AlertsFramesWindowsTests@42b02722]" started-at="2025-09-19T13:11:49 IST" name="ClickNestedFrames" finished-at="2025-09-19T13:11:50 IST" duration-ms="417" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- ClickNestedFrames -->
-        <test-method is-config="true" signature="tearDown(org.testng.ITestResult)[pri:0, instance:tests.AlertsFramesWindowsTests@42b02722]" started-at="2025-09-19T13:11:50 IST" name="tearDown" finished-at="2025-09-19T13:11:50 IST" duration-ms="256" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[[TestResult name=ClickNestedFrames status=SUCCESS method=AlertsFramesWindowsTests.ClickNestedFrames()[pri:13, instance:tests.AlertsFramesWindowsTests@42b02722] output={null}]]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- tearDown -->
-        <test-method is-config="true" signature="setup(java.lang.reflect.Method)[pri:0, instance:tests.AlertsFramesWindowsTests@42b02722]" started-at="2025-09-19T13:11:50 IST" name="setup" finished-at="2025-09-19T13:12:04 IST" duration-ms="13969" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void tests.AlertsFramesWindowsTests.ClickLargeModal()]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setup -->
-        <test-method signature="ClickLargeModal()[pri:14, instance:tests.AlertsFramesWindowsTests@42b02722]" started-at="2025-09-19T13:12:04 IST" name="ClickLargeModal" finished-at="2025-09-19T13:12:05 IST" duration-ms="1077" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- ClickLargeModal -->
-        <test-method is-config="true" signature="tearDown(org.testng.ITestResult)[pri:0, instance:tests.AlertsFramesWindowsTests@42b02722]" started-at="2025-09-19T13:12:05 IST" name="tearDown" finished-at="2025-09-19T13:12:05 IST" duration-ms="576" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[[TestResult name=ClickLargeModal status=SUCCESS method=AlertsFramesWindowsTests.ClickLargeModal()[pri:14, instance:tests.AlertsFramesWindowsTests@42b02722] output={null}]]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- tearDown -->
-        <test-method is-config="true" signature="setup(java.lang.reflect.Method)[pri:0, instance:tests.AlertsFramesWindowsTests@42b02722]" started-at="2025-09-19T13:12:05 IST" name="setup" finished-at="2025-09-19T13:12:22 IST" duration-ms="16803" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void tests.AlertsFramesWindowsTests.ClickSmallModal()]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setup -->
-        <test-method signature="ClickSmallModal()[pri:14, instance:tests.AlertsFramesWindowsTests@42b02722]" started-at="2025-09-19T13:12:22 IST" name="ClickSmallModal" finished-at="2025-09-19T13:12:23 IST" duration-ms="989" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- ClickSmallModal -->
-        <test-method is-config="true" signature="tearDown(org.testng.ITestResult)[pri:0, instance:tests.AlertsFramesWindowsTests@42b02722]" started-at="2025-09-19T13:12:23 IST" name="tearDown" finished-at="2025-09-19T13:12:24 IST" duration-ms="455" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[[TestResult name=ClickSmallModal status=SUCCESS method=AlertsFramesWindowsTests.ClickSmallModal()[pri:14, instance:tests.AlertsFramesWindowsTests@42b02722] output={null}]]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- tearDown -->
-        <test-method is-config="true" signature="setup(java.lang.reflect.Method)[pri:0, instance:tests.AlertsFramesWindowsTests@42b02722]" started-at="2025-09-19T13:12:24 IST" name="setup" finished-at="2025-09-19T13:12:36 IST" duration-ms="11785" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void tests.AlertsFramesWindowsTests.GetParentFrame()]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setup -->
-        <test-method signature="GetParentFrame()[pri:14, instance:tests.AlertsFramesWindowsTests@42b02722]" started-at="2025-09-19T13:12:36 IST" name="GetParentFrame" finished-at="2025-09-19T13:12:39 IST" duration-ms="3579" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- GetParentFrame -->
-        <test-method is-config="true" signature="tearDown(org.testng.ITestResult)[pri:0, instance:tests.AlertsFramesWindowsTests@42b02722]" started-at="2025-09-19T13:12:39 IST" name="tearDown" finished-at="2025-09-19T13:12:40 IST" duration-ms="403" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[[TestResult name=GetParentFrame status=SUCCESS method=AlertsFramesWindowsTests.GetParentFrame()[pri:14, instance:tests.AlertsFramesWindowsTests@42b02722] output={null}]]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- tearDown -->
-        <test-method is-config="true" signature="setup(java.lang.reflect.Method)[pri:0, instance:tests.AlertsFramesWindowsTests@42b02722]" started-at="2025-09-19T13:12:40 IST" name="setup" finished-at="2025-09-19T13:12:52 IST" duration-ms="12042" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void tests.AlertsFramesWindowsTests.GetChildFrame()]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setup -->
-        <test-method signature="GetChildFrame()[pri:15, instance:tests.AlertsFramesWindowsTests@42b02722]" started-at="2025-09-19T13:12:52 IST" name="GetChildFrame" finished-at="2025-09-19T13:12:52 IST" duration-ms="724" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- GetChildFrame -->
-        <test-method is-config="true" signature="tearDown(org.testng.ITestResult)[pri:0, instance:tests.AlertsFramesWindowsTests@42b02722]" started-at="2025-09-19T13:12:52 IST" name="tearDown" finished-at="2025-09-19T13:12:53 IST" duration-ms="306" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[[TestResult name=GetChildFrame status=SUCCESS method=AlertsFramesWindowsTests.GetChildFrame()[pri:15, instance:tests.AlertsFramesWindowsTests@42b02722] output={null}]]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- tearDown -->
-        <test-method is-config="true" signature="teardownSuite()[pri:0, instance:tests.AlertsFramesWindowsTests@42b02722]" started-at="2025-09-19T13:12:53 IST" name="teardownSuite" finished-at="2025-09-19T13:13:00 IST" duration-ms="7522" status="PASS">
+        <test-method is-config="true" signature="teardownSuite()[pri:0, instance:tests.WidgetsTests@5bf8fa12]" started-at="2025-09-20T19:47:01 IST" name="teardownSuite" finished-at="2025-09-20T19:47:02 IST" duration-ms="734" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- teardownSuite -->
-      </class> <!-- tests.AlertsFramesWindowsTests -->
+      </class> <!-- tests.WidgetsTests -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

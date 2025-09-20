@@ -25,7 +25,7 @@ import utils.ExcelUtils;
 import utils.JSclick;
 import utils.PageLoadHandler;
 import utils.waitForElement;
-import utils.CalendarUtils;
+//import utils.CalendarUtils;
 
 
 public class WidgetsPage extends demoqaBase {
@@ -493,10 +493,10 @@ public class WidgetsPage extends demoqaBase {
 		Assert.assertEquals("Date Picker", datePickerPage);
 	}
 	
-	public void ClickDateAndTimePicker() {
-	    demoqaLog.info("Clicking on Widgets | Date Picker...");
-	    ClickHandler.smartClick(driver, dateAndTimePickerInput);
-	    CalendarUtils.assertCalendarOpened(driver, demoqaLog);
-	}	
+//	public void ClickDateAndTimePicker() {
+//	    demoqaLog.info("Clicking on Widgets|Date Picker|Date And Time...");
+//	    ClickHandler.smartClick(driver, dateAndTimePickerInput);
+//	    CalendarUtils.assertCalendarOpened(driver, demoqaLog);
+//	}	
 	
 }

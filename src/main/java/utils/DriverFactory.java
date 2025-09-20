@@ -24,8 +24,8 @@ public class DriverFactory {
         demoqaLog.info("🌐 Starting Chrome Web Browser...");
 
         ChromeOptions options = new ChromeOptions();
-//        options.setPageLoadStrategy(PageLoadStrategy.EAGER); // DOM ready, not full load
-        options.setPageLoadStrategy(PageLoadStrategy.NORMAL);
+        options.setPageLoadStrategy(PageLoadStrategy.EAGER); // DOM ready, not full load
+//        options.setPageLoadStrategy(PageLoadStrategy.NORMAL);
         options.addArguments("--start-maximized");
         options.addArguments("--disable-application-cache");
         options.addArguments("--disk-cache-size=0");

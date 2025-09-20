@@ -50,6 +50,8 @@ public final class DateUtils {
         return switch (context) {
             case FORMS -> DateTimeFormatter.ofPattern("dd MMM yyyy", Locale.ENGLISH);
             case DATE_PICKER -> DateTimeFormatter.ofPattern("MM/dd/yyyy", Locale.ENGLISH);
+            case DATE_TIME_PICKER -> DateTimeFormatter.ofPattern("dd MMM yyyy HH:mm", Locale.ENGLISH); // Example format
+            default -> throw new IllegalArgumentException("Unhandled TestContext: " + context);
         };
     }
 }

@@ -3,6 +3,7 @@ package tests;
 
 import java.io.IOException;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
@@ -240,8 +241,8 @@ public class WidgetsTests extends demoqaBase {
 
 	@Test(priority = 12, dataProvider = "DateSource")
 	public void SelectDate(UserFormData data) {
-	    testRep = extentReportManager.createTest("Test Widgets | Date Picker | Select Date");
-	    testRep.info("🧪 Starting test for Widgets | Date Picker");
+	    testRep = extentReportManager.createTest("Test Widgets|Date Picker|Select Date");
+	    testRep.info("🧪 Starting test for Widgets|Date Picker|Select Date");
 
 	    demoqaLog.info("🧪 Navigating to Widgets section...");
 	    WidgetsPage widgetsPage = new WidgetsPage(driver);
@@ -265,5 +266,32 @@ public class WidgetsTests extends demoqaBase {
 
 	    testRep.pass("✅ Date selection completed successfully");
 	}
+	
+	@Test(priority = 13, dataProvider = "DateSource")
+	public void SelectDateAndTime(UserFormData data) {
+	    testRep = extentReportManager.createTest("Test Widgets|Date Picker|Date And Time");
+	    testRep.info("🧪 Starting test for Widgets|Date Picker|Date And Time");
+
+	    WidgetsPage widgetsPage = new WidgetsPage(driver);
+	    widgetsPage.accessWidgets();
+
+	    // Parse DOB → LocalDateTime (default to midnight or any preferred time)
+	    Optional<LocalDate> dateOpt = DataSanitizer.sanitizeDOBToDate(data.getDob(), "DOB", "SelectDateTimeTest");
+	    Assert.assertTrue(dateOpt.isPresent(), "❌ DOB parsing failed | Raw value: " + data.getDob());
+
+	    LocalDate dob = dateOpt.get();
+	    LocalDateTime dobWithTime = dob.atTime(10, 30); // you can control time here
+	    demoqaLog.info("📅 Parsed DOB with time: " + dobWithTime);
+
+	    widgetsPage.ClickDatePicker();
+	    PageLoadHandler.waitUntilLoaded(driver, 30);
+
+	    // ✅ Use DatePickerUtils for "Date And Time"
+	    DatePickerUtils.selectDateTime(driver, TestContext.DATE_TIME_PICKER, dobWithTime, demoqaLog);
+
+	    testRep.pass("✅ DateTime selection completed successfully");
+	}
+
+
 
 }

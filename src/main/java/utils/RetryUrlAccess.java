@@ -21,7 +21,7 @@ public class RetryUrlAccess {
                 demoqaLog.info("🌐 Navigating to URL (attempt {}): {}", attempt + 1, url);
                 driver.get(url);
 
-                // Light check for obvious server error
+                // check page source for critical server errors
                 String pageSource = driver.getPageSource().toLowerCase();
                 if (containsCriticalServerError(pageSource)) {
                     demoqaLog.error("❌ Server error detected on attempt {} for {}", attempt + 1, url);
@@ -31,12 +31,14 @@ public class RetryUrlAccess {
                 }
 
                 demoqaLog.info("✅ Navigation successful on attempt {}", attempt + 1);
-                return driver; // Success
+                return driver; // success
             } catch (WebDriverException e) {
                 attempt++;
                 demoqaLog.warn("⚠️ Navigation attempt {} failed: {}", attempt, e.getMessage());
 
-                safeSleep(3000);
+                if (isServerError(e)) {
+                    driver = restartDriver(driver);
+                }
 
                 if (attempt >= maxRetries) {
                     demoqaLog.error("❌ All {} navigation attempts failed for {}", maxRetries, url);
@@ -44,14 +46,26 @@ public class RetryUrlAccess {
                     return null;
                 }
 
-                driver = restartDriver(driver);
+                safeSleep(3000);
             }
         }
         return null;
     }
 
+    /**
+     * Detects "server-side" errors from exception text.
+     */
+    private static boolean isServerError(WebDriverException e) {
+        String msg = e.getMessage().toLowerCase();
+        return msg.contains("500")
+            || msg.contains("502")
+            || msg.contains("503")
+            || msg.contains("504")
+            || msg.contains("connection refused")
+            || msg.contains("timed out");
+    }
+
     private static boolean containsCriticalServerError(String pageSource) {
-        // Stricter check: look for phrases, not just numbers
         return pageSource.contains("internal server error")
             || pageSource.contains("bad gateway")
             || pageSource.contains("service unavailable");
@@ -65,7 +79,7 @@ public class RetryUrlAccess {
             ChromeProfileCleaner.cleanChromeProfiles();
             demoqaLog.info("🧹 Chrome profile cleaned successfully");
         } catch (Exception e) {
-            demoqaLog.error("⚠️ Failed to clean Chrome profile: {}", e.getMessage());
+            demoqaLog.warn("⚠️ Failed to clean Chrome profile: {}", e.getMessage());
         }
 
         WebDriver newDriver = DriverFactory.createDriver();

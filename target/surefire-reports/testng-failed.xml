@@ -3,15 +3,23 @@
 <suite name="Failed suite [Surefire suite]" verbose="0">
   <test thread-count="5" name="Surefire test(failed)" verbose="0">
     <classes>
+      <class name="tests.ElementsTests">
+        <methods>
+          <include name="setupReport"/>
+          <include name="BrokenLinksValidlink"/>
+          <include name="teardownSuite"/>
+          <include name="tearDown"/>
+          <include name="setup"/>
+        </methods>
+      </class> <!-- tests.ElementsTests -->
       <class name="tests.AlertsFramesWindowsTests">
         <methods>
           <include name="setupReport"/>
           <include name="teardownSuite"/>
           <include name="ClickSmallModal"/>
+          <include name="ClickLargeModal"/>
           <include name="tearDown"/>
-          <include name="GetChildFrame"/>
           <include name="setup"/>
-          <include name="GetParentFrame"/>
         </methods>
       </class> <!-- tests.AlertsFramesWindowsTests -->
     </classes>

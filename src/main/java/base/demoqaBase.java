@@ -13,12 +13,23 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 import org.testng.ITestResult;
-import org.testng.annotations.*;
+import org.testng.SkipException;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.AfterSuite;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.BeforeSuite;
 
-import com.aventstack.extentreports.*;
+import com.aventstack.extentreports.ExtentReports;
+import com.aventstack.extentreports.ExtentTest;
+import com.aventstack.extentreports.MediaEntityBuilder;
 
 import customAnnotations.CaptureOnSuccess;
-import utils.*;
+import utils.ChromeProfileCleaner;
+import utils.ConfigLoader;
+import utils.DriverFactory;
+import utils.PauseManager;
+import utils.RetryUrlAccess;
+import utils.extentReportManager;
 
 public class demoqaBase {
 
@@ -37,18 +48,40 @@ public class demoqaBase {
         systemEventTest = extentRep.createTest("SYSTEM - Events");
         systemEventTest.info("System event logging started");
     }
-
+//
+//    @BeforeMethod(alwaysRun = true)
+//    public void setup(Method method) {
+//        try {
+//            driver = DriverFactory.createDriver();
+//            driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(30));
+//            RetryUrlAccess.navigateWithRetry(driver, baseUrl, 3);
+//            testRep = extentRep.createTest(method.getName());
+//        } catch (Exception e) {
+//            demoqaLog.error("❌ Setup failed: ", e);
+//            throw new RuntimeException("Setup failed", e);
+//        }
+//    }
+    
     @BeforeMethod(alwaysRun = true)
     public void setup(Method method) {
         try {
             driver = DriverFactory.createDriver();
-            RetryUrlAccess.navigateWithRetry(driver, baseUrl, 3);
+
+            // IMPORTANT: assign back the possibly new driver
+            driver = RetryUrlAccess.navigateWithRetry(driver, baseUrl, 3);
+
+            if (driver == null) {
+                demoqaLog.error("❌ Setup failed: could not reach {}", baseUrl);
+                throw new SkipException("Skipping test " + method.getName() + " due to navigation failure");
+            }
+
             testRep = extentRep.createTest(method.getName());
         } catch (Exception e) {
             demoqaLog.error("❌ Setup failed: ", e);
             throw new RuntimeException("Setup failed", e);
         }
     }
+
 
     @AfterMethod(alwaysRun = true)
     public void tearDown(ITestResult result) {
@@ -106,7 +139,7 @@ public class demoqaBase {
                 demoqaLog.info("📊 Extent report generated at: {}", reportFolder);
 
                 try {
-                    emailUtils.sendTestReport(reportFolder);
+//                    emailUtils.sendTestReport(reportFolder);
                 } catch (Exception e) {
                     demoqaLog.warn("⚠️ Email sending failed: {}", e.getMessage());
                 }
