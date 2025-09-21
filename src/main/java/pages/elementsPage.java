@@ -1127,9 +1127,23 @@ public class elementsPage extends demoqaBase {
 				.presenceOfElementLocated(By.xpath("//a[normalize-space()='Click Here for Valid Link']")));
 		System.out.println("Waiting for the presence of Element: " + brkvalidlink);
 
-		ClickHandler.smartClick(driver, BrokenLinksValidLink);
+//		ClickHandler.smartClick(driver, BrokenLinksValidLink);
+		try {
+			waitForElement.waitAndClick(driver, brkvalidlink);
+			brkvalidlink.click();
+	        demoqaLog.info("✅ Native click succeeded.");
+	    } catch (Exception e) {
+	        demoqaLog.warn("⚠️ Native click failed: " + e.getClass().getSimpleName() + " → Falling back to smartClick.");
+	        ClickHandler.smartClick(driver, brkvalidlink);
+	    }
 
 		demoqaLog.info("Clicked on Elements|Broken Links - Images|Valid Link...");
+		try {
+			Thread.sleep(3000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 
 		WebElement logo = driver.findElement(By.xpath("//header//img[contains(@src, 'Toolsqa.jpg')]"));
 		Assert.assertTrue(logo.isDisplayed(), "Logo image is not visible");
