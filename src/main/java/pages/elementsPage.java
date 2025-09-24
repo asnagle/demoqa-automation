@@ -23,6 +23,7 @@ import utils.ClickHandler;
 import utils.ExcelUtils;
 import utils.FetchLinkResponse;
 import utils.FileDownloadValidator;
+import utils.JSclick;
 import utils.waitForElement;
 
 //import utils.demoqaLog;
@@ -634,7 +635,6 @@ public class elementsPage extends demoqaBase {
 			wait.until(ExpectedConditions.elementToBeClickable(wTableSubmitBtn));
 			wTSubmitBtn();
 
-//	        demoqaLog.info("User submitted: ", user.getFirstName());
 			demoqaLog.error("Submitted to register user: " + user.getFirstName());
 		} catch (Exception e) {
 			demoqaLog.error("Failed to register user:" + user.getFirstName());
@@ -1122,34 +1122,23 @@ public class elementsPage extends demoqaBase {
 	}
 
 	public void ClickValidLink() {
-		demoqaLog.info("Checking for Elements|Broken Links|Valid Link...");
-		WebElement brkvalidlink = wait.until(ExpectedConditions
-				.presenceOfElementLocated(By.xpath("//a[normalize-space()='Click Here for Valid Link']")));
-		System.out.println("Waiting for the presence of Element: " + brkvalidlink);
+	    demoqaLog.info("Checking for Elements | Broken Links | Valid Link...");
 
-//		ClickHandler.smartClick(driver, BrokenLinksValidLink);
-		try {
-			waitForElement.waitAndClick(driver, brkvalidlink);
-			brkvalidlink.click();
-	        demoqaLog.info("✅ Native click succeeded.");
-	    } catch (Exception e) {
-	        demoqaLog.warn("⚠️ Native click failed: " + e.getClass().getSimpleName() + " → Falling back to smartClick.");
-	        ClickHandler.smartClick(driver, brkvalidlink);
-	    }
+	    By validLinkLocator = By.xpath("//a[normalize-space()='Click Here for Valid Link']");
 
-		demoqaLog.info("Clicked on Elements|Broken Links - Images|Valid Link...");
-		try {
-			Thread.sleep(3000);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+	    // ✅ Clean single call now
+	    JSclick.scrollAndClick(driver, validLinkLocator, demoqaLog, "Valid Link");
 
-		WebElement logo = driver.findElement(By.xpath("//header//img[contains(@src, 'Toolsqa.jpg')]"));
-		Assert.assertTrue(logo.isDisplayed(), "Logo image is not visible");
-		System.out.println("Logo of Valid Link Clicked " + logo.getAttribute("src"));
-		demoqaLog.info("Logo source: " + logo.getAttribute("src"));
+	    demoqaLog.info("Clicked on Elements | Broken Links - Images | Valid Link...");
+
+	    By logoLocator = By.xpath("//header//img[contains(@src, 'Toolsqa.jpg')]");
+	    WebElement logo = waitForElement.waitUntilVisible(driver, logoLocator);
+
+	    Assert.assertTrue(logo.isDisplayed(), "Logo image is not visible");
+	    demoqaLog.info("✅ Logo source after Valid Link click: {}", logo.getAttribute("src"));
+	    System.out.println("Logo of Valid Link Clicked " + logo.getAttribute("src"));
 	}
+
 
 	public void ClickBrokenLink() {
 		demoqaLog.info("Checking for Elements|Broken Links|Broken Link...");
