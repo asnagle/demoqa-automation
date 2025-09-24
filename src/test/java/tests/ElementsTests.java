@@ -1126,7 +1126,7 @@ public class ElementsTests extends demoqaBase {
 		demoqaLog.info("✅ Test for Elements|Broken Links - Images|Valid Link Completed Successfully...");
 	}
 	
-	@Test(priority = 54)
+	@Test(priority = 55)
 	public void BrokenLinksBrokenlink() {
 		elementsPage elementsPage = new elementsPage(driver);
 
@@ -1141,7 +1141,7 @@ public class ElementsTests extends demoqaBase {
 		demoqaLog.info("✅ Test for Elements|Broken Links - Images|Broken Link Completed Successfully...");
 	}
 	
-	@Test(priority = 55)
+	@Test(priority = 56)
 	public void UploadDownloadlink() {
 		elementsPage elementsPage = new elementsPage(driver);
 
@@ -1153,7 +1153,7 @@ public class ElementsTests extends demoqaBase {
 		demoqaLog.info("✅ Test for Elements|Upload and Download Link Completed Successfully...");
 	}
 	
-	@Test(priority = 56)
+	@Test(priority = 57)
 	public void Downloadbtn() {
 		elementsPage elementsPage = new elementsPage(driver);
 
@@ -1168,7 +1168,7 @@ public class ElementsTests extends demoqaBase {
 		demoqaLog.info("✅ Test for Elements|Upload and Download|Download Button Completed Successfully...");
 	}
 	
-	@Test(priority = 57)
+	@Test(priority = 58)
 	public void Uploadbtn() {
 		elementsPage elementsPage = new elementsPage(driver);
 
@@ -1183,7 +1183,7 @@ public class ElementsTests extends demoqaBase {
 		demoqaLog.info("✅ Test for Elements|Upload and Download|Upload Button Completed Successfully...");
 	}
 	
-	@Test(priority = 58)
+	@Test(priority = 59)
 	public void DynamicPropertiesbtn() {
 		elementsPage elementsPage = new elementsPage(driver);
 
@@ -1195,7 +1195,7 @@ public class ElementsTests extends demoqaBase {
 		demoqaLog.info("✅ Test for Elements|Dynamic Properties Button Completed Successfully...");
 	}
 	
-	@Test(priority = 59)
+	@Test(priority = 60)
 	public void WillEnablebtn() {
 		elementsPage elementsPage = new elementsPage(driver);
 
@@ -1210,7 +1210,7 @@ public class ElementsTests extends demoqaBase {
 		demoqaLog.info("✅ Test for Elements|Dynamic Properties|Will enable 5 sec Button Completed Successfully...");
 	}
 	
-	@Test(priority = 59)
+	@Test(priority = 61)
 	public void ColorChangebtn() {
 		elementsPage elementsPage = new elementsPage(driver);
 
@@ -1225,7 +1225,7 @@ public class ElementsTests extends demoqaBase {
 		demoqaLog.info("✅ Test for Elements|Dynamic Properties|Color Change Button Completed Successfully...");
 	}
 	
-	@Test(priority = 60)
+	@Test(priority = 62)
 	public void VisibleAfterbtn() {
 		elementsPage elementsPage = new elementsPage(driver);
 
