@@ -61,14 +61,39 @@ public class DataSanitizer {
     
 
     // ✅ Core int parsing with fallback
+//    public static int parseSafeInt(String value, String fieldName, String userName) {
+//        try {
+//            return Integer.parseInt(value.trim());
+//        } catch (Exception e) {
+//            System.err.printf("Invalid %s for user %s: %s%n", fieldName, userName, value);
+//            return 0;
+//        }
+//    }
+    
+ // ✅ Core int parsing with fallback and ".0" normalization
     public static int parseSafeInt(String value, String fieldName, String userName) {
+    	System.out.printf("🧪 parseSafeInt called for field '%s' with value: %s%n", fieldName, value);
+        if (value == null || value.trim().isEmpty()) {
+            return 0;
+        }
+
+        String sanitized = value.trim();
+
         try {
-            return Integer.parseInt(value.trim());
-        } catch (Exception e) {
-            System.err.printf("Invalid %s for user %s: %s%n", fieldName, userName, value);
+            // If it looks like a decimal, parse as double then cast down
+            if (sanitized.matches("^-?\\d+\\.\\d+$")) {
+                double d = Double.parseDouble(sanitized);
+                return (int) d; // 34.0 -> 34, 45.99 -> 45
+            }
+
+            return Integer.parseInt(sanitized);
+
+        } catch (NumberFormatException e) {
+            System.err.printf("Invalid %s for user %s: %s%n", fieldName, userName, sanitized);
             return 0;
         }
     }
+
 
     // ✅ Overloads for flexibility
     public static int parseSafeInt(int value, String fieldName, String userName) {

@@ -94,6 +94,14 @@ public class WidgetsPage extends demoqaBase {
 	
 	@FindBy(id = "dateAndTimePickerInput")
 	WebElement dateAndTimePickerInput;
+	
+	@FindBy(xpath = "//div[@class='element-list collapse show']//li[@id='item-3']")
+	WebElement slider;
+	
+	@FindBy(xpath = "//h1[normalize-space()='Slider']")
+	WebElement sliderPgTitle;
+	
+	
 
 	private WebDriverWait wait;
 
@@ -493,10 +501,15 @@ public class WidgetsPage extends demoqaBase {
 		Assert.assertEquals("Date Picker", datePickerPage);
 	}
 	
-//	public void ClickDateAndTimePicker() {
-//	    demoqaLog.info("Clicking on Widgets|Date Picker|Date And Time...");
-//	    ClickHandler.smartClick(driver, dateAndTimePickerInput);
-//	    CalendarUtils.assertCalendarOpened(driver, demoqaLog);
-//	}	
+	public void ClickSlider() {
+		demoqaLog.info("Clicking on Widgets|Slider...");
+//		slider.click();
+		ClickHandler.smartClick(driver, slider);
+		String sliderpageTitle = sliderPgTitle.getText();
+		System.out.println("You are now Accessing: " + sliderpageTitle);
+		demoqaLog.info("You are now Accessing: " + sliderpageTitle);
+
+		Assert.assertEquals("Slider", sliderpageTitle);
+	}
 	
 }

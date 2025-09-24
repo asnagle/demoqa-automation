@@ -29,6 +29,7 @@ import utils.ConfigLoader;
 import utils.DriverFactory;
 import utils.PauseManager;
 import utils.RetryUrlAccess;
+import utils.emailUtils;
 import utils.extentReportManager;
 
 public class demoqaBase {
@@ -48,19 +49,6 @@ public class demoqaBase {
         systemEventTest = extentRep.createTest("SYSTEM - Events");
         systemEventTest.info("System event logging started");
     }
-//
-//    @BeforeMethod(alwaysRun = true)
-//    public void setup(Method method) {
-//        try {
-//            driver = DriverFactory.createDriver();
-//            driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(30));
-//            RetryUrlAccess.navigateWithRetry(driver, baseUrl, 3);
-//            testRep = extentRep.createTest(method.getName());
-//        } catch (Exception e) {
-//            demoqaLog.error("❌ Setup failed: ", e);
-//            throw new RuntimeException("Setup failed", e);
-//        }
-//    }
     
     @BeforeMethod(alwaysRun = true)
     public void setup(Method method) {
@@ -139,7 +127,7 @@ public class demoqaBase {
                 demoqaLog.info("📊 Extent report generated at: {}", reportFolder);
 
                 try {
-//                    emailUtils.sendTestReport(reportFolder);
+                    emailUtils.sendTestReport(reportFolder);
                 } catch (Exception e) {
                     demoqaLog.warn("⚠️ Email sending failed: {}", e.getMessage());
                 }

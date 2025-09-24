@@ -1,25 +1,28 @@
 package tests;
 
-
 import java.io.IOException;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
+import org.openqa.selenium.By;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import base.demoqaBase;
+import customAnnotations.CaptureOnSuccess;
 import enums.TestContext;
 import models.ColorSelectionData;
 import models.UserFormData;
+import models.WebTableUser;
 import pages.WidgetsPage;
 import utils.DataSanitizer;
 import utils.DatePickerUtils;
 import utils.ExcelUtils;
 import utils.PageLoadHandler;
+import utils.SliderUtils;
 import utils.extentReportManager;
 
 public class WidgetsTests extends demoqaBase {
@@ -47,6 +50,29 @@ public class WidgetsTests extends demoqaBase {
 		String filePath = System.getProperty("user.dir") + "/TestData/Students_Details.xlsx";
 		return ExcelUtils.getMappedData(filePath, "Sheet1", UserFormData.class);
 	}
+
+	@DataProvider(name = "WebTableDataSourceSingle")
+	public Object[][] getSingleUserData() {
+		String filePath = System.getProperty("user.dir") + "/TestData/Students_Details.xlsx";
+		String sheetName = "Sheet1";
+		WebTableUser user = ExcelUtils.getFirstUserFromExcel(filePath, sheetName);
+		return new Object[][] { { user } };
+	}
+	
+	@DataProvider(name = "WebTableDataSourceAll")
+	public Object[][] provideWebTableUserData2() throws IOException {
+		String filePath = System.getProperty("user.dir") + "/TestData/Students_Details.xlsx";
+		String sheetName = "Sheet1";
+
+		List<WebTableUser> users = ExcelUtils.getMappedList(filePath, sheetName, WebTableUser.class);
+
+		Object[][] data = new Object[users.size()][1];
+		for (int i = 0; i < users.size(); i++) {
+			data[i][0] = users.get(i);
+		}
+		return data;
+	}
+
 
 	@Test(priority = 1)
 	public void accessWidgets() {
@@ -218,7 +244,7 @@ public class WidgetsTests extends demoqaBase {
 		PageLoadHandler.waitUntilLoaded(driver, 30);
 
 		widgetsPage.singleSearchAdd(searchChar, SelectColor);
-	
+
 		widgetsPage.removeColorSingle(SelectColor);
 
 		testRep.pass(
@@ -241,57 +267,114 @@ public class WidgetsTests extends demoqaBase {
 
 	@Test(priority = 12, dataProvider = "DateSource")
 	public void SelectDate(UserFormData data) {
-	    testRep = extentReportManager.createTest("Test Widgets|Date Picker|Select Date");
-	    testRep.info("🧪 Starting test for Widgets|Date Picker|Select Date");
+		testRep = extentReportManager.createTest("Test Widgets|Date Picker|Select Date");
+		testRep.info("🧪 Starting test for Widgets|Date Picker|Select Date");
 
-	    demoqaLog.info("🧪 Navigating to Widgets section...");
-	    WidgetsPage widgetsPage = new WidgetsPage(driver);
-	    widgetsPage.accessWidgets();
+		demoqaLog.info("🧪 Navigating to Widgets section...");
+		WidgetsPage widgetsPage = new WidgetsPage(driver);
+		widgetsPage.accessWidgets();
 
-	    Optional<LocalDate> dateOpt = DataSanitizer.sanitizeDOBToDate(data.getDob(), "DOB", "SelectDateTest");
-	    if (dateOpt.isEmpty()) {
-	        demoqaLog.warn("⚠️ DOB parsing failed | Raw value: " + data.getDob());
-	        throw new RuntimeException("❌ Unable to parse DOB: " + data.getDob());
-	    }
+		Optional<LocalDate> dateOpt = DataSanitizer.sanitizeDOBToDate(data.getDob(), "DOB", "SelectDateTest");
+		if (dateOpt.isEmpty()) {
+			demoqaLog.warn("⚠️ DOB parsing failed | Raw value: " + data.getDob());
+			throw new RuntimeException("❌ Unable to parse DOB: " + data.getDob());
+		}
 
-	    LocalDate dob = dateOpt.get();
-	    demoqaLog.info("📅 Parsed DOB: " + dob);
-	    Assert.assertNotNull(dob, "DOB should be parsable");
+		LocalDate dob = dateOpt.get();
+		demoqaLog.info("📅 Parsed DOB: " + dob);
+		Assert.assertNotNull(dob, "DOB should be parsable");
 
-	    widgetsPage.ClickDatePicker();
-	    PageLoadHandler.waitUntilLoaded(driver, 30);
+		widgetsPage.ClickDatePicker();
+		PageLoadHandler.waitUntilLoaded(driver, 30);
 
-	    // ✅ Use context-driven locator mapping
-	    DatePickerUtils.selectDate(driver, TestContext.DATE_PICKER, dob);
+		// ✅ Use context-driven locator mapping
+		DatePickerUtils.selectDate(driver, TestContext.DATE_PICKER, dob);
 
-	    testRep.pass("✅ Date selection completed successfully");
+		testRep.pass("✅ Date selection completed successfully");
 	}
-	
+
 	@Test(priority = 13, dataProvider = "DateSource")
 	public void SelectDateAndTime(UserFormData data) {
-	    testRep = extentReportManager.createTest("Test Widgets|Date Picker|Date And Time");
-	    testRep.info("🧪 Starting test for Widgets|Date Picker|Date And Time");
+		testRep = extentReportManager.createTest("Test Widgets|Date Picker|Date And Time");
+		testRep.info("🧪 Starting test for Widgets|Date Picker|Date And Time");
 
-	    WidgetsPage widgetsPage = new WidgetsPage(driver);
-	    widgetsPage.accessWidgets();
+		WidgetsPage widgetsPage = new WidgetsPage(driver);
+		widgetsPage.accessWidgets();
 
-	    // Parse DOB → LocalDateTime (default to midnight or any preferred time)
-	    Optional<LocalDate> dateOpt = DataSanitizer.sanitizeDOBToDate(data.getDob(), "DOB", "SelectDateTimeTest");
-	    Assert.assertTrue(dateOpt.isPresent(), "❌ DOB parsing failed | Raw value: " + data.getDob());
+		// Parse DOB → LocalDateTime (default to midnight or any preferred time)
+		Optional<LocalDate> dateOpt = DataSanitizer.sanitizeDOBToDate(data.getDob(), "DOB", "SelectDateTimeTest");
+		Assert.assertTrue(dateOpt.isPresent(), "❌ DOB parsing failed | Raw value: " + data.getDob());
 
-	    LocalDate dob = dateOpt.get();
-	    LocalDateTime dobWithTime = dob.atTime(10, 30); // you can control time here
-	    demoqaLog.info("📅 Parsed DOB with time: " + dobWithTime);
+		LocalDate dob = dateOpt.get();
+		LocalDateTime dobWithTime = dob.atTime(10, 30); // you can control time here
+		demoqaLog.info("📅 Parsed DOB with time: " + dobWithTime);
 
-	    widgetsPage.ClickDatePicker();
-	    PageLoadHandler.waitUntilLoaded(driver, 30);
+		widgetsPage.ClickDatePicker();
+		PageLoadHandler.waitUntilLoaded(driver, 30);
 
-	    // ✅ Use DatePickerUtils for "Date And Time"
-	    DatePickerUtils.selectDateTime(driver, TestContext.DATE_TIME_PICKER, dobWithTime, demoqaLog);
+		// ✅ Use DatePickerUtils for "Date And Time"
+		DatePickerUtils.selectDateTime(driver, TestContext.DATE_TIME_PICKER, dobWithTime, demoqaLog);
 
-	    testRep.pass("✅ DateTime selection completed successfully");
+		testRep.pass("✅ DateTime selection completed successfully");
 	}
 
+	@Test(priority = 14)
+	public void ClickSlider() {
+		testRep = extentReportManager.createTest("Test Widgets|Slider");
+		testRep.info("🧪 Starting test for Widgets|Slider");
 
+		WidgetsPage widgetsPage = new WidgetsPage(driver);
+		widgetsPage.accessWidgets();
+		widgetsPage.ClickSlider();
+		testRep.pass("✅ Test Widgets|Slider Test Completed...");
+		demoqaLog.info("✅ Widgets|Slider Test Completed...");
+	}
+	
+	@CaptureOnSuccess(description = "Slider Moved as per Spreadsheet Input - Successfully", screenshotMode = "viewport")
+	@Test(priority = 15, dataProvider = "WebTableDataSourceAll") //Process All Rows in the Spreadsheet
+//	@Test(priority = 15, dataProvider = "WebTableDataSourceSingle") //Process 1st Row in the Spreadsheet
+	public void moveSliderBasedOnAge(WebTableUser user) {
+	    // 🔹 Reporting Setup
+	    testRep = extentReportManager.createTest("Test Widgets | Slider | Move Slider");
+	    testRep.info("🧪 Starting test for Widgets | Slider | Move Slider");
+
+	    // 🔹 Page Navigation
+	    WidgetsPage widgetsPage = new WidgetsPage(driver);
+	    widgetsPage.accessWidgets();
+	    widgetsPage.ClickSlider();
+	    PageLoadHandler.waitUntilLoaded(driver, 30);
+
+	    // 🔹 Slider Setup
+	    By sliderLocator = By.id("sliderValue"); // ✅ precise locator for DemoQA
+	    SliderUtils sliderUtils = new SliderUtils(driver);
+
+	    // 🔹 Slider Movement
+	    int targetAge = user.getAge() / 10; // adjust as needed
+	    demoqaLog.info("🎯 Target slider value (Age): " + targetAge);
+	    testRep.info("🎯 Target slider value (Age): " + targetAge);
+
+	    // JS-based movement (reliable)
+	    sliderUtils.moveSliderToValueJS(sliderLocator, targetAge);
+	    // OR use Actions if you really need drag simulation
+	    // sliderUtils.moveSliderToValueActions(sliderLocator, targetAge);
+
+	    // 🔹 Validation
+	    int actualAge = sliderUtils.getSliderValue(sliderLocator);
+	    demoqaLog.info("📍 Slider moved to: " + actualAge);
+	    testRep.info("📍 Slider moved to: " + actualAge);
+
+	    try {
+	        Assert.assertEquals(actualAge, targetAge, "Slider value mismatch");
+	        testRep.pass("✅ Slider moved correctly to target age.");
+	        demoqaLog.info("✅ Slider moved correctly to target age.");
+	    } catch (AssertionError e) {
+	        testRep.fail("❌ Slider did not reach expected value. Expected: " + targetAge + ", Actual: " + actualAge);
+	        demoqaLog.error("❌ Slider mismatch. Expected: " + targetAge + ", Actual: " + actualAge);
+	        throw e;
+	    }
+
+	    testRep.pass("✅ Test Widgets | Slider | Move Slider completed.");
+	    demoqaLog.info("✅ Test Widgets | Slider | Move Slider completed.");
+	}
 
 }

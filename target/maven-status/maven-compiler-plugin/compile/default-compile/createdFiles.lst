@@ -54,6 +54,7 @@ utils\JSclick.class
 utils\AlertUtils.class
 utils\LabelAliasRegistry.class
 utils\DatePickerLocatorMapper$1.class
+utils\SliderUtils.class
 customAnnotations\CaptureOnSuccess.class
 pages\elementsPage.class
 utils\FileDownloadValidator.class

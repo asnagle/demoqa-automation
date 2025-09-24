@@ -69,6 +69,30 @@ public class ExcelUtils {
         System.out.println("🧾 Row " + rowIndex + ": " + rowMap);
         return rowMap;
     }
+    
+    public Map<String, String> getRowDataAsMap(String sheetName, int rowIndex, boolean useFormattedValues) {
+        Sheet sheet = workbook.getSheet(sheetName);
+        int headerRowIndex = findHeaderRowIndex(sheet);
+        Row headerRow = sheet.getRow(headerRowIndex);
+        Row dataRow = sheet.getRow(rowIndex);
+
+        if (headerRow == null || dataRow == null) return Collections.emptyMap();
+
+        Map<String, String> rowMap = new HashMap<>();
+        DataFormatter formatter = new DataFormatter();
+
+        for (int i = 0; i < headerRow.getLastCellNum(); i++) {
+            String header = Optional.ofNullable(headerRow.getCell(i)).map(Cell::toString).orElse("").trim();
+            String value = Optional.ofNullable(dataRow.getCell(i))
+                    .map(cell -> useFormattedValues ? formatter.formatCellValue(cell) : cell.toString())
+                    .orElse("")
+                    .trim();
+            rowMap.put(header, value);
+        }
+
+        System.out.println("🧾 Row " + rowIndex + ": " + rowMap);
+        return rowMap;
+    }
 
     private static boolean hasField(Class<?> clazz, String fieldName) {
         return Arrays.stream(clazz.getDeclaredFields())
