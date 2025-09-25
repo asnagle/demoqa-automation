@@ -109,6 +109,30 @@ public class WidgetsPage extends demoqaBase {
 	
 	@FindBy(xpath = "//h1[normalize-space()='Progress Bar']")
 	WebElement ProgressBarTitle;
+	
+	@FindBy(xpath ="//div[@class='element-list collapse show']//li[@id='item-5']")
+	WebElement Tabs;
+	
+	@FindBy(xpath = "//h1[normalize-space()='Tabs']")
+	WebElement TabsPageTitle;
+	
+	@FindBy(xpath = "//a[@id='demo-tab-what']")
+	WebElement WhatTab;
+	
+	@FindBy(xpath = "//p[contains(text(),'Lorem Ipsum is simply dummy text of the printing a')]")
+	WebElement WhatTabContent;
+	
+	@FindBy(xpath = "//a[@id='demo-tab-origin']")
+	WebElement OriginTab;
+	
+	@FindBy(xpath = "//p[contains(text(),'Contrary to popular belief, Lorem Ipsum is not sim')]")
+	WebElement OriginTabContent;
+	
+	@FindBy(xpath = "//a[@id='demo-tab-use']")
+	WebElement UseTab;
+	
+	@FindBy(xpath = "//p[contains(text(),'It is a long established fact that a reader will b')]")
+	WebElement UseTabContent;
 
 	
 	
@@ -155,7 +179,7 @@ public class WidgetsPage extends demoqaBase {
 		System.out.println("What is Lorem Ipsum?: " + whatiscontent);
 		demoqaLog.info("You are now Accessing: " + whatiscontent);
 
-		Assert.assertEquals(true, whatiscontent.contains("Lorem Ipsum is simply dummy text"));
+		Assert.assertEquals(true, whatiscontent.contains("Lorem Ipsum is simply dummy text of the printing and typesetting industry"));
 	}
 
 	public void AccessWhereDoesIt() {
@@ -565,6 +589,46 @@ public class WidgetsPage extends demoqaBase {
 	    demoqaLog.info("📍 Progress bar stopped at: {}", actualAge);
 
 	    return actualAge; // just return the value, no validation
+	}
+	
+	public void ClickTabs() {
+		demoqaLog.info("Clicking on Widgets|Tabs...");
+		ClickHandler.smartClick(driver, Tabs);
+		String tabsPageTitle = TabsPageTitle.getText();
+		System.out.println("You are now Accessing: " + tabsPageTitle);
+		demoqaLog.info("You are now Accessing: " + tabsPageTitle);
+
+		Assert.assertEquals("Tabs", tabsPageTitle);
+	}
+	
+	public void ClickWhatTab() {
+		demoqaLog.info("Clicking on Widgets|Tabs|What...");
+		ClickHandler.smartClick(driver, WhatTab);
+		String whatTabContent = WhatTabContent.getText();
+		System.out.println("You are now Accessing: " + whatTabContent);
+		demoqaLog.info("You are now Accessing: " + whatTabContent);
+
+		Assert.assertEquals(true, whatTabContent.contains("Lorem Ipsum is simply dummy text of the printing"));
+	}
+	
+	public void ClickOriginTab() {
+		demoqaLog.info("Clicking on Widgets|Tabs|Origin...");
+		ClickHandler.smartClick(driver, OriginTab);
+		String originTabContent = OriginTabContent.getText();
+		System.out.println("You are now Accessing: " + originTabContent);
+		demoqaLog.info("You are now Accessing: " + originTabContent);
+
+		Assert.assertEquals(true, originTabContent.contains("Contrary to popular belief, Lorem Ipsum is not simply random text"));
+	}
+	
+	public void ClickUseTab() {
+		demoqaLog.info("Clicking on Widgets|Tabs|Origin...");
+		ClickHandler.smartClick(driver, UseTab);
+		String useTabContent = UseTabContent.getText();
+		System.out.println("You are now Accessing: " + useTabContent);
+		demoqaLog.info("You are now Accessing: " + useTabContent);
+
+		Assert.assertEquals(true, useTabContent.contains("It is a long established fact that a reader will be distracted by the readable content"));
 	}
 	
 }

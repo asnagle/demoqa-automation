@@ -21,6 +21,7 @@ public class ProgressBarUtils {
     public void toggleProgressBar() {
         WebElement startStop = driver.findElement(START_STOP_BUTTON);
         JSclick.scrollAndClick(driver, startStop);
+        waitForElement.waitAndClick(driver, PROGRESS_BAR);
     }
 
     /**

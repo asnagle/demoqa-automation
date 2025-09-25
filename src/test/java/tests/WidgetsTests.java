@@ -406,4 +406,60 @@ public class WidgetsTests extends demoqaBase {
 			throw e;
 		}
 	}
+	
+	@Test(priority = 18)
+	public void ClickTabs() {
+		testRep = extentReportManager.createTest("Test Widgets|Tabs");
+		testRep.info("🧪 Starting test for Widgets|Tabs");
+
+		WidgetsPage widgetsPage = new WidgetsPage(driver);
+		widgetsPage.accessWidgets();
+		widgetsPage.ClickTabs();
+		testRep.pass("✅ Test Widgets|Tabs Test Completed...");
+		demoqaLog.info("✅ Widgets|Tabs Test Completed...");
+	}
+	
+	@Test(priority = 19)
+	public void ClickWhatTab() {
+		testRep = extentReportManager.createTest("Test Widgets|Tabs|What Tab");
+		testRep.info("🧪 Starting test for Widgets|Tabs|What Tab");
+
+		WidgetsPage widgetsPage = new WidgetsPage(driver);
+		widgetsPage.accessWidgets();
+		widgetsPage.ClickTabs();
+		PageLoadHandler.waitUntilLoaded(driver, 30);
+		widgetsPage.ClickWhatTab();
+		testRep.pass("✅ Test Widgets|Tabs|What Tab Test Completed...");
+		demoqaLog.info("✅ Widgets|Tabs|What Tab Test Completed...");
+	}
+	
+	@Test(priority = 20)
+	public void ClickOriginTab() {
+		testRep = extentReportManager.createTest("Test Widgets|Tabs|Origin Tab");
+		testRep.info("🧪 Starting test for Widgets|Tabs|Origin Tab");
+
+		WidgetsPage widgetsPage = new WidgetsPage(driver);
+		widgetsPage.accessWidgets();
+		widgetsPage.ClickTabs();
+		PageLoadHandler.waitUntilLoaded(driver, 30);
+		widgetsPage.ClickOriginTab();
+		testRep.pass("✅ Test Widgets|Tabs|Origin Tab Test Completed...");
+		demoqaLog.info("✅ Widgets|Tabs|Origin Tab Test Completed...");
+	}
+	
+	@Test(priority = 21)
+	public void ClickUseTab() {
+		testRep = extentReportManager.createTest("Test Widgets|Tabs|Use Tab");
+		testRep.info("🧪 Starting test for Widgets|Tabs|Use Tab");
+
+		WidgetsPage widgetsPage = new WidgetsPage(driver);
+		widgetsPage.accessWidgets();
+		widgetsPage.ClickTabs();
+		PageLoadHandler.waitUntilLoaded(driver, 30);
+		widgetsPage.ClickUseTab();
+		testRep.pass("✅ Test Widgets|Tabs|Use Tab Test Completed...");
+		demoqaLog.info("✅ Widgets|Tabs|Use Tab Test Completed...");
+	}
+	
+	
 }
