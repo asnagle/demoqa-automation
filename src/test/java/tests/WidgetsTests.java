@@ -6,7 +6,6 @@ import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
-import org.openqa.selenium.By;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
@@ -22,7 +21,6 @@ import utils.DataSanitizer;
 import utils.DatePickerUtils;
 import utils.ExcelUtils;
 import utils.PageLoadHandler;
-import utils.SliderUtils;
 import utils.extentReportManager;
 
 public class WidgetsTests extends demoqaBase {
@@ -107,7 +105,7 @@ public class WidgetsTests extends demoqaBase {
 		WidgetsPage widgetsPage = new WidgetsPage(driver);
 		widgetsPage.accessWidgets();
 		widgetsPage.ClickAccordian();
-		PageLoadHandler.waitUntilLoaded(driver, 15);
+		PageLoadHandler.waitUntilLoaded(driver, 30);
 
 		widgetsPage.AccessWhatis();
 		testRep.info("✅ Test Widgets|Accordian|What is Lorem Ipsum? Test Completed...");
@@ -335,7 +333,7 @@ public class WidgetsTests extends demoqaBase {
 //	@Test(priority = 15, dataProvider = "WebTableDataSourceSingle") //Process 1st Row in the Spreadsheet
 	public void moveSliderBasedOnAge(WebTableUser user) {
 	    // 🔹 Reporting Setup
-	    testRep = extentReportManager.createTest("Test Widgets | Slider | Move Slider");
+	    testRep = extentRep.createTest("Test Widgets | Slider | Move Slider");
 	    testRep.info("🧪 Starting test for Widgets | Slider | Move Slider");
 
 	    // 🔹 Page Navigation
@@ -344,37 +342,24 @@ public class WidgetsTests extends demoqaBase {
 	    widgetsPage.ClickSlider();
 	    PageLoadHandler.waitUntilLoaded(driver, 30);
 
-	    // 🔹 Slider Setup
-	    By sliderLocator = By.id("sliderValue"); // ✅ precise locator for DemoQA
-	    SliderUtils sliderUtils = new SliderUtils(driver);
-
 	    // 🔹 Slider Movement
-	    int targetAge = user.getAge() / 10; // adjust as needed
-	    demoqaLog.info("🎯 Target slider value (Age): " + targetAge);
-	    testRep.info("🎯 Target slider value (Age): " + targetAge);
+	    int expectedAge = user.getAge() / 10;
+	    int actualAge = widgetsPage.moveSliderToAge(user);
 
-	    // JS-based movement (reliable)
-	    sliderUtils.moveSliderToValueJS(sliderLocator, targetAge);
-	    // OR use Actions if you really need drag simulation
-	    // sliderUtils.moveSliderToValueActions(sliderLocator, targetAge);
-
-	    // 🔹 Validation
-	    int actualAge = sliderUtils.getSliderValue(sliderLocator);
-	    demoqaLog.info("📍 Slider moved to: " + actualAge);
 	    testRep.info("📍 Slider moved to: " + actualAge);
 
+	    // 🔹 Validation
 	    try {
-	        Assert.assertEquals(actualAge, targetAge, "Slider value mismatch");
+	        Assert.assertEquals(actualAge, expectedAge, "Slider value mismatch");
 	        testRep.pass("✅ Slider moved correctly to target age.");
 	        demoqaLog.info("✅ Slider moved correctly to target age.");
 	    } catch (AssertionError e) {
-	        testRep.fail("❌ Slider did not reach expected value. Expected: " + targetAge + ", Actual: " + actualAge);
-	        demoqaLog.error("❌ Slider mismatch. Expected: " + targetAge + ", Actual: " + actualAge);
+	        testRep.fail("❌ Slider did not reach expected value. Expected: " + expectedAge + ", Actual: " + actualAge);
+	        demoqaLog.error("❌ Slider mismatch. Expected: " + expectedAge + ", Actual: " + actualAge);
 	        throw e;
 	    }
-
-	    testRep.pass("✅ Test Widgets | Slider | Move Slider completed.");
-	    demoqaLog.info("✅ Test Widgets | Slider | Move Slider completed.");
 	}
+	
+	
 
 }
