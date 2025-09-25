@@ -21,6 +21,7 @@ import utils.DataSanitizer;
 import utils.DatePickerUtils;
 import utils.ExcelUtils;
 import utils.PageLoadHandler;
+//import utils.ProgressBarUtils;
 import utils.extentReportManager;
 
 public class WidgetsTests extends demoqaBase {
@@ -56,7 +57,7 @@ public class WidgetsTests extends demoqaBase {
 		WebTableUser user = ExcelUtils.getFirstUserFromExcel(filePath, sheetName);
 		return new Object[][] { { user } };
 	}
-	
+
 	@DataProvider(name = "WebTableDataSourceAll")
 	public Object[][] provideWebTableUserData2() throws IOException {
 		String filePath = System.getProperty("user.dir") + "/TestData/Students_Details.xlsx";
@@ -70,7 +71,6 @@ public class WidgetsTests extends demoqaBase {
 		}
 		return data;
 	}
-
 
 	@Test(priority = 1)
 	public void accessWidgets() {
@@ -327,39 +327,83 @@ public class WidgetsTests extends demoqaBase {
 		testRep.pass("✅ Test Widgets|Slider Test Completed...");
 		demoqaLog.info("✅ Widgets|Slider Test Completed...");
 	}
-	
+
 	@CaptureOnSuccess(description = "Slider Moved as per Spreadsheet Input - Successfully", screenshotMode = "viewport")
-	@Test(priority = 15, dataProvider = "WebTableDataSourceAll") //Process All Rows in the Spreadsheet
+	@Test(priority = 15, dataProvider = "WebTableDataSourceAll") // Process All Rows in the Spreadsheet
 //	@Test(priority = 15, dataProvider = "WebTableDataSourceSingle") //Process 1st Row in the Spreadsheet
 	public void moveSliderBasedOnAge(WebTableUser user) {
-	    // 🔹 Reporting Setup
-	    testRep = extentRep.createTest("Test Widgets | Slider | Move Slider");
-	    testRep.info("🧪 Starting test for Widgets | Slider | Move Slider");
+		// 🔹 Reporting Setup
+		testRep = extentRep.createTest("Test Widgets | Slider | Move Slider");
+		testRep.info("🧪 Starting test for Widgets | Slider | Move Slider");
 
-	    // 🔹 Page Navigation
-	    WidgetsPage widgetsPage = new WidgetsPage(driver);
-	    widgetsPage.accessWidgets();
-	    widgetsPage.ClickSlider();
-	    PageLoadHandler.waitUntilLoaded(driver, 30);
+		// 🔹 Page Navigation
+		WidgetsPage widgetsPage = new WidgetsPage(driver);
+		widgetsPage.accessWidgets();
+		widgetsPage.ClickSlider();
+		PageLoadHandler.waitUntilLoaded(driver, 30);
 
-	    // 🔹 Slider Movement
-	    int expectedAge = user.getAge() / 10;
-	    int actualAge = widgetsPage.moveSliderToAge(user);
+		// 🔹 Slider Movement
+		int expectedAge = user.getAge() / 10;
+		int actualAge = widgetsPage.moveSliderToAge(user);
 
-	    testRep.info("📍 Slider moved to: " + actualAge);
+		testRep.info("📍 Slider moved to: " + actualAge);
 
-	    // 🔹 Validation
-	    try {
-	        Assert.assertEquals(actualAge, expectedAge, "Slider value mismatch");
-	        testRep.pass("✅ Slider moved correctly to target age.");
-	        demoqaLog.info("✅ Slider moved correctly to target age.");
-	    } catch (AssertionError e) {
-	        testRep.fail("❌ Slider did not reach expected value. Expected: " + expectedAge + ", Actual: " + actualAge);
-	        demoqaLog.error("❌ Slider mismatch. Expected: " + expectedAge + ", Actual: " + actualAge);
-	        throw e;
-	    }
+		// 🔹 Validation
+		try {
+			Assert.assertEquals(actualAge, expectedAge, "Slider value mismatch");
+			testRep.pass("✅ Slider moved correctly to target age.");
+			demoqaLog.info("✅ Slider moved correctly to target age.");
+		} catch (AssertionError e) {
+			testRep.fail("❌ Slider did not reach expected value. Expected: " + expectedAge + ", Actual: " + actualAge);
+			demoqaLog.error("❌ Slider mismatch. Expected: " + expectedAge + ", Actual: " + actualAge);
+			throw e;
+		}
 	}
-	
-	
 
+	@Test(priority = 16)
+	public void ClickProgress() {
+		testRep = extentReportManager.createTest("Test Widgets|Progress Bar");
+		testRep.info("🧪 Starting test for Widgets|Progress Bar");
+
+		WidgetsPage widgetsPage = new WidgetsPage(driver);
+		widgetsPage.accessWidgets();
+		widgetsPage.ClickProgressBar();
+		testRep.pass("✅ Test Widgets|Progress Bar Test Completed...");
+		demoqaLog.info("✅ Widgets|Progress Bar Test Completed...");
+	}
+
+	@CaptureOnSuccess(description = "Progress Bar Moved as per Spreadsheet Input - Successfully", screenshotMode = "viewport")
+//	@Test(priority = 17, dataProvider = "WebTableDataSourceAll") //Process All Rows in the Spreadsheet
+	@Test(priority = 17, dataProvider = "WebTableDataSourceSingle") // Process 1st Row in the Spreadsheet
+	public void moveProgressBarBasedOnAge(WebTableUser user) {
+		// 🔹 Reporting Setup
+		testRep = extentRep.createTest("Test Widgets | Progress Bar | Move Progress Bar");
+		testRep.info("🧪 Starting test for Widgets | Progress Bar | Move Progress Bar");
+
+		// 🔹 Page Navigation
+		WidgetsPage widgetsPage = new WidgetsPage(driver);
+		widgetsPage.accessWidgets();
+		widgetsPage.ClickProgressBar();
+		PageLoadHandler.waitUntilLoaded(driver, 30);
+
+		// 🔹 Progress Bar Movement
+		int expectedAge = user.getAge() / 10;
+		int actualAge = widgetsPage.moveProgressBarToAge(user); // returns final value
+
+		testRep.info("📍 Progress bar moved to: " + actualAge);
+
+		// 🔹 Validation with tolerance
+		int tolerance = 2; // ±2%
+		try {
+			Assert.assertTrue(Math.abs(actualAge - expectedAge) <= tolerance, "Progress bar value mismatch");
+			testRep.pass(String.format("✅ Progress bar moved correctly. Expected ~%d%%, Actual: %d%%", expectedAge,
+					actualAge));
+			demoqaLog.info("✅ Progress bar moved correctly. Expected ~{}%, Actual: {}%", expectedAge, actualAge);
+		} catch (AssertionError e) {
+			testRep.fail(String.format("❌ Progress bar did not reach expected range. Expected ~%d%%, Actual: %d%%",
+					expectedAge, actualAge));
+			demoqaLog.error("❌ Progress bar mismatch. Expected ~{}%, Actual: {}%", expectedAge, actualAge);
+			throw e;
+		}
+	}
 }

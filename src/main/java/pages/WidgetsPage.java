@@ -25,6 +25,7 @@ import utils.ClickHandler;
 import utils.ExcelUtils;
 import utils.JSclick;
 import utils.PageLoadHandler;
+import utils.ProgressBarUtils;
 import utils.SliderUtils;
 import utils.waitForElement;
 //import utils.CalendarUtils;
@@ -522,6 +523,7 @@ public class WidgetsPage extends demoqaBase {
 	}
 	
 	public int moveSliderToAge(WebTableUser user) {
+		demoqaLog.info("Moving on Widgets|Slider...");
 	    By sliderLocator = By.id("sliderValue");
 	    SliderUtils sliderUtils = new SliderUtils(driver);
 
@@ -536,5 +538,33 @@ public class WidgetsPage extends demoqaBase {
 	    return actualAge;
 	}
 	
+	public void ClickProgressBar() {
+		demoqaLog.info("Clicking on Widgets|Progress Bar...");
+//		ProgressBar.click();
+		ClickHandler.smartClick(driver, ProgressBar);
+		String progressBarPage = ProgressBarTitle.getText();
+		System.out.println("You are now Accessing: " + progressBarPage);
+		demoqaLog.info("You are now Accessing: " + progressBarPage);
+
+		Assert.assertEquals("Progress Bar", progressBarPage);
+	}
+	
+//	public void MoveProgressBar(WebTableUser user) {
+//		demoqaLog.info("Clicking on Widgets|Progress Bar|Move Progress Bar...");
+//		By progressBarLocator = By.id("progressBar");
+//		
+//	}
+	public int moveProgressBarToAge(WebTableUser user) {
+	    demoqaLog.info("Moving on Widgets | Progress Bar...");
+	    ProgressBarUtils progressUtils = new ProgressBarUtils(driver);
+
+	    int targetAge = user.getAge() / 10;
+	    demoqaLog.info("🎯 Target progress bar value (Age): {}", targetAge);
+
+	    int actualAge = progressUtils.moveProgressBarTo(targetAge, 30);
+	    demoqaLog.info("📍 Progress bar stopped at: {}", actualAge);
+
+	    return actualAge; // just return the value, no validation
+	}
 	
 }
