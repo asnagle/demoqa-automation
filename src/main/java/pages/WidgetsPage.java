@@ -20,10 +20,12 @@ import com.aventstack.extentreports.ExtentTest;
 
 import base.demoqaBase;
 import models.ColorSelectionData;
+import models.WebTableUser;
 import utils.ClickHandler;
 import utils.ExcelUtils;
 import utils.JSclick;
 import utils.PageLoadHandler;
+import utils.SliderUtils;
 import utils.waitForElement;
 //import utils.CalendarUtils;
 
@@ -100,6 +102,13 @@ public class WidgetsPage extends demoqaBase {
 	
 	@FindBy(xpath = "//h1[normalize-space()='Slider']")
 	WebElement sliderPgTitle;
+	
+	@FindBy(xpath = "//div[@class='element-list collapse show']//li[@id='item-4']")
+	WebElement ProgressBar;
+	
+	@FindBy(xpath = "//h1[normalize-space()='Progress Bar']")
+	WebElement ProgressBarTitle;
+
 	
 	
 
@@ -511,5 +520,21 @@ public class WidgetsPage extends demoqaBase {
 
 		Assert.assertEquals("Slider", sliderpageTitle);
 	}
+	
+	public int moveSliderToAge(WebTableUser user) {
+	    By sliderLocator = By.id("sliderValue");
+	    SliderUtils sliderUtils = new SliderUtils(driver);
+
+	    int targetAge = user.getAge() / 10;
+	    demoqaLog.info("🎯 Target slider value (Age): {}", targetAge);
+
+	    sliderUtils.moveSliderToValueJS(sliderLocator, targetAge);
+	    int actualAge = sliderUtils.getSliderValue(sliderLocator);
+
+	    demoqaLog.info("📍 Slider moved to: {}", actualAge);
+
+	    return actualAge;
+	}
+	
 	
 }
