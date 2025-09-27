@@ -10,7 +10,7 @@ import utils.extentReportManager;
 
 public class AlertsFramesWindowsTests extends demoqaBase {
 
-	@Test(priority = 1)
+	@Test(priority = 1, description = "Test Alerts, Frames & Windows...")
 	public void accessAlertsFrameWindows() {
 		testRep = extentReportManager.createTest("Test Alerts, Frames & Windows...");
 		testRep.info("🧪 Starting test for Alerts, Frames & Windows");
@@ -21,7 +21,7 @@ public class AlertsFramesWindowsTests extends demoqaBase {
 		demoqaLog.info("✅ Alerts, Frames & Windows Test Completed...");
 	}
 
-	@Test(priority = 2)
+	@Test(priority = 2, description = "Test Alerts, Frames & Windows|Browser Windows...")
 	public void browserWindows() {
 		testRep = extentReportManager.createTest("Test Alerts, Frames & Windows|Browser Windows...");
 		testRep.info("🧪 Starting test for Alerts, Frames & Windows|Browser Windows");
@@ -34,7 +34,7 @@ public class AlertsFramesWindowsTests extends demoqaBase {
 		demoqaLog.info("✅ Alerts, Frames & Windows|Browser Windows Test Completed...");
 	}
 	
-	@Test(priority = 3)
+	@Test(priority = 3, description = "Test Alerts, Frames & Windows|Browser Windows|New Tab...")
 	public void browserWindowsNewTab() {
 		testRep = extentReportManager.createTest("Test Alerts, Frames & Windows|Browser Windows|New Tab...");
 		testRep.info("🧪 Starting test for Alerts, Frames & Windows|Browser Windows|New Tab");
@@ -50,7 +50,7 @@ public class AlertsFramesWindowsTests extends demoqaBase {
 		demoqaLog.info("✅ Alerts, Frames & Windows|Browser Windows|New Tab Test Completed...");
 	}
 	
-	@Test(priority = 4)
+	@Test(priority = 4, description = "Test Alerts, Frames & Windows|Browser Windows|New Window...")
 	public void browserWindowsNewWindow() {
 		testRep = extentReportManager.createTest("Test Alerts, Frames & Windows|Browser Windows|New Window...");
 		testRep.info("🧪 Starting test for Alerts, Frames & Windows|Browser Windows|New Window");
@@ -66,7 +66,7 @@ public class AlertsFramesWindowsTests extends demoqaBase {
 		demoqaLog.info("✅ Alerts, Frames & Windows|Browser Windows|New Window Test Completed...");
 	}
 	
-	@Test(priority = 5)
+	@Test(priority = 5, description = "Test Alerts, Frames & Windows|Browser Windows|New Window Message...")
 	public void browserWindowsNewWindowMsg() {
 		testRep = extentReportManager.createTest("Test Alerts, Frames & Windows|Browser Windows|New Window Message...");
 		testRep.info("🧪 Starting test for Alerts, Frames & Windows|Browser Windows|New Window Message");
@@ -81,7 +81,7 @@ public class AlertsFramesWindowsTests extends demoqaBase {
 		demoqaLog.info("✅ Alerts, Frames & Windows|Browser Windows|New Window Message Test Completed...");
 	}
 	
-	@Test(priority = 6)
+	@Test(priority = 6, description = "Test Alerts, Frames & Windows|Alerts...")
 	public void ClickAlerts() {
 		testRep = extentReportManager.createTest("Test Alerts, Frames & Windows|Alerts...");
 		testRep.info("🧪 Starting test for Alerts, Frames & Windows|Alerts");
@@ -94,7 +94,7 @@ public class AlertsFramesWindowsTests extends demoqaBase {
 		demoqaLog.info("✅ Alerts, Frames & Windows|Alerts Test Completed...");
 	}
 	
-	@Test(priority = 7)
+	@Test(priority = 7, description = "Test Alerts, Frames & Windows|Alerts|Click button to see Alert...")
 	public void ClickToSeeAlerts() {
 		testRep = extentReportManager.createTest("Test Alerts, Frames & Windows|Alerts|Click button to see Alert...");
 		testRep.info("🧪 Starting test for Alerts, Frames & Windows|Alerts|Click button to see Alert");
@@ -110,7 +110,7 @@ public class AlertsFramesWindowsTests extends demoqaBase {
 		demoqaLog.info("✅ Alerts, Frames & Windows|Alerts|Click button to see Alert Test Completed...");
 	}
 	
-	@Test(priority = 8)
+	@Test(priority = 8, description = "Test Alerts, Frames & Windows|Alerts|On button click, confirm box will appear, Accept...")
 	public void ClickAcceptConfirmationBox() {
 		testRep = extentReportManager.createTest("Test Alerts, Frames & Windows|Alerts|On button click, confirm box will appear, Accept...");
 		testRep.info("🧪 Starting test for Alerts, Frames & Windows|Alerts|On button click, confirm box will appear, Accept");
@@ -126,7 +126,7 @@ public class AlertsFramesWindowsTests extends demoqaBase {
 		demoqaLog.info("✅ Alerts, Frames & Windows|Alerts|On button click, confirm box will appear, Accept Test Completed...");
 	}
 	
-	@Test(priority = 8)
+	@Test(priority = 9, description = "Test Alerts, Frames & Windows|Alerts|On button click, confirm box will appear, Deny...")
 	public void ClickDenyConfirmationBox() {
 		testRep = extentReportManager.createTest("Test Alerts, Frames & Windows|Alerts|On button click, confirm box will appear, Deny...");
 		testRep.info("🧪 Starting test for Alerts, Frames & Windows|Alerts|On button click, confirm box will appear, Deny");
@@ -142,7 +142,7 @@ public class AlertsFramesWindowsTests extends demoqaBase {
 		demoqaLog.info("✅ Alerts, Frames & Windows|Alerts|On button click, confirm box will appear, Deny Test Completed...");
 	}
 	
-	@Test(priority = 9)
+	@Test(priority = 10, description = "Test Alerts, Frames & Windows|Alerts|On button click, prompt box will appear, Fill data...")
 	public void ClickPromptBoxFill() {
 		testRep = extentReportManager.createTest("Test Alerts, Frames & Windows|Alerts|On button click, prompt box will appear, Fill data...");
 		testRep.info("🧪 Starting test for Alerts, Frames & Windows|Alerts|On button click, prompt box will appear, Fill data");
@@ -158,7 +158,7 @@ public class AlertsFramesWindowsTests extends demoqaBase {
 		demoqaLog.info("✅ Alerts, Frames & Windows|Alerts|On button click, prompt box will appear, Fill data Test Completed...");
 	}
 	
-	@Test(priority = 10)
+	@Test(priority = 11, description = "Test Alerts, Frames & Windows|Frames...")
 	public void ClickFrames() {
 		testRep = extentReportManager.createTest("Test Alerts, Frames & Windows|Frames...");
 		testRep.info("🧪 Starting test for Alerts, Frames & Windows|Frames");
@@ -171,7 +171,7 @@ public class AlertsFramesWindowsTests extends demoqaBase {
 		demoqaLog.info("✅ Alerts, Frames & Windows|Frames Test Completed...");
 	}
 	
-	@Test(priority = 11)
+	@Test(priority = 12, description = "Test Alerts, Frames & Windows|Frames|Frame1 message...")
 	public void GetFrame1() {
 		testRep = extentReportManager.createTest("Test Alerts, Frames & Windows|Frames|Frame1 message...");
 		testRep.info("🧪 Starting test for Alerts, Frames & Windows|Frames|Frame1 message");
@@ -187,7 +187,7 @@ public class AlertsFramesWindowsTests extends demoqaBase {
 		demoqaLog.info("✅ Alerts, Frames & Windows|Frames|Frame1 message Test Completed...");
 	}
 	
-	@Test(priority = 12)
+	@Test(priority = 13, description = "Test Alerts, Frames & Windows|Frames|Frame2 message...")
 	public void GetFrame2() {
 		testRep = extentReportManager.createTest("Test Alerts, Frames & Windows|Frames|Frame2 message...");
 		testRep.info("🧪 Starting test for Alerts, Frames & Windows|Frames|Frame2 message");
@@ -203,7 +203,7 @@ public class AlertsFramesWindowsTests extends demoqaBase {
 		demoqaLog.info("✅ Alerts, Frames & Windows|Frames|Frame2 message Test Completed...");
 	}
 	
-	@Test(priority = 13)
+	@Test(priority = 14, description = "Test Alerts, Frames & Windows|Nested Frames...")
 	public void ClickNestedFrames() {
 		testRep = extentReportManager.createTest("Test Alerts, Frames & Windows|Nested Frames...");
 		testRep.info("🧪 Starting test for Alerts, Frames & Windows|Nested Frames");
@@ -218,7 +218,7 @@ public class AlertsFramesWindowsTests extends demoqaBase {
 		demoqaLog.info("✅ Alerts, Frames & Windows|Nested Frames Test Completed...");
 	}
 	
-	@Test(priority = 14)
+	@Test(priority = 15, description = "Test Alerts, Frames & Windows|Frames|Parent Frame message...")
 	public void GetParentFrame() {
 		testRep = extentReportManager.createTest("Test Alerts, Frames & Windows|Frames|Parent Frame message...");
 		testRep.info("🧪 Starting test for Alerts, Frames & Windows|Frames|Parent Frame message");
@@ -234,7 +234,7 @@ public class AlertsFramesWindowsTests extends demoqaBase {
 		demoqaLog.info("✅ Alerts, Frames & Windows|Frames|Parent Frame message Test Completed...");
 	}
 	
-	@Test(priority = 15)
+	@Test(priority = 16, description = "Test Alerts, Frames & Windows|Frames|Child Frame message...")
 	public void GetChildFrame() {
 		testRep = extentReportManager.createTest("Test Alerts, Frames & Windows|Frames|Child Frame message...");
 		testRep.info("🧪 Starting test for Alerts, Frames & Windows|Frames|Child Frame message");
@@ -250,7 +250,7 @@ public class AlertsFramesWindowsTests extends demoqaBase {
 		demoqaLog.info("✅ Alerts, Frames & Windows|Frames|Child Frame message Test Completed...");
 	}
 	
-	@Test(priority = 13)
+	@Test(priority = 17, description = "Test Alerts, Frames & Windows|Modal Dialogs...")
 	public void ClickModalDialogs() {
 		testRep = extentReportManager.createTest("Test Alerts, Frames & Windows|Modal Dialogs...");
 		testRep.info("🧪 Starting test for Alerts, Frames & Windows|Modal Dialogs");
@@ -263,7 +263,7 @@ public class AlertsFramesWindowsTests extends demoqaBase {
 		demoqaLog.info("✅ Alerts, Frames & Windows|Modal Dialogs Test Completed...");
 	}
 	
-	@Test(priority = 14)
+	@Test(priority = 18, description = "Test Alerts, Frames & Windows|Modal Dialogs|Small Modal click...")
 	public void ClickSmallModal() {
 		testRep = extentReportManager.createTest("Test Alerts, Frames & Windows|Modal Dialogs|Small Modal click...");
 		testRep.info("🧪 Starting test for Alerts, Frames & Windows|Modal Dialogs|Small Modal click");
@@ -279,7 +279,7 @@ public class AlertsFramesWindowsTests extends demoqaBase {
 		demoqaLog.info("✅ Alerts, Frames & Windows|Modal Dialogs|Small Modal click Test Completed...");
 	}
 	
-	@Test(priority = 14)
+	@Test(priority = 19, description = "Test Alerts, Frames & Windows|Modal Dialogs|Large Modal click...")
 	public void ClickLargeModal() {
 		testRep = extentReportManager.createTest("Test Alerts, Frames & Windows|Modal Dialogs|Large Modal click...");
 		testRep.info("🧪 Starting test for Alerts, Frames & Windows|Modal Dialogs|Large Modal click");

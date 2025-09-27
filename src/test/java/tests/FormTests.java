@@ -37,7 +37,7 @@ public class FormTests extends demoqaBase {
 		return ExcelUtils.getMappedData(filePath, "Sheet1", UserFormData.class);
 	}
 
-	@Test(priority = 1)
+	@Test(priority = 1, description = "Test Access to Form Card")
 	public void FormsCard() {
 		testRep = extentReportManager.createTest("Test Access to Form Card");
 		testRep.info("🧪 Starting test for Form Card Access");
@@ -50,7 +50,7 @@ public class FormTests extends demoqaBase {
 		demoqaLog.info("✅ Form Card Test Completed...");
 	}
 
-	@Test(priority = 2)
+	@Test(priority = 2, description = "Test Access to Form Card|Practice Forms...")
 	public void FormButton() {
 
 		testRep = extentReportManager.createTest("Test Access to Form Card|Practice Forms...");

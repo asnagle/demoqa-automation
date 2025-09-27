@@ -456,6 +456,8 @@ public class alertsframewindowsPage extends demoqaBase {
 	    ClickHandler.smartClick(driver, modalLargeBtn);
 	    demoqaLog.info("✅ Clicked on Modal Dialogs|Large Modal...");
 	    
+	    waitForElement.isElementVisible(driver, largeModalTitle);
+
 	    String largemodalPgTitle = largeModalTitle.getText();
 	    demoqaLog.info("Page Title is: " + largemodalPgTitle);
 	    
