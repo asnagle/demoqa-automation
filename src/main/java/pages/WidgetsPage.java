@@ -235,6 +235,7 @@ public class WidgetsPage extends demoqaBase {
 	public String ClickAutoComplete() {
 		demoqaLog.info("Clicking on Widgets|AutoComplete...");
 		AutoComplete.click();
+		PageLoadHandler.waitUntilLoaded(driver, 30);
 		waitForElement.isElementVisible(driver, AutoCompletePgTitle);
 
 		String autocompletePage = AutoCompletePgTitle.getText();
@@ -675,7 +676,8 @@ public class WidgetsPage extends demoqaBase {
 		new Actions(driver).moveToElement(hoverable).perform();
 
 		// Wait for tooltip
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+//		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+		waitForElement.isElementVisible(driver, By.cssSelector(".tooltip-inner"));
 		WebElement tooltip = wait
 				.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".tooltip-inner")));
 
@@ -692,9 +694,11 @@ public class WidgetsPage extends demoqaBase {
 		new Actions(driver).moveToElement(hoverable).perform();
 
 		// Wait for tooltip
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+//		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+		waitForElement.isElementVisible(driver, By.cssSelector(".tooltip-inner"));
 		WebElement tooltip = wait
 				.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".tooltip-inner")));
+		
 
 		String tooltipText = tooltip.getText();
 		demoqaLog.info("Tooltip text captured: " + tooltipText);

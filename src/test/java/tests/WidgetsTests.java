@@ -135,7 +135,7 @@ public class WidgetsTests extends demoqaBase {
 		PageLoadHandler.waitUntilLoaded(driver, 30);
 
 		widgetsPage.AccessWhereDoesIt();
-		testRep.info("✅ Test Widgets|Accordian|Where does it come from? Test Completed...");
+		testRep.pass("✅ Test Widgets|Accordian|Where does it come from? Test Completed...");
 		demoqaLog.info("✅ Widgets|Accordian|Where does it come from? Test Completed...");
 	}
 
@@ -150,7 +150,7 @@ public class WidgetsTests extends demoqaBase {
 		PageLoadHandler.waitUntilLoaded(driver, 30);
 
 		widgetsPage.AccessWhyDoWe();
-		testRep.info("✅ Test Widgets|Accordian|Why do we use it? Test Completed...");
+		testRep.pass("✅ Test Widgets|Accordian|Why do we use it? Test Completed...");
 		demoqaLog.info("✅ Widgets|Accordian|Why do we use it? Test Completed...");
 	}
 

@@ -2,8 +2,13 @@ package pages;
 
 import static org.testng.Assert.assertNotNull;
 import java.time.Duration;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.NoSuchElementException;
+
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchFrameException;
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -139,7 +144,7 @@ public class alertsframewindowsPage extends demoqaBase {
 		PageFactory.initElements(driver, this);
 	}
 
-	public void accessAlertFramesWindows() {
+	public String accessAlertFramesWindows() {
 
 		demoqaLog.info("Accessing Alerts, Frame & Windows Card...");
 		homePage homePage = new homePage(driver);
@@ -149,21 +154,23 @@ public class alertsframewindowsPage extends demoqaBase {
 		System.out.println("You are Accessing: " + CardPgTitle.getText());
 		String cardpage = Cardpage.getText();
 		demoqaLog.info("Alerts, Frame & Windows Card: " + cardpage);
+		
+		return cardpage;
 
-		Assert.assertEquals("Please select an item from left to start practice.", cardpage);
 	}
 
-	public void clickBrowserWindow() {
+	public String clickBrowserWindow() {
 		demoqaLog.info("Clicking on Alerts, Frame & Windows Card|Browser Windows...");
 		BrowserWindows.click();
 		String browserWindowsPage = BrowserWindowsPage.getText();
 		System.out.println("You are now Accessing: " + browserWindowsPage);
 		demoqaLog.info("You are now Accessing: " + browserWindowsPage);
 
-		Assert.assertEquals("Browser Windows", browserWindowsPage);
+		return browserWindowsPage;
+		
 	}
 
-	public void clickNewTab() {
+	public String clickNewTab() {
 		demoqaLog.info("Initiating New Tab click sequence...");
 
 		String originalHandle = driver.getWindowHandle();
@@ -176,23 +183,33 @@ public class alertsframewindowsPage extends demoqaBase {
 				By.xpath("//h1[@id='sampleHeading']"), "This is a sample page", demoqaLog);
 
 		System.out.println("You are now accessing: " + result);
+		return result;
 	}
 
-	public void clickNewWindow() {
-		demoqaLog.info("Initiating New Window click sequence...");
+	public String clickNewWindow() {
+	    demoqaLog.info("Initiating New Window click sequence...");
 
-		String originalHandle = driver.getWindowHandle();
-		assertNotNull("Original window handle is null", originalHandle);
+	    String originalHandle = driver.getWindowHandle();
+	    assertNotNull("Original window handle is null", originalHandle);
 
-		NewWindowBtn.click();
-		demoqaLog.info("Clicked New Window button");
+	    // Wait and click using utility method
+	    waitForElement.waitAndClick(driver, NewWindowBtn);
+	    demoqaLog.info("Clicked New Window button");
 
-		String result = WindowValidationUtils.switchToNewTabAndValidateText(driver, originalHandle,
-				By.xpath("//h1[@id='sampleHeading']"), "This is a sample page", demoqaLog);
+	    // Validate new tab and extract text
+	    
+	    String result = WindowValidationUtils.switchToNewTabAndValidateText(
+	        driver,
+	        originalHandle,
+	        By.xpath("//h1[@id='sampleHeading']"),
+	        "This is a sample page",
+	        demoqaLog
+	    );
 
-		System.out.println("You are now accessing: " + result);
+	    System.out.println("You are now accessing: " + result);
+	    return result;
 	}
-
+	
 	public void clickNewWindowMessage() {
 	    demoqaLog.info("🔍 Starting 'New Window Message' click sequence...");
 
@@ -213,7 +230,7 @@ public class alertsframewindowsPage extends demoqaBase {
 	    demoqaLog.info("✅ 'New Window Message' flow completed successfully.");
 	}
 	
-	public void clickAlerts() {
+	public String clickAlerts() {
 	    demoqaLog.info("🔍 Starting test for Alerts click ..");
 
 	    ClickHandler.smartClick(driver, Alerts);
@@ -221,7 +238,8 @@ public class alertsframewindowsPage extends demoqaBase {
 	    String alertsPgTitle = AlertsPageTitle.getText();
 	    demoqaLog.info("Page Title is: " + alertsPgTitle);
 	    
-	    Assert.assertEquals("Alerts", alertsPgTitle);
+	    return alertsPgTitle;
+	    
 	}
 	
 	public void clickToSeeAlert() {
@@ -237,7 +255,7 @@ public class alertsframewindowsPage extends demoqaBase {
         alert.accept();
 	}
 	
-	public void clickSeeAlert5sec() {
+	public String clickSeeAlert5sec() {
 		demoqaLog.info("🔍 Starting test for On button click, alert will appear after 5 seconds...");
 
 	    ClickHandler.smartClick(driver, timerAlertButton);
@@ -247,11 +265,12 @@ public class alertsframewindowsPage extends demoqaBase {
         Alert alert = driver.switchTo().alert();
         demoqaLog.info("✅ On button click, alert will appear after 5 seconds, message is: " + alert.getText());
         
-        Assert.assertEquals("This alert appeared after 5 seconds", alert.getText());
+        String result = alert.getText();
         alert.accept();
+        return result;
 	}
 	
-	public void clickConfirmBoxAlertAccept() {
+	public String clickConfirmBoxAlertAccept() {
 		demoqaLog.info("🔍 Starting test for On button click, confirm box will appear, Accept...");
 		waitForElement.waitUntilInteractable(driver, confirmboxButton);
 	
@@ -265,10 +284,10 @@ public class alertsframewindowsPage extends demoqaBase {
         String confResult = confirmResult.getText();
         demoqaLog.info("✅ Your Selection was: " + confResult);
         
-        Assert.assertEquals("You selected Ok", confResult);
+        return confResult;
 	}
 	
-	public void clickConfirmBoxAlertDeny() {
+	public String clickConfirmBoxAlertDeny() {
 		demoqaLog.info("🔍 Starting test for On button click, confirm box will appear, Deny...");
 
 	    ClickHandler.smartClick(driver, confirmboxButton);
@@ -281,10 +300,10 @@ public class alertsframewindowsPage extends demoqaBase {
         String confResult = confirmResult.getText();
         demoqaLog.info("✅ Your Selection was: " + confResult);
         
-        Assert.assertEquals("You selected Cancel", confResult);
+        return confResult;
 	}
 	
-	public void clickPromptFill() {
+	public String clickPromptFill() {
 		demoqaLog.info("🔍 Starting test for On button click, prompt box will appear, Fill data...");
 	    ClickHandler.smartClick(driver, promptBox);
 	    
@@ -300,10 +319,10 @@ public class alertsframewindowsPage extends demoqaBase {
         String promptRslt = promptResult.getText();
         demoqaLog.info("✅ Your Selection was: " + promptRslt);
         
-        Assert.assertEquals("You entered Java Selenium", promptRslt);
+        return promptRslt;
 	}
 	
-	public void clickFrames() {
+	public String clickFrames() {
 	    demoqaLog.info("🔍 Starting test for Frames click ..");
 	    waitForElement.waitUntilInteractable(driver, Frames);
 	    ClickHandler.smartClick(driver, Frames);
@@ -311,23 +330,22 @@ public class alertsframewindowsPage extends demoqaBase {
 	    String framesPgTitle = FramepgTitle.getText();
 	    demoqaLog.info("Page Title is: " + framesPgTitle);
 	    
-	    Assert.assertEquals("Frames", framesPgTitle);
+	    return framesPgTitle;
 	}
 	
-	public void GetFrame1msg() {
+	public String GetFrame1msg() {
 	    demoqaLog.info("🔍 Starting test for Frames|Frame1 Message...");
 
-	    By frame1Locator = By.id("frame1"); // Confirmed from demoqa.com/frames
+	    By frame1Locator = By.id("frame1");
 	    boolean frameReady = waitForElement.waitForFrameAndSwitch(driver, frame1Locator, 10);
 
 	    if (!frameReady) {
 	        demoqaLog.error("❌ Frame1 not available or not loaded in time.");
-	        Assert.fail("Frame1 not found or not ready.");
+	        return null;
 	    }
 
 	    demoqaLog.info("✅ Switched to Frame1...");
 
-	    // Locate the content inside the frame AFTER switching
 	    By contentLocator = By.id("sampleHeading");
 	    WebElement frame1Content;
 	    try {
@@ -335,31 +353,30 @@ public class alertsframewindowsPage extends demoqaBase {
 	                .until(ExpectedConditions.visibilityOfElementLocated(contentLocator));
 	    } catch (TimeoutException e) {
 	        demoqaLog.error("❌ Frame1 content not visible in time.");
-	        Assert.fail("Frame1 content not loaded: " + e.getMessage());
-	        return;
+	        return null;
 	    }
 
+	    waitForElement.isElementVisible(driver, frame1Content);
 	    String frame1msg = frame1Content.getText();
 	    demoqaLog.info("Frame1 contains: " + frame1msg);
 
-	    Assert.assertEquals("This is a sample page", frame1msg);
 	    driver.switchTo().defaultContent();
+	    return frame1msg;
 	}
 	
-	public void GetFrame2msg() {
+	public String GetFrame2msg() {
 	    demoqaLog.info("🔍 Starting test for Frames|Frame2 Message...");
 
-	    By frame2Locator = By.id("frame2"); // Confirmed from demoqa.com/frames
+	    By frame2Locator = By.id("frame2");
 	    boolean frameReady = waitForElement.waitForFrameAndSwitch(driver, frame2Locator, 10);
 
 	    if (!frameReady) {
 	        demoqaLog.error("❌ Frame2 not available or not loaded in time.");
-	        Assert.fail("Frame2 not found or not ready.");
+	        return null;
 	    }
 
 	    demoqaLog.info("✅ Switched to Frame2...");
 
-	    // Locate the content inside the frame AFTER switching
 	    By contentLocator = By.id("sampleHeading");
 	    WebElement frame2Content;
 	    try {
@@ -367,60 +384,97 @@ public class alertsframewindowsPage extends demoqaBase {
 	                .until(ExpectedConditions.visibilityOfElementLocated(contentLocator));
 	    } catch (TimeoutException e) {
 	        demoqaLog.error("❌ Frame2 content not visible in time.");
-	        Assert.fail("Frame2 content not loaded: " + e.getMessage());
-	        return;
+	        return null;
 	    }
 
+	    waitForElement.isElementVisible(driver, frame2Content);
 	    String frame2msg = frame2Content.getText();
 	    demoqaLog.info("Frame2 contains: " + frame2msg);
 
-	    Assert.assertEquals("This is a sample page", frame2msg);
 	    driver.switchTo().defaultContent();
+	    return frame2msg;
 	}
 	
-	public void clickNestedFrames() {
+	public String clickNestedFrames() {
 		demoqaLog.info("🔍 Starting test for Frames|Nested Frames click ..");
 
 	    ClickHandler.smartClick(driver, nestedFrames);
 	    demoqaLog.info("✅ Clicked on Nested Frames...");
+	    
+	    waitForElement.isElementVisible(driver, nestedFramePgTitle);
 	    String nestedframesPgTitle = nestedFramePgTitle.getText();
 	    demoqaLog.info("Page Title is: " + nestedframesPgTitle);
 	    
-	    Assert.assertEquals("Nested Frames", nestedframesPgTitle);
+	    return nestedframesPgTitle;
 	}
 
 	
-	public void GetParentFramemsg() {
+	public String GetParentFramemsg() {
 	    demoqaLog.info("🔍 Starting test for Frames|Parent Frame Message...");
+	    waitForElement.isElementVisible(driver, parentFrame);
+
+	    // Wait and switch to parent frame using utility method
+	    boolean frameSwitched = waitForElement.waitForFrameAndSwitch(driver, By.id("frame1"), 30);
+	    if (!frameSwitched) {
+	        demoqaLog.error("❌ Parent frame not found or not available within timeout.");
+	        return null;
+	    }
+
+	    String frameText;
 	    try {
-			Thread.sleep(3000);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+	        WebElement body = waitForElement.getVisibleElement(driver, By.tagName("body"));
+	        frameText = body.getText().trim();
+	        demoqaLog.info("After switching, frame body contains: [" + frameText + "]");
+	    } catch (NoSuchElementException | TimeoutException e) {
+	        demoqaLog.error("❌ Unable to locate body tag inside parent frame: " + e.getMessage());
+	        return null;
+	    } finally {
+	        driver.switchTo().defaultContent();
+	    }
 
-	    driver.switchTo().frame(parentFrame);
-        Assert.assertEquals(true, driver.getPageSource().contains("Parent frame"));
-        String frameText = driver.findElement(By.tagName("body")).getText().trim();
-        demoqaLog.info("After switching, frame body contains: [" + frameText + "]");
-        
-        Assert.assertTrue(frameText.contains("Parent frame"), "Unexpected frame content.");
+	    return frameText;
 	}
 	
-	public void GetChildFramemsg() {
+	public String GetChildFramemsg() {
 	    demoqaLog.info("🔍 Starting test for Frames|Child Frame Message...");
-	    driver.switchTo().frame(parentFrame);
-        Assert.assertEquals(true, driver.getPageSource().contains("Parent frame"));
 
-	    driver.switchTo().frame(childFrame);
-        Assert.assertEquals(true, driver.getPageSource().contains("Child Iframe"));
-        String frameText = driver.findElement(By.tagName("body")).getText().trim();
-        demoqaLog.info("After switching, frame body contains: [" + frameText + "]");
-        
-        Assert.assertTrue(frameText.contains("Child Iframe"), "Unexpected frame content.");
+	    try {
+	        driver.switchTo().frame(parentFrame);
+	    } catch (NoSuchFrameException e) {
+	        demoqaLog.error("❌ Parent frame not found: " + e.getMessage());
+	        return null;
+	    }
+
+	    if (!driver.getPageSource().contains("Parent frame")) {
+	        demoqaLog.warn("Parent frame content not found.");
+	    }
+
+	    try {
+	        driver.switchTo().frame(childFrame);
+	    } catch (NoSuchFrameException e) {
+	        demoqaLog.error("❌ Child frame not found: " + e.getMessage());
+	        return null;
+	    }
+
+	    if (!driver.getPageSource().contains("Child Iframe")) {
+	        demoqaLog.warn("Child frame content not found in page source.");
+	    }
+
+	    String frameText;
+	    try {
+	        frameText = driver.findElement(By.tagName("body")).getText().trim();
+	        demoqaLog.info("After switching, frame body contains: [" + frameText + "]");
+	    } catch (NoSuchElementException e) {
+	        demoqaLog.error("❌ Unable to locate body tag inside child frame.");
+	        return null;
+	    } finally {
+	        driver.switchTo().defaultContent();
+	    }
+
+	    return frameText;
 	}
 	
-	public void clickModalDialogs() {
+	public String clickModalDialogs() {
 		demoqaLog.info("🔍 Starting test for Frames|Modal Dialogs click ..");
 
 	    ClickHandler.smartClick(driver, modalDialogs);
@@ -429,45 +483,49 @@ public class alertsframewindowsPage extends demoqaBase {
 	    String modalDialogsPgTitle = ModalDiagPgTitle.getText();
 	    demoqaLog.info("Page Title is: " + modalDialogsPgTitle);
 	    
-	    Assert.assertEquals("Modal Dialogs", modalDialogsPgTitle);
+	    return modalDialogsPgTitle;
 	}
 	
-	public void clickSmallModal() {
-		demoqaLog.info("🔍 Starting test for Frames|Modal Dialogs|Small Modal click...");
+	public Map<String, String> clickSmallModal() {
+	    demoqaLog.info("🔍 Starting test for Frames|Modal Dialogs|Small Modal click...");
 
 	    ClickHandler.smartClick(driver, modalSmallBtn);
 	    demoqaLog.info("✅ Clicked on Modal Dialogs|Small Modal...");
-	    
+
 	    String smallmodalPgTitle = smallModalTitle.getText();
 	    demoqaLog.info("Page Title is: " + smallmodalPgTitle);
-	    
-	    Assert.assertEquals("Small Modal", smallmodalPgTitle);
-	    
+
 	    String smallmodalBody = smallModalBody.getText();
 	    demoqaLog.info("Small Modal Body Contains: " + smallmodalBody);
-	    
-	    Assert.assertTrue(smallmodalBody.contains("This is a small modal"), "Unexpected frame content.");
+
 	    ClickHandler.smartClick(driver, smallModalCloseBtn);
+
+	    Map<String, String> modalContent = new HashMap<>();
+	    modalContent.put("title", smallmodalPgTitle);
+	    modalContent.put("body", smallmodalBody);
+	    return modalContent;
 	}
 	
-	public void clickLargeModal() {
-		demoqaLog.info("🔍 Starting test for Frames|Modal Dialogs|Large Modal click...");
+	public Map<String, String> clickLargeModal() {
+	    demoqaLog.info("🔍 Starting test for Frames|Modal Dialogs|Large Modal click...");
 
 	    ClickHandler.smartClick(driver, modalLargeBtn);
 	    demoqaLog.info("✅ Clicked on Modal Dialogs|Large Modal...");
-	    
+
 	    waitForElement.isElementVisible(driver, largeModalTitle);
 
 	    String largemodalPgTitle = largeModalTitle.getText();
 	    demoqaLog.info("Page Title is: " + largemodalPgTitle);
-	    
-	    Assert.assertEquals("Large Modal", largemodalPgTitle);
-	    
+
 	    String largemodalBody = largeModalBody.getText();
 	    demoqaLog.info("Large Modal Body Contains: " + largemodalBody);
-	    
-	    Assert.assertTrue(largemodalBody.contains("Lorem Ipsum is simply dummy text"), "Unexpected frame content.");
+
 	    ClickHandler.smartClick(driver, largeModalCloseBtn);
+
+	    Map<String, String> modalContent = new HashMap<>();
+	    modalContent.put("title", largemodalPgTitle);
+	    modalContent.put("body", largemodalBody);
+	    return modalContent;
 	}
 	
 }
