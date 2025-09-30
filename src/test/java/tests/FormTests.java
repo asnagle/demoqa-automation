@@ -10,6 +10,7 @@ import java.util.Optional;
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
 //import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
@@ -43,9 +44,11 @@ public class FormTests extends demoqaBase {
 		testRep.info("🧪 Starting test for Form Card Access");
 		demoqaLog.info("🧪 Starting Form Card Test...");
 		formsPage formsPage = new formsPage(driver);
-		formsPage.accessForms();
+		String cardpage = formsPage.accessForms();
 		System.out.println("Title of this Page is: " + driver.getTitle());
-		testRep.info("Title of this Page is: " + driver.getTitle());
+		
+		Assert.assertEquals("Please select an item from left to start practice.", cardpage);
+		testRep.pass("✅ Assertion Confirmation Text: " + cardpage);
 		testRep.pass("✅ Test Form Card Test Completed...");
 		demoqaLog.info("✅ Form Card Test Completed...");
 	}
@@ -59,9 +62,12 @@ public class FormTests extends demoqaBase {
 		homePage homePage = new homePage(driver);
 		homePage.clickFormCard();
 		formsPage formsPage = new formsPage(driver);
-		formsPage.clickPracticeForm();
+		String practiceFormPgTitle = formsPage.clickPracticeForm();
+		
 		System.out.println("Title of this Page is: " + driver.getTitle());
-		testRep.info("Title of this Page is: " + driver.getTitle());
+		Assert.assertEquals("Practice Form", practiceFormPgTitle);
+		
+		testRep.pass("✅ Assertion Confirmation Text: " + practiceFormPgTitle);
 		testRep.pass("✅ Test Form Card|Practice Forms Test Completed...");
 		demoqaLog.info("✅ Form Card|Practice Forms Test Completed...");
 	}

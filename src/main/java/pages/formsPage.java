@@ -14,7 +14,6 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.Assert;
 
 import base.demoqaBase;
 import enums.TestContext;
@@ -30,6 +29,12 @@ public class formsPage extends demoqaBase {
 //	======= Using PageFactory of Selenium ======
 	@FindBy(xpath = "//div[contains(@class,'col-12 mt-4 col-md-6')]")
 	WebElement Cardpage;
+	
+	@FindBy(xpath = "//div[@class='element-list collapse show']//li[@id='item-0']")
+	WebElement PracticeFormBtn;
+	
+	@FindBy(xpath = "//h1[normalize-space()='Practice Form']")
+	WebElement PracticeFormPgTitle;
 	
 	@FindBy(id = "firstName")
 	WebElement firstName;
@@ -67,7 +72,7 @@ public class formsPage extends demoqaBase {
 	private WebDriver driver;
 //	private UserFormData data = new UserFormData();
 //	private DateUtils dateUtils;
-	private By PracticeForm = By.cssSelector("div.element-list.collapse.show > ul.menu-list > #item-0 > span.text");
+//	private By PracticeForm = By.cssSelector("div.element-list.collapse.show > ul.menu-list > #item-0 > span.text");
 	WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(3));
 
 	public formsPage(WebDriver driver) {
@@ -75,7 +80,7 @@ public class formsPage extends demoqaBase {
 		PageFactory.initElements(driver, this);
 	}
 
-	public void accessForms() {
+	public String accessForms() {
 
 		demoqaLog.info("Accessing Form Card...");
 		homePage homePage = new homePage(driver);
@@ -84,15 +89,16 @@ public class formsPage extends demoqaBase {
 		String cardpage = Cardpage.getText();
 		System.out.println("Page Text is: " + Cardpage.getText());
 
-		Assert.assertEquals("Please select an item from left to start practice.", cardpage);
+		return cardpage;
 	}
 
-	public void clickPracticeForm() {
+	public String clickPracticeForm() {
 		demoqaLog.info("Clicking on Practice Form...");
-//		driver.findElement(PracticeForm).click();
-		ClickHandler.smartClick(driver, PracticeForm);
+		ClickHandler.smartClick(driver, PracticeFormBtn);
 		demoqaLog.info("Clicked on Practice Form...");
-
+		String practiceFormPgTitle = PracticeFormPgTitle.getText();
+		
+		return practiceFormPgTitle;
 	}
 
 //	================ Reading values from Excel file and updating form fields ==============

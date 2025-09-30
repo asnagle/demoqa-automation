@@ -10,7 +10,6 @@ import pages.alertsframewindowsPage;
 import utils.PageLoadHandler;
 //import utils.demoqaLog;
 import utils.extentReportManager;
-import utils.waitForElement;
 
 public class AlertsFramesWindowsTests extends demoqaBase {
 
@@ -24,7 +23,7 @@ public class AlertsFramesWindowsTests extends demoqaBase {
 
 		Assert.assertEquals("Please select an item from left to start practice.", cardpage);
 
-		testRep.pass("✅ Assertion Confirmatin Text: " + cardpage);
+		testRep.pass("✅ Assertion Confirmation Text: " + cardpage);
 		testRep.pass("✅ Test Alerts, Frames & Windows Test Completed...");
 		demoqaLog.info("✅ Alerts, Frames & Windows Test Completed...");
 	}
@@ -41,7 +40,7 @@ public class AlertsFramesWindowsTests extends demoqaBase {
 
 		Assert.assertEquals("Browser Windows", browserWindowsPage);
 
-		testRep.pass("✅ Assertion Confirmatin Text: " + browserWindowsPage);
+		testRep.pass("✅ Assertion Confirmation Text: " + browserWindowsPage);
 		testRep.pass("✅ Test Alerts, Frames & Windows|Browser Windows Test Completed...");
 		demoqaLog.info("✅ Alerts, Frames & Windows|Browser Windows Test Completed...");
 	}
@@ -60,7 +59,7 @@ public class AlertsFramesWindowsTests extends demoqaBase {
 
 		Assert.assertEquals("This is a sample page", result);
 
-		testRep.pass("✅ Assertion Confirmatin Text: " + result);
+		testRep.pass("✅ Assertion Confirmation Text: " + result);
 		testRep.pass("✅ Test Alerts, Frames & Windows|Browser Windows|New Tab Test Completed...");
 		demoqaLog.info("✅ Alerts, Frames & Windows|Browser Windows|New Tab Test Completed...");
 	}
@@ -79,7 +78,7 @@ public class AlertsFramesWindowsTests extends demoqaBase {
 
 		Assert.assertEquals("This is a sample page", result);
 
-		testRep.pass("✅ Assertion Confirmatin Text: " + result);
+		testRep.pass("✅ Assertion Confirmation Text: " + result);
 		testRep.pass("✅ Test Alerts, Frames & Windows|Browser Windows|New Window Test Completed...");
 		demoqaLog.info("✅ Alerts, Frames & Windows|Browser Windows|New Window Test Completed...");
 	}
@@ -111,7 +110,7 @@ public class AlertsFramesWindowsTests extends demoqaBase {
 		
 		Assert.assertEquals("Alerts", alertsPgTitle);
 
-		testRep.pass("✅ Assertion Confirmatin Text: " + alertsPgTitle);
+		testRep.pass("✅ Assertion Confirmation Text: " + alertsPgTitle);
 		testRep.pass("✅ Test Alerts, Frames & Windows|Alerts Test Completed...");
 		demoqaLog.info("✅ Alerts, Frames & Windows|Alerts Test Completed...");
 	}
@@ -130,7 +129,7 @@ public class AlertsFramesWindowsTests extends demoqaBase {
 		
 		Assert.assertEquals("This alert appeared after 5 seconds", result);
 
-		testRep.pass("✅ Assertion Confirmatin Text: " + result);
+		testRep.pass("✅ Assertion Confirmation Text: " + result);
 		testRep.pass("✅ Test Alerts, Frames & Windows|Alerts|Click button to see Alert Test Completed...");
 		demoqaLog.info("✅ Alerts, Frames & Windows|Alerts|Click button to see Alert Test Completed...");
 	}
@@ -152,7 +151,7 @@ public class AlertsFramesWindowsTests extends demoqaBase {
 		
 		Assert.assertEquals("You selected Ok", confResult);
 
-		testRep.pass("✅ Assertion Confirmatin Text: " + confResult);
+		testRep.pass("✅ Assertion Confirmation Text: " + confResult);
 		testRep.pass(
 				"✅ Test Alerts, Frames & Windows|Alerts|On button click, confirm box will appear, Accept Test Completed...");
 		demoqaLog.info(
@@ -176,7 +175,7 @@ public class AlertsFramesWindowsTests extends demoqaBase {
 		
 		Assert.assertEquals("You selected Cancel", confResult);
 
-		testRep.pass("✅ Assertion Confirmatin Text: " + confResult);
+		testRep.pass("✅ Assertion Confirmation Text: " + confResult);
 		testRep.pass(
 				"✅ Test Alerts, Frames & Windows|Alerts|On button click, confirm box will appear, Deny Test Completed...");
 		demoqaLog.info(
@@ -200,7 +199,7 @@ public class AlertsFramesWindowsTests extends demoqaBase {
 		
 		Assert.assertEquals("You entered Java Selenium", promptRslt);
 
-		testRep.pass("✅ Assertion Confirmatin Text: " + promptRslt);
+		testRep.pass("✅ Assertion Confirmation Text: " + promptRslt);
 		testRep.pass(
 				"✅ Test Alerts, Frames & Windows|Alerts|On button click, prompt box will appear, Fill data Test Completed...");
 		demoqaLog.info(
@@ -218,7 +217,7 @@ public class AlertsFramesWindowsTests extends demoqaBase {
 		
 		Assert.assertEquals("Frames", framesPgTitle);
 
-		testRep.pass("✅ Assertion Confirmatin Text: " + framesPgTitle);
+		testRep.pass("✅ Assertion Confirmation Text: " + framesPgTitle);
 		testRep.pass("✅ Test Alerts, Frames & Windows|Frames Test Completed...");
 		demoqaLog.info("✅ Alerts, Frames & Windows|Frames Test Completed...");
 	}
@@ -239,7 +238,7 @@ public class AlertsFramesWindowsTests extends demoqaBase {
 	    Assert.assertNotNull(frame1msg, "Frame1 message retrieval failed or frame not ready.");
 	    Assert.assertEquals(frame1msg, "This is a sample page", "Frame1 message mismatch.");
 
-	    testRep.pass("✅ Assertion Confirmatin Text: " + frame1msg);
+	    testRep.pass("✅ Assertion Confirmation Text: " + frame1msg);
 	    testRep.pass("✅ Test Alerts, Frames & Windows|Frame1 message Test Completed...");
 	    demoqaLog.info("✅ Alerts, Frames & Windows|Frames|Frame1 message Test Completed...");
 	}
@@ -258,7 +257,7 @@ public class AlertsFramesWindowsTests extends demoqaBase {
 		
 		Assert.assertEquals("This is a sample page", frame2msg);
 
-		testRep.pass("✅ Assertion Confirmatin Text: " + frame2msg);
+		testRep.pass("✅ Assertion Confirmation Text: " + frame2msg);
 		testRep.pass("✅ Test Alerts, Frames & Windows|Frame2 message Test Completed...");
 		demoqaLog.info("✅ Alerts, Frames & Windows|Frames|Frame2 message Test Completed...");
 	}
@@ -276,7 +275,7 @@ public class AlertsFramesWindowsTests extends demoqaBase {
 		
 		Assert.assertEquals("Nested Frames", nestedframesPgTitle);
 
-		testRep.pass("✅ Assertion Confirmatin Text: " + nestedframesPgTitle);
+		testRep.pass("✅ Assertion Confirmation Text: " + nestedframesPgTitle);
 		testRep.pass("✅ Test Alerts, Frames & Windows|Nested Frames Test Completed...");
 		demoqaLog.info("✅ Alerts, Frames & Windows|Nested Frames Test Completed...");
 	}
@@ -297,7 +296,7 @@ public class AlertsFramesWindowsTests extends demoqaBase {
 	    Assert.assertNotNull(frameText, "Parent frame message retrieval failed.");
 	    Assert.assertTrue(frameText.contains("Parent frame"), "Unexpected frame content: " + frameText);
 
-	    testRep.pass("✅ Assertion Confirmatin Text: " + frameText);
+	    testRep.pass("✅ Assertion Confirmation Text: " + frameText);
 	    testRep.pass("✅ Test Alerts, Frames & Windows|Frames|Parent Frame message Test Completed...");
 	    demoqaLog.info("✅ Alerts, Frames & Windows|Frames|Parent Frame message Test Completed...");
 	}
@@ -318,7 +317,7 @@ public class AlertsFramesWindowsTests extends demoqaBase {
 	    Assert.assertNotNull(frameText, "Child frame message retrieval failed.");
 	    Assert.assertTrue(frameText.contains("Child Iframe"), "Unexpected frame content: " + frameText);
 
-	    testRep.pass("✅ Assertion Confirmatin Text: " + frameText);
+	    testRep.pass("✅ Assertion Confirmation Text: " + frameText);
 	    testRep.pass("✅ Test Alerts, Frames & Windows|Frames|Child Frame message Test Completed...");
 	    demoqaLog.info("✅ Alerts, Frames & Windows|Frames|Child Frame message Test Completed...");
 	}
@@ -335,7 +334,7 @@ public class AlertsFramesWindowsTests extends demoqaBase {
 		
 		Assert.assertEquals("Modal Dialogs", modalDialogsPgTitle);
 
-		testRep.pass("✅ Assertion Confirmatin Text: " + modalDialogsPgTitle);
+		testRep.pass("✅ Assertion Confirmation Text: " + modalDialogsPgTitle);
 		testRep.pass("✅ Test Alerts, Frames & Windows|Modal Dialogs Test Completed...");
 		demoqaLog.info("✅ Alerts, Frames & Windows|Modal Dialogs Test Completed...");
 	}
@@ -357,7 +356,7 @@ public class AlertsFramesWindowsTests extends demoqaBase {
 	    Assert.assertEquals(modalContent.get("title"), "Small Modal", "Modal title mismatch.");
 	    Assert.assertTrue(modalContent.get("body").contains("This is a small modal"), "Unexpected modal body content.");
 
-	    testRep.pass("✅ Assertion Confirmatin Text: " + modalContent);
+	    testRep.pass("✅ Assertion Confirmation Text: " + modalContent);
 	    testRep.pass("✅ Test Alerts, Frames & Windows|Modal Dialogs|Small Modal click Test Completed...");
 	    demoqaLog.info("✅ Alerts, Frames & Windows|Modal Dialogs|Small Modal click Test Completed...");
 	}

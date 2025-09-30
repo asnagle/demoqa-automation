@@ -144,6 +144,12 @@ public class WidgetsPage extends demoqaBase {
 
 	@FindBy(id = "toolTipButton")
 	WebElement ToolTipBtn;
+	
+	@FindBy(id = "toolTipTextField")
+	WebElement ToolTipTextField;
+	
+	
+	
 
 	private WebDriverWait wait;
 
@@ -183,6 +189,7 @@ public class WidgetsPage extends demoqaBase {
 
 	public String AccessWhatis() {
 		demoqaLog.info("Clicking on Widgets|Accordian|What is Lorem Ipsum?...");
+		
 		WebElement whatis = driver.findElement(By.xpath("//div[@id='section1Heading']"));
 		waitForElement.waitAndClick(driver, whatis);
 		ClickHandler.smartClick(driver, Whatis);
@@ -689,12 +696,13 @@ public class WidgetsPage extends demoqaBase {
 
 	public String HoverMeToSeeTxtField() {
 		demoqaLog.info("Hovering on Widgets|Tool Tips|Hover me to see - Text Field...");
+		waitForElement.isElementVisible(driver, ToolTipTextField);
 
 		WebElement hoverable = driver.findElement(By.id("toolTipTextField"));
 		new Actions(driver).moveToElement(hoverable).perform();
 
 		// Wait for tooltip
-//		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
 		waitForElement.isElementVisible(driver, By.cssSelector(".tooltip-inner"));
 		WebElement tooltip = wait
 				.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".tooltip-inner")));

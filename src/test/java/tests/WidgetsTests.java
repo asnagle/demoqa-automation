@@ -82,7 +82,7 @@ public class WidgetsTests extends demoqaBase {
 		
 		Assert.assertEquals("Please select an item from left to start practice.", widgetpage);
 		
-		testRep.pass("✅ Assertion Confirmatin Text: " + widgetpage);
+		testRep.pass("✅ Assertion Confirmation Text: " + widgetpage);
 		testRep.pass("✅ Test Alerts, Frames & Windows Test Completed...");
 		demoqaLog.info("✅ Widgets Test Completed...");
 	}
@@ -100,7 +100,7 @@ public class WidgetsTests extends demoqaBase {
 		
 		Assert.assertEquals("Accordian", accordianPage);
 		
-		testRep.pass("✅ Assertion Confirmatin Text: " + accordianPage);
+		testRep.pass("✅ Assertion Confirmation Text: " + accordianPage);
 		testRep.pass("✅ Test Widgets|Accordian Test Completed...");
 		demoqaLog.info("✅ Widgets|Accordian Test Completed...");
 	}
@@ -119,7 +119,7 @@ public class WidgetsTests extends demoqaBase {
 		
 		Assert.assertEquals(true,
 				whatiscontent.contains("Lorem Ipsum is simply dummy text of the printing and typesetting industry"));
-		testRep.pass("✅ Assertion Confirmatin Text: " + whatiscontent);
+		testRep.pass("✅ Assertion Confirmation Text: " + whatiscontent);
 		testRep.pass("✅ Test Widgets|Accordian|What is Lorem Ipsum? Test Completed...");
 		demoqaLog.info("✅ Widgets|Accordian|What is Lorem Ipsum? Test Completed...");
 	}
@@ -164,7 +164,7 @@ public class WidgetsTests extends demoqaBase {
 		String autocompletePage = widgetsPage.ClickAutoComplete();
 		
 		Assert.assertEquals("Auto Complete", autocompletePage);
-		testRep.pass("✅ Assertion Confirmatin Text: " + autocompletePage);
+		testRep.pass("✅ Assertion Confirmation Text: " + autocompletePage);
 		testRep.pass("✅ Test Widgets|Auto Complete Test Completed...");
 		demoqaLog.info("✅ Widgets|Auto Complete Test Completed...");
 	}
@@ -200,9 +200,9 @@ public class WidgetsTests extends demoqaBase {
 		demoqaLog.info("✅ Widgets|Auto Complete Test Completed...");
 	}
 
-	@Test(priority = 8, dataProvider = "ColorSelectionDataRemove", description = "Test Widgets | Auto Complete - Select & Remove Flow using input from Spreadsheet...")
+	@Test(priority = 8, dataProvider = "ColorSelectionDataRemove", description = "Test Widgets|Auto Complete - Select & Remove Flow using input from Spreadsheet...")
 	public void AutoCompleteSearchRemove(ColorSelectionData removalData) throws IOException {
-		testRep = extentReportManager.createTest("Test Widgets | Auto Complete - Select & Remove Flow");
+		testRep = extentReportManager.createTest("Test Widgets|Auto Complete - Select & Remove Flow");
 		demoqaLog.info("🧪 Starting Test Widgets|Auto Complete - Select & Remove Flow");
 
 		WidgetsPage widgetsPage = new WidgetsPage(driver);
@@ -278,7 +278,7 @@ public class WidgetsTests extends demoqaBase {
 		
 		Assert.assertEquals("Date Picker", datePickerPage);
 		
-		testRep.pass("✅ Assertion Confirmatin Text: " + datePickerPage);
+		testRep.pass("✅ Assertion Confirmation Text: " + datePickerPage);
 		testRep.pass("✅ Test Widgets|Date Picker Test Completed...");
 		demoqaLog.info("✅ Widgets|Date Picker Test Completed...");
 	}
@@ -294,7 +294,7 @@ public class WidgetsTests extends demoqaBase {
 
 		Optional<LocalDate> dateOpt = DataSanitizer.sanitizeDOBToDate(data.getDob(), "DOB", "SelectDateTest");
 		if (dateOpt.isEmpty()) {
-			demoqaLog.warn("⚠️ DOB parsing failed | Raw value: " + data.getDob());
+			demoqaLog.warn("⚠️ DOB parsing failed|Raw value: " + data.getDob());
 			throw new RuntimeException("❌ Unable to parse DOB: " + data.getDob());
 		}
 
@@ -321,7 +321,7 @@ public class WidgetsTests extends demoqaBase {
 
 		// Parse DOB → LocalDateTime (default to midnight or any preferred time)
 		Optional<LocalDate> dateOpt = DataSanitizer.sanitizeDOBToDate(data.getDob(), "DOB", "SelectDateTimeTest");
-		Assert.assertTrue(dateOpt.isPresent(), "❌ DOB parsing failed | Raw value: " + data.getDob());
+		Assert.assertTrue(dateOpt.isPresent(), "❌ DOB parsing failed|Raw value: " + data.getDob());
 
 		LocalDate dob = dateOpt.get();
 		LocalDateTime dobWithTime = dob.atTime(10, 30); // you can control time here
@@ -347,7 +347,7 @@ public class WidgetsTests extends demoqaBase {
 		String sliderpageTitle = widgetsPage.ClickSlider();
 		
 		Assert.assertEquals("Slider", sliderpageTitle);
-		testRep.pass("✅ Assertion Confirmatin Text: " + sliderpageTitle);
+		testRep.pass("✅ Assertion Confirmation Text: " + sliderpageTitle);
 		testRep.pass("✅ Test Widgets|Slider Test Completed...");
 		demoqaLog.info("✅ Widgets|Slider Test Completed...");
 	}
@@ -396,7 +396,7 @@ public class WidgetsTests extends demoqaBase {
 		String progressBarPage = widgetsPage.ClickProgressBar();
 		
 		Assert.assertEquals("Progress Bar", progressBarPage);
-		testRep.pass("✅ Assertion Confirmatin Text: " + progressBarPage);
+		testRep.pass("✅ Assertion Confirmation Text: " + progressBarPage);
 		testRep.pass("✅ Test Widgets|Progress Bar Test Completed...");
 		demoqaLog.info("✅ Widgets|Progress Bar Test Completed...");
 	}
@@ -448,7 +448,7 @@ public class WidgetsTests extends demoqaBase {
 		
 		Assert.assertEquals("Tabs", tabsPageTitle);
 		
-		testRep.pass("✅ Assertion Confirmatin Text: " + tabsPageTitle);
+		testRep.pass("✅ Assertion Confirmation Text: " + tabsPageTitle);
 		testRep.pass("✅ Test Widgets|Tabs Test Completed...");
 		demoqaLog.info("✅ Widgets|Tabs Test Completed...");
 	}
@@ -466,7 +466,7 @@ public class WidgetsTests extends demoqaBase {
 		
 		Assert.assertEquals(true, whatTabContent.contains("Lorem Ipsum is simply dummy text of the printing"));
 		
-		testRep.pass("✅ Assertion Confirmatin Text: " + whatTabContent);
+		testRep.pass("✅ Assertion Confirmation Text: " + whatTabContent);
 		testRep.pass("✅ Test Widgets|Tabs|What Tab Test Completed...");
 		demoqaLog.info("✅ Widgets|Tabs|What Tab Test Completed...");
 	}
@@ -485,7 +485,7 @@ public class WidgetsTests extends demoqaBase {
 		Assert.assertEquals(true,
 				originTabContent.contains("Contrary to popular belief, Lorem Ipsum is not simply random text"));
 		
-		testRep.pass("✅ Assertion Confirmatin Text: " + originTabContent);
+		testRep.pass("✅ Assertion Confirmation Text: " + originTabContent);
 		testRep.pass("✅ Test Widgets|Tabs|Origin Tab Test Completed...");
 		demoqaLog.info("✅ Widgets|Tabs|Origin Tab Test Completed...");
 	}
@@ -503,7 +503,7 @@ public class WidgetsTests extends demoqaBase {
 		
 		Assert.assertEquals(true, useTabContent.contains("It is a long established fact that a reader will be distracted by the readable content"));
 		
-		testRep.pass("✅ Assertion Confirmatin Text: " + useTabContent);
+		testRep.pass("✅ Assertion Confirmation Text: " + useTabContent);
 		testRep.pass("✅ Test Widgets|Tabs|Use Tab Test Completed...");
 		demoqaLog.info("✅ Widgets|Tabs|Use Tab Test Completed...");
 	}
@@ -519,7 +519,7 @@ public class WidgetsTests extends demoqaBase {
 		
 		Assert.assertEquals(true, toolTipPg.contains("Practice Tool Tips"));
 		
-		testRep.pass("✅ Assertion Confirmatin Text: " + toolTipPg);
+		testRep.pass("✅ Assertion Confirmation Text: " + toolTipPg);
 		testRep.pass("✅ Test Widgets|Tool Tips Test Completed...");
 		demoqaLog.info("✅ Widgets|Tool Tips Test Completed...");
 	}
@@ -537,12 +537,12 @@ public class WidgetsTests extends demoqaBase {
 		String tooltipText = widgetsPage.HoverMeToSeeBtn();
 		Assert.assertEquals(tooltipText, "You hovered over the Button");
 		
-		testRep.pass("✅ Assertion Confirmatin Text: " + tooltipText);
+		testRep.pass("✅ Assertion Confirmation Text: " + tooltipText);
 		testRep.pass("✅ Test Widgets|Tool Tips|Hover me to see - Button Test Completed...");
 		demoqaLog.info("✅ Widgets|Tool Tips|Hover me to see - Button Test Completed...");
 	}
 	
-	@Test(priority = 22, description = "Test Widgets|Tool Tips")
+	@Test(priority = 22, description = "Test Widgets|Tool Tips|Hover me to see - Text Field")
 	public void HoverMeToSeeTxtField() {
 		testRep = extentReportManager.createTest("Test Widgets|Tool Tips|Hover me to see - Text Field");
 		testRep.info("🧪 Starting test for Widgets|Tool Tips|Hover me to see - Text Field");
@@ -555,7 +555,7 @@ public class WidgetsTests extends demoqaBase {
 		String tooltipText = widgetsPage.HoverMeToSeeTxtField();
 		Assert.assertEquals(tooltipText, "You hovered over the text field");
 		
-		testRep.pass("✅ Assertion Confirmatin Text: " +tooltipText);
+		testRep.pass("✅ Assertion Confirmation Text: " +tooltipText);
 		testRep.pass("✅ Test Widgets|Tool Tips|Hover me to see - Text Field Test Completed...");
 		demoqaLog.info("✅ Widgets|Tool Tips|Hover me to see - Text Field Test Completed...");
 	}

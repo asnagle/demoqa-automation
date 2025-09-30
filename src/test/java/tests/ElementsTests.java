@@ -4,10 +4,12 @@ import java.io.IOException;
 import java.util.List;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import base.demoqaBase;
 import customAnnotations.CaptureOnSuccess;
+import models.DownloadResult;
 import models.TextBoxUser;
 import models.WebTableUser;
 import pages.elementsPage;
@@ -42,19 +44,19 @@ public class ElementsTests extends demoqaBase {
 		}
 		return data;
 	}
-	
+
 	@DataProvider(name = "TextBoxUserData")
 	public Object[][] provideTextBoxUserData() throws IOException {
-	    String filePath = System.getProperty("user.dir") + "/TestData/Students_Details.xlsx";
-	    String sheetName = "Sheet1";
+		String filePath = System.getProperty("user.dir") + "/TestData/Students_Details.xlsx";
+		String sheetName = "Sheet1";
 
-	    List<TextBoxUser> users = ExcelUtils.getMappedList(filePath, sheetName, TextBoxUser.class);
+		List<TextBoxUser> users = ExcelUtils.getMappedList(filePath, sheetName, TextBoxUser.class);
 
-	    Object[][] data = new Object[users.size()][1];
-	    for (int i = 0; i < users.size(); i++) {
-	        data[i][0] = users.get(i);
-	    }
-	    return data;
+		Object[][] data = new Object[users.size()][1];
+		for (int i = 0; i < users.size(); i++) {
+			data[i][0] = users.get(i);
+		}
+		return data;
 	}
 
 	@DataProvider(name = "WTFormDataEdit")
@@ -71,9 +73,10 @@ public class ElementsTests extends demoqaBase {
 		testRep.info("🧪 Starting test for Elements | Text Box");
 		demoqaLog.info("🧪 Starting Test Elements | Text Box Test...");
 		elementsPage elementsPage = new elementsPage(driver);
-		elementsPage.accessElements();
+		String cardpage = elementsPage.accessElements();
+		Assert.assertEquals("Please select an item from left to start practice.", cardpage);
 		System.out.println("Title of this Page is: " + driver.getTitle());
-		testRep.info("Title of this Page is: " + driver.getTitle());
+		testRep.pass("✅ Assertion Confirmation Text: " + cardpage);
 		testRep.info("✅ Element Card Test Completed...");
 		demoqaLog.info("✅ Element Card Test Completed...");
 
@@ -82,26 +85,25 @@ public class ElementsTests extends demoqaBase {
 	@CaptureOnSuccess(description = "Text Box Filled by Spreadsheet Input - Successfully", screenshotMode = "viewport")
 	@Test(dataProvider = "TextBoxUserData", priority = 2)
 	public void TextBox(TextBoxUser user) {
-	    testRep = extentReportManager.createTest("Test Text Box");
-	    testRep.info("🧪 Starting test for Elements | Text Box");
-	    demoqaLog.info("🧪 Starting Test Elements | Text Box Test...");
+		testRep = extentReportManager.createTest("Test Text Box");
+		testRep.info("🧪 Starting test for Elements | Text Box");
+		demoqaLog.info("🧪 Starting Test Elements | Text Box Test...");
 
-	    elementsPage elementsPage = new elementsPage(driver);
-	    elementsPage.accessElements();
-	    elementsPage.clickTextBox();
-	    PageLoadHandler.waitUntilLoaded(driver, 30);
+		elementsPage elementsPage = new elementsPage(driver);
+		elementsPage.accessElements();
+		elementsPage.clickTextBox();
+		PageLoadHandler.waitUntilLoaded(driver, 30);
 
+		elementsPage.fillTextBoxForm(user);
+		WebElement submitButton = driver.findElement(By.id("submit"));
+		JSclick.scrollAndClick(driver, submitButton);
 
-	    elementsPage.fillTextBoxForm(user);
-	    WebElement submitButton = driver.findElement(By.id("submit"));
-	    JSclick.scrollAndClick(driver, submitButton);
+		elementsPage.validateTextBoxForm(user);
 
-	    elementsPage.validateTextBoxForm(user);
-
-	    testRep.info("✅ Text Box Element Test Completed...");
-	    demoqaLog.info("✅ Text Box Element Test Completed...");
+		testRep.info("✅ Text Box Element Test Completed...");
+		demoqaLog.info("✅ Text Box Element Test Completed...");
 	}
-	
+
 	@Test(priority = 3, description = "Test Check Box")
 	public void CheckBox() {
 		testRep = extentReportManager.createTest("Test Check Box");
@@ -109,7 +111,12 @@ public class ElementsTests extends demoqaBase {
 		demoqaLog.info("🧪 Starting Test Elements | Check Box Test...");
 		elementsPage elementsPage = new elementsPage(driver);
 		elementsPage.accessElements();
-		elementsPage.clickCheckBox();
+		String checkBox = elementsPage.clickCheckBox();
+		System.out.println("Text for assertion is: " + checkBox);
+
+		Assert.assertEquals("Check Box", checkBox);
+
+		testRep.pass("✅ Assertion Confirmation Text: " + checkBox);
 		testRep.info("✅ Test Elements | Check Box Test Completed...");
 		demoqaLog.info("✅ Test Elements | Check Box Test Test Completed...");
 	}
@@ -123,7 +130,7 @@ public class ElementsTests extends demoqaBase {
 		elementsPage.accessElements();
 		elementsPage.clickCheckBox();
 		PageLoadHandler.waitUntilLoaded(driver, 30);
-		
+
 		elementsPage.clickHomeCheckBox();
 		elementsPage.validateSelectedCheckBox();
 		testRep.info("✅ Test Elements | Selecting Home Test Completed...");
@@ -139,7 +146,7 @@ public class ElementsTests extends demoqaBase {
 		elementsPage.accessElements();
 		elementsPage.clickCheckBox();
 		PageLoadHandler.waitUntilLoaded(driver, 30);
-		
+
 		elementsPage.ToggleHome();
 		elementsPage.DesktopCheckBox();
 		elementsPage.validateSelectedCheckBox();
@@ -156,7 +163,7 @@ public class ElementsTests extends demoqaBase {
 		elementsPage.accessElements();
 		elementsPage.clickCheckBox();
 		PageLoadHandler.waitUntilLoaded(driver, 30);
-		
+
 		elementsPage.selectNotesCommands();
 		elementsPage.validateSelectedCheckBox();
 		testRep.info("✅ Test Elements | Home | Desktop | Notes & Commands Test Completed...");
@@ -172,7 +179,7 @@ public class ElementsTests extends demoqaBase {
 		elementsPage.accessElements();
 		elementsPage.clickCheckBox();
 		PageLoadHandler.waitUntilLoaded(driver, 30);
-		
+
 		elementsPage.ToggleHome();
 		elementsPage.DocumentsCheckbox();
 		elementsPage.validateSelectedCheckBox();
@@ -189,7 +196,7 @@ public class ElementsTests extends demoqaBase {
 		elementsPage.accessElements();
 		elementsPage.clickCheckBox();
 		PageLoadHandler.waitUntilLoaded(driver, 30);
-		
+
 		elementsPage.ToggleHome();
 		elementsPage.ToggleDocuments();
 		elementsPage.selectWorkSpace();
@@ -207,7 +214,7 @@ public class ElementsTests extends demoqaBase {
 		elementsPage.accessElements();
 		elementsPage.clickCheckBox();
 		PageLoadHandler.waitUntilLoaded(driver, 30);
-		
+
 		elementsPage.ToggleHome();
 		elementsPage.ToggleDocuments();
 		elementsPage.ToggleWorkSpace();
@@ -226,7 +233,7 @@ public class ElementsTests extends demoqaBase {
 		elementsPage.accessElements();
 		elementsPage.clickCheckBox();
 		PageLoadHandler.waitUntilLoaded(driver, 30);
-		
+
 		elementsPage.ToggleHome();
 		elementsPage.ToggleDocuments();
 		elementsPage.ToggleWorkSpace();
@@ -245,7 +252,7 @@ public class ElementsTests extends demoqaBase {
 		elementsPage.accessElements();
 		elementsPage.clickCheckBox();
 		PageLoadHandler.waitUntilLoaded(driver, 30);
-		
+
 		elementsPage.ToggleHome();
 		elementsPage.ToggleDocuments();
 		elementsPage.ToggleWorkSpace();
@@ -259,12 +266,13 @@ public class ElementsTests extends demoqaBase {
 	public void SelectReactAnuglarVeu() {
 		testRep = extentReportManager.createTest("Test Selecting Documents|WorkSpace|React-Anuglar-Veu Check Box");
 		testRep.info("🧪 Starting test for Elements|Home|Documents| Selecting WorkSpace|React-Anuglar-Veu Check Box");
-		demoqaLog.info("🧪 Starting Test Elements|Home|Selecting Documents|WorkSpace|React-Anuglar-Veu Check Box Test...");
+		demoqaLog.info(
+				"🧪 Starting Test Elements|Home|Selecting Documents|WorkSpace|React-Anuglar-Veu Check Box Test...");
 		elementsPage elementsPage = new elementsPage(driver);
 		elementsPage.accessElements();
 		elementsPage.clickCheckBox();
 		PageLoadHandler.waitUntilLoaded(driver, 30);
-		
+
 		elementsPage.ToggleHome();
 		elementsPage.ToggleDocuments();
 		elementsPage.ToggleWorkSpace();
@@ -272,7 +280,8 @@ public class ElementsTests extends demoqaBase {
 		elementsPage.selectAngular();
 		elementsPage.selectVeu();
 		elementsPage.validateSelectedCheckBox();
-		testRep.info("✅ Test Elements|Home|Documents| Selecting WorkSpace|React-Anuglar-Veu Check Box Test Completed...");
+		testRep.info(
+				"✅ Test Elements|Home|Documents| Selecting WorkSpace|React-Anuglar-Veu Check Box Test Completed...");
 		demoqaLog.info("✅ Test Elements|Home|Documents| Selecting WorkSpace|React-Anuglar-Veu Check Box Completed...");
 	}
 
@@ -285,7 +294,7 @@ public class ElementsTests extends demoqaBase {
 		elementsPage.accessElements();
 		elementsPage.clickCheckBox();
 		PageLoadHandler.waitUntilLoaded(driver, 30);
-		
+
 		elementsPage.ToggleHome();
 		elementsPage.ToggleDocuments();
 		elementsPage.selectOffice();
@@ -303,7 +312,7 @@ public class ElementsTests extends demoqaBase {
 		elementsPage.accessElements();
 		elementsPage.clickCheckBox();
 		PageLoadHandler.waitUntilLoaded(driver, 30);
-		
+
 		elementsPage.ToggleHome();
 		elementsPage.ToggleDocuments();
 		elementsPage.ToggleOffice();
@@ -322,7 +331,7 @@ public class ElementsTests extends demoqaBase {
 		elementsPage.accessElements();
 		elementsPage.clickCheckBox();
 		PageLoadHandler.waitUntilLoaded(driver, 30);
-		
+
 		elementsPage.ToggleHome();
 		elementsPage.ToggleDocuments();
 		elementsPage.ToggleOffice();
@@ -359,7 +368,7 @@ public class ElementsTests extends demoqaBase {
 		elementsPage.accessElements();
 		elementsPage.clickCheckBox();
 		PageLoadHandler.waitUntilLoaded(driver, 30);
-		
+
 		elementsPage.ToggleHome();
 		elementsPage.ToggleDocuments();
 		elementsPage.ToggleOffice();
@@ -378,7 +387,7 @@ public class ElementsTests extends demoqaBase {
 		elementsPage.accessElements();
 		elementsPage.clickCheckBox();
 		PageLoadHandler.waitUntilLoaded(driver, 30);
-		
+
 		elementsPage.ToggleHome();
 		elementsPage.ToggleDocuments();
 		elementsPage.ToggleOffice();
@@ -400,7 +409,7 @@ public class ElementsTests extends demoqaBase {
 		elementsPage.accessElements();
 		elementsPage.clickCheckBox();
 		PageLoadHandler.waitUntilLoaded(driver, 30);
-		
+
 		elementsPage.ToggleHome();
 		elementsPage.selectDownloads();
 		elementsPage.validateSelectedCheckBox();
@@ -417,7 +426,7 @@ public class ElementsTests extends demoqaBase {
 		elementsPage.accessElements();
 		elementsPage.clickCheckBox();
 		PageLoadHandler.waitUntilLoaded(driver, 30);
-		
+
 		elementsPage.ToggleHome();
 		elementsPage.ToggleDownloads();
 		elementsPage.selectWordFile();
@@ -435,7 +444,7 @@ public class ElementsTests extends demoqaBase {
 		elementsPage.accessElements();
 		elementsPage.clickCheckBox();
 		PageLoadHandler.waitUntilLoaded(driver, 30);
-		
+
 		elementsPage.ToggleHome();
 		elementsPage.ToggleDownloads();
 		elementsPage.selectExcelFile();
@@ -453,7 +462,7 @@ public class ElementsTests extends demoqaBase {
 		elementsPage.accessElements();
 		elementsPage.clickCheckBox();
 		PageLoadHandler.waitUntilLoaded(driver, 30);
-		
+
 		elementsPage.ToggleHome();
 		elementsPage.ToggleDownloads();
 		elementsPage.selectWordFile();
@@ -511,7 +520,11 @@ public class ElementsTests extends demoqaBase {
 		demoqaLog.info("🧪 Starting Test Elements|Web Tables Test...");
 		elementsPage elementsPage = new elementsPage(driver);
 		elementsPage.accessElements();
-		elementsPage.webTablesClick();
+		String webtablesPgTitle = elementsPage.webTablesClick();
+
+		Assert.assertEquals("Web Tables", webtablesPgTitle);
+
+		testRep.pass("✅ Assertion Confirmation Text: " + webtablesPgTitle);
 		testRep.info("✅ Test Elements|Web Tables Completed...");
 		demoqaLog.info("✅ Test Elements|Web Tables Completed...");
 	}
@@ -525,7 +538,7 @@ public class ElementsTests extends demoqaBase {
 		elementsPage.accessElements();
 		elementsPage.webTablesClick();
 		PageLoadHandler.waitUntilLoaded(driver, 30);
-		
+
 		elementsPage.webTablesNewRegistration();
 		// ✅ Use the user directly — no need to re-fetch from Excel
 		elementsPage.fillWebTableForm(user);
@@ -544,7 +557,7 @@ public class ElementsTests extends demoqaBase {
 		elementsPage.accessElements();
 		elementsPage.webTablesClick();
 		PageLoadHandler.waitUntilLoaded(driver, 30);
-		
+
 		elementsPage.webTablesNewRegistration();
 
 		// ✅ Use the user directly — no need to re-fetch from Excel
@@ -567,7 +580,7 @@ public class ElementsTests extends demoqaBase {
 		elementsPage.accessElements();
 		elementsPage.webTablesClick();
 		PageLoadHandler.waitUntilLoaded(driver, 30);
-		
+
 		elementsPage.webTablesNewRegistration();
 
 		// ✅ Use the user directly — no need to re-fetch from Excel
@@ -584,7 +597,7 @@ public class ElementsTests extends demoqaBase {
 		elementsPage.assertUserPresentInTable(user, testRep);
 		System.out.println("Updated First Name of the User is: " + user.getFirstName());
 		demoqaLog.info("Updated First Name of the User is: " + user.getFirstName());
-		
+
 		testRep.info("Updated First Name of the User is: " + user.getFirstName());
 		testRep.pass("✅ Test Registration Form Modify First Name Completed...");
 		demoqaLog.info("✅ Test Registration Form Modify First Name Completed Successfully...");
@@ -600,7 +613,7 @@ public class ElementsTests extends demoqaBase {
 		elementsPage.accessElements();
 		elementsPage.webTablesClick();
 		PageLoadHandler.waitUntilLoaded(driver, 30);
-		
+
 		elementsPage.webTablesNewRegistration();
 
 		// ✅ Use the user directly — no need to re-fetch from Excel
@@ -627,7 +640,7 @@ public class ElementsTests extends demoqaBase {
 		elementsPage.accessElements();
 		elementsPage.webTablesClick();
 		PageLoadHandler.waitUntilLoaded(driver, 30);
-		
+
 		elementsPage.webTablesNewRegistration();
 
 		// ✅ Use the user directly — no need to re-fetch from Excel
@@ -646,37 +659,40 @@ public class ElementsTests extends demoqaBase {
 	public void testAddAllUsersFromExcel() throws IOException {
 		testRep = extentReportManager.createTest("Test Bulk User Creation in Web Table...");
 		testRep.info("🧪 Starting Test for Bulk User Creation in Web Table...");
-		// Initialize page and table manager
+
 		elementsPage elementsPage = new elementsPage(driver);
 		WebTableManager tableManager = new WebTableManager(driver);
 		elementsPage.accessElements();
 		elementsPage.webTablesClick();
 		PageLoadHandler.waitUntilLoaded(driver, 30);
-		
-		// Step 1: Capture initial user count
-		int initialUserCount = tableManager.getUserCount();
 
-		// Step 2: Prepare Excel data
 		String filePath = System.getProperty("user.dir") + "/TestData/Students_Details.xlsx";
 		String sheetName = "Sheet1";
 
-		Object[][] data = ExcelUtils.getUsersFromExcel(filePath, sheetName);
-		System.out.println("Declared Object: " + data);
+		// Step 1: Capture initial user count
+		int initialUserCount = tableManager.getUserCount();
 
+		// ✅ Step 2: Get user list from Excel
+		List<WebTableUser> users = ExcelUtils.getUserListFromExcel(filePath, sheetName);
+
+		// ✅ Step 3: Create all users
 		elementsPage.webTablesNewRegistration();
-		elementsPage.createAllUsersFromExcel(filePath, sheetName); // This adds all users
+		elementsPage.createAllUsersFromExcel(filePath, sheetName);
 		waitForElement.isElementVisible(driver, By.id("submit"));
 		elementsPage.closeFormManually();
 
-		// Step 4: Validate final user count
-		int finalUserCount = tableManager.getUserCount();
+		// ✅ Step 4: Assert each user is present
+		for (WebTableUser user : users) {
+			elementsPage.assertUserPresentInTable(user, testRep); // Your assertion method
+		}
 
+		// Step 5: Validate final user count
+		int finalUserCount = tableManager.getUserCount();
 		System.out.println("Initial user count: " + initialUserCount);
 		System.out.println("Final user count: " + finalUserCount);
 
-//		Assert.assertEquals(finalUserCount, expectedTotalCount, "Mismatch in user count after form submission");
-		testRep.pass("✅ Finished Test for Bulk User Creation in Web Table...");
-		demoqaLog.info("✅ Test for Bulk User Creation in Web Table Completed Successfully...");
+		testRep.pass("✅ All users from Excel verified in Web Table.");
+		demoqaLog.info("✅ Bulk user creation and verification completed.");
 	}
 
 	@Test(priority = 33, description = "Test Bulk User Creation in Web Table...")
@@ -688,7 +704,7 @@ public class ElementsTests extends demoqaBase {
 		elementsPage.accessElements();
 		elementsPage.webTablesClick();
 		PageLoadHandler.waitUntilLoaded(driver, 30);
-		
+
 		testRep = extentReportManager.createTest("Test Bulk User Creation in Web Table...");
 		testRep.info("🧪 Starting Test for Bulk User Creation in Web Table...");
 
@@ -743,7 +759,7 @@ public class ElementsTests extends demoqaBase {
 		elementsPage.accessElements();
 		elementsPage.webTablesClick();
 		PageLoadHandler.waitUntilLoaded(driver, 30);
-		
+
 		testRep = extentReportManager.createTest("Test Modidfy Users Department & Salary in Web Table...");
 		testRep.info("🧪 Starting Test Modidfy Users Department & Salary in Web Table...");
 
@@ -811,7 +827,11 @@ public class ElementsTests extends demoqaBase {
 		elementsPage.accessElements();
 		testRep = extentReportManager.createTest("Test Elements|Buttons Click...");
 		testRep.info("🧪 Starting Test for Elements|Buttons Click...");
-		elementsPage.ClickButtons();
+		String btnsPgTitle = elementsPage.ClickButtons();
+
+		Assert.assertEquals("Buttons", btnsPgTitle);
+
+		testRep.pass("✅ Assertion Confirmation Text: " + btnsPgTitle);
 
 		testRep.pass("✅ Finished Test for Elements|Buttons Click...");
 		demoqaLog.info("✅ Test for Elements|Buttons Click Completed Successfully...");
@@ -826,9 +846,12 @@ public class ElementsTests extends demoqaBase {
 		testRep.info("🧪 Starting Test for Elements|Buttons|Double Click...");
 		elementsPage.ClickButtons();
 		PageLoadHandler.waitUntilLoaded(driver, 30);
-		
-		elementsPage.DoubleClickbtn();
 
+		String result = elementsPage.DoubleClickbtn();
+
+		Assert.assertEquals("You have done a double click", result);
+
+		testRep.pass("✅ Assertion Confirmation Text: " + result);
 		testRep.pass("✅ Finished Test for Elements|Buttons|Double Click...");
 		demoqaLog.info("✅ Test for Elements|Buttons|Double Click Completed Successfully...");
 	}
@@ -842,9 +865,12 @@ public class ElementsTests extends demoqaBase {
 		testRep.info("🧪 Starting Test for Elements|Buttons|Right Click...");
 		elementsPage.ClickButtons();
 		PageLoadHandler.waitUntilLoaded(driver, 30);
-		
-		elementsPage.RightClickBtn();
 
+		String actualMsg = elementsPage.RightClickBtn();
+
+		Assert.assertEquals("You have done a right click", actualMsg);
+
+		testRep.pass("✅ Assertion Confirmation Text: " + actualMsg);
 		testRep.pass("✅ Finished Test for Elements|Buttons|Right Click...");
 		demoqaLog.info("✅ Test for Elements|Buttons|Right Click Completed Successfully...");
 	}
@@ -857,9 +883,12 @@ public class ElementsTests extends demoqaBase {
 		testRep.info("🧪 Starting Test for Elements|Buttons|Click Me Button...");
 		elementsPage.ClickButtons();
 		PageLoadHandler.waitUntilLoaded(driver, 30);
-		
-		elementsPage.ClickMeBtn();
 
+		String clickMeResult = elementsPage.ClickMeBtn();
+
+		Assert.assertEquals("You have done a dynamic click", clickMeResult);
+
+		testRep.pass("✅ Assertion Confirmation Text: " + clickMeResult);
 		testRep.pass("✅ Finished Test for Elements|Buttons|Click Me Button Completed Successfully...");
 		demoqaLog.info("✅ Test for Elements|Buttons|Click Me Button Completed Successfully...");
 	}
@@ -874,14 +903,29 @@ public class ElementsTests extends demoqaBase {
 		testRep.info("🧪 Starting Test for Elements|Buttons|Click All...");
 		elementsPage.ClickButtons();
 		PageLoadHandler.waitUntilLoaded(driver, 30);
-		
-		elementsPage.DoubleClickbtn();
+
+		testRep.info("🧪 Starting Test for Elements|Buttons|Double Click...");
+		String result = elementsPage.DoubleClickbtn();
+
+		Assert.assertEquals("You have done a double click", result);
+
+		testRep.pass("✅ Assertion Confirmation Text: " + result);
 		PageLoadHandler.waitUntilLoaded(driver, 30);
-		
-		elementsPage.RightClickBtn();
+
+		testRep.info("🧪 Starting Test for Elements|Buttons|Right Click...");
+		String actualMsg = elementsPage.RightClickBtn();
+
+		Assert.assertEquals("You have done a right click", actualMsg);
+
+		testRep.pass("✅ Assertion Confirmation Text: " + actualMsg);
 		PageLoadHandler.waitUntilLoaded(driver, 30);
-		
-		elementsPage.ClickMeBtn();
+
+		testRep.info("🧪 Starting Test for Elements|Buttons|Click Me Button...");
+		String clickMeResult = elementsPage.ClickMeBtn();
+
+		Assert.assertEquals("You have done a dynamic click", clickMeResult);
+
+		testRep.pass("✅ Assertion Confirmation Text: " + clickMeResult);
 
 		testRep.pass("✅ Finished Test for Elements|Buttons|Click All Buttons Completed Successfully...");
 		demoqaLog.info("✅ Test for Elements|Buttons|Click All Buttons Completed Successfully...");
@@ -894,7 +938,11 @@ public class ElementsTests extends demoqaBase {
 		elementsPage.accessElements();
 		testRep = extentReportManager.createTest("Test Elements|Links...");
 		testRep.info("🧪 Starting Test for Elements|Links...");
-		elementsPage.ClickLinks();
+		String linksPgTitle = elementsPage.ClickLinks();
+
+		Assert.assertEquals("Links", linksPgTitle);
+
+		testRep.pass("✅ Assertion Confirmation Text: " + linksPgTitle);
 		testRep.pass("✅ Finished Test for Elements|Links Completed Successfully...");
 		demoqaLog.info("✅ Test for Elements|Links Completed Successfully...");
 	}
@@ -906,14 +954,49 @@ public class ElementsTests extends demoqaBase {
 		elementsPage.accessElements();
 		testRep = extentReportManager.createTest("Test Elements|Links|Home...");
 		testRep.info("🧪 Starting Test for Elements|Links|Home...");
+
 		elementsPage.ClickLinks();
 		PageLoadHandler.waitUntilLoaded(driver, 30);
-		
+
+		// ✅ Step 1: Store original window handle
+		String originalWindow = driver.getWindowHandle();
+
+		// ✅ Step 2: Click Home link
 		elementsPage.ClickHomeLink();
+
+		// ✅ Step 3: Wait for new window using custom wait
+		boolean newWindowOpened = false;
+		for (int i = 0; i < 10; i++) { // Retry loop with 1s intervals
+			if (driver.getWindowHandles().size() > 1) {
+				newWindowOpened = true;
+				break;
+			}
+			try {
+				Thread.sleep(1000);
+			} catch (InterruptedException ignored) {
+			}
+		}
+
+		Assert.assertTrue(newWindowOpened, "❌ New window did not open after clicking Home link.");
+
+		// ✅ Step 4: Switch to new window
+		for (String windowHandle : driver.getWindowHandles()) {
+			if (!windowHandle.equals(originalWindow)) {
+				driver.switchTo().window(windowHandle);
+				break;
+			}
+		}
+
+		// ✅ Step 5: Wait for Home page element using your utility
+		By homeBannerLocator = By.cssSelector("div.home-banner");
+		boolean bannerVisible = waitForElement.isElementVisible(driver, homeBannerLocator);
+		Assert.assertTrue(bannerVisible, "❌ Home page banner not visible after switching window.");
+
+		testRep.pass("✅ Successfully navigated to Home page in new window.");
 		testRep.pass("✅ Finished Test for Elements|Links|Home Completed Successfully...");
 		demoqaLog.info("✅ Test for Elements|Links|Home Completed Successfully...");
 	}
-	
+
 	@Test(priority = 42, description = "Test Elements|Links|Dynamic Home...")
 	public void ClickDynamicHomeLink() {
 		elementsPage elementsPage = new elementsPage(driver);
@@ -923,12 +1006,44 @@ public class ElementsTests extends demoqaBase {
 		testRep.info("🧪 Starting Test for Elements|Links|Dynamic Home...");
 		elementsPage.ClickLinks();
 		PageLoadHandler.waitUntilLoaded(driver, 30);
-		
+
+		String originalWindow = driver.getWindowHandle();
 		elementsPage.ClickDynamicHomeLink();
+
+		// ✅ Step 3: Wait for new window using custom wait
+		boolean newWindowOpened = false;
+		for (int i = 0; i < 10; i++) { // Retry loop with 1s intervals
+			if (driver.getWindowHandles().size() > 1) {
+				newWindowOpened = true;
+				break;
+			}
+			try {
+				Thread.sleep(1000);
+			} catch (InterruptedException ignored) {
+			}
+		}
+
+		Assert.assertTrue(newWindowOpened, "❌ New window did not open after clicking Home link.");
+
+		// ✅ Step 4: Switch to new window
+		for (String windowHandle : driver.getWindowHandles()) {
+			if (!windowHandle.equals(originalWindow)) {
+				driver.switchTo().window(windowHandle);
+				break;
+			}
+		}
+
+		// ✅ Step 5: Wait for Home page element using your utility
+		By homeBannerLocator = By.cssSelector("div.home-banner");
+		boolean bannerVisible = waitForElement.isElementVisible(driver, homeBannerLocator);
+
+		Assert.assertTrue(bannerVisible, "❌ Home page banner not visible after switching window.");
+
+		testRep.pass("✅ Successfully navigated to Home page in new window.");
 		testRep.pass("✅ Finished Test for Elements|Links|Dynamic Home Completed Successfully...");
 		demoqaLog.info("✅ Test for Elements|Links|Dynamic Home Completed Successfully...");
 	}
-	
+
 	@Test(priority = 43, description = "Test Elements|Links|Created Link...")
 	public void ClickCreatedAPILink() {
 		elementsPage elementsPage = new elementsPage(driver);
@@ -938,12 +1053,16 @@ public class ElementsTests extends demoqaBase {
 		testRep.info("🧪 Starting Test for Elements|Links|Created Link...");
 		elementsPage.ClickLinks();
 		PageLoadHandler.waitUntilLoaded(driver, 30);
-		
-		elementsPage.ClickCreatedAPILink();
+
+		String linkResponse = elementsPage.ClickCreatedAPILink();
+
+		Assert.assertEquals("Created", linkResponse);
+
+		testRep.pass("✅ Assertion Confirmation Text: " + linkResponse);
 		testRep.pass("✅ Finished Test for Elements|Links|Created Link Completed Successfully...");
 		demoqaLog.info("✅ Test for Elements|Links|Created Link Completed Successfully...");
 	}
-	
+
 	@Test(priority = 44, description = "Test Elements|Links|No Content Link...")
 	public void ClickNoContentLink() {
 		elementsPage elementsPage = new elementsPage(driver);
@@ -953,12 +1072,16 @@ public class ElementsTests extends demoqaBase {
 		testRep.info("🧪 Starting Test for Elements|Links|No Content Link...");
 		elementsPage.ClickLinks();
 		PageLoadHandler.waitUntilLoaded(driver, 30);
-		
-		elementsPage.ClickNoContentLink();
-		testRep.pass("✅ Finished Test for Elements|Links|No Content Link Completed Successfully...");
+
+		String linkResponse = elementsPage.ClickCreatedAPILink();
+
+		Assert.assertEquals("Created", linkResponse);
+
+		testRep.pass("✅ Assertion Confirmation Text: " + linkResponse);
+		testRep.pass("✅ Finished Test for Elements|Links|Created Link Completed Successfully...");
 		demoqaLog.info("✅ Test for Elements|Links|No Content Link Completed Successfully...");
 	}
-	
+
 	@Test(priority = 45, description = "Test Elements|Links|Moved Link...")
 	public void ClickMovedLink() {
 		elementsPage elementsPage = new elementsPage(driver);
@@ -968,12 +1091,16 @@ public class ElementsTests extends demoqaBase {
 		testRep.info("🧪 Starting Test for Elements|Links|Moved Link...");
 		elementsPage.ClickLinks();
 		PageLoadHandler.waitUntilLoaded(driver, 30);
-		
-		elementsPage.ClickMovedLink();
+
+		String linkResponse = elementsPage.ClickMovedLink();
+
+		Assert.assertEquals("Moved", linkResponse);
+
+		testRep.pass("✅ Assertion Confirmation Text: " + linkResponse);
 		testRep.pass("✅ Finished Test for Elements|Links|Moved Link Completed Successfully...");
 		demoqaLog.info("✅ Test for Elements|Links|Moved Link Completed Successfully...");
 	}
-	
+
 	@Test(priority = 46, description = "Test Elements|Links|Bad Request Link...")
 	public void ClickBadRequestLink() {
 		elementsPage elementsPage = new elementsPage(driver);
@@ -983,12 +1110,16 @@ public class ElementsTests extends demoqaBase {
 		testRep.info("🧪 Starting Test for Elements|Links|Bad Request Link...");
 		elementsPage.ClickLinks();
 		PageLoadHandler.waitUntilLoaded(driver, 30);
-		
-		elementsPage.ClickBadRequestLink();
+
+		String linkResponse = elementsPage.ClickBadRequestLink();
+
+		Assert.assertEquals("Bad Request", linkResponse);
+
+		testRep.pass("✅ Assertion Confirmation Text: " + linkResponse);
 		testRep.pass("✅ Finished Test for Elements|Links|Bad Request Link Completed Successfully...");
 		demoqaLog.info("✅ Test for Elements|Links|Bad Request Link Completed Successfully...");
 	}
-	
+
 	@Test(priority = 47, description = "Test Elements|Links|Unathorized Link...")
 	public void ClickUnauthorizedLink() {
 		elementsPage elementsPage = new elementsPage(driver);
@@ -998,12 +1129,16 @@ public class ElementsTests extends demoqaBase {
 		testRep.info("🧪 Starting Test for Elements|Links|Unauthorized Link...");
 		elementsPage.ClickLinks();
 		PageLoadHandler.waitUntilLoaded(driver, 30);
-		
-		elementsPage.ClickUnauthorizedLink();
+
+		String linkResponse = elementsPage.ClickUnauthorizedLink();
+
+		Assert.assertEquals("Unauthorized", linkResponse);
+
+		testRep.pass("✅ Assertion Confirmation Text: " + linkResponse);
 		testRep.pass("✅ Finished Test for Elements|Links|Unauthorized Link Completed Successfully...");
 		demoqaLog.info("✅ Test for Elements|Links|Unauthorized Link Completed Successfully...");
 	}
-	
+
 	@Test(priority = 48, description = "Test Elements|Links|Forbidden Link...")
 	public void ClickForbiddenLink() {
 		elementsPage elementsPage = new elementsPage(driver);
@@ -1013,12 +1148,16 @@ public class ElementsTests extends demoqaBase {
 		testRep.info("🧪 Starting Test for Elements|Links|Forbidden Link...");
 		elementsPage.ClickLinks();
 		PageLoadHandler.waitUntilLoaded(driver, 30);
-		
-		elementsPage.ClickForbiddenLink();
+
+		String linkResponse = elementsPage.ClickForbiddenLink();
+
+		Assert.assertEquals("Forbidden", linkResponse);
+
+		testRep.pass("✅ Assertion Confirmation Text: " + linkResponse);
 		testRep.pass("✅ Finished Test for Elements|Links|Forbidden Link Completed Successfully...");
 		demoqaLog.info("✅ Test for Elements|Links|Forbidden Link Completed Successfully...");
 	}
-	
+
 	@Test(priority = 49, description = "Test Elements|Links|NotFound Link...")
 	public void ClickNotFoundLink() {
 		elementsPage elementsPage = new elementsPage(driver);
@@ -1028,12 +1167,16 @@ public class ElementsTests extends demoqaBase {
 		testRep.info("🧪 Starting Test for Elements|Links|NotFound Link...");
 		elementsPage.ClickLinks();
 		PageLoadHandler.waitUntilLoaded(driver, 30);
-		
-		elementsPage.ClickNotFoundLink();
+
+		String linkResponse = elementsPage.ClickNotFoundLink();
+
+		Assert.assertEquals("Not Found", linkResponse);
+
+		testRep.pass("✅ Assertion Confirmation Text: " + linkResponse);
 		testRep.pass("✅ Finished Test for Elements|Links|NotFound Link Completed Successfully...");
 		demoqaLog.info("✅ Test for Elements|Links|NotFound Link Completed Successfully...");
 	}
-	
+
 	@Test(priority = 50, description = "Test Elements|Links|All Links in One GO...")
 	public void ClickAllLinks() {
 		elementsPage elementsPage = new elementsPage(driver);
@@ -1042,35 +1185,131 @@ public class ElementsTests extends demoqaBase {
 		testRep = extentReportManager.createTest("Test Elements|Links|All Links in One GO...");
 		testRep.info("🧪 Starting Test for Elements|Links|All Links in One GO...");
 		elementsPage.ClickLinks();
+		PageLoadHandler.waitUntilLoaded(driver, 30);
+		String originalWindow = driver.getWindowHandle();
 		elementsPage.ClickHomeLink();
+
+		// ✅ Step : Wait for new window using custom wait
+		boolean newWindowOpened = false;
+		for (int i = 0; i < 10; i++) { // Retry loop with 1s intervals
+			if (driver.getWindowHandles().size() > 1) {
+				newWindowOpened = true;
+				break;
+			}
+			try {
+				Thread.sleep(1000);
+			} catch (InterruptedException ignored) {
+			}
+		}
+
+		Assert.assertTrue(newWindowOpened, "❌ New window did not open after clicking Home link.");
+
+		// ✅ Step : Switch to new window
+		for (String windowHandle : driver.getWindowHandles()) {
+			if (!windowHandle.equals(originalWindow)) {
+				driver.switchTo().window(windowHandle);
+				break;
+			}
+		}
+
+		// ✅ Step : Wait for Home page element using your utility
+		By homeBannerLocator = By.cssSelector("div.home-banner");
+		boolean bannerVisible = waitForElement.isElementVisible(driver, homeBannerLocator);
+		Assert.assertTrue(bannerVisible, "❌ Home page banner not visible after switching window.");
+
+		testRep.pass("✅ Successfully navigated to Home page in new window.");
+		testRep.pass("✅ Finished Test for Elements|Links|Home Completed Successfully...");
+		driver.close();
+		driver.switchTo().window(originalWindow);
 		PageLoadHandler.waitUntilLoaded(driver, 30);
-		
+
 		elementsPage.ClickDynamicHomeLink();
+
+		// ✅ Step : Wait for new window using custom wait
+		boolean OpenednewWindow = false;
+		for (int i = 0; i < 10; i++) { // Retry loop with 1s intervals
+			if (driver.getWindowHandles().size() > 1) {
+				OpenednewWindow = true;
+				break;
+			}
+			try {
+				Thread.sleep(1000);
+			} catch (InterruptedException ignored) {
+			}
+		}
+
+		Assert.assertTrue(OpenednewWindow, "❌ New window did not open after clicking Home link.");
+
+		// ✅ Step : Switch to new window
+		for (String windowHandledyn : driver.getWindowHandles()) {
+			if (!windowHandledyn.equals(originalWindow)) {
+				driver.switchTo().window(windowHandledyn);
+				break;
+			}
+		}
+
+		By homeBannerLocator1 = By.cssSelector("div.home-banner");
+		boolean bannerVisible1 = waitForElement.isElementVisible(driver, homeBannerLocator1);
+
+		Assert.assertTrue(bannerVisible1, "❌ Home page banner not visible after switching window.");
+
+		testRep.pass("✅ Successfully navigated to Home page in new window.");
+		testRep.pass("✅ Finished Test for Elements|Links|Dynamic Home Completed Successfully...");
+		driver.close();
+		driver.switchTo().window(originalWindow);
 		PageLoadHandler.waitUntilLoaded(driver, 30);
-		
-		elementsPage.ClickCreatedAPILink();
+
+		String ApiResponse = elementsPage.ClickCreatedAPILink();
+
+		Assert.assertEquals("Created", ApiResponse);
+
+		testRep.pass("✅ Assertion Confirmation Text: " + ApiResponse);
+		testRep.pass("✅ Finished Test for Elements|Links|Created Link Completed Successfully...");
 		PageLoadHandler.waitUntilLoaded(driver, 30);
-		
-		elementsPage.ClickNoContentLink();
+
+		String MovedlinkResponse = elementsPage.ClickMovedLink();
+
+		Assert.assertEquals("Moved", MovedlinkResponse);
+
+		testRep.pass("✅ Assertion Confirmation Text: " + MovedlinkResponse);
+		testRep.pass("✅ Finished Test for Elements|Links|Moved Link Completed Successfully...");
 		PageLoadHandler.waitUntilLoaded(driver, 30);
-		
-		elementsPage.ClickMovedLink();
+
+		String BadReqlinkResponse = elementsPage.ClickBadRequestLink();
+
+		Assert.assertEquals("Bad Request", BadReqlinkResponse);
+
+		testRep.pass("✅ Assertion Confirmation Text: " + BadReqlinkResponse);
+		testRep.pass("✅ Finished Test for Elements|Links|Bad Request Link Completed Successfully...");
 		PageLoadHandler.waitUntilLoaded(driver, 30);
-		
-		elementsPage.ClickBadRequestLink();
+
+		String UnautholinkResponse = elementsPage.ClickUnauthorizedLink();
+
+		Assert.assertEquals("Unauthorized", UnautholinkResponse);
+
+		testRep.pass("✅ Assertion Confirmation Text: " + UnautholinkResponse);
+		testRep.pass("✅ Finished Test for Elements|Links|Unauthorized Link Completed Successfully...");
 		PageLoadHandler.waitUntilLoaded(driver, 30);
-		
-		elementsPage.ClickUnauthorizedLink();
+
+		String ForbiddenlinkResponse = elementsPage.ClickForbiddenLink();
+
+		Assert.assertEquals("Forbidden", ForbiddenlinkResponse);
+
+		testRep.pass("✅ Assertion Confirmation Text: " + ForbiddenlinkResponse);
+		testRep.pass("✅ Finished Test for Elements|Links|Forbidden Link Completed Successfully...");
 		PageLoadHandler.waitUntilLoaded(driver, 30);
-		
-		elementsPage.ClickForbiddenLink();
-		PageLoadHandler.waitUntilLoaded(driver, 30);
-		
-		elementsPage.ClickNotFoundLink();
+
+		String NotFoundlinkResponse = elementsPage.ClickNotFoundLink();
+
+		Assert.assertEquals("Not Found", NotFoundlinkResponse);
+
+		testRep.pass("✅ Assertion Confirmation Text: " + NotFoundlinkResponse);
+		testRep.pass("✅ Finished Test for Elements|Links|NotFound Link Completed Successfully...");
+
 		testRep.pass("✅ Finished Test for Elements|Links|All Links in One GO Completed Successfully...");
 		demoqaLog.info("✅ Test for Elements|Links|All Links in One GO Completed Successfully...");
 	}
-	
+
 	@Test(priority = 51, description = "Test Elements|Broken Links - Images...")
 	public void ClickBrokenLinksImages() {
 		elementsPage elementsPage = new elementsPage(driver);
@@ -1078,11 +1317,15 @@ public class ElementsTests extends demoqaBase {
 		elementsPage.accessElements();
 		testRep = extentReportManager.createTest("Test Elements|Broken Links - Images...");
 		testRep.info("🧪 Starting Test for Elements|Broken Links - Images...");
-		elementsPage.ClickBrokenLinks();
+		String brokenLnkPgTitle = elementsPage.ClickBrokenLinks();
+
+		Assert.assertEquals("Broken Links - Images", brokenLnkPgTitle);
+
+		testRep.pass("✅ Assertion Confirmation Text: " + brokenLnkPgTitle);
 		testRep.pass("✅ Finished Test for Elements|Broken Links - Images Completed Successfully...");
 		demoqaLog.info("✅ Test for Elements|Broken Links - Images Completed Successfully...");
 	}
-	
+
 	@Test(priority = 52, description = "Test Elements|Broken Links - Images|Valid Image...")
 	public void GetValidImage() {
 		elementsPage elementsPage = new elementsPage(driver);
@@ -1092,12 +1335,16 @@ public class ElementsTests extends demoqaBase {
 		testRep.info("🧪 Starting Test for Elements|Broken Links - Images|Valid Image...");
 		elementsPage.ClickBrokenLinks();
 		PageLoadHandler.waitUntilLoaded(driver, 30);
-		
-		elementsPage.CheckValidImage();
+
+		String validImageTxt = elementsPage.CheckValidImage();
+
+		Assert.assertEquals("Valid image", validImageTxt);
+
+		testRep.pass("✅ Assertion Confirmation Text: " + validImageTxt);
 		testRep.pass("✅ Finished Test for Elements|Broken Links - Images|Valid Image Completed Successfully...");
 		demoqaLog.info("✅ Test for Elements|Broken Links - Images|Valid Image Completed Successfully...");
 	}
-	
+
 	@Test(priority = 53, description = "Test Elements|Broken Links - Images|Broken Image...")
 	public void GetBrokenImage() {
 		elementsPage elementsPage = new elementsPage(driver);
@@ -1107,12 +1354,16 @@ public class ElementsTests extends demoqaBase {
 		testRep.info("🧪 Starting Test for Elements|Broken Links - Images|Broken Image...");
 		elementsPage.ClickBrokenLinks();
 		PageLoadHandler.waitUntilLoaded(driver, 30);
-		
-		elementsPage.CheckBrokenImage();
+
+		String brokenImageTxt = elementsPage.CheckBrokenImage();
+
+		Assert.assertEquals("Broken image", brokenImageTxt);
+
+		testRep.pass("✅ Assertion Confirmation Text: " + brokenImageTxt);
 		testRep.pass("✅ Finished Test for Elements|Broken Links - Images|Broken Image Completed Successfully...");
 		demoqaLog.info("✅ Test for Elements|Broken Links - Images|Broken Image Completed Successfully...");
 	}
-	
+
 	@Test(priority = 54, description = "Test Elements|Broken Links - Images|Valid Link...")
 	public void BrokenLinksValidlink() {
 		elementsPage elementsPage = new elementsPage(driver);
@@ -1122,12 +1373,17 @@ public class ElementsTests extends demoqaBase {
 		testRep.info("🧪 Starting Test for Elements|Broken Links - Images|Valid Link...");
 		elementsPage.ClickBrokenLinks();
 		PageLoadHandler.waitUntilLoaded(driver, 30);
-		
-		elementsPage.ClickValidLink();
+
+		String logosrc = elementsPage.ClickValidLink();
+		By logoLocator = By.xpath("//header//img[contains(@src, 'Toolsqa.jpg')]");
+		WebElement logo = waitForElement.waitUntilVisible(driver, logoLocator);
+
+		Assert.assertTrue(logo.isDisplayed(), "Logo image is not visible");
+		testRep.pass("✅ Assertion Confirmation Logo source after Valid Link click: " + logosrc);
 		testRep.pass("✅ Finished Test for Elements|Broken Links - Images|Valid Link Completed Successfully...");
 		demoqaLog.info("✅ Test for Elements|Broken Links - Images|Valid Link Completed Successfully...");
 	}
-	
+
 	@Test(priority = 55, description = "Test Elements|Broken Links - Images|Broken Link...")
 	public void BrokenLinksBrokenlink() {
 		elementsPage elementsPage = new elementsPage(driver);
@@ -1137,12 +1393,17 @@ public class ElementsTests extends demoqaBase {
 		testRep.info("🧪 Starting Test for Elements|Broken Links - Images|Broken Link...");
 		elementsPage.ClickBrokenLinks();
 		PageLoadHandler.waitUntilLoaded(driver, 30);
-		
-		elementsPage.ClickBrokenLink();
+
+		String URLresponse = elementsPage.ClickBrokenLink();
+
+		WebElement statusMessage = driver.findElement(By.xpath("//*[contains(text(), '500 status code')]"));
+		Assert.assertTrue(statusMessage.isDisplayed(), "Expected 500 status code message is not displayed");
+
+		testRep.pass("✅ Assertion Confirmation Status Message: " + URLresponse);
 		testRep.pass("✅ Finished Test for Elements|Broken Links - Images|Broken Link Completed Successfully...");
 		demoqaLog.info("✅ Test for Elements|Broken Links - Images|Broken Link Completed Successfully...");
 	}
-	
+
 	@Test(priority = 56, description = "Test Elements|Upload and Download Link...")
 	public void UploadDownloadlink() {
 		elementsPage elementsPage = new elementsPage(driver);
@@ -1150,26 +1411,33 @@ public class ElementsTests extends demoqaBase {
 		elementsPage.accessElements();
 		testRep = extentReportManager.createTest("Test Elements|Upload and Download Link...");
 		testRep.info("🧪 Starting Test for Elements|Upload and Download Link...");
-		elementsPage.ClickUploadDownload();
+		String uploadDownloadPgtitle = elementsPage.ClickUploadDownload();
+
+		Assert.assertEquals("Upload and Download", uploadDownloadPgtitle);
+
+		testRep.pass("✅ Assertion Confirmation Text: " + uploadDownloadPgtitle);
 		testRep.pass("✅ Finished Test for Elements|Upload and Download Link Completed Successfully...");
 		demoqaLog.info("✅ Test for Elements|Upload and Download Link Completed Successfully...");
 	}
-	
+
 	@Test(priority = 57, description = "Test Elements|Upload and Download|Download Button...")
 	public void Downloadbtn() {
 		elementsPage elementsPage = new elementsPage(driver);
-
 		elementsPage.accessElements();
 		testRep = extentReportManager.createTest("Test Elements|Upload and Download|Download Button...");
-		testRep.info("🧪 Starting Test for Elements|Upload and Download|Download Button...");
+		testRep.info("🧪 Starting Test Elements|Upload and Download|Download Button...");
+
 		elementsPage.ClickUploadDownload();
 		PageLoadHandler.waitUntilLoaded(driver, 30);
-		
-		elementsPage.DownloadFile();
+
+		DownloadResult result = elementsPage.DownloadFile();
+		Assert.assertTrue(result.isDownloaded(), "❌ File was not downloaded: " + result.getFilePath());
+
+		testRep.pass("✅ File downloaded successfully: " + result.getFilePath());
 		testRep.pass("✅ Finished Test for Elements|Upload and Download|Download Button Completed Successfully...");
-		demoqaLog.info("✅ Test for Elements|Upload and Download|Download Button Completed Successfully...");
+		demoqaLog.info("✅ Test completed. File path: " + result.getFilePath());
 	}
-	
+
 	@Test(priority = 58, description = "Test Elements|Upload and Download|Upload Button...")
 	public void Uploadbtn() {
 		elementsPage elementsPage = new elementsPage(driver);
@@ -1179,12 +1447,16 @@ public class ElementsTests extends demoqaBase {
 		testRep.info("🧪 Starting Test for Elements|Upload and Download|Upload Button...");
 		elementsPage.ClickUploadDownload();
 		PageLoadHandler.waitUntilLoaded(driver, 30);
+
+		String uploadedFilePath = elementsPage.UploadFile();
 		
-		elementsPage.UploadFile();
+		Assert.assertEquals("C:\\fakepath\\Ophoto.jpg", uploadedFilePath);
+		
+		testRep.pass("✅ Assertion Confirmation Text: " + uploadedFilePath);
 		testRep.pass("✅ Finished Test for Elements|Upload and Download|Upload Button Completed Successfully...");
 		demoqaLog.info("✅ Test for Elements|Upload and Download|Upload Button Completed Successfully...");
 	}
-	
+
 	@Test(priority = 59, description = "Test Elements|Dynamic Properties Button...")
 	public void DynamicPropertiesbtn() {
 		elementsPage elementsPage = new elementsPage(driver);
@@ -1192,11 +1464,15 @@ public class ElementsTests extends demoqaBase {
 		elementsPage.accessElements();
 		testRep = extentReportManager.createTest("Test Elements|Dynamic Properties Button...");
 		testRep.info("🧪 Starting Test for Elements|Dynamic Properties Button...");
-		elementsPage.ClickDynamicProperties();
+		String DynPropPgTitle = elementsPage.ClickDynamicProperties();
+		
+		Assert.assertEquals("Dynamic Properties", DynPropPgTitle);
+		
+		testRep.pass("✅ Assertion Confirmation Text: " + DynPropPgTitle);
 		testRep.pass("✅ Finished Test for Elements|Dynamic Properties Button Completed Successfully...");
 		demoqaLog.info("✅ Test for Elements|Dynamic Properties Button Completed Successfully...");
 	}
-	
+
 	@Test(priority = 60, description = "Test Elements|Dynamic Properties|Will enable 5 sec Button...")
 	public void WillEnablebtn() {
 		elementsPage elementsPage = new elementsPage(driver);
@@ -1206,12 +1482,17 @@ public class ElementsTests extends demoqaBase {
 		testRep.info("🧪 Starting Test for Elements|Dynamic Properties|Will enable 5 sec Button...");
 		elementsPage.ClickDynamicProperties();
 		PageLoadHandler.waitUntilLoaded(driver, 30);
+
+		String buttonTxt = elementsPage.ClickWillEnable();
 		
-		elementsPage.ClickWillEnable();
-		testRep.pass("✅ Finished Test for Elements|Dynamic Properties|Will enable 5 sec Button Completed Successfully...");
+		Assert.assertEquals("Will enable 5 seconds", buttonTxt);
+		
+		testRep.pass("✅ Assertion Confirmation Text: " + buttonTxt);
+		testRep.pass(
+				"✅ Finished Test for Elements|Dynamic Properties|Will enable 5 sec Button Completed Successfully...");
 		demoqaLog.info("✅ Test for Elements|Dynamic Properties|Will enable 5 sec Button Completed Successfully...");
 	}
-	
+
 	@Test(priority = 61, description = "Test Elements|Dynamic Properties|Color Change Button...")
 	public void ColorChangebtn() {
 		elementsPage elementsPage = new elementsPage(driver);
@@ -1221,12 +1502,16 @@ public class ElementsTests extends demoqaBase {
 		testRep.info("🧪 Starting Test for Elements|Dynamic Properties|Color Change Button...");
 		elementsPage.ClickDynamicProperties();
 		PageLoadHandler.waitUntilLoaded(driver, 30);
+
+		String buttonTxt = elementsPage.ClickColorChange();
 		
-		elementsPage.ClickColorChange();
+		Assert.assertEquals("Color Change", buttonTxt);
+		
+		testRep.pass("✅ Assertion Confirmation Text: " + buttonTxt);
 		testRep.pass("✅ Finished Test for Elements|Dynamic Properties|Color Change Button Completed Successfully...");
 		demoqaLog.info("✅ Test for Elements|Dynamic Properties|Color Change Button Completed Successfully...");
 	}
-	
+
 	@Test(priority = 62, description = "Test Elements|Dynamic Properties|Visible After 5 Seconds Button...")
 	public void VisibleAfterbtn() {
 		elementsPage elementsPage = new elementsPage(driver);
@@ -1236,11 +1521,16 @@ public class ElementsTests extends demoqaBase {
 		testRep.info("🧪 Starting Test for Elements|Dynamic Properties|Color Change Button...");
 		elementsPage.ClickDynamicProperties();
 		PageLoadHandler.waitUntilLoaded(driver, 30);
-		
-		elementsPage.ClickVisbleAfter();;
-		testRep.pass("✅ Finished Test for Elements|Dynamic Properties|Visible After 5 Seconds Button Completed Successfully...");
-		demoqaLog.info("✅ Test for Elements|Dynamic Properties|Visible After 5 Seconds Button Completed Successfully...");
-	}
 
+		String buttonTxt = elementsPage.ClickVisbleAfter();
+		
+		Assert.assertEquals("Visible After 5 Seconds", buttonTxt);
+		
+		testRep.pass("✅ Assertion Confirmation Text: " + buttonTxt);
+		testRep.pass(
+				"✅ Finished Test for Elements|Dynamic Properties|Visible After 5 Seconds Button Completed Successfully...");
+		demoqaLog.info(
+				"✅ Test for Elements|Dynamic Properties|Visible After 5 Seconds Button Completed Successfully...");
+	}
 
 }
